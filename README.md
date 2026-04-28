@@ -1,6 +1,6 @@
 # SmartAgent Add-ons
 
-Current release: `Beta 0.0.1`
+Current release: `Beta 0.0.1 Update 1`
 
 ## 中文说明
 
