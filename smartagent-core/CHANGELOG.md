@@ -1,5 +1,14 @@
 # Changelog
 
+## Beta 0.0.3 - 2026-04-29
+
+Latest beta test release.
+
+- Publishes the latest SmartAgent add-on package.
+- Updates the bundled management console UI package.
+- Keeps the central control screen package synced with the current build.
+- Aligns the public version with `0.0.3` for Home Assistant update detection.
+
 ## Beta 0.0.2 - 2026-04-29
 
 Compatibility release for Home Assistant update detection.
