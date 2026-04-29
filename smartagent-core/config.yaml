@@ -1,5 +1,5 @@
 name: SmartAgent AI Core
-version: "0.0.3"
+version: "0.0.4"
 slug: smart_agent_core
 description: >
   SmartAgent Gateway/UI and AI inference core for Home Assistant.

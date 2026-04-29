@@ -1,5 +1,15 @@
 # Changelog
 
+## Beta 0.0.4 - 2026-04-30
+
+Latest beta test release.
+
+- Publishes the latest SmartAgent Core add-on package.
+- Adds the modular Local Core package layout used by the current migration line.
+- Includes Context Layer 2.0 and Memory Domain layering updates.
+- Keeps the management console UI and central control screen packages synced with the current build.
+- Aligns the public version with `0.0.4` for Home Assistant update detection.
+
 ## Beta 0.0.3 - 2026-04-29
 
 Latest beta test release.

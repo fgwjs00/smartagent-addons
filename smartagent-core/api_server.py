@@ -18,6 +18,7 @@ import ipaddress
 import json
 import logging
 import os
+import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -39,6 +40,8 @@ _SA_HA_TOKEN: str = os.getenv("SA_HA_TOKEN", os.getenv("SUPERVISOR_TOKEN", "")).
 _SA_UI_ROOT: str = os.getenv("SA_UI_ROOT", "/app/ui").strip() or "/app/ui"
 _SA_SCREEN_ROOT: str = os.getenv("SA_SCREEN_ROOT", "/app/screen").strip() or "/app/screen"
 _SA_GATEWAY_UI_PORT: str = os.getenv("SA_GATEWAY_UI_PORT", "8234").strip()
+_SA_DB_PATH: str = os.getenv("SA_DB_PATH", "/data/smart_agent_memory.db").strip() or "/data/smart_agent_memory.db"
+_SA_CORE_STORAGE_MODE: str = os.getenv("SA_CORE_STORAGE_MODE", "bridge").strip().lower() or "bridge"
 
 _PROXY_TIMEOUT = aiohttp.ClientTimeout(total=20)
 _INFER_TIMEOUT = aiohttp.ClientTimeout(total=95)
@@ -70,8 +73,178 @@ _last_proxy_error: str = ""
 _last_proxy_error_at: str = ""
 _bridge_fallback_count: int = 0
 _bridge_fallback_status_counts: dict[str, int] = {}
+_SYSTEM_CPU_SNAPSHOT: tuple[int, int] | None = None
+_LOCAL_DB: Any | None = None
 
 # Batch5 收口后不再保留 root-base logs/export 兼容路径。
+
+
+def _addon_root() -> Path:
+    return Path(__file__).resolve().parent
+
+
+def _ensure_local_import_root() -> None:
+    root = str(_addon_root())
+    if root not in sys.path:
+        sys.path.insert(0, root)
+
+
+def _core_storage_enabled() -> bool:
+    return _SA_CORE_STORAGE_MODE in {"1", "true", "yes", "on", "local", "local_first"}
+
+
+def _core_storage_strict() -> bool:
+    return _SA_CORE_STORAGE_MODE == "local"
+
+
+def _local_db_path() -> Path:
+    path = Path(_SA_DB_PATH).expanduser()
+    if not path.is_absolute():
+        path = _addon_root() / path
+    return path
+
+
+def _get_local_db() -> Any:
+    global _LOCAL_DB
+    if _LOCAL_DB is not None:
+        return _LOCAL_DB
+
+    _ensure_local_import_root()
+    from core.storage import DatabaseService, init_schema  # type: ignore[import]
+
+    db_path = _local_db_path()
+    db_path.parent.mkdir(parents=True, exist_ok=True)
+    db = DatabaseService(str(db_path))
+    db.open()
+    init_schema(db)
+    _LOCAL_DB = db
+    return db
+
+
+def _clamp_percent(value: Any) -> float:
+    try:
+        numeric = float(value)
+    except (TypeError, ValueError):
+        return 0.0
+    if numeric != numeric or numeric < 0:
+        return 0.0
+    if numeric > 100:
+        return 100.0
+    return round(numeric, 1)
+
+
+def _read_proc_cpu_snapshot() -> tuple[int, int] | None:
+    try:
+        with open("/proc/stat", "r", encoding="utf-8") as fp:
+            line = fp.readline()
+    except OSError:
+        return None
+
+    parts = line.split()
+    if not parts or parts[0] != "cpu":
+        return None
+    try:
+        values = [int(item) for item in parts[1:]]
+    except ValueError:
+        return None
+    if len(values) < 4:
+        return None
+
+    idle = values[3] + (values[4] if len(values) > 4 else 0)
+    return sum(values), idle
+
+
+def _cpu_percent_between(before: tuple[int, int], after: tuple[int, int]) -> float | None:
+    total_delta = after[0] - before[0]
+    idle_delta = after[1] - before[1]
+    if total_delta <= 0 or idle_delta < 0:
+        return None
+    busy_delta = max(0, total_delta - idle_delta)
+    return _clamp_percent((busy_delta * 100.0) / total_delta)
+
+
+def _read_proc_cpu_percent() -> float | None:
+    global _SYSTEM_CPU_SNAPSHOT
+
+    current = _read_proc_cpu_snapshot()
+    if current is None:
+        return None
+
+    previous = _SYSTEM_CPU_SNAPSHOT
+    if previous is None:
+        time.sleep(0.05)
+        sampled = _read_proc_cpu_snapshot()
+        _SYSTEM_CPU_SNAPSHOT = sampled or current
+        if sampled is None:
+            return None
+        return _cpu_percent_between(current, sampled)
+
+    _SYSTEM_CPU_SNAPSHOT = current
+    return _cpu_percent_between(previous, current)
+
+
+def _read_proc_memory_percent() -> float | None:
+    fields: dict[str, float] = {}
+    try:
+        with open("/proc/meminfo", "r", encoding="utf-8") as fp:
+            for line in fp:
+                if ":" not in line:
+                    continue
+                key, raw_value = line.split(":", 1)
+                parts = raw_value.strip().split()
+                if not parts:
+                    continue
+                try:
+                    fields[key] = float(parts[0])
+                except ValueError:
+                    continue
+    except OSError:
+        return None
+
+    total = fields.get("MemTotal", 0.0)
+    available = fields.get("MemAvailable")
+    if available is None:
+        available = fields.get("MemFree", 0.0) + fields.get("Buffers", 0.0) + fields.get("Cached", 0.0)
+    if total <= 0 or available is None:
+        return None
+    return _clamp_percent(((total - available) * 100.0) / total)
+
+
+def _collect_system_resource_metrics() -> dict[str, Any]:
+    cpu: float | None = None
+    memory: float | None = None
+    source = "unavailable"
+
+    try:
+        import psutil  # type: ignore[import-not-found]
+
+        cpu = _clamp_percent(psutil.cpu_percent(interval=0.05))
+        memory = _clamp_percent(psutil.virtual_memory().percent)
+        source = "psutil"
+    except Exception:
+        cpu = _read_proc_cpu_percent()
+        memory = _read_proc_memory_percent()
+        if cpu is not None or memory is not None:
+            source = "procfs"
+
+    return {
+        "cpu": cpu if cpu is not None else 0.0,
+        "memory": memory if memory is not None else 0.0,
+        "resource_metrics": {
+            "source": source,
+            "cpu_available": cpu is not None,
+            "memory_available": memory is not None,
+            "sampled_at": datetime.now().isoformat(),
+        },
+    }
+
+
+def _has_meaningful_resource_metric(value: Any) -> bool:
+    try:
+        numeric = float(value)
+    except (TypeError, ValueError):
+        return False
+    return 0 < numeric <= 100
 
 
 def _env_flag(name: str, default: bool = True) -> bool:
@@ -1066,13 +1239,24 @@ def _merge_local_first(local_payload: dict[str, Any], bridge_payload: dict[str, 
     merged = dict(local_payload)
     merged.update(bridge_payload)
 
-    for field in ("gateway", "core", "ha", "proxy_metrics", "auth", "compat_summary"):
+    for field in ("gateway", "core", "ha", "proxy_metrics", "auth", "compat_summary", "resource_metrics"):
         local_v = local_payload.get(field)
         bridge_v = bridge_payload.get(field)
         if isinstance(local_v, dict) and isinstance(bridge_v, dict):
             nested = dict(local_v)
             nested.update(bridge_v)
             merged[field] = nested
+
+    preserved_local_resource_metric = False
+    for field in ("cpu", "memory"):
+        local_v = local_payload.get(field)
+        bridge_v = bridge_payload.get(field)
+        if _has_meaningful_resource_metric(local_v) and not _has_meaningful_resource_metric(bridge_v):
+            merged[field] = local_v
+            preserved_local_resource_metric = True
+
+    if preserved_local_resource_metric and isinstance(local_payload.get("resource_metrics"), dict):
+        merged["resource_metrics"] = dict(local_payload["resource_metrics"])
 
     return merged
 
@@ -1105,8 +1289,8 @@ def _normalize_system_status_scalars(payload: dict[str, Any]) -> dict[str, Any]:
     normalized["devices_managed"] = int(normalized.get("devices_managed") or normalized.get("devices") or 0)
     normalized["active_scenes"] = int(normalized.get("active_scenes") or normalized.get("activeScenes") or 0)
     normalized["voice_provider"] = str(normalized.get("voice_provider") or normalized.get("voiceProvider") or "unknown")
-    normalized["cpu"] = float(normalized.get("cpu") or 0)
-    normalized["memory"] = float(normalized.get("memory") or 0)
+    normalized["cpu"] = _clamp_percent(normalized.get("cpu"))
+    normalized["memory"] = _clamp_percent(normalized.get("memory"))
     normalized["ready"] = bool(normalized.get("ready", bool(ha_obj.get("ok", False))))
 
     return normalized
@@ -1247,12 +1431,56 @@ async def infer(request: web.Request) -> web.Response:
 
 
 def _local_core_mode() -> str:
+    _ensure_local_import_root()
     try:
         import core.inference_engine  # type: ignore[import]
 
         return "inference_engine"
     except ImportError:
         return "stub"
+
+
+def _core_module_status() -> dict[str, Any]:
+    core_root = _addon_root() / "core"
+    modules = {
+        "inference": core_root / "inference_engine.py",
+        "decision.pipeline": core_root / "decision" / "decision_pipeline.py",
+        "decision.feature_encoder": core_root / "decision" / "feature_encoder.py",
+        "decision.fast_brain": core_root / "decision" / "fast_brain.py",
+        "decision.intent_verifier": core_root / "decision" / "intent_verifier.py",
+        "decision.protection": core_root / "decision" / "protection.py",
+        "execution.command_schema": core_root / "execution" / "command_schema.py",
+        "execution.result_schema": core_root / "execution" / "result_schema.py",
+        "execution.transaction": core_root / "execution" / "transaction.py",
+        "storage.database": core_root / "storage" / "database.py",
+        "memory.memory_store": core_root / "memory" / "memory_store.py",
+        "context.context_builder": core_root / "context" / "context_builder.py",
+    }
+    present = {name: path.exists() for name, path in modules.items()}
+    grouped = {
+        "storage": present["storage.database"],
+        "memory": present["memory.memory_store"],
+        "context": present["context.context_builder"],
+        "decision": (
+            present["decision.pipeline"]
+            and present["decision.feature_encoder"]
+            and present["decision.fast_brain"]
+            and present["decision.intent_verifier"]
+            and present["decision.protection"]
+        ),
+        "execution": (
+            present["execution.command_schema"]
+            and present["execution.result_schema"]
+            and present["execution.transaction"]
+        ),
+        "inference": present["inference"],
+    }
+    return {
+        "present": present,
+        "groups": grouped,
+        "completed_groups": [name for name, ok in grouped.items() if ok],
+        "pending_groups": [name for name, ok in grouped.items() if not ok],
+    }
 
 
 async def get_status(request: web.Request) -> web.Response:
@@ -1445,6 +1673,8 @@ async def capabilities(request: web.Request) -> web.Response:
                     "upstream_base": "/api/v1",
                     "scopes": [
                         "devices",
+                        "presence_sensors",
+                        "presence_sensor_type",
                         "rooms",
                         "system_brand",
                         "settings_system_read",
@@ -1474,6 +1704,7 @@ async def capabilities(request: web.Request) -> web.Response:
             },
             "local_core": {
                 "mode": _local_core_mode(),
+                "modules": _core_module_status(),
             },
             "contracts_summary": {
                 "reads": len(contracts.get("reads", [])),
@@ -1498,6 +1729,7 @@ async def core_status(request: web.Request) -> web.Response:
             "inference_count_today": _infer_count_today,
             "last_infer_error": _last_infer_error,
             "last_infer_error_at": _last_infer_error_at,
+            "modules": _core_module_status(),
         }
     )
 
@@ -1567,6 +1799,7 @@ def _build_local_system_status_payload(
     contracts: dict[str, list[str]],
     route_classes: dict[str, Any],
 ) -> dict[str, Any]:
+    resource_metrics = _collect_system_resource_metrics()
     return {
         "ok": True,
         "ready": bool(ha.get("ok", False)),
@@ -1576,6 +1809,9 @@ def _build_local_system_status_payload(
         "mode": mode,
         "role": "gateway_core_proxy",
         "migration_phase": "addon_gateway_observability",
+        "cpu": resource_metrics["cpu"],
+        "memory": resource_metrics["memory"],
+        "resource_metrics": resource_metrics["resource_metrics"],
         "gateway": {
             "status": "online",
             "role": "gateway_core_proxy",
@@ -2200,6 +2436,311 @@ async def _proxy_txn_rollback(request: web.Request) -> web.Response:
     return await _proxy_to_ha(request, upstream_path=f"/api/v1/transactions/{tid}/rollback")
 
 
+async def _service_decision_verify(request: web.Request) -> web.Response:
+    auth_err = _require_auth(request)
+    if auth_err is not None:
+        return auth_err
+
+    try:
+        body = await request.json()
+    except Exception:
+        return _json_error(
+            400,
+            error="invalid_json",
+            error_type=_status_error_type(400),
+            retryable=False,
+        )
+    if not isinstance(body, dict):
+        return _json_error(
+            400,
+            error="invalid_payload",
+            error_type=_status_error_type(400),
+            retryable=False,
+        )
+
+    try:
+        _ensure_local_import_root()
+        from core.decision.intent_verifier import CMD_SOURCE_SENSOR, IntentVerifier  # type: ignore[import]
+
+        snapshot = body.get("snapshot")
+        if not isinstance(snapshot, dict):
+            snapshot = {
+                "device_info": body.get("device_info", {}),
+                "occ_map": body.get("occ_map", {}),
+                "states": body.get("states", {}),
+                "room_topology": body.get("room_topology", {}),
+                "locked_people_rules": body.get("locked_people_rules", []),
+            }
+        actions = body.get("actions", [])
+        if not isinstance(actions, list):
+            return _json_error(
+                400,
+                error="actions_must_be_list",
+                error_type=_status_error_type(400),
+                retryable=False,
+            )
+        verifier = IntentVerifier.from_snapshot(snapshot)
+        clean, rejected = verifier.verify(
+            [item for item in actions if isinstance(item, dict)],
+            trigger_room=str(body.get("trigger_room") or ""),
+            is_global_cmd=bool(body.get("is_global_cmd", False)),
+            cmd_source=str(body.get("cmd_source") or CMD_SOURCE_SENSOR),
+        )
+    except Exception as exc:
+        _LOGGER.exception("[DecisionVerify] verifier failed: %s", exc)
+        return _json_error(
+            500,
+            error="decision_verify_failed",
+            error_type="internal_error",
+            retryable=False,
+            details={"message": str(exc)},
+        )
+
+    return web.json_response(
+        {
+            "ok": True,
+            "clean_actions": clean,
+            "rejected_actions": rejected,
+            "summary": {
+                "input_count": len(actions),
+                "clean_count": len(clean),
+                "rejected_count": len(rejected),
+            },
+        }
+    )
+
+
+async def _service_decision_fast_brain(request: web.Request) -> web.Response:
+    auth_err = _require_auth(request)
+    if auth_err is not None:
+        return auth_err
+
+    body, err = await _read_json_dict(request)
+    if err is not None:
+        return err
+    assert body is not None
+
+    try:
+        _ensure_local_import_root()
+        from core.decision import FastBrainEngine, SnapshotFeatureEncoder  # type: ignore[import]
+
+        snapshot = body.get("snapshot")
+        if not isinstance(snapshot, dict):
+            snapshot = body
+        device_info = snapshot.get("device_info") if isinstance(snapshot.get("device_info"), dict) else {}
+        states = snapshot.get("states") if isinstance(snapshot.get("states"), dict) else {}
+        entity_id = str(body.get("entity_id") or snapshot.get("entity_id") or "")
+        new_state = str(body.get("new_state") or snapshot.get("new_state") or "")
+        old_state = str(body.get("old_state") or snapshot.get("old_state") or "")
+        if not entity_id:
+            return _json_error(
+                400,
+                error="entity_id_required",
+                error_type=_status_error_type(400),
+                retryable=False,
+            )
+        features = body.get("features")
+        if not isinstance(features, dict):
+            encoder = SnapshotFeatureEncoder(
+                device_info=device_info,
+                states=states,
+                room_topology=snapshot.get("room_topology") if isinstance(snapshot.get("room_topology"), dict) else {},
+            )
+            features = encoder.encode(entity_id, new_state, old_state)
+
+        engine = FastBrainEngine(
+            device_info=device_info,
+            behavior_patterns=snapshot.get("behavior_patterns")
+            if isinstance(snapshot.get("behavior_patterns"), list)
+            else [],
+            arrival_baseline=snapshot.get("arrival_baseline")
+            if isinstance(snapshot.get("arrival_baseline"), list)
+            else [],
+        )
+        result = engine.predict(features)
+    except Exception as exc:
+        _LOGGER.exception("[DecisionFastBrain] failed: %s", exc)
+        return _json_error(
+            500,
+            error="decision_fast_brain_failed",
+            error_type="internal_error",
+            retryable=False,
+            details={"message": str(exc)},
+        )
+
+    return web.json_response(
+        {
+            "ok": True,
+            "matched": result is not None,
+            "result": result,
+            "features": features,
+        }
+    )
+
+
+async def _service_decision_fast_path(request: web.Request) -> web.Response:
+    auth_err = _require_auth(request)
+    if auth_err is not None:
+        return auth_err
+
+    body, err = await _read_json_dict(request)
+    if err is not None:
+        return err
+    assert body is not None
+
+    try:
+        _ensure_local_import_root()
+        from core.decision import FastPathDecisionPipeline  # type: ignore[import]
+
+        snapshot = body.get("snapshot")
+        if not isinstance(snapshot, dict):
+            snapshot = body
+        entity_id = str(body.get("entity_id") or snapshot.get("entity_id") or "")
+        new_state = str(body.get("new_state") or snapshot.get("new_state") or "")
+        old_state = str(body.get("old_state") or snapshot.get("old_state") or "")
+        if not entity_id:
+            return _json_error(
+                400,
+                error="entity_id_required",
+                error_type=_status_error_type(400),
+                retryable=False,
+            )
+        result = FastPathDecisionPipeline(snapshot).run_fast_path(entity_id, new_state, old_state)
+    except Exception as exc:
+        _LOGGER.exception("[DecisionFastPath] failed: %s", exc)
+        return _json_error(
+            500,
+            error="decision_fast_path_failed",
+            error_type="internal_error",
+            retryable=False,
+            details={"message": str(exc)},
+        )
+
+    return web.json_response(
+        {
+            "ok": True,
+            "matched": result is not None,
+            "result": result,
+        }
+    )
+
+
+async def _read_json_dict(request: web.Request) -> tuple[dict[str, Any] | None, web.Response | None]:
+    try:
+        body = await request.json()
+    except Exception:
+        return None, _json_error(
+            400,
+            error="invalid_json",
+            error_type=_status_error_type(400),
+            retryable=False,
+        )
+    if not isinstance(body, dict):
+        return None, _json_error(
+            400,
+            error="invalid_payload",
+            error_type=_status_error_type(400),
+            retryable=False,
+        )
+    return body, None
+
+
+async def _service_context_build(request: web.Request) -> web.Response:
+    auth_err = _require_auth(request)
+    if auth_err is not None:
+        return auth_err
+    body, err = await _read_json_dict(request)
+    if err is not None:
+        return err
+    assert body is not None
+
+    try:
+        _ensure_local_import_root()
+        from core.context import build_context_bundle  # type: ignore[import]
+
+        snapshot = body.get("snapshot")
+        if not isinstance(snapshot, dict):
+            snapshot = body
+        bundle = build_context_bundle(
+            snapshot,
+            trigger=str(body.get("trigger") or ""),
+            one_off_prompt=str(body.get("one_off_prompt") or ""),
+            is_voice=bool(body.get("is_voice", False)),
+            context_budget=int(body.get("context_budget") or 8000),
+        )
+    except Exception as exc:
+        _LOGGER.exception("[ContextBuild] build failed: %s", exc)
+        return _json_error(
+            500,
+            error="context_build_failed",
+            error_type="internal_error",
+            retryable=False,
+            details={"message": str(exc)},
+        )
+
+    return web.json_response(
+        {
+            "ok": True,
+            "bundle": bundle,
+            "summary": {
+                "bundle_version": bundle.get("bundle_version"),
+                "trigger_room": bundle.get("trigger_room", ""),
+                "estimated_tokens": (bundle.get("context_budget") or {}).get("estimated_tokens", 0),
+            },
+        }
+    )
+
+
+async def _service_memory_room_context(request: web.Request) -> web.Response:
+    auth_err = _require_auth(request)
+    if auth_err is not None:
+        return auth_err
+    body, err = await _read_json_dict(request)
+    if err is not None:
+        return err
+    assert body is not None
+
+    room = str(body.get("room") or "").strip()
+    if not room:
+        return _json_error(
+            400,
+            error="room_required",
+            error_type=_status_error_type(400),
+            retryable=False,
+        )
+    try:
+        _ensure_local_import_root()
+        from core.memory import MemoryContextRepository  # type: ignore[import]
+
+        device_info = body.get("device_info")
+        repo = MemoryContextRepository(_get_local_db())
+        context_text = repo.get_room_context(
+            room=room,
+            trigger_type=str(body.get("trigger_type") or "arrival"),
+            current_hour=int(body["current_hour"]) if body.get("current_hour") is not None else None,
+            current_presence=str(body.get("current_presence") or ""),
+            device_info=device_info if isinstance(device_info, dict) else None,
+        )
+    except Exception as exc:
+        _LOGGER.exception("[MemoryRoomContext] build failed: %s", exc)
+        return _json_error(
+            500,
+            error="memory_context_failed",
+            error_type="internal_error",
+            retryable=False,
+            details={"message": str(exc)},
+        )
+
+    return web.json_response(
+        {
+            "ok": True,
+            "room": room,
+            "context_text": context_text,
+            "source": "addon_core_memory",
+        }
+    )
+
+
 def _extract_list_rows(payload: Any) -> list[dict[str, Any]] | None:
     if isinstance(payload, list):
         return [x for x in payload if isinstance(x, dict)]
@@ -2260,6 +2801,32 @@ async def _service_memory_profiles(request: web.Request) -> web.Response:
 
 
 async def _service_memory_habits(request: web.Request) -> web.Response:
+    if _core_storage_enabled():
+        auth_err = _require_auth(request)
+        if auth_err is not None:
+            return auth_err
+        try:
+            _ensure_local_import_root()
+            from core.memory import HabitRepository  # type: ignore[import]
+
+            rows = HabitRepository(_get_local_db()).list_habits()
+            return web.json_response(
+                {
+                    "ok": True,
+                    "data": rows,
+                    "source": "addon_core_storage",
+                }
+            )
+        except Exception as exc:
+            _LOGGER.warning("[MemoryHabits] local storage read failed: %s", exc)
+            if _core_storage_strict():
+                return _json_error(
+                    500,
+                    error="local_memory_habits_failed",
+                    error_type="internal_error",
+                    retryable=False,
+                    details={"message": str(exc)},
+                )
     return await _service_list_read(request, upstream_path="/api/v1/memory/habits", fallback_rows=[])
 
 
@@ -2425,6 +2992,30 @@ async def _service_device_control(request: web.Request) -> web.Response:
     return await _proxy_to_ha(
         request,
         upstream_path=f"/api/v1/devices/{entity_id}/control",
+        allow_methods=("POST",),
+        audit_route_kind="ha_adapter_bridge",
+    )
+
+
+async def _service_presence_sensors(request: web.Request) -> web.Response:
+    auth_err = _require_auth(request)
+    if auth_err is not None:
+        return auth_err
+    return await _proxy_to_ha(
+        request,
+        upstream_path="/api/v1/presence/sensors",
+        allow_methods=("GET",),
+        audit_route_kind="ha_adapter_bridge",
+    )
+
+
+async def _service_presence_sensor_type(request: web.Request) -> web.Response:
+    auth_err = _require_auth(request)
+    if auth_err is not None:
+        return auth_err
+    return await _proxy_to_ha(
+        request,
+        upstream_path="/api/v1/presence/sensors/type",
         allow_methods=("POST",),
         audit_route_kind="ha_adapter_bridge",
     )
@@ -2739,6 +3330,97 @@ async def _service_ai_scenes_create_from_text(request: web.Request) -> web.Respo
     )
 
 
+async def _service_mode_post(request: web.Request) -> web.Response:
+    auth_err = _require_auth(request)
+    if auth_err is not None:
+        return auth_err
+    body, err = await _read_json_dict(request)
+    if err is not None:
+        return err
+    assert body is not None
+    mode = str(body.get("mode") or "").strip().lower()
+    if mode not in ("home", "showroom"):
+        return _json_error(
+            400,
+            error="invalid_mode",
+            error_type="validation_error",
+            retryable=False,
+        )
+    return await _proxy_to_ha(
+        request,
+        upstream_path="/api/v1/mode",
+        allow_methods=("POST",),
+        body_override={"mode": mode},
+        audit_route_kind="ha_adapter_bridge",
+    )
+
+
+async def _service_showroom_scene_post(request: web.Request) -> web.Response:
+    auth_err = _require_auth(request)
+    if auth_err is not None:
+        return auth_err
+    body, err = await _read_json_dict(request)
+    if err is not None:
+        return err
+    assert body is not None
+    clean_body = {
+        "scene": str(body.get("scene") or "").strip(),
+        "custom_prompt": str(body.get("custom_prompt") or "").strip(),
+        "is_command": bool(body.get("is_command", False)),
+    }
+    return await _proxy_to_ha(
+        request,
+        upstream_path="/api/v1/showroom/scene",
+        allow_methods=("POST",),
+        body_override=clean_body,
+        audit_route_kind="ha_adapter_bridge",
+    )
+
+
+async def _service_showroom_scene_config_post(request: web.Request) -> web.Response:
+    auth_err = _require_auth(request)
+    if auth_err is not None:
+        return auth_err
+    body, err = await _read_json_dict(request)
+    if err is not None:
+        return err
+    assert body is not None
+    scene_key = str(body.get("scene_key") or "").strip()
+    if not scene_key:
+        return _json_error(
+            400,
+            error="scene_key_required",
+            error_type="validation_error",
+            retryable=False,
+        )
+    clean_body = {
+        "scene_key": scene_key,
+        "label": body.get("label"),
+        "virtual_time": body.get("virtual_time"),
+        "scene_desc": body.get("scene_desc"),
+        "hint": body.get("hint"),
+    }
+    return await _proxy_to_ha(
+        request,
+        upstream_path="/api/v1/showroom/scene-config",
+        allow_methods=("POST",),
+        body_override=clean_body,
+        audit_route_kind="ha_adapter_bridge",
+    )
+
+
+async def _service_mcp_protocol_post(request: web.Request) -> web.Response:
+    auth_err = _require_auth(request)
+    if auth_err is not None:
+        return auth_err
+    return await _proxy_to_ha(
+        request,
+        upstream_path="/api/smart_agent/mcp",
+        allow_methods=("POST",),
+        audit_route_kind="ha_adapter_bridge",
+    )
+
+
 async def _service_vision_cameras_get(request: web.Request) -> web.Response:
     auth_err = _require_auth(request)
     if auth_err is not None:
@@ -2820,6 +3502,38 @@ async def _proxy_habit_action(request: web.Request, action: str | None = None) -
             retryable=False,
             details={"action": act, "scope": "habits"},
         )
+    if _core_storage_enabled():
+        try:
+            body, err = await _read_json_dict(request)
+            if err is not None:
+                return err
+            assert body is not None
+            content = str(body.get("content") or body.get("text") or "").strip()
+            _ensure_local_import_root()
+            from core.memory import HabitRepository  # type: ignore[import]
+
+            result = HabitRepository(_get_local_db()).apply_action(act, content)
+            status = 200 if result.get("ok") else 409
+            return web.json_response(
+                {
+                    "ok": bool(result.get("ok")),
+                    "action": act,
+                    "result": result,
+                    "data": HabitRepository(_get_local_db()).list_habits(),
+                    "source": "addon_core_storage",
+                },
+                status=status,
+            )
+        except Exception as exc:
+            _LOGGER.warning("[HabitAction] local storage action failed: %s", exc)
+            if _core_storage_strict():
+                return _json_error(
+                    500,
+                    error="local_habit_action_failed",
+                    error_type="internal_error",
+                    retryable=False,
+                    details={"message": str(exc)},
+                )
     return await _proxy_to_ha(request, upstream_path=f"/api/v1/memory/habits/{act}", allow_methods=("POST",))
 
 
@@ -2932,9 +3646,17 @@ def _register_api_v1_routes(app: web.Application) -> None:
         ("GET", "/status", get_status),
         ("GET", "/capabilities", capabilities),
         ("GET", "/core/status", core_status),
+        ("POST", "/decision/verify", _service_decision_verify),
+        ("POST", "/decision/fast-brain", _service_decision_fast_brain),
+        ("POST", "/decision/fast-path", _service_decision_fast_path),
+        ("POST", "/context/build", _service_context_build),
+        ("POST", "/memory/room-context", _service_memory_room_context),
         ("GET", "/diagnostics", diagnostics),
         ("GET", "/system/diagnostics", diagnostics),
         ("GET", "/addon/system-status", addon_system_status),
+        ("POST", "/mode", _service_mode_post),
+        ("POST", "/showroom/scene", _service_showroom_scene_post),
+        ("POST", "/showroom/scene-config", _service_showroom_scene_config_post),
         ("GET", "/system/status", _service_system_status),
         ("GET", "/system/compat-stats", _service_compat_stats),
         ("GET", "/system/deprecation-readiness", _service_deprecation_readiness),
@@ -2947,6 +3669,8 @@ def _register_api_v1_routes(app: web.Application) -> None:
         ("PATCH", "/devices/{entity_id}", _service_device_patch),
         ("DELETE", "/devices/{entity_id}", _service_device_delete),
         ("POST", "/devices/{entity_id}/control", _service_device_control),
+        ("GET", "/presence/sensors", _service_presence_sensors),
+        ("POST", "/presence/sensors/type", _service_presence_sensor_type),
         ("GET", "/rooms", _service_rooms),
         ("POST", "/rooms/sync", _service_rooms_sync),
         ("GET", "/rooms/topology", _service_rooms_topology),
@@ -2978,6 +3702,8 @@ def _register_api_v1_routes(app: web.Application) -> None:
         ("POST", "/patrol/trigger", _service_patrol_trigger),
         ("GET", "/energy", _service_energy),
         ("GET", "/mcp/status", _service_mcp_status),
+        ("POST", "/mcp", _service_mcp_protocol_post),
+        ("POST", "/mcp/protocol", _service_mcp_protocol_post),
         ("POST", "/mcp/settings", _service_mcp_settings_post),
         ("GET", "/vision/cameras", _service_vision_cameras_get),
         ("POST", "/vision/cameras/{action}", _proxy_vision_camera_action),
@@ -3113,9 +3839,15 @@ async def _serve_screen_asset(request: web.Request) -> web.StreamResponse:
 
 
 async def _on_cleanup(app: web.Application) -> None:
+    global _LOCAL_DB
     session: aiohttp.ClientSession | None = app.get("http_session")
     if session is not None and not session.closed:
         await session.close()
+    if _LOCAL_DB is not None:
+        try:
+            _LOCAL_DB.close()
+        finally:
+            _LOCAL_DB = None
 
 
 def create_app() -> web.Application:
@@ -3127,9 +3859,17 @@ def create_app() -> web.Application:
     app.router.add_get("/status", get_status)
     app.router.add_get("/capabilities", capabilities)
     app.router.add_get("/core/status", core_status)
+    app.router.add_post("/decision/verify", _service_decision_verify)
+    app.router.add_post("/decision/fast-brain", _service_decision_fast_brain)
+    app.router.add_post("/decision/fast-path", _service_decision_fast_path)
+    app.router.add_post("/context/build", _service_context_build)
+    app.router.add_post("/memory/room-context", _service_memory_room_context)
     app.router.add_get("/diagnostics", diagnostics)
     app.router.add_get("/system/diagnostics", diagnostics)
     app.router.add_get("/addon/system-status", addon_system_status)
+    app.router.add_post("/mode", _service_mode_post)
+    app.router.add_post("/showroom/scene", _service_showroom_scene_post)
+    app.router.add_post("/showroom/scene-config", _service_showroom_scene_config_post)
 
     # 核心服务面（Add-on 对外稳定入口）
     app.router.add_get("/system/status", _service_system_status)
@@ -3176,6 +3916,8 @@ def create_app() -> web.Application:
     app.router.add_patch("/devices/{entity_id}", _service_device_patch)
     app.router.add_delete("/devices/{entity_id}", _service_device_delete)
     app.router.add_post("/devices/{entity_id}/control", _service_device_control)
+    app.router.add_get("/presence/sensors", _service_presence_sensors)
+    app.router.add_post("/presence/sensors/type", _service_presence_sensor_type)
     app.router.add_post("/rooms/sync", _service_rooms_sync)
     app.router.add_get("/rooms/topology", _service_rooms_topology)
     app.router.add_post("/rooms/topology", _service_rooms_topology_save)
@@ -3203,6 +3945,9 @@ def create_app() -> web.Application:
 
     # 第七批服务面（mcp）
     app.router.add_get("/mcp/status", _service_mcp_status)
+    app.router.add_post("/mcp", _service_mcp_protocol_post)
+    app.router.add_post("/mcp/protocol", _service_mcp_protocol_post)
+    app.router.add_post("/api/smart_agent/mcp", _service_mcp_protocol_post)
     app.router.add_post("/mcp/settings", _service_mcp_settings_post)
 
     # 第十批服务面（pair + voice interrupt）
