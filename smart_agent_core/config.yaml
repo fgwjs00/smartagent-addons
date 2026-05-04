@@ -1,0 +1,48 @@
+name: SmartAgent AI Core
+version: 0.0.5
+slug: smart_agent_core
+description: 'SmartAgent Gateway/UI and AI inference core for Home Assistant.
+
+  '
+url: https://github.com/fgwjs00/smart_agent
+arch:
+- aarch64
+- amd64
+- armv7
+startup: services
+boot: auto
+init: false
+map:
+- config:rw
+- share:rw
+homeassistant_api: true
+ingress: true
+ingress_port: 8234
+panel_icon: mdi:robot
+panel_title: SmartAgent
+panel_admin: true
+ports:
+  8234/tcp: 8234
+  18099/tcp: null
+ports_description:
+  8234/tcp: SmartAgent Gateway/UI
+  18099/tcp: SmartAgent internal API for HA integration
+options:
+  ha_url: http://supervisor/core
+  ha_token: ''
+  auth_token: ''
+  addon_port: 18099
+  gateway_ui_port: 8234
+schema:
+  ha_url: str
+  ha_token: password
+  auth_token: password
+  addon_port: int
+  gateway_ui_port: int
+environment:
+  SA_INTERNAL_PORT: '18099'
+  SA_GATEWAY_UI_PORT: '8234'
+  SA_UI_ROOT: /app/ui
+  SA_SCREEN_ROOT: /app/screen
+  SA_LOG_LEVEL: INFO
+image: ghcr.io/fgwjs00/smart_agent

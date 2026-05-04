@@ -1,0 +1,1 @@
+function e(e,t){if(!(e instanceof Error))return t;let n=e,r=n.__errorType||n.error_type,i=typeof n.__retryable==`boolean`?n.__retryable:typeof n.retryable==`boolean`?n.retryable:void 0,a=[];return r&&a.push(`type=${r}`),typeof i==`boolean`&&a.push(`retryable=${i?`1`:`0`}`),a.length?`${e.message}（${a.join(`, `)}）`:e.message}export{e as t};
