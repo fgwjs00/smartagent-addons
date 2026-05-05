@@ -1,12 +1,11 @@
 name: SmartAgent AI Core
-version: 0.0.8
+version: 0.0.9
 slug: smart_agent_core
 description: 'SmartAgent Gateway/UI and AI inference core for Home Assistant.
 
   '
 url: https://github.com/fgwjs00/smartagent-addons
 arch:
-- aarch64
 - amd64
 startup: services
 boot: auto
@@ -44,4 +43,3 @@ environment:
   SA_UI_ROOT: /app/ui
   SA_SCREEN_ROOT: /app/screen
   SA_LOG_LEVEL: INFO
-image: ghcr.io/fgwjs00/smart_agent

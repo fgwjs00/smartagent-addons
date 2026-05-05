@@ -39,4 +39,4 @@ export SA_SCREEN_ROOT="${SA_SCREEN_ROOT:-/app/screen}"
 
 echo "[SmartAgent] starting Gateway/API internal=${SA_INTERNAL_PORT} ui=${SA_GATEWAY_UI_PORT} ha=${SA_HA_URL} ha_token=$( [ -n "${SA_HA_TOKEN}" ] && echo set || echo empty ) auth=$( [ -n "${SA_AUTH_TOKEN}" ] && echo set || echo local-only )"
 
-exec python3 /app/api_server.py
+exec python3 /app/api_server_runner.py
