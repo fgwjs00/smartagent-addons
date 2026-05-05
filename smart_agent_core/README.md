@@ -1,6 +1,6 @@
 # SmartAgent AI Core
 
-Current release: `Beta 0.0.6`
+Current release: `Beta 0.0.8`
 
 ## 中文说明
 
