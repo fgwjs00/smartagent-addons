@@ -1,13 +1,10 @@
-# Home Assistant add-on multi-platform build configuration.
-# https://developers.home-assistant.io/docs/add-ons/configuration#add-on-extended-build
-
 build_from:
-  aarch64: "ghcr.io/home-assistant/aarch64-base-python:3.12-alpine3.22"
-  amd64: "ghcr.io/home-assistant/amd64-base-python:3.12-alpine3.22"
-  armv7: "ghcr.io/home-assistant/armv7-base-python:3.12-alpine3.22"
-
+  aarch64: ghcr.io/home-assistant/aarch64-base-python:3.12-alpine3.22
+  amd64: ghcr.io/home-assistant/amd64-base-python:3.12-alpine3.22
+  armv7: ghcr.io/home-assistant/armv7-base-python:3.12-alpine3.22
 labels:
-  org.opencontainers.image.title: "SmartAgent AI Core"
-  org.opencontainers.image.description: "SmartAgent Gateway UI and AI inference core"
-  org.opencontainers.image.source: "https://github.com/fgwjs00/smart_agent"
-  org.opencontainers.image.licenses: "Proprietary"
+  org.opencontainers.image.title: SmartAgent AI Core
+  org.opencontainers.image.description: SmartAgent Gateway UI and AI inference core
+  org.opencontainers.image.source: https://github.com/fgwjs00/smartagent-addons
+  org.opencontainers.image.licenses: Proprietary
+  org.opencontainers.image.version: 0.0.6

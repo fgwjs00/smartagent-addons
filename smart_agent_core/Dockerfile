@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/home-assistant/amd64-base-python:3.12-alpine3.22
+ARG BUILD_FROM=ghcr.io/home-assistant/base-python:3.12-alpine3.22
 ARG SA_DELIVERY_BUILD=0
 
 FROM ${BUILD_FROM} AS builder
