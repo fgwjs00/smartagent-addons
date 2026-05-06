@@ -1,10 +1,25 @@
-#!/usr/bin/with-contenv bashio
+#!/bin/sh
 set -eu
 
 export SA_LOG_LEVEL="${SA_LOG_LEVEL:-INFO}"
 
 read_addon_option() {
-    bashio::config "$1" 2>/dev/null || true
+    key="$1"
+    python3 - "$key" <<'PY'
+import json
+import sys
+from pathlib import Path
+
+key = sys.argv[1]
+try:
+    data = json.loads(Path("/data/options.json").read_text(encoding="utf-8"))
+except Exception:
+    data = {}
+value = data.get(key, "")
+if value is None:
+    value = ""
+print(value)
+PY
 }
 
 HA_URL="$(read_addon_option 'ha_url')"

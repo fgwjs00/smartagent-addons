@@ -1,11 +1,7 @@
-ARG BUILD_FROM=ghcr.io/home-assistant/base-python:3.12-alpine3.22
-
-FROM ${BUILD_FROM} AS runtime
+FROM scratch AS runtime
 ARG BUILD_ARCH=amd64
 
-RUN pip install --no-cache-dir \
-    "aiohttp>=3.9.0"
-
+ADD runtime/${BUILD_ARCH}/rootfs.tar.gz /
 WORKDIR /app
 
 COPY prebuilt/${BUILD_ARCH}/core/ /app/core/
