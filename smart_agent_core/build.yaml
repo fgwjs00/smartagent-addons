@@ -3,4 +3,4 @@ labels:
   org.opencontainers.image.description: SmartAgent Gateway UI and AI inference core
   org.opencontainers.image.source: https://github.com/fgwjs00/smartagent-addons
   org.opencontainers.image.licenses: Proprietary
-  org.opencontainers.image.version: 0.0.16
+  org.opencontainers.image.version: 0.0.17
