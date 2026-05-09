@@ -7,6 +7,7 @@ WORKDIR /app
 COPY prebuilt/${BUILD_ARCH}/core/ /app/core/
 COPY prebuilt/${BUILD_ARCH}/ha_bridge/ /app/ha_bridge/
 COPY prebuilt/${BUILD_ARCH}/api_server*.so /app/
+COPY prebuilt/${BUILD_ARCH}/api_server.sha256 /app/api_server.sha256
 
 RUN set -e; \
     if [ "${BUILD_ARCH}" != "amd64" ]; then \
@@ -23,6 +24,11 @@ RUN set -e; \
         echo "[SmartAgent] ERROR: Python source file leaked into prebuilt core: ${py_file}" >&2; \
         exit 1; \
     fi; \
+    pycache_file="$(find /app/core -type f \( -name '*.pyc*' -o -name '*.pyo*' \) -print -quit)"; \
+    if [ -n "${pycache_file}" ]; then \
+        echo "[SmartAgent] ERROR: Python bytecode cache leaked into prebuilt core: ${pycache_file}" >&2; \
+        exit 1; \
+    fi; \
     bridge_so="$(find /app/ha_bridge -type f -name '*.so' -print -quit)"; \
     if [ -z "${bridge_so}" ]; then \
         echo "[SmartAgent] ERROR: missing prebuilt amd64 ha_bridge .so files" >&2; \
@@ -31,6 +37,11 @@ RUN set -e; \
     bridge_py="$(find /app/ha_bridge -type f -name '*.py' -print -quit)"; \
     if [ -n "${bridge_py}" ]; then \
         echo "[SmartAgent] ERROR: Python source file leaked into prebuilt ha_bridge: ${bridge_py}" >&2; \
+        exit 1; \
+    fi; \
+    bridge_pycache="$(find /app/ha_bridge -type f \( -name '*.pyc*' -o -name '*.pyo*' \) -print -quit)"; \
+    if [ -n "${bridge_pycache}" ]; then \
+        echo "[SmartAgent] ERROR: Python bytecode cache leaked into prebuilt ha_bridge: ${bridge_pycache}" >&2; \
         exit 1; \
     fi; \
     api_so="$(find /app -maxdepth 1 -type f -name 'api_server*.so' -print -quit)"; \
