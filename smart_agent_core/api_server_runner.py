@@ -1,6 +1,23 @@
 from __future__ import annotations
 
 import asyncio
+import faulthandler
+from pathlib import Path
+
+faulthandler.enable(all_threads=True)
+
+def _reject_native_api_ingress() -> None:
+    app_root = Path(__file__).resolve().parent
+    native_modules = sorted(path.name for path in app_root.glob("api_server*.so"))
+    if native_modules:
+        joined = ", ".join(native_modules[:5])
+        raise SystemExit(
+            "[SmartAgent] ERROR: native api ingress modules are disabled; "
+            f"remove {joined} and ship api_server*.pyc"
+        )
+
+
+_reject_native_api_ingress()
 
 import api_server
 
