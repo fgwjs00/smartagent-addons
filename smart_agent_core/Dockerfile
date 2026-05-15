@@ -130,7 +130,7 @@ COPY api_server_runner.py /app/
 COPY run.sh /app/run.sh
 COPY ui/ /app/ui/
 COPY screen/ /app/screen/
-RUN chmod +x /app/run.sh
+RUN chmod +x /app/run.sh && mkdir -p /data/logs
 
 EXPOSE 18099 8234
 
@@ -139,5 +139,6 @@ ENV SA_GATEWAY_UI_PORT=8234
 ENV SA_UI_ROOT=/app/ui
 ENV SA_SCREEN_ROOT=/app/screen
 ENV SA_LOG_LEVEL=INFO
+ENV SA_LOG_FILE=/data/logs/smart_agent.log
 
 CMD ["/app/run.sh"]

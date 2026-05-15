@@ -1,5 +1,5 @@
 name: SmartAgent AI Core
-version: 0.0.20
+version: 0.0.21
 slug: smart_agent_core
 description: 'SmartAgent Gateway/UI and AI inference core for Home Assistant.
 
@@ -43,3 +43,4 @@ environment:
   SA_UI_ROOT: /app/ui
   SA_SCREEN_ROOT: /app/screen
   SA_LOG_LEVEL: INFO
+  SA_LOG_FILE: /data/logs/smart_agent.log
