@@ -1,6 +1,6 @@
 # SmartAgent AI Core
 
-Current release: `Beta 0.0.25`
+Current release: `Beta 0.0.26`
 
 当前测试版仅支持 `amd64 / x86_64`。安装时 Home Assistant 会在本地构建 add-on 镜像，核心能力来自仓库内的预编译 `.so` 产物。
 
