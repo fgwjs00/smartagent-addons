@@ -74,14 +74,14 @@ RUN set -e; \
         echo "[SmartAgent] ERROR: missing prebuilt amd64 api_server_patrol.pyc file" >&2; \
         exit 1; \
     fi; \
-    api_settings_module="$(find /app -maxdepth 1 -type f -name 'api_server_settings.pyc' -print -quit)"; \
+    api_settings_module="$(find /app -maxdepth 1 -type f -name 'api_server_config.pyc' -print -quit)"; \
     if [ -z "${api_settings_module}" ]; then \
-        echo "[SmartAgent] ERROR: missing prebuilt amd64 api_server_settings.pyc file" >&2; \
+        echo "[SmartAgent] ERROR: missing prebuilt amd64 api_server_config.pyc file" >&2; \
         exit 1; \
     fi; \
-    api_scenes_module="$(find /app -maxdepth 1 -type f -name 'api_server_scenes.pyc' -print -quit)"; \
+    api_scenes_module="$(find /app -maxdepth 1 -type f -name 'api_server_scene_management.pyc' -print -quit)"; \
     if [ -z "${api_scenes_module}" ]; then \
-        echo "[SmartAgent] ERROR: missing prebuilt amd64 api_server_scenes.pyc file" >&2; \
+        echo "[SmartAgent] ERROR: missing prebuilt amd64 api_server_scene_management.pyc file" >&2; \
         exit 1; \
     fi; \
     api_rooms_module="$(find /app -maxdepth 1 -type f -name 'api_server_rooms.pyc' -print -quit)"; \
@@ -94,19 +94,14 @@ RUN set -e; \
         echo "[SmartAgent] ERROR: missing prebuilt amd64 api_server_mcp.pyc file" >&2; \
         exit 1; \
     fi; \
-    api_presence_module="$(find /app -maxdepth 1 -type f -name 'api_server_presence.pyc' -print -quit)"; \
+    api_presence_module="$(find /app -maxdepth 1 -type f -name 'api_server_perception.pyc' -print -quit)"; \
     if [ -z "${api_presence_module}" ]; then \
-        echo "[SmartAgent] ERROR: missing prebuilt amd64 api_server_presence.pyc file" >&2; \
+        echo "[SmartAgent] ERROR: missing prebuilt amd64 api_server_perception.pyc file" >&2; \
         exit 1; \
     fi; \
     api_transactions_module="$(find /app -maxdepth 1 -type f -name 'api_server_transactions.pyc' -print -quit)"; \
     if [ -z "${api_transactions_module}" ]; then \
         echo "[SmartAgent] ERROR: missing prebuilt amd64 api_server_transactions.pyc file" >&2; \
-        exit 1; \
-    fi; \
-    api_learning_module="$(find /app -maxdepth 1 -type f -name 'api_server_learning.pyc' -print -quit)"; \
-    if [ -z "${api_learning_module}" ]; then \
-        echo "[SmartAgent] ERROR: missing prebuilt amd64 api_server_learning.pyc file" >&2; \
         exit 1; \
     fi; \
     api_devices_module="$(find /app -maxdepth 1 -type f -name 'api_server_devices.pyc' -print -quit)"; \
@@ -126,7 +121,7 @@ RUN set -e; \
     fi; \
     echo "[SmartAgent] using prebuilt amd64 core extensions"
 
-COPY api_server_runner.py /app/
+COPY api_server_bootstrap.py /app/
 COPY run.sh /app/run.sh
 COPY ui/ /app/ui/
 COPY screen/ /app/screen/
