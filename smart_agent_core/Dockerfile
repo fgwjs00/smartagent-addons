@@ -125,7 +125,7 @@ COPY api_server_bootstrap.py /app/
 COPY run.sh /app/run.sh
 COPY ui/ /app/ui/
 COPY screen/ /app/screen/
-RUN chmod +x /app/run.sh && mkdir -p /data/logs
+RUN sed -i 's/\r$//' /app/run.sh && chmod +x /app/run.sh && mkdir -p /data/logs
 
 EXPOSE 18099 8234
 
