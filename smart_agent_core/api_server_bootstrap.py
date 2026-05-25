@@ -67,6 +67,7 @@ def _register_api_v1_routes(
         ("POST", "/decision/verify", _service_decision_verify),
         ("POST", "/decision/fast-brain", _service_decision_fast_brain),
         ("POST", "/decision/fast-path", _service_decision_fast_path),
+        ("POST", "/decision/run", _service_decision_run),
         ("POST", "/internal/event", _service_internal_event),
         ("POST", "/context/build", _service_context_build),
         ("POST", "/memory/room-context", _service_memory_room_context),
@@ -286,6 +287,7 @@ def create_app() -> web.Application:
     app.router.add_post("/decision/verify", _service_decision_verify)
     app.router.add_post("/decision/fast-brain", _service_decision_fast_brain)
     app.router.add_post("/decision/fast-path", _service_decision_fast_path)
+    app.router.add_post("/decision/run", _service_decision_run)
     app.router.add_post("/context/build", _service_context_build)
     app.router.add_post("/memory/room-context", _service_memory_room_context)
     app.router.add_get("/diagnostics", diagnostics)
