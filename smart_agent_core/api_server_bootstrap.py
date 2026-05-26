@@ -376,6 +376,10 @@ def create_app() -> web.Application:
     # 第十一批服务面（会话读链路 WS）
     app.router.add_post("/events/ticket", _service_events_ticket)
     app.router.add_post("/api/v1/events/ticket", _service_events_ticket)
+    app.router.add_get("/events/health", _service_events_health)
+    app.router.add_get("/api/v1/events/health", _service_events_health)
+    app.router.add_get("/voice/health", _service_voice_health)
+    app.router.add_get("/api/v1/voice/health", _service_voice_health)
     app.router.add_post("/voice/session", _service_voice_session_bootstrap)
     app.router.add_post("/api/v1/voice/session", _service_voice_session_bootstrap)
     app.router.add_get("/events", _proxy_events_ws)
@@ -449,13 +453,13 @@ def configure_ingress_wiring(namespace: dict[str, Any]) -> None:
         json_error=lambda *args, **kwargs: _json_error(*args, **kwargs),
         status_error_type=lambda *args, **kwargs: _status_error_type(*args, **kwargs),
         is_retryable_status=lambda status: _is_retryable_status(status),
-        operations_legacy_action_plan=lambda *args, **kwargs: _operations_legacy_action_plan(*args, **kwargs),
+        operations_delegated_action_plan=lambda *args, **kwargs: _operations_delegated_action_plan(*args, **kwargs),
         read_model_fallback_statuses=_READ_MODEL_FALLBACK_STATUSES,
         logger=_LOGGER,
     )
 
     _configure_patrol_ingress(
-        operations_legacy_action_plan=lambda *args, **kwargs: _operations_legacy_action_plan(*args, **kwargs),
+        operations_delegated_action_plan=lambda *args, **kwargs: _operations_delegated_action_plan(*args, **kwargs),
         logger=_LOGGER,
     )
 
@@ -505,7 +509,7 @@ def configure_ingress_wiring(namespace: dict[str, Any]) -> None:
         local_mcp_status_read_model_payload=lambda upstream_status=None: _local_mcp_status_read_model_payload(
             upstream_status
         ),
-        operations_legacy_action_plan=lambda *args, **kwargs: _operations_legacy_action_plan(*args, **kwargs),
+        operations_delegated_action_plan=lambda *args, **kwargs: _operations_delegated_action_plan(*args, **kwargs),
         read_model_fallback_statuses=_READ_MODEL_FALLBACK_STATUSES,
         logger=_LOGGER,
     )
@@ -585,8 +589,10 @@ def configure_ingress_wiring(namespace: dict[str, Any]) -> None:
         operations_execute_rejection=lambda *args, **kwargs: _operations_execute_rejection(*args, **kwargs),
         operations_execution_blockers=lambda plan: _operations_execution_blockers(plan),
         execute_operations_provider_action=lambda *args, **kwargs: _execute_operations_provider_action(*args, **kwargs),
-        operations_real_execution_enabled=lambda: _SA_OPERATIONS_REAL_EXECUTION_ENABLED,
-        confirmation_secret=lambda: _confirmation_secret(),
+        operations_real_execution_enabled=lambda: bool(
+            namespace.get("_SA_OPERATIONS_REAL_EXECUTION_ENABLED", _SA_OPERATIONS_REAL_EXECUTION_ENABLED)
+        ),
+        confirmation_secret=lambda: namespace["_confirmation_secret"](),
         logger=_LOGGER,
     )
 
