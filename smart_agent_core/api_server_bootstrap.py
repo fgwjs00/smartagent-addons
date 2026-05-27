@@ -494,9 +494,12 @@ def configure_ingress_wiring(namespace: dict[str, Any]) -> None:
         json_error=lambda *args, **kwargs: _json_error(*args, **kwargs),
         service_list_read=lambda *args, **kwargs: _service_list_read(*args, **kwargs),
         proxy_to_ha=lambda *args, **kwargs: _proxy_to_ha(*args, **kwargs),
+        fetch_bridge_json=lambda *args, **kwargs: _fetch_bridge_json(*args, **kwargs),
         normalize_room_topology_rows=lambda payload: _normalize_room_topology_rows(payload),
         load_local_room_topology_rows=lambda: _load_local_room_topology_rows(),
         save_local_room_topology_rows=lambda rows: _save_local_room_topology_rows(rows),
+        load_core_config_payload=lambda: _load_core_config_payload(),
+        save_core_config=lambda config: _save_core_config(config),
         logger=_LOGGER,
     )
 

@@ -54,6 +54,16 @@ RUN set -e; \
         echo "[SmartAgent] ERROR: missing prebuilt amd64 api_server.pyc file" >&2; \
         exit 1; \
     fi; \
+    api_events_module="$(find /app -maxdepth 1 -type f -name 'api_server_events.pyc' -print -quit)"; \
+    if [ -z "${api_events_module}" ]; then \
+        echo "[SmartAgent] ERROR: missing prebuilt amd64 api_server_events.pyc file" >&2; \
+        exit 1; \
+    fi; \
+    api_ai_scenes_module="$(find /app -maxdepth 1 -type f -name 'api_server_ai_scenes_handlers.pyc' -print -quit)"; \
+    if [ -z "${api_ai_scenes_module}" ]; then \
+        echo "[SmartAgent] ERROR: missing prebuilt amd64 api_server_ai_scenes_handlers.pyc file" >&2; \
+        exit 1; \
+    fi; \
     api_py="$(find /app -maxdepth 1 -type f -name 'api_server*.py' -print -quit)"; \
     if [ -n "${api_py}" ]; then \
         echo "[SmartAgent] ERROR: Python source file leaked into prebuilt api ingress: ${api_py}" >&2; \
