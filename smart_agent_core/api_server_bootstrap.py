@@ -520,6 +520,7 @@ def configure_ingress_wiring(namespace: dict[str, Any]) -> None:
     _configure_presence_ingress(
         require_auth=lambda request: _require_auth(request),
         proxy_to_ha=lambda *args, **kwargs: _proxy_to_ha(*args, **kwargs),
+        read_ha_standard_devices=lambda *args, **kwargs: _read_ha_standard_devices(*args, **kwargs),
         read_json_dict=lambda request: _read_json_dict(request),
         json_error=lambda *args, **kwargs: _json_error(*args, **kwargs),
         status_error_type=lambda *args, **kwargs: _status_error_type(*args, **kwargs),
