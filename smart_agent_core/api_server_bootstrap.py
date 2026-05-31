@@ -443,6 +443,7 @@ def configure_ingress_wiring(namespace: dict[str, Any]) -> None:
         fetch_bridge_json=lambda *args, **kwargs: _fetch_bridge_json(*args, **kwargs),
         json_error=lambda *args, **kwargs: _json_error(*args, **kwargs),
         status_error_type=lambda *args, **kwargs: _status_error_type(*args, **kwargs),
+        require_auth=lambda request: _require_auth(request),
         logger=_LOGGER,
     )
 
