@@ -251,7 +251,8 @@ async def _serve_screen_asset(request: web.Request) -> web.StreamResponse:
 
 
 async def _on_cleanup(app: web.Application) -> None:
-    session = app.get("http_session")
+    session_key = globals().get("_HTTP_SESSION_KEY")
+    session = app.get(session_key) if session_key is not None else None
     if session is not None and not session.closed:
         await session.close()
     local_db = getattr(_runtime_state, "_LOCAL_DB", None)
@@ -611,6 +612,7 @@ def configure_ingress_wiring(namespace: dict[str, Any]) -> None:
         optional_int=lambda value: _optional_int(value),
         core_config_body=lambda body: _core_config_body(body),
         load_core_config_payload=lambda: _load_core_config_payload(),
+        get_local_db=lambda: _get_local_db(),
         core_storage_enabled=lambda: _core_storage_enabled(),
         validation_issue_dicts=lambda issues: _validation_issue_dicts(issues),
         planner_memory_rows=lambda *args, **kwargs: _planner_memory_rows(*args, **kwargs),
