@@ -1,5 +1,5 @@
 name: SmartAgent AI Core
-version: 0.0.90
+version: 0.0.91
 slug: smart_agent_core
 description: 'SmartAgent Gateway/UI and AI inference core for Home Assistant.
 
@@ -31,12 +31,18 @@ options:
   auth_token: ''
   addon_port: 18099
   gateway_ui_port: 8234
+  llm_debug_log_requests: false
+  llm_debug_log_full_prompt: false
+  llm_debug_log_max_chars: 1000
 schema:
   ha_url: str
   ha_token: password
   auth_token: password
   addon_port: int
   gateway_ui_port: int
+  llm_debug_log_requests: bool
+  llm_debug_log_full_prompt: bool
+  llm_debug_log_max_chars: int
 environment:
   SA_INTERNAL_PORT: '18099'
   SA_GATEWAY_UI_PORT: '8234'
@@ -44,3 +50,6 @@ environment:
   SA_SCREEN_ROOT: /app/screen
   SA_LOG_LEVEL: INFO
   SA_LOG_FILE: /data/logs/smart_agent.log
+  SA_LLM_DEBUG_LOG_REQUESTS: 'false'
+  SA_LLM_DEBUG_LOG_FULL_PROMPT: 'false'
+  SA_LLM_DEBUG_LOG_MAX_CHARS: '1000'
