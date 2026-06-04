@@ -1,6 +1,6 @@
 product: SmartAgent
-release_version: 0.0.96
-display_version: Beta 0.0.96
+release_version: 0.0.97
+display_version: Beta 0.0.97
 channel: beta
 release_date: '2026-06-04'
 public_release_ready: true
@@ -8,5 +8,5 @@ component:
   type: home_assistant_addon
   addon_slug: smart_agent_core
 release_notes:
-  summary: Beta 0.0.96 测试版发布：照明预演结果改为用户可读中文摘要，隐藏空参数和内部守卫码，保留开发者原始 JSON 折叠区。
-  customer_visible_version: Beta 0.0.96
+  summary: Beta 0.0.97 测试版发布：恢复 switch 开关设备在设备页的快捷开关操作按钮，并携带最新管理端 UI 资源。
+  customer_visible_version: Beta 0.0.97
