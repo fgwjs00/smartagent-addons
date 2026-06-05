@@ -632,6 +632,9 @@ def configure_ingress_wiring(namespace: dict[str, Any]) -> None:
             payload,
             transaction_id,
         ),
+        load_addon_infer_settings=lambda: _load_addon_infer_settings(),
+        load_addon_online_api_key=lambda: _load_addon_online_api_key(),
+        assess_lighting_context=lambda **kwargs: namespace["_assess_lighting_context"](**kwargs),
         logger=_LOGGER,
     )
 # --- Merged from api_server_runner.py (P3B consolidation) ---
