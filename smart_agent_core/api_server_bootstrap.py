@@ -554,6 +554,10 @@ def configure_ingress_wiring(namespace: dict[str, Any]) -> None:
         safe_int=lambda value: _safe_int(value),
         query_bool=lambda query, name: _query_bool(query, name),
         parse_transaction_time=lambda value, is_end=False: _parse_transaction_time(value, is_end=is_end),
+        normalize_envelope_for_execute_alias=lambda envelope: _normalize_envelope_for_execute_alias(envelope),
+        evaluate_execute_preflight=lambda envelope, body: _evaluate_execute_preflight(envelope, body),
+        execute_ha_command_envelope=lambda envelope: _execute_ha_command_envelope(envelope),
+        persist_execute_audit=lambda *args, **kwargs: _persist_execute_audit(*args, **kwargs),
         logger=_LOGGER,
     )
 
