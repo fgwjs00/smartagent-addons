@@ -581,6 +581,7 @@ def configure_ingress_wiring(namespace: dict[str, Any]) -> None:
         read_json_dict=lambda request: _read_json_dict(request),
         upsert_local_device_projection=lambda *args, **kwargs: _upsert_local_device_projection(*args, **kwargs),
         delete_local_device_projection=lambda entity_id: _delete_local_device_projection(entity_id),
+        load_local_device_projection_map=lambda: _load_local_device_projection_map(),
         logger=_LOGGER,
     )
 
