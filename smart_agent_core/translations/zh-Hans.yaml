@@ -1,0 +1,31 @@
+configuration:
+  ha_url:
+    name: 家庭助理服务地址
+    description: 用于连接家庭助理服务的地址。部署在家庭助理系统内时通常保持默认 http://supervisor/core。
+  ha_token:
+    name: 家庭助理访问令牌
+    description: SmartAgent 插件访问家庭助理服务时使用；留空时优先使用系统自动注入的凭证。
+  auth_token:
+    name: SmartAgent 内部访问令牌
+    description: SmartAgent 网关和 HA 集成访问插件内部接口时使用；需要和集成侧配置保持一致。
+  addon_port:
+    name: 核心服务端口
+    description: SmartAgent 核心服务对 HA 集成开放的内部接口端口；修改后需要同步更新集成侧端口配置并重启。
+  gateway_ui_port:
+    name: 管理界面端口
+    description: SmartAgent 管理界面和中控屏的直接访问端口；Home Assistant 入口仍通过代理访问。
+  core_storage_mode:
+    name: 核心存储模式
+    description: 核心服务运行数据的存储策略。当前推荐保持本地优先，优先使用插件本地存储。
+  llm_debug_log_requests:
+    name: 记录大模型请求
+    description: 开启后在日志中记录大模型请求摘要，用于排查上下文和决策问题。
+  llm_debug_log_full_prompt:
+    name: 记录完整提示词
+    description: 开启后写入完整提示词，可能包含设备状态、空间信息和隐私上下文，仅建议临时排查使用。
+  llm_debug_log_max_chars:
+    name: 调试日志最大字符数
+    description: 限制单条大模型调试日志输出长度；仅在开启请求日志时生效。
+network:
+  8234/tcp: SmartAgent 网关 / 管理界面
+  18099/tcp: SmartAgent 内部接口（供家庭助理集成访问）
