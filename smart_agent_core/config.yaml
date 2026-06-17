@@ -1,5 +1,5 @@
 name: SmartAgent AI Core
-version: 0.0.119
+version: 0.0.120
 slug: smart_agent_core
 description: 'SmartAgent 网关、管理界面和 AI 推理核心，运行于家庭助理插件环境。
 
@@ -32,6 +32,9 @@ options:
   addon_port: 18099
   gateway_ui_port: 8234
   core_storage_mode: local_first
+  data_sync_enabled: true
+  license_key: ''
+  deploy_name: ''
   llm_debug_log_requests: false
   llm_debug_log_full_prompt: false
   llm_debug_log_max_chars: 1000
@@ -42,6 +45,9 @@ schema:
   addon_port: int
   gateway_ui_port: int
   core_storage_mode: str
+  data_sync_enabled: bool
+  license_key: password
+  deploy_name: str
   llm_debug_log_requests: bool
   llm_debug_log_full_prompt: bool
   llm_debug_log_max_chars: int
@@ -53,6 +59,9 @@ environment:
   SA_LOG_LEVEL: INFO
   SA_LOG_FILE: /data/logs/smart_agent.log
   SA_CORE_STORAGE_MODE: local_first
+  SA_DATA_SYNC_ENABLED: 'true'
+  SA_LICENSE_KEY: ''
+  SA_DEPLOY_NAME: ''
   SA_LLM_DEBUG_LOG_REQUESTS: 'false'
   SA_LLM_DEBUG_LOG_FULL_PROMPT: 'false'
   SA_LLM_DEBUG_LOG_MAX_CHARS: '1000'

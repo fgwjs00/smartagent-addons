@@ -28,6 +28,9 @@ AUTH_TOKEN="$(read_addon_option 'auth_token')"
 ADDON_PORT="$(read_addon_option 'addon_port')"
 GATEWAY_UI_PORT="$(read_addon_option 'gateway_ui_port')"
 CORE_STORAGE_MODE="$(read_addon_option 'core_storage_mode')"
+DATA_SYNC_ENABLED="$(read_addon_option 'data_sync_enabled')"
+LICENSE_KEY="$(read_addon_option 'license_key')"
+DEPLOY_NAME="$(read_addon_option 'deploy_name')"
 LLM_DEBUG_LOG_REQUESTS="$(read_addon_option 'llm_debug_log_requests')"
 LLM_DEBUG_LOG_FULL_PROMPT="$(read_addon_option 'llm_debug_log_full_prompt')"
 LLM_DEBUG_LOG_MAX_CHARS="$(read_addon_option 'llm_debug_log_max_chars')"
@@ -50,6 +53,15 @@ fi
 if [ -z "${CORE_STORAGE_MODE}" ] || [ "${CORE_STORAGE_MODE}" = "null" ]; then
     CORE_STORAGE_MODE="${SA_CORE_STORAGE_MODE:-local_first}"
 fi
+if [ -z "${DATA_SYNC_ENABLED}" ] || [ "${DATA_SYNC_ENABLED}" = "null" ]; then
+    DATA_SYNC_ENABLED="${SA_DATA_SYNC_ENABLED:-true}"
+fi
+if [ "${LICENSE_KEY}" = "null" ]; then
+    LICENSE_KEY="${SA_LICENSE_KEY:-}"
+fi
+if [ "${DEPLOY_NAME}" = "null" ]; then
+    DEPLOY_NAME="${SA_DEPLOY_NAME:-}"
+fi
 if [ -z "${LLM_DEBUG_LOG_REQUESTS}" ] || [ "${LLM_DEBUG_LOG_REQUESTS}" = "null" ]; then
     LLM_DEBUG_LOG_REQUESTS="${SA_LLM_DEBUG_LOG_REQUESTS:-false}"
 fi
@@ -68,6 +80,9 @@ export SA_GATEWAY_UI_PORT="${GATEWAY_UI_PORT}"
 export SA_UI_ROOT="${SA_UI_ROOT:-/app/ui}"
 export SA_SCREEN_ROOT="${SA_SCREEN_ROOT:-/app/screen}"
 export SA_CORE_STORAGE_MODE="${CORE_STORAGE_MODE}"
+export SA_DATA_SYNC_ENABLED="${DATA_SYNC_ENABLED}"
+export SA_LICENSE_KEY="${LICENSE_KEY}"
+export SA_DEPLOY_NAME="${DEPLOY_NAME}"
 export SA_LLM_DEBUG_LOG_REQUESTS="${LLM_DEBUG_LOG_REQUESTS}"
 export SA_LLM_DEBUG_LOG_FULL_PROMPT="${LLM_DEBUG_LOG_FULL_PROMPT}"
 export SA_LLM_DEBUG_LOG_MAX_CHARS="${LLM_DEBUG_LOG_MAX_CHARS}"
