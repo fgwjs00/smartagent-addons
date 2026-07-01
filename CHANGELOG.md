@@ -1,8 +1,8 @@
 # Changelog
 
-## Beta 0.0.139 - 2026-07-01
+## Beta 0.0.142 - 2026-07-01
 
-Beta 0.0.139 快路执行结果回写修复：HA listener 在 fast-path 自动执行后回写 decision_execution/action_results，使真实主卧到达事务可在 /decision-trace/{transaction_id} 回放逐动作执行结果；推送 v0.0.139 tag 后由 GitHub Actions 构建并推送 ACR 0.0.139 与 beta 镜像，现场需同步更新 HACS integration。
+Beta 0.0.142 发布：补强 HA-L10 现场状态新鲜度诊断，每个监听实体暴露 available、availability_reason、last_seen，并在管理台诊断面板展示，用于区分 Zigbee 不可用、状态缺失和物理状态复核阻塞。
 
 - 发布最新 SmartAgent AI Core 插件包 包。
-- 同步公开版本 `0.0.139`，用于 Home Assistant 更新检测。
+- 同步公开版本 `0.0.142`，用于 Home Assistant 更新检测。
