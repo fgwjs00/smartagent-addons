@@ -1,5 +1,5 @@
 name: SmartAgent AI Core
-version: 0.0.148
+version: 0.0.149
 slug: smart_agent_core
 description: 'SmartAgent 网关、管理界面和 AI 推理核心，运行于家庭助理插件环境。
 
@@ -31,6 +31,7 @@ options:
   auth_token: ''
   addon_port: 18099
   gateway_ui_port: 8234
+  ha_time_zone: Asia/Shanghai
   core_storage_mode: local_first
   data_sync_enabled: true
   license_key: ''
@@ -44,6 +45,7 @@ schema:
   auth_token: password
   addon_port: int
   gateway_ui_port: int
+  ha_time_zone: str
   core_storage_mode: str
   data_sync_enabled: bool
   license_key: password
@@ -54,6 +56,7 @@ schema:
 environment:
   SA_INTERNAL_PORT: '18099'
   SA_GATEWAY_UI_PORT: '8234'
+  SA_HA_TIME_ZONE: Asia/Shanghai
   SA_UI_ROOT: /app/ui
   SA_SCREEN_ROOT: /app/screen
   SA_LOG_LEVEL: INFO
