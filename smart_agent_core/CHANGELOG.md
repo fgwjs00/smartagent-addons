@@ -1,8 +1,8 @@
 # Changelog
 
-## Beta 0.0.149 - 2026-07-02
+## Beta 0.0.151 - 2026-07-02
 
-Beta 0.0.149 发布：按 HA 本地时区过滤近期事件，并在 AI 决策页展示动作参数、原因和可展开 trace。
+Beta 0.0.151 发布：在 G8 近期信号持久化基础上，收口 presence 合同、HA 执行语义守卫和确认学习写回的 CI 失败。
 
 - 发布最新 SmartAgent AI Core 插件包 包。
-- 同步公开版本 `0.0.149`，用于 Home Assistant 更新检测。
+- 同步公开版本 `0.0.151`，用于 Home Assistant 更新检测。
