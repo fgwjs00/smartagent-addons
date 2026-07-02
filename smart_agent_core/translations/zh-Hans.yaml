@@ -14,6 +14,9 @@ configuration:
   gateway_ui_port:
     name: 管理界面端口
     description: SmartAgent 管理界面和中控屏的直接访问端口；Home Assistant 入口仍通过代理访问。
+  ha_time_zone:
+    name: 家庭助理时区
+    description: 用于解析 Home Assistant 返回的本地时间戳；中国大陆环境建议保持 Asia/Shanghai。
   core_storage_mode:
     name: 核心存储模式
     description: 核心服务运行数据的存储策略。当前推荐保持本地优先，优先使用插件本地存储。
