@@ -32,6 +32,7 @@ CORE_STORAGE_MODE="$(read_addon_option 'core_storage_mode')"
 DATA_SYNC_ENABLED="$(read_addon_option 'data_sync_enabled')"
 LICENSE_KEY="$(read_addon_option 'license_key')"
 DEPLOY_NAME="$(read_addon_option 'deploy_name')"
+DEV_SOURCE_ROOT="$(read_addon_option 'dev_source_root')"
 LLM_DEBUG_LOG_REQUESTS="$(read_addon_option 'llm_debug_log_requests')"
 LLM_DEBUG_LOG_FULL_PROMPT="$(read_addon_option 'llm_debug_log_full_prompt')"
 LLM_DEBUG_LOG_MAX_CHARS="$(read_addon_option 'llm_debug_log_max_chars')"
@@ -66,6 +67,9 @@ fi
 if [ "${DEPLOY_NAME}" = "null" ]; then
     DEPLOY_NAME="${SA_DEPLOY_NAME:-}"
 fi
+if [ "${DEV_SOURCE_ROOT}" = "null" ]; then
+    DEV_SOURCE_ROOT="${SA_DEV_SOURCE_ROOT:-}"
+fi
 if [ -z "${LLM_DEBUG_LOG_REQUESTS}" ] || [ "${LLM_DEBUG_LOG_REQUESTS}" = "null" ]; then
     LLM_DEBUG_LOG_REQUESTS="${SA_LLM_DEBUG_LOG_REQUESTS:-false}"
 fi
@@ -82,16 +86,38 @@ export SA_AUTH_TOKEN="${AUTH_TOKEN}"
 export SA_INTERNAL_PORT="${ADDON_PORT}"
 export SA_GATEWAY_UI_PORT="${GATEWAY_UI_PORT}"
 export SA_HA_TIME_ZONE="${HA_TIME_ZONE}"
-export SA_UI_ROOT="${SA_UI_ROOT:-/app/ui}"
+export SA_UI_ROOT="${SA_UI_ROOT:-/app/ui-v3}"
+export SA_UI_V3_ROOT="${SA_UI_V3_ROOT:-/app/ui-v3}"
 export SA_SCREEN_ROOT="${SA_SCREEN_ROOT:-/app/screen}"
 export SA_CORE_STORAGE_MODE="${CORE_STORAGE_MODE}"
 export SA_DATA_SYNC_ENABLED="${DATA_SYNC_ENABLED}"
 export SA_LICENSE_KEY="${LICENSE_KEY}"
 export SA_DEPLOY_NAME="${DEPLOY_NAME}"
+export SA_DEV_SOURCE_ROOT="${DEV_SOURCE_ROOT}"
 export SA_LLM_DEBUG_LOG_REQUESTS="${LLM_DEBUG_LOG_REQUESTS}"
 export SA_LLM_DEBUG_LOG_FULL_PROMPT="${LLM_DEBUG_LOG_FULL_PROMPT}"
 export SA_LLM_DEBUG_LOG_MAX_CHARS="${LLM_DEBUG_LOG_MAX_CHARS}"
 
-echo "[SmartAgent] starting Gateway/API internal=${SA_INTERNAL_PORT} ui=${SA_GATEWAY_UI_PORT} ha=${SA_HA_URL} ha_token=$( [ -n "${SA_HA_TOKEN}" ] && echo set || echo empty ) auth=$( [ -n "${SA_AUTH_TOKEN}" ] && echo set || echo local-only )"
+APP_BOOTSTRAP="/app/api_server_bootstrap.py"
+if [ -n "${DEV_SOURCE_ROOT}" ]; then
+    if [ ! -f "${DEV_SOURCE_ROOT}/api_server_bootstrap.py" ] || [ ! -f "${DEV_SOURCE_ROOT}/api_server.py" ]; then
+        echo "[SmartAgent] dev_source_root is set but invalid: ${DEV_SOURCE_ROOT}" >&2
+        exit 78
+    fi
+    APP_BOOTSTRAP="${DEV_SOURCE_ROOT}/api_server_bootstrap.py"
+    export PYTHONPATH="${DEV_SOURCE_ROOT}:${PYTHONPATH:-}"
+    if [ -d "${DEV_SOURCE_ROOT}/ui-v3" ]; then
+        export SA_UI_ROOT="${DEV_SOURCE_ROOT}/ui-v3"
+        export SA_UI_V3_ROOT="${DEV_SOURCE_ROOT}/ui-v3"
+    elif [ -d "${DEV_SOURCE_ROOT}/ui" ]; then
+        export SA_UI_ROOT="${DEV_SOURCE_ROOT}/ui"
+    fi
+    if [ -d "${DEV_SOURCE_ROOT}/screen" ]; then
+        export SA_SCREEN_ROOT="${DEV_SOURCE_ROOT}/screen"
+    fi
+    echo "[SmartAgent] dev source enabled root=${DEV_SOURCE_ROOT}"
+fi
 
-exec python3 /app/api_server_bootstrap.py
+echo "[SmartAgent] starting Gateway/API internal=${SA_INTERNAL_PORT} ui=${SA_GATEWAY_UI_PORT} ha=${SA_HA_URL} ha_token=$( [ -n "${SA_HA_TOKEN}" ] && echo set || echo empty ) auth=$( [ -n "${SA_AUTH_TOKEN}" ] && echo set || echo local-only ) bootstrap=${APP_BOOTSTRAP}"
+
+exec python3 "${APP_BOOTSTRAP}"
