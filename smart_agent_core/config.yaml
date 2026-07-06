@@ -1,5 +1,5 @@
 name: SmartAgent AI Core
-version: 0.0.159
+version: 0.0.160
 slug: smart_agent_core
 description: 'SmartAgent 网关、管理界面和 AI 推理核心，运行于家庭助理插件环境。
 
@@ -40,6 +40,7 @@ options:
   llm_debug_log_requests: false
   llm_debug_log_full_prompt: false
   llm_debug_log_max_chars: 1000
+  presence_probabilistic_mode: 'off'
 schema:
   ha_url: str
   ha_token: password
@@ -55,6 +56,7 @@ schema:
   llm_debug_log_requests: bool
   llm_debug_log_full_prompt: bool
   llm_debug_log_max_chars: int
+  presence_probabilistic_mode: list(off|shadow|on)
 environment:
   SA_INTERNAL_PORT: '18099'
   SA_GATEWAY_UI_PORT: '8234'
@@ -72,4 +74,5 @@ environment:
   SA_LLM_DEBUG_LOG_REQUESTS: 'false'
   SA_LLM_DEBUG_LOG_FULL_PROMPT: 'false'
   SA_LLM_DEBUG_LOG_MAX_CHARS: '1000'
+  SA_PRESENCE_PROBABILISTIC_MODE: 'off'
 image: crpi-sijm6r9k7e2benib.cn-hangzhou.personal.cr.aliyuncs.com/fgwjs00/smart_agent
