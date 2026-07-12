@@ -17,6 +17,9 @@ configuration:
   ha_time_zone:
     name: 家庭助理时区
     description: 用于解析 Home Assistant 返回的本地时间戳；中国大陆环境建议保持 Asia/Shanghai。
+  log_level:
+    name: 插件日志级别
+    description: 控制插件容器输出的详细程度。临时排查时可调为调试级别，平时建议保持信息级别。
   core_storage_mode:
     name: 核心存储模式
     description: 核心服务运行数据的存储策略。当前推荐保持本地优先，优先使用插件本地存储。
@@ -29,9 +32,21 @@ configuration:
   llm_debug_log_max_chars:
     name: 调试日志最大字符数
     description: 限制单条大模型调试日志输出长度；仅在开启请求日志时生效。
+  frigate_admin_api_url:
+    name: Frigate 管理 API 地址
+    description: Frigate 认证管理端地址，必须使用 8971 端口；不要在地址中填写用户名、密码或其他凭据。
+  frigate_admin_auth_mode:
+    name: Frigate 管理认证模式
+    description: SmartAgent 仅支持交互式登录；管理员凭据只用于当前配置事务，不会写入持久配置。
+  frigate_admin_tls_verify:
+    name: 验证 Frigate TLS 证书
+    description: 连接 HTTPS 管理端时验证服务器证书；仅在受控的本地测试环境中关闭。
+  presence_probabilistic_mode:
+    name: 概率在场判定模式
+    description: 控制新的概率式在场判定是否只记录分歧或参与实时决策；默认关闭，现场观察稳定后再调整。
   data_sync_enabled:
-    name: 启用模型数据同步
-    description: 开启后，插件会在具备授权标识时同步可训练样本和纠错摘要，用于后续模型演进。
+    name: 兼容字段（不控制数据同步）
+    description: 此旧字段不参与运行授权。请只在 V3 隐私页明确授权、停用或撤回数据同步。
   license_key:
     name: 授权码
     description: 企业版或商业授权码；留空时按免费版能力运行。

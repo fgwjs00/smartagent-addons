@@ -1,8 +1,6 @@
 #!/bin/sh
 set -eu
 
-export SA_LOG_LEVEL="${SA_LOG_LEVEL:-INFO}"
-
 read_addon_option() {
     key="$1"
     python3 - "$key" <<'PY'
@@ -28,6 +26,7 @@ AUTH_TOKEN="$(read_addon_option 'auth_token')"
 ADDON_PORT="$(read_addon_option 'addon_port')"
 GATEWAY_UI_PORT="$(read_addon_option 'gateway_ui_port')"
 HA_TIME_ZONE="$(read_addon_option 'ha_time_zone')"
+LOG_LEVEL="$(read_addon_option 'log_level')"
 CORE_STORAGE_MODE="$(read_addon_option 'core_storage_mode')"
 DATA_SYNC_ENABLED="$(read_addon_option 'data_sync_enabled')"
 LICENSE_KEY="$(read_addon_option 'license_key')"
@@ -36,6 +35,9 @@ DEV_SOURCE_ROOT="$(read_addon_option 'dev_source_root')"
 LLM_DEBUG_LOG_REQUESTS="$(read_addon_option 'llm_debug_log_requests')"
 LLM_DEBUG_LOG_FULL_PROMPT="$(read_addon_option 'llm_debug_log_full_prompt')"
 LLM_DEBUG_LOG_MAX_CHARS="$(read_addon_option 'llm_debug_log_max_chars')"
+FRIGATE_ADMIN_API_URL="$(read_addon_option 'frigate_admin_api_url')"
+FRIGATE_ADMIN_AUTH_MODE="$(read_addon_option 'frigate_admin_auth_mode')"
+FRIGATE_ADMIN_TLS_VERIFY="$(read_addon_option 'frigate_admin_tls_verify')"
 
 if [ -z "${HA_URL}" ] || [ "${HA_URL}" = "null" ]; then
     HA_URL="http://supervisor/core"
@@ -55,11 +57,23 @@ fi
 if [ -z "${HA_TIME_ZONE}" ] || [ "${HA_TIME_ZONE}" = "null" ]; then
     HA_TIME_ZONE="${SA_HA_TIME_ZONE:-Asia/Shanghai}"
 fi
+if [ -z "${LOG_LEVEL}" ] || [ "${LOG_LEVEL}" = "null" ]; then
+    LOG_LEVEL="${SA_LOG_LEVEL:-INFO}"
+fi
+LOG_LEVEL_NORMALIZED="$(printf '%s' "${LOG_LEVEL}" | tr '[:lower:]' '[:upper:]')"
+case "${LOG_LEVEL_NORMALIZED}" in
+    DEBUG|INFO|WARNING|ERROR|CRITICAL)
+        LOG_LEVEL="${LOG_LEVEL_NORMALIZED}"
+        ;;
+    *)
+        LOG_LEVEL="INFO"
+        ;;
+esac
 if [ -z "${CORE_STORAGE_MODE}" ] || [ "${CORE_STORAGE_MODE}" = "null" ]; then
     CORE_STORAGE_MODE="${SA_CORE_STORAGE_MODE:-local_first}"
 fi
 if [ -z "${DATA_SYNC_ENABLED}" ] || [ "${DATA_SYNC_ENABLED}" = "null" ]; then
-    DATA_SYNC_ENABLED="${SA_DATA_SYNC_ENABLED:-true}"
+    DATA_SYNC_ENABLED="${SA_DATA_SYNC_ENABLED:-false}"
 fi
 if [ "${LICENSE_KEY}" = "null" ]; then
     LICENSE_KEY="${SA_LICENSE_KEY:-}"
@@ -79,6 +93,26 @@ fi
 if [ -z "${LLM_DEBUG_LOG_MAX_CHARS}" ] || [ "${LLM_DEBUG_LOG_MAX_CHARS}" = "null" ]; then
     LLM_DEBUG_LOG_MAX_CHARS="${SA_LLM_DEBUG_LOG_MAX_CHARS:-1000}"
 fi
+if [ "${FRIGATE_ADMIN_API_URL}" = "null" ]; then
+    FRIGATE_ADMIN_API_URL="${SA_FRIGATE_ADMIN_API_URL:-}"
+fi
+if [ -z "${FRIGATE_ADMIN_AUTH_MODE}" ] || [ "${FRIGATE_ADMIN_AUTH_MODE}" = "null" ]; then
+    FRIGATE_ADMIN_AUTH_MODE="${SA_FRIGATE_ADMIN_AUTH_MODE:-interactive_login}"
+fi
+if [ "${FRIGATE_ADMIN_AUTH_MODE}" != "interactive_login" ]; then
+    FRIGATE_ADMIN_AUTH_MODE="interactive_login"
+fi
+if [ -z "${FRIGATE_ADMIN_TLS_VERIFY}" ] || [ "${FRIGATE_ADMIN_TLS_VERIFY}" = "null" ]; then
+    FRIGATE_ADMIN_TLS_VERIFY="${SA_FRIGATE_ADMIN_TLS_VERIFY:-true}"
+fi
+case "$(printf '%s' "${FRIGATE_ADMIN_TLS_VERIFY}" | tr '[:upper:]' '[:lower:]')" in
+    false|0|no|off)
+        FRIGATE_ADMIN_TLS_VERIFY="false"
+        ;;
+    *)
+        FRIGATE_ADMIN_TLS_VERIFY="true"
+        ;;
+esac
 
 export SA_HA_URL="${HA_URL}"
 export SA_HA_TOKEN="${HA_TOKEN}"
@@ -87,6 +121,7 @@ export SA_INTERNAL_PORT="${ADDON_PORT}"
 export SA_GATEWAY_UI_PORT="${GATEWAY_UI_PORT}"
 export SA_HA_TIME_ZONE="${HA_TIME_ZONE}"
 export TZ="${HA_TIME_ZONE}"
+export SA_LOG_LEVEL="${LOG_LEVEL}"
 export SA_UI_ROOT="${SA_UI_ROOT:-/app/ui-v3}"
 export SA_UI_V3_ROOT="${SA_UI_V3_ROOT:-/app/ui-v3}"
 export SA_SCREEN_ROOT="${SA_SCREEN_ROOT:-/app/screen}"
@@ -98,6 +133,9 @@ export SA_DEV_SOURCE_ROOT="${DEV_SOURCE_ROOT}"
 export SA_LLM_DEBUG_LOG_REQUESTS="${LLM_DEBUG_LOG_REQUESTS}"
 export SA_LLM_DEBUG_LOG_FULL_PROMPT="${LLM_DEBUG_LOG_FULL_PROMPT}"
 export SA_LLM_DEBUG_LOG_MAX_CHARS="${LLM_DEBUG_LOG_MAX_CHARS}"
+export SA_FRIGATE_ADMIN_API_URL="${FRIGATE_ADMIN_API_URL}"
+export SA_FRIGATE_ADMIN_AUTH_MODE="${FRIGATE_ADMIN_AUTH_MODE}"
+export SA_FRIGATE_ADMIN_TLS_VERIFY="${FRIGATE_ADMIN_TLS_VERIFY}"
 
 APP_BOOTSTRAP="/app/api_server_bootstrap.py"
 if [ -n "${DEV_SOURCE_ROOT}" ]; then
