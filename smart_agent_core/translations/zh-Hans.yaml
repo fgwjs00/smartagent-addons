@@ -44,6 +44,12 @@ configuration:
   presence_probabilistic_mode:
     name: 概率在场判定模式
     description: 控制新的概率式在场判定是否只记录分歧或参与实时决策；默认关闭，现场观察稳定后再调整。
+  firmware_provider_base_url:
+    name: 固件提供方基础地址
+    description: 用于读取已签名传感器固件清单和下载固件。必须使用受信任的 HTTPS 地址；留空时不启用远程固件发布。
+  firmware_trusted_ed25519_public_keys:
+    name: 固件签名公钥
+    description: 用于校验固件清单和固件包签名的 Ed25519 公钥列表。多个公钥以换行分隔；未配置时拒绝远程固件更新。
   data_sync_enabled:
     name: 兼容字段（不控制数据同步）
     description: 此旧字段不参与运行授权。请只在 V3 隐私页明确授权、停用或撤回数据同步。

@@ -38,6 +38,8 @@ LLM_DEBUG_LOG_MAX_CHARS="$(read_addon_option 'llm_debug_log_max_chars')"
 FRIGATE_ADMIN_API_URL="$(read_addon_option 'frigate_admin_api_url')"
 FRIGATE_ADMIN_AUTH_MODE="$(read_addon_option 'frigate_admin_auth_mode')"
 FRIGATE_ADMIN_TLS_VERIFY="$(read_addon_option 'frigate_admin_tls_verify')"
+FIRMWARE_PROVIDER_BASE_URL="$(read_addon_option 'firmware_provider_base_url')"
+FIRMWARE_TRUSTED_ED25519_PUBLIC_KEYS="$(read_addon_option 'firmware_trusted_ed25519_public_keys')"
 
 if [ -z "${HA_URL}" ] || [ "${HA_URL}" = "null" ]; then
     HA_URL="http://supervisor/core"
@@ -113,6 +115,12 @@ case "$(printf '%s' "${FRIGATE_ADMIN_TLS_VERIFY}" | tr '[:upper:]' '[:lower:]')"
         FRIGATE_ADMIN_TLS_VERIFY="true"
         ;;
 esac
+if [ "${FIRMWARE_PROVIDER_BASE_URL}" = "null" ]; then
+    FIRMWARE_PROVIDER_BASE_URL="${SA_FIRMWARE_PROVIDER_BASE_URL:-}"
+fi
+if [ "${FIRMWARE_TRUSTED_ED25519_PUBLIC_KEYS}" = "null" ]; then
+    FIRMWARE_TRUSTED_ED25519_PUBLIC_KEYS="${SA_FIRMWARE_TRUSTED_ED25519_PUBLIC_KEYS:-}"
+fi
 
 export SA_HA_URL="${HA_URL}"
 export SA_HA_TOKEN="${HA_TOKEN}"
@@ -136,6 +144,8 @@ export SA_LLM_DEBUG_LOG_MAX_CHARS="${LLM_DEBUG_LOG_MAX_CHARS}"
 export SA_FRIGATE_ADMIN_API_URL="${FRIGATE_ADMIN_API_URL}"
 export SA_FRIGATE_ADMIN_AUTH_MODE="${FRIGATE_ADMIN_AUTH_MODE}"
 export SA_FRIGATE_ADMIN_TLS_VERIFY="${FRIGATE_ADMIN_TLS_VERIFY}"
+export SA_FIRMWARE_PROVIDER_BASE_URL="${FIRMWARE_PROVIDER_BASE_URL}"
+export SA_FIRMWARE_TRUSTED_ED25519_PUBLIC_KEYS="${FIRMWARE_TRUSTED_ED25519_PUBLIC_KEYS}"
 
 APP_BOOTSTRAP="/app/api_server_bootstrap.py"
 if [ -n "${DEV_SOURCE_ROOT}" ]; then
