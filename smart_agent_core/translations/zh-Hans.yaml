@@ -50,9 +50,15 @@ configuration:
   firmware_trusted_ed25519_public_keys:
     name: 固件签名公钥
     description: 用于校验固件清单和固件包签名的 Ed25519 公钥列表。多个公钥以换行分隔；未配置时拒绝远程固件更新。
+  presence_probabilistic_hard_off:
+    name: 概率在场绝对关闭
+    description: 默认开启。开启时无论运行配置或快照请求为何值，概率在场均强制关闭；修改后需重启插件生效。
   data_sync_enabled:
     name: 兼容字段（不控制数据同步）
     description: 此旧字段不参与运行授权。请只在 V3 隐私页明确授权、停用或撤回数据同步。
+  data_sync_consent_version:
+    name: 训练数据同意版本
+    description: 与家庭 owner 在 Cloud 端确认的训练数据同意版本保持一致；版本不一致时 Cloud 会拒绝上传，默认不上传任何数据。
   license_key:
     name: 授权码
     description: 企业版或商业授权码；留空时按免费版能力运行。
@@ -62,6 +68,15 @@ configuration:
   dev_source_root:
     name: 本地开发源码目录
     description: 仅用于局域网调试。留空时运行插件镜像内置代码；填写 /share/smartagent-addon-dev 后，插件重启时从 Samba 共享目录加载源码。
+  remote_access_enabled:
+    name: 启用远程访问
+    description: 关闭时不会建立任何到云端的远程连接；配对和远程访问仅在明确开启后可用。
+  remote_cloud_url:
+    name: 远程访问云端地址
+    description: SmartAgent 远程访问服务的 HTTPS 地址。只允许公开 HTTPS 地址，不要填写账号、密码或内网地址。
+  remote_gateway_label:
+    name: 远程网关显示名称
+    description: 用于在已授权家庭账户中辨认本设备的公开显示名称；不要填写令牌或家庭隐私信息。
 network:
   8234/tcp: SmartAgent 网关 / 管理界面
   18099/tcp: SmartAgent 内部接口（供家庭助理集成访问）

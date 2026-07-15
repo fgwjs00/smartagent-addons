@@ -3,14 +3,18 @@ set -eu
 
 read_addon_option() {
     key="$1"
-    python3 - "$key" <<'PY'
+    options_path="${SA_OPTIONS_FILE:-/data/options.json}"
+    python3 - "$key" "$options_path" <<'PY'
 import json
+import os
 import sys
 from pathlib import Path
 
 key = sys.argv[1]
+options_path = sys.argv[2]
 try:
-    data = json.loads(Path("/data/options.json").read_text(encoding="utf-8"))
+    options_path = Path(os.environ.get("SA_ADDON_OPTIONS_PATH") or options_path)
+    data = json.loads(options_path.read_text(encoding="utf-8"))
 except Exception:
     data = {}
 value = data.get(key, "")
@@ -29,9 +33,13 @@ HA_TIME_ZONE="$(read_addon_option 'ha_time_zone')"
 LOG_LEVEL="$(read_addon_option 'log_level')"
 CORE_STORAGE_MODE="$(read_addon_option 'core_storage_mode')"
 DATA_SYNC_ENABLED="$(read_addon_option 'data_sync_enabled')"
+DATA_SYNC_CONSENT_VERSION="$(read_addon_option 'data_sync_consent_version')"
 LICENSE_KEY="$(read_addon_option 'license_key')"
 DEPLOY_NAME="$(read_addon_option 'deploy_name')"
 DEV_SOURCE_ROOT="$(read_addon_option 'dev_source_root')"
+REMOTE_ACCESS_ENABLED="$(read_addon_option 'remote_access_enabled')"
+REMOTE_CLOUD_URL="$(read_addon_option 'remote_cloud_url')"
+REMOTE_GATEWAY_LABEL="$(read_addon_option 'remote_gateway_label')"
 LLM_DEBUG_LOG_REQUESTS="$(read_addon_option 'llm_debug_log_requests')"
 LLM_DEBUG_LOG_FULL_PROMPT="$(read_addon_option 'llm_debug_log_full_prompt')"
 LLM_DEBUG_LOG_MAX_CHARS="$(read_addon_option 'llm_debug_log_max_chars')"
@@ -40,6 +48,8 @@ FRIGATE_ADMIN_AUTH_MODE="$(read_addon_option 'frigate_admin_auth_mode')"
 FRIGATE_ADMIN_TLS_VERIFY="$(read_addon_option 'frigate_admin_tls_verify')"
 FIRMWARE_PROVIDER_BASE_URL="$(read_addon_option 'firmware_provider_base_url')"
 FIRMWARE_TRUSTED_ED25519_PUBLIC_KEYS="$(read_addon_option 'firmware_trusted_ed25519_public_keys')"
+PRESENCE_PROBABILISTIC_MODE="$(read_addon_option 'presence_probabilistic_mode')"
+PRESENCE_PROBABILISTIC_HARD_OFF="$(read_addon_option 'presence_probabilistic_hard_off')"
 
 if [ -z "${HA_URL}" ] || [ "${HA_URL}" = "null" ]; then
     HA_URL="http://supervisor/core"
@@ -77,6 +87,9 @@ fi
 if [ -z "${DATA_SYNC_ENABLED}" ] || [ "${DATA_SYNC_ENABLED}" = "null" ]; then
     DATA_SYNC_ENABLED="${SA_DATA_SYNC_ENABLED:-false}"
 fi
+if [ -z "${DATA_SYNC_CONSENT_VERSION}" ] || [ "${DATA_SYNC_CONSENT_VERSION}" = "null" ]; then
+    DATA_SYNC_CONSENT_VERSION="${SA_DATA_SYNC_CONSENT_VERSION:-2026-07-v1}"
+fi
 if [ "${LICENSE_KEY}" = "null" ]; then
     LICENSE_KEY="${SA_LICENSE_KEY:-}"
 fi
@@ -85,6 +98,66 @@ if [ "${DEPLOY_NAME}" = "null" ]; then
 fi
 if [ "${DEV_SOURCE_ROOT}" = "null" ]; then
     DEV_SOURCE_ROOT="${SA_DEV_SOURCE_ROOT:-}"
+fi
+if [ -z "${REMOTE_ACCESS_ENABLED}" ] || [ "${REMOTE_ACCESS_ENABLED}" = "null" ]; then
+    REMOTE_ACCESS_ENABLED="${SA_REMOTE_ACCESS_ENABLED:-false}"
+fi
+REMOTE_ACCESS_ENABLED_NORMALIZED="$(printf '%s' "${REMOTE_ACCESS_ENABLED}" | tr '[:upper:]' '[:lower:]')"
+case "${REMOTE_ACCESS_ENABLED_NORMALIZED}" in
+    1|true|yes|on)
+        REMOTE_ACCESS_ENABLED="true"
+        ;;
+    0|false|no|off)
+        REMOTE_ACCESS_ENABLED="false"
+        ;;
+    *)
+        REMOTE_ACCESS_ENABLED="false"
+        ;;
+esac
+if [ -z "${REMOTE_CLOUD_URL}" ] || [ "${REMOTE_CLOUD_URL}" = "null" ]; then
+    REMOTE_CLOUD_URL="${SA_REMOTE_CLOUD_URL:-https://api.smartagent.ai}"
+fi
+REMOTE_CLOUD_URL_VALIDATION="$(python3 - "${REMOTE_CLOUD_URL}" <<'PY'
+import ipaddress
+import sys
+from urllib.parse import urlsplit
+
+value = sys.argv[1]
+valid = False
+try:
+    parsed = urlsplit(value)
+    host = (parsed.hostname or "").rstrip(".").lower()
+    port = parsed.port
+    valid = (
+        parsed.scheme.lower() == "https"
+        and bool(host)
+        and parsed.username is None
+        and parsed.password is None
+        and parsed.path in ("", "/")
+        and not parsed.query
+        and not parsed.fragment
+        and host != "localhost"
+        and not host.endswith(".localhost")
+        and not host.endswith(".local")
+    )
+    if valid:
+        try:
+            address = ipaddress.ip_address(host)
+        except ValueError:
+            pass
+        else:
+            valid = address.is_global
+except (TypeError, ValueError):
+    valid = False
+print("valid" if valid else "invalid")
+PY
+)"
+if [ "${REMOTE_CLOUD_URL_VALIDATION}" != "valid" ]; then
+    REMOTE_CLOUD_URL="https://api.smartagent.ai"
+    REMOTE_ACCESS_ENABLED="false"
+fi
+if [ "${REMOTE_GATEWAY_LABEL}" = "null" ]; then
+    REMOTE_GATEWAY_LABEL="${SA_REMOTE_GATEWAY_LABEL:-}"
 fi
 if [ -z "${LLM_DEBUG_LOG_REQUESTS}" ] || [ "${LLM_DEBUG_LOG_REQUESTS}" = "null" ]; then
     LLM_DEBUG_LOG_REQUESTS="${SA_LLM_DEBUG_LOG_REQUESTS:-false}"
@@ -121,6 +194,28 @@ fi
 if [ "${FIRMWARE_TRUSTED_ED25519_PUBLIC_KEYS}" = "null" ]; then
     FIRMWARE_TRUSTED_ED25519_PUBLIC_KEYS="${SA_FIRMWARE_TRUSTED_ED25519_PUBLIC_KEYS:-}"
 fi
+if [ -z "${PRESENCE_PROBABILISTIC_MODE}" ] || [ "${PRESENCE_PROBABILISTIC_MODE}" = "null" ]; then
+    PRESENCE_PROBABILISTIC_MODE="${SA_PRESENCE_PROBABILISTIC_MODE:-off}"
+fi
+case "$(printf '%s' "${PRESENCE_PROBABILISTIC_MODE}" | tr '[:upper:]' '[:lower:]')" in
+    off|shadow|on)
+        PRESENCE_PROBABILISTIC_MODE="$(printf '%s' "${PRESENCE_PROBABILISTIC_MODE}" | tr '[:upper:]' '[:lower:]')"
+        ;;
+    *)
+        PRESENCE_PROBABILISTIC_MODE="off"
+        ;;
+esac
+if [ -z "${PRESENCE_PROBABILISTIC_HARD_OFF}" ] || [ "${PRESENCE_PROBABILISTIC_HARD_OFF}" = "null" ]; then
+    PRESENCE_PROBABILISTIC_HARD_OFF="${SA_PRESENCE_PROBABILISTIC_HARD_OFF:-true}"
+fi
+case "$(printf '%s' "${PRESENCE_PROBABILISTIC_HARD_OFF}" | tr '[:upper:]' '[:lower:]')" in
+    false|0|no|off)
+        PRESENCE_PROBABILISTIC_HARD_OFF="false"
+        ;;
+    *)
+        PRESENCE_PROBABILISTIC_HARD_OFF="true"
+        ;;
+esac
 
 export SA_HA_URL="${HA_URL}"
 export SA_HA_TOKEN="${HA_TOKEN}"
@@ -135,9 +230,13 @@ export SA_UI_V3_ROOT="${SA_UI_V3_ROOT:-/app/ui-v3}"
 export SA_SCREEN_ROOT="${SA_SCREEN_ROOT:-/app/screen}"
 export SA_CORE_STORAGE_MODE="${CORE_STORAGE_MODE}"
 export SA_DATA_SYNC_ENABLED="${DATA_SYNC_ENABLED}"
+export SA_DATA_SYNC_CONSENT_VERSION="${DATA_SYNC_CONSENT_VERSION}"
 export SA_LICENSE_KEY="${LICENSE_KEY}"
 export SA_DEPLOY_NAME="${DEPLOY_NAME}"
 export SA_DEV_SOURCE_ROOT="${DEV_SOURCE_ROOT}"
+export SA_REMOTE_ACCESS_ENABLED="${REMOTE_ACCESS_ENABLED}"
+export SA_REMOTE_CLOUD_URL="${REMOTE_CLOUD_URL}"
+export SA_REMOTE_GATEWAY_LABEL="${REMOTE_GATEWAY_LABEL}"
 export SA_LLM_DEBUG_LOG_REQUESTS="${LLM_DEBUG_LOG_REQUESTS}"
 export SA_LLM_DEBUG_LOG_FULL_PROMPT="${LLM_DEBUG_LOG_FULL_PROMPT}"
 export SA_LLM_DEBUG_LOG_MAX_CHARS="${LLM_DEBUG_LOG_MAX_CHARS}"
@@ -146,6 +245,8 @@ export SA_FRIGATE_ADMIN_AUTH_MODE="${FRIGATE_ADMIN_AUTH_MODE}"
 export SA_FRIGATE_ADMIN_TLS_VERIFY="${FRIGATE_ADMIN_TLS_VERIFY}"
 export SA_FIRMWARE_PROVIDER_BASE_URL="${FIRMWARE_PROVIDER_BASE_URL}"
 export SA_FIRMWARE_TRUSTED_ED25519_PUBLIC_KEYS="${FIRMWARE_TRUSTED_ED25519_PUBLIC_KEYS}"
+export SA_PRESENCE_PROBABILISTIC_MODE="${PRESENCE_PROBABILISTIC_MODE}"
+export SA_PRESENCE_PROBABILISTIC_HARD_OFF="${PRESENCE_PROBABILISTIC_HARD_OFF}"
 
 APP_BOOTSTRAP="/app/api_server_bootstrap.py"
 if [ -n "${DEV_SOURCE_ROOT}" ]; then

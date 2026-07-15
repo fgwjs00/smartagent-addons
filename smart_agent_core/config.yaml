@@ -1,5 +1,5 @@
 name: SmartAgent AI Core
-version: 0.0.164
+version: 0.0.165
 slug: smart_agent_core
 description: 'SmartAgent 网关、管理界面和 AI 推理核心，运行于家庭助理插件环境。
 
@@ -35,9 +35,13 @@ options:
   log_level: INFO
   core_storage_mode: local_first
   data_sync_enabled: false
+  data_sync_consent_version: 2026-07-v1
   license_key: ''
   deploy_name: ''
   dev_source_root: ''
+  remote_access_enabled: false
+  remote_cloud_url: https://api.smartagent.ai
+  remote_gateway_label: ''
   llm_debug_log_requests: false
   llm_debug_log_full_prompt: false
   llm_debug_log_max_chars: 1000
@@ -47,6 +51,7 @@ options:
   presence_probabilistic_mode: 'off'
   firmware_provider_base_url: ''
   firmware_trusted_ed25519_public_keys: ''
+  presence_probabilistic_hard_off: true
 schema:
   ha_url: str
   ha_token: password
@@ -57,9 +62,13 @@ schema:
   log_level: list(DEBUG|INFO|WARNING|ERROR|CRITICAL)
   core_storage_mode: str
   data_sync_enabled: bool
+  data_sync_consent_version: str
   license_key: password
   deploy_name: str
   dev_source_root: str
+  remote_access_enabled: bool
+  remote_cloud_url: str
+  remote_gateway_label: str
   llm_debug_log_requests: bool
   llm_debug_log_full_prompt: bool
   llm_debug_log_max_chars: int
@@ -69,6 +78,7 @@ schema:
   presence_probabilistic_mode: list(off|shadow|on)
   firmware_provider_base_url: str
   firmware_trusted_ed25519_public_keys: str
+  presence_probabilistic_hard_off: bool
 environment:
   SA_INTERNAL_PORT: '18099'
   SA_GATEWAY_UI_PORT: '8234'
@@ -80,9 +90,13 @@ environment:
   SA_LOG_FILE: /data/logs/smart_agent.log
   SA_CORE_STORAGE_MODE: local_first
   SA_DATA_SYNC_ENABLED: 'false'
+  SA_DATA_SYNC_CONSENT_VERSION: 2026-07-v1
   SA_LICENSE_KEY: ''
   SA_DEPLOY_NAME: ''
   SA_DEV_SOURCE_ROOT: ''
+  SA_REMOTE_ACCESS_ENABLED: 'false'
+  SA_REMOTE_CLOUD_URL: https://api.smartagent.ai
+  SA_REMOTE_GATEWAY_LABEL: ''
   SA_LLM_DEBUG_LOG_REQUESTS: 'false'
   SA_LLM_DEBUG_LOG_FULL_PROMPT: 'false'
   SA_LLM_DEBUG_LOG_MAX_CHARS: '1000'
@@ -92,4 +106,5 @@ environment:
   SA_PRESENCE_PROBABILISTIC_MODE: 'off'
   SA_FIRMWARE_PROVIDER_BASE_URL: ''
   SA_FIRMWARE_TRUSTED_ED25519_PUBLIC_KEYS: ''
+  SA_PRESENCE_PROBABILISTIC_HARD_OFF: 'true'
 image: crpi-sijm6r9k7e2benib.cn-hangzhou.personal.cr.aliyuncs.com/fgwjs00/smart_agent
