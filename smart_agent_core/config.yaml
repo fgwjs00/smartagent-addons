@@ -1,5 +1,5 @@
 name: SmartAgent AI Core
-version: 0.0.172
+version: 0.0.173
 slug: smart_agent_core
 description: 'SmartAgent 网关、管理界面和 AI 推理核心，运行于家庭助理插件环境。
 
@@ -52,6 +52,9 @@ options:
   firmware_provider_base_url: ''
   firmware_trusted_ed25519_public_keys: ''
   presence_probabilistic_hard_off: true
+  firmware_maintenance_wifi_ssid: ''
+  firmware_maintenance_wifi_password: ''
+  matter_protocol_enabled: false
 schema:
   ha_url: str
   ha_token: password
@@ -79,6 +82,9 @@ schema:
   firmware_provider_base_url: str
   firmware_trusted_ed25519_public_keys: str
   presence_probabilistic_hard_off: bool
+  firmware_maintenance_wifi_ssid: str
+  firmware_maintenance_wifi_password: password
+  matter_protocol_enabled: bool
 environment:
   SA_INTERNAL_PORT: '18099'
   SA_GATEWAY_UI_PORT: '8234'
@@ -107,4 +113,7 @@ environment:
   SA_FIRMWARE_PROVIDER_BASE_URL: ''
   SA_FIRMWARE_TRUSTED_ED25519_PUBLIC_KEYS: ''
   SA_PRESENCE_PROBABILISTIC_HARD_OFF: 'true'
+  SA_FIRMWARE_MAINTENANCE_WIFI_SSID: ''
+  SA_FIRMWARE_MAINTENANCE_WIFI_PASSWORD: ''
+  SA_MATTER_PROTOCOL_ENABLED: 'false'
 image: crpi-sijm6r9k7e2benib.cn-hangzhou.personal.cr.aliyuncs.com/fgwjs00/smart_agent

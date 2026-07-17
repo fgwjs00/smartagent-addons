@@ -50,6 +50,9 @@ FIRMWARE_PROVIDER_BASE_URL="$(read_addon_option 'firmware_provider_base_url')"
 FIRMWARE_TRUSTED_ED25519_PUBLIC_KEYS="$(read_addon_option 'firmware_trusted_ed25519_public_keys')"
 PRESENCE_PROBABILISTIC_MODE="$(read_addon_option 'presence_probabilistic_mode')"
 PRESENCE_PROBABILISTIC_HARD_OFF="$(read_addon_option 'presence_probabilistic_hard_off')"
+FIRMWARE_MAINTENANCE_WIFI_SSID="$(read_addon_option 'firmware_maintenance_wifi_ssid')"
+FIRMWARE_MAINTENANCE_WIFI_PASSWORD="$(read_addon_option 'firmware_maintenance_wifi_password')"
+MATTER_PROTOCOL_ENABLED="$(read_addon_option 'matter_protocol_enabled')"
 
 if [ -z "${HA_URL}" ] || [ "${HA_URL}" = "null" ]; then
     HA_URL="http://supervisor/core"
@@ -216,6 +219,15 @@ case "$(printf '%s' "${PRESENCE_PROBABILISTIC_HARD_OFF}" | tr '[:upper:]' '[:low
         PRESENCE_PROBABILISTIC_HARD_OFF="true"
         ;;
 esac
+if [ "${FIRMWARE_MAINTENANCE_WIFI_SSID}" = "null" ]; then
+    FIRMWARE_MAINTENANCE_WIFI_SSID="${SA_FIRMWARE_MAINTENANCE_WIFI_SSID:-}"
+fi
+if [ "${FIRMWARE_MAINTENANCE_WIFI_PASSWORD}" = "null" ]; then
+    FIRMWARE_MAINTENANCE_WIFI_PASSWORD="${SA_FIRMWARE_MAINTENANCE_WIFI_PASSWORD:-}"
+fi
+if [ -z "${MATTER_PROTOCOL_ENABLED}" ] || [ "${MATTER_PROTOCOL_ENABLED}" = "null" ]; then
+    MATTER_PROTOCOL_ENABLED="${SA_MATTER_PROTOCOL_ENABLED:-false}"
+fi
 
 export SA_HA_URL="${HA_URL}"
 export SA_HA_TOKEN="${HA_TOKEN}"
@@ -247,6 +259,9 @@ export SA_FIRMWARE_PROVIDER_BASE_URL="${FIRMWARE_PROVIDER_BASE_URL}"
 export SA_FIRMWARE_TRUSTED_ED25519_PUBLIC_KEYS="${FIRMWARE_TRUSTED_ED25519_PUBLIC_KEYS}"
 export SA_PRESENCE_PROBABILISTIC_MODE="${PRESENCE_PROBABILISTIC_MODE}"
 export SA_PRESENCE_PROBABILISTIC_HARD_OFF="${PRESENCE_PROBABILISTIC_HARD_OFF}"
+export SA_FIRMWARE_MAINTENANCE_WIFI_SSID="${FIRMWARE_MAINTENANCE_WIFI_SSID}"
+export SA_FIRMWARE_MAINTENANCE_WIFI_PASSWORD="${FIRMWARE_MAINTENANCE_WIFI_PASSWORD}"
+export SA_MATTER_PROTOCOL_ENABLED="${MATTER_PROTOCOL_ENABLED}"
 
 APP_BOOTSTRAP="/app/api_server_bootstrap.py"
 if [ -n "${DEV_SOURCE_ROOT}" ]; then

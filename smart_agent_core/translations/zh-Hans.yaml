@@ -46,13 +46,22 @@ configuration:
     description: 控制新的概率式在场判定是否只记录分歧或参与实时决策；默认关闭，现场观察稳定后再调整。
   firmware_provider_base_url:
     name: 固件提供方基础地址
-    description: 用于读取已签名传感器固件清单和下载固件。必须使用受信任的 HTTPS 地址；留空时不启用远程固件发布。
+    description: 设备维护模式从此地址下载已验签固件。只允许当前家庭 RFC1918 私网 IPv4 的 HTTP 地址；HTTP 仅负责局域网传输，固件真实性和完整性由 Ed25519 与 SHA256 保证。
   firmware_trusted_ed25519_public_keys:
     name: 固件签名公钥
-    description: 用于校验固件清单和固件包签名的 Ed25519 公钥列表。多个公钥以换行分隔；未配置时拒绝远程固件更新。
+    description: 用于校验 .safw 固件包签名的 Ed25519 公钥列表。多个公钥以换行分隔；未配置时拒绝任何固件入库和升级。
   presence_probabilistic_hard_off:
     name: 概率在场绝对关闭
     description: 默认开启。开启时无论运行配置或快照请求为何值，概率在场均强制关闭；修改后需重启插件生效。
+  firmware_maintenance_wifi_ssid:
+    name: 固件维护 Wi-Fi 名称
+    description: 设备进入 service_ota 后连接的本地维护网络名称。仅用于当前家庭内网 OTA，不得填写公网热点或访客网络。
+  firmware_maintenance_wifi_password:
+    name: 固件维护 Wi-Fi 密码
+    description: 本地维护网络密码。该字段按密码保存和注入，不在普通页面、日志或固件事务响应中回显。
+  matter_protocol_enabled:
+    name: 启用 Matter 固件管理
+    description: 当前默认关闭。只有 Matter 分区、设备传输和现场验收全部通过后才能开启；协议切换由 Bootselect 完成，不通过 OTA 切换。
   data_sync_enabled:
     name: 兼容字段（不控制数据同步）
     description: 此旧字段不参与运行授权。请只在 V3 隐私页明确授权、停用或撤回数据同步。
