@@ -41,6 +41,21 @@ configuration:
   frigate_admin_tls_verify:
     name: 验证 Frigate TLS 证书
     description: 连接 HTTPS 管理端时验证服务器证书；仅在受控的本地测试环境中关闭。
+  active_ai_mode:
+    name: 主动 AI 运行模式
+    description: off 不调用模型；shadow 只记录决策；canary 仅允许指定空间和设备域执行；on 仍受置信度、世界快照、安全守卫和全局执行开关约束。默认 shadow。
+  active_ai_canary_space_ids:
+    name: 主动 AI 灰度空间
+    description: canary 模式允许真实执行的空间 ID，使用逗号或空格分隔。留空时 canary 不执行任何动作。
+  active_ai_canary_domains:
+    name: 主动 AI 灰度设备域
+    description: canary 模式允许真实执行的 Home Assistant 设备域，例如 light、cover。使用逗号或空格分隔，未列出的域会阻断整批动作。
+  domain_real_execution_enabled:
+    name: 非照明设备真实执行总闸
+    description: cover、climate、media 等设备域的外层真实执行开关。默认关闭；只在完成 shadow 验证并进入批准的 canary 阶段后开启。
+  lighting_controlled_execution_enabled:
+    name: 照明真实执行总闸
+    description: light 设备域的外层受控执行开关。默认关闭；开启后仍必须通过主动 AI 模式、空间范围、置信度、世界快照和安全守卫。
   presence_probabilistic_mode:
     name: 概率在场判定模式
     description: 控制新的概率式在场判定是否只记录分歧或参与实时决策；默认关闭，现场观察稳定后再调整。

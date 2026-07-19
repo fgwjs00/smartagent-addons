@@ -1,6 +1,6 @@
 # SmartAgent Add-ons
 
-当前公开版本：`Beta 0.0.174`
+当前公开版本：`Beta 0.0.175`
 
 当前测试版仅支持 `amd64 / x86_64`。安装时 Home Assistant 会拉取 SmartAgent 官方预构建 add-on 镜像；镜像由 GitHub Actions 构建并推送到发布元数据指定的 ACR 仓库。
 

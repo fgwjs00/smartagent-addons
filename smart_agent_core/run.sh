@@ -46,6 +46,11 @@ LLM_DEBUG_LOG_MAX_CHARS="$(read_addon_option 'llm_debug_log_max_chars')"
 FRIGATE_ADMIN_API_URL="$(read_addon_option 'frigate_admin_api_url')"
 FRIGATE_ADMIN_AUTH_MODE="$(read_addon_option 'frigate_admin_auth_mode')"
 FRIGATE_ADMIN_TLS_VERIFY="$(read_addon_option 'frigate_admin_tls_verify')"
+ACTIVE_AI_MODE="$(read_addon_option 'active_ai_mode')"
+ACTIVE_AI_CANARY_SPACE_IDS="$(read_addon_option 'active_ai_canary_space_ids')"
+ACTIVE_AI_CANARY_DOMAINS="$(read_addon_option 'active_ai_canary_domains')"
+DOMAIN_REAL_EXECUTION_ENABLED="$(read_addon_option 'domain_real_execution_enabled')"
+LIGHTING_CONTROLLED_EXECUTION_ENABLED="$(read_addon_option 'lighting_controlled_execution_enabled')"
 FIRMWARE_PROVIDER_BASE_URL="$(read_addon_option 'firmware_provider_base_url')"
 FIRMWARE_TRUSTED_ED25519_PUBLIC_KEYS="$(read_addon_option 'firmware_trusted_ed25519_public_keys')"
 PRESENCE_PROBABILISTIC_MODE="$(read_addon_option 'presence_probabilistic_mode')"
@@ -191,6 +196,45 @@ case "$(printf '%s' "${FRIGATE_ADMIN_TLS_VERIFY}" | tr '[:upper:]' '[:lower:]')"
         FRIGATE_ADMIN_TLS_VERIFY="true"
         ;;
 esac
+if [ -z "${ACTIVE_AI_MODE}" ] || [ "${ACTIVE_AI_MODE}" = "null" ]; then
+    ACTIVE_AI_MODE="${SA_ACTIVE_AI_MODE:-shadow}"
+fi
+case "$(printf '%s' "${ACTIVE_AI_MODE}" | tr '[:upper:]' '[:lower:]')" in
+    off|shadow|canary|on)
+        ACTIVE_AI_MODE="$(printf '%s' "${ACTIVE_AI_MODE}" | tr '[:upper:]' '[:lower:]')"
+        ;;
+    *)
+        ACTIVE_AI_MODE="shadow"
+        ;;
+esac
+if [ -z "${ACTIVE_AI_CANARY_SPACE_IDS}" ] || [ "${ACTIVE_AI_CANARY_SPACE_IDS}" = "null" ]; then
+    ACTIVE_AI_CANARY_SPACE_IDS="${SA_ACTIVE_AI_CANARY_SPACE_IDS:-}"
+fi
+if [ -z "${ACTIVE_AI_CANARY_DOMAINS}" ] || [ "${ACTIVE_AI_CANARY_DOMAINS}" = "null" ]; then
+    ACTIVE_AI_CANARY_DOMAINS="${SA_ACTIVE_AI_CANARY_DOMAINS:-}"
+fi
+if [ -z "${DOMAIN_REAL_EXECUTION_ENABLED}" ] || [ "${DOMAIN_REAL_EXECUTION_ENABLED}" = "null" ]; then
+    DOMAIN_REAL_EXECUTION_ENABLED="${SA_DOMAIN_REAL_EXECUTION_ENABLED:-false}"
+fi
+case "$(printf '%s' "${DOMAIN_REAL_EXECUTION_ENABLED}" | tr '[:upper:]' '[:lower:]')" in
+    true|1|yes|on)
+        DOMAIN_REAL_EXECUTION_ENABLED="true"
+        ;;
+    *)
+        DOMAIN_REAL_EXECUTION_ENABLED="false"
+        ;;
+esac
+if [ -z "${LIGHTING_CONTROLLED_EXECUTION_ENABLED}" ] || [ "${LIGHTING_CONTROLLED_EXECUTION_ENABLED}" = "null" ]; then
+    LIGHTING_CONTROLLED_EXECUTION_ENABLED="${SA_LIGHTING_CONTROLLED_EXECUTION_ENABLED:-false}"
+fi
+case "$(printf '%s' "${LIGHTING_CONTROLLED_EXECUTION_ENABLED}" | tr '[:upper:]' '[:lower:]')" in
+    true|1|yes|on)
+        LIGHTING_CONTROLLED_EXECUTION_ENABLED="true"
+        ;;
+    *)
+        LIGHTING_CONTROLLED_EXECUTION_ENABLED="false"
+        ;;
+esac
 if [ "${FIRMWARE_PROVIDER_BASE_URL}" = "null" ]; then
     FIRMWARE_PROVIDER_BASE_URL="${SA_FIRMWARE_PROVIDER_BASE_URL:-}"
 fi
@@ -255,6 +299,11 @@ export SA_LLM_DEBUG_LOG_MAX_CHARS="${LLM_DEBUG_LOG_MAX_CHARS}"
 export SA_FRIGATE_ADMIN_API_URL="${FRIGATE_ADMIN_API_URL}"
 export SA_FRIGATE_ADMIN_AUTH_MODE="${FRIGATE_ADMIN_AUTH_MODE}"
 export SA_FRIGATE_ADMIN_TLS_VERIFY="${FRIGATE_ADMIN_TLS_VERIFY}"
+export SA_ACTIVE_AI_MODE="${ACTIVE_AI_MODE}"
+export SA_ACTIVE_AI_CANARY_SPACE_IDS="${ACTIVE_AI_CANARY_SPACE_IDS}"
+export SA_ACTIVE_AI_CANARY_DOMAINS="${ACTIVE_AI_CANARY_DOMAINS}"
+export SA_DOMAIN_REAL_EXECUTION_ENABLED="${DOMAIN_REAL_EXECUTION_ENABLED}"
+export SA_LIGHTING_CONTROLLED_EXECUTION_ENABLED="${LIGHTING_CONTROLLED_EXECUTION_ENABLED}"
 export SA_FIRMWARE_PROVIDER_BASE_URL="${FIRMWARE_PROVIDER_BASE_URL}"
 export SA_FIRMWARE_TRUSTED_ED25519_PUBLIC_KEYS="${FIRMWARE_TRUSTED_ED25519_PUBLIC_KEYS}"
 export SA_PRESENCE_PROBABILISTIC_MODE="${PRESENCE_PROBABILISTIC_MODE}"

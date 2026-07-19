@@ -1,5 +1,5 @@
 name: SmartAgent AI Core
-version: 0.0.174
+version: 0.0.175
 slug: smart_agent_core
 description: 'SmartAgent 网关、管理界面和 AI 推理核心，运行于家庭助理插件环境。
 
@@ -48,6 +48,11 @@ options:
   frigate_admin_api_url: ''
   frigate_admin_auth_mode: interactive_login
   frigate_admin_tls_verify: true
+  active_ai_mode: shadow
+  active_ai_canary_space_ids: ''
+  active_ai_canary_domains: ''
+  domain_real_execution_enabled: false
+  lighting_controlled_execution_enabled: false
   presence_probabilistic_mode: 'off'
   firmware_provider_base_url: ''
   firmware_trusted_ed25519_public_keys: ''
@@ -78,6 +83,11 @@ schema:
   frigate_admin_api_url: str
   frigate_admin_auth_mode: list(interactive_login)
   frigate_admin_tls_verify: bool
+  active_ai_mode: list(off|shadow|canary|on)
+  active_ai_canary_space_ids: str
+  active_ai_canary_domains: str
+  domain_real_execution_enabled: bool
+  lighting_controlled_execution_enabled: bool
   presence_probabilistic_mode: list(off|shadow|on)
   firmware_provider_base_url: str
   firmware_trusted_ed25519_public_keys: str
@@ -109,6 +119,11 @@ environment:
   SA_FRIGATE_ADMIN_API_URL: ''
   SA_FRIGATE_ADMIN_AUTH_MODE: interactive_login
   SA_FRIGATE_ADMIN_TLS_VERIFY: 'true'
+  SA_ACTIVE_AI_MODE: shadow
+  SA_ACTIVE_AI_CANARY_SPACE_IDS: ''
+  SA_ACTIVE_AI_CANARY_DOMAINS: ''
+  SA_DOMAIN_REAL_EXECUTION_ENABLED: 'false'
+  SA_LIGHTING_CONTROLLED_EXECUTION_ENABLED: 'false'
   SA_PRESENCE_PROBABILISTIC_MODE: 'off'
   SA_FIRMWARE_PROVIDER_BASE_URL: ''
   SA_FIRMWARE_TRUSTED_ED25519_PUBLIC_KEYS: ''
