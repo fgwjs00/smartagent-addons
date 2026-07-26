@@ -1,5 +1,5 @@
 name: SmartAgent AI Core
-version: 0.0.181
+version: 0.0.182
 slug: smart_agent_core
 description: 'SmartAgent 网关、管理界面和 AI 推理核心，运行于家庭助理插件环境。
 
@@ -51,6 +51,7 @@ options:
   active_ai_mode: shadow
   active_ai_canary_space_ids: ''
   active_ai_canary_domains: ''
+  active_ai_canary_entity_ids: ''
   domain_real_execution_enabled: false
   lighting_controlled_execution_enabled: false
   presence_probabilistic_mode: 'off'
@@ -86,6 +87,7 @@ schema:
   active_ai_mode: list(off|shadow|canary|on)
   active_ai_canary_space_ids: str
   active_ai_canary_domains: str
+  active_ai_canary_entity_ids: str
   domain_real_execution_enabled: bool
   lighting_controlled_execution_enabled: bool
   presence_probabilistic_mode: list(off|shadow|on)
@@ -122,6 +124,7 @@ environment:
   SA_ACTIVE_AI_MODE: shadow
   SA_ACTIVE_AI_CANARY_SPACE_IDS: ''
   SA_ACTIVE_AI_CANARY_DOMAINS: ''
+  SA_ACTIVE_AI_CANARY_ENTITY_IDS: ''
   SA_DOMAIN_REAL_EXECUTION_ENABLED: 'false'
   SA_LIGHTING_CONTROLLED_EXECUTION_ENABLED: 'false'
   SA_PRESENCE_PROBABILISTIC_MODE: 'off'

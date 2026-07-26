@@ -50,6 +50,9 @@ configuration:
   active_ai_canary_domains:
     name: 主动 AI 灰度设备域
     description: canary 模式允许真实执行的 Home Assistant 设备域，例如 light、cover。使用逗号或空格分隔，未列出的域会阻断整批动作。
+  active_ai_canary_entity_ids:
+    name: 主动 AI 灰度实体清单
+    description: canary 模式允许真实执行的 Home Assistant 实体 ID，使用逗号或空格分隔。留空或包含通配符 * 时均阻断执行，必须逐项填写已批准实体。
   domain_real_execution_enabled:
     name: 非照明设备真实执行总闸
     description: cover、climate、media 等设备域的外层真实执行开关。默认关闭；只在完成 shadow 验证并进入批准的 canary 阶段后开启。

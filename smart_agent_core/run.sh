@@ -49,6 +49,7 @@ FRIGATE_ADMIN_TLS_VERIFY="$(read_addon_option 'frigate_admin_tls_verify')"
 ACTIVE_AI_MODE="$(read_addon_option 'active_ai_mode')"
 ACTIVE_AI_CANARY_SPACE_IDS="$(read_addon_option 'active_ai_canary_space_ids')"
 ACTIVE_AI_CANARY_DOMAINS="$(read_addon_option 'active_ai_canary_domains')"
+ACTIVE_AI_CANARY_ENTITY_IDS="$(read_addon_option 'active_ai_canary_entity_ids')"
 DOMAIN_REAL_EXECUTION_ENABLED="$(read_addon_option 'domain_real_execution_enabled')"
 LIGHTING_CONTROLLED_EXECUTION_ENABLED="$(read_addon_option 'lighting_controlled_execution_enabled')"
 FIRMWARE_PROVIDER_BASE_URL="$(read_addon_option 'firmware_provider_base_url')"
@@ -213,6 +214,9 @@ fi
 if [ -z "${ACTIVE_AI_CANARY_DOMAINS}" ] || [ "${ACTIVE_AI_CANARY_DOMAINS}" = "null" ]; then
     ACTIVE_AI_CANARY_DOMAINS="${SA_ACTIVE_AI_CANARY_DOMAINS:-}"
 fi
+if [ -z "${ACTIVE_AI_CANARY_ENTITY_IDS}" ] || [ "${ACTIVE_AI_CANARY_ENTITY_IDS}" = "null" ]; then
+    ACTIVE_AI_CANARY_ENTITY_IDS="${SA_ACTIVE_AI_CANARY_ENTITY_IDS:-}"
+fi
 if [ -z "${DOMAIN_REAL_EXECUTION_ENABLED}" ] || [ "${DOMAIN_REAL_EXECUTION_ENABLED}" = "null" ]; then
     DOMAIN_REAL_EXECUTION_ENABLED="${SA_DOMAIN_REAL_EXECUTION_ENABLED:-false}"
 fi
@@ -302,6 +306,7 @@ export SA_FRIGATE_ADMIN_TLS_VERIFY="${FRIGATE_ADMIN_TLS_VERIFY}"
 export SA_ACTIVE_AI_MODE="${ACTIVE_AI_MODE}"
 export SA_ACTIVE_AI_CANARY_SPACE_IDS="${ACTIVE_AI_CANARY_SPACE_IDS}"
 export SA_ACTIVE_AI_CANARY_DOMAINS="${ACTIVE_AI_CANARY_DOMAINS}"
+export SA_ACTIVE_AI_CANARY_ENTITY_IDS="${ACTIVE_AI_CANARY_ENTITY_IDS}"
 export SA_DOMAIN_REAL_EXECUTION_ENABLED="${DOMAIN_REAL_EXECUTION_ENABLED}"
 export SA_LIGHTING_CONTROLLED_EXECUTION_ENABLED="${LIGHTING_CONTROLLED_EXECUTION_ENABLED}"
 export SA_FIRMWARE_PROVIDER_BASE_URL="${FIRMWARE_PROVIDER_BASE_URL}"
