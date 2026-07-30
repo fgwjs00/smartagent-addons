@@ -63,6 +63,7 @@ MATTER_PROTOCOL_ENABLED="$(read_addon_option 'matter_protocol_enabled')"
 if [ -z "${HA_URL}" ] || [ "${HA_URL}" = "null" ]; then
     HA_URL="http://supervisor/core"
 fi
+HA_URL="$(printf '%s' "${HA_URL}" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')"
 HA_URL="${HA_URL%/}"
 if [ "${HA_URL}" = "http://supervisor/core" ]; then
     HA_TOKEN="${SUPERVISOR_TOKEN:-}"
