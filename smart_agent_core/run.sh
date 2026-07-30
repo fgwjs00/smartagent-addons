@@ -63,8 +63,11 @@ MATTER_PROTOCOL_ENABLED="$(read_addon_option 'matter_protocol_enabled')"
 if [ -z "${HA_URL}" ] || [ "${HA_URL}" = "null" ]; then
     HA_URL="http://supervisor/core"
 fi
-if [ -z "${HA_TOKEN}" ] || [ "${HA_TOKEN}" = "null" ]; then
+HA_URL="${HA_URL%/}"
+if [ "${HA_URL}" = "http://supervisor/core" ]; then
     HA_TOKEN="${SUPERVISOR_TOKEN:-}"
+elif [ -z "${HA_TOKEN}" ] || [ "${HA_TOKEN}" = "null" ]; then
+    HA_TOKEN=""
 fi
 if [ "${AUTH_TOKEN}" = "null" ]; then
     AUTH_TOKEN=""
