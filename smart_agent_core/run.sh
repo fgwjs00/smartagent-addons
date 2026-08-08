@@ -128,7 +128,7 @@ case "${REMOTE_ACCESS_ENABLED_NORMALIZED}" in
         ;;
 esac
 if [ -z "${REMOTE_CLOUD_URL}" ] || [ "${REMOTE_CLOUD_URL}" = "null" ]; then
-    REMOTE_CLOUD_URL="${SA_REMOTE_CLOUD_URL:-https://api.smartagent.ai}"
+    REMOTE_CLOUD_URL="${SA_REMOTE_CLOUD_URL:-https://cloud.tuojiayi.com}"
 fi
 REMOTE_CLOUD_URL_VALIDATION="$(python3 - "${REMOTE_CLOUD_URL}" <<'PY'
 import ipaddress
@@ -166,7 +166,7 @@ print("valid" if valid else "invalid")
 PY
 )"
 if [ "${REMOTE_CLOUD_URL_VALIDATION}" != "valid" ]; then
-    REMOTE_CLOUD_URL="https://api.smartagent.ai"
+    REMOTE_CLOUD_URL="https://cloud.tuojiayi.com"
     REMOTE_ACCESS_ENABLED="false"
 fi
 if [ "${REMOTE_GATEWAY_LABEL}" = "null" ]; then

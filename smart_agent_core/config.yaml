@@ -1,5 +1,5 @@
 name: SmartAgent AI Core
-version: 0.0.206
+version: 0.0.207
 slug: smart_agent_core
 description: 'SmartAgent 网关、管理界面和 AI 推理核心，运行于家庭助理插件环境。
 
@@ -40,7 +40,7 @@ options:
   deploy_name: ''
   dev_source_root: ''
   remote_access_enabled: false
-  remote_cloud_url: https://api.smartagent.ai
+  remote_cloud_url: https://cloud.tuojiayi.com
   remote_gateway_label: ''
   llm_debug_log_requests: false
   llm_debug_log_full_prompt: false
@@ -113,7 +113,7 @@ environment:
   SA_DEPLOY_NAME: ''
   SA_DEV_SOURCE_ROOT: ''
   SA_REMOTE_ACCESS_ENABLED: 'false'
-  SA_REMOTE_CLOUD_URL: https://api.smartagent.ai
+  SA_REMOTE_CLOUD_URL: https://cloud.tuojiayi.com
   SA_REMOTE_GATEWAY_LABEL: ''
   SA_LLM_DEBUG_LOG_REQUESTS: 'false'
   SA_LLM_DEBUG_LOG_FULL_PROMPT: 'false'
