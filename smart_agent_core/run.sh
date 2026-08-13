@@ -205,7 +205,7 @@ if [ -z "${ACTIVE_AI_MODE}" ] || [ "${ACTIVE_AI_MODE}" = "null" ]; then
     ACTIVE_AI_MODE="${SA_ACTIVE_AI_MODE:-shadow}"
 fi
 case "$(printf '%s' "${ACTIVE_AI_MODE}" | tr '[:upper:]' '[:lower:]')" in
-    off|shadow|canary|on)
+    off|shadow|canary)
         ACTIVE_AI_MODE="$(printf '%s' "${ACTIVE_AI_MODE}" | tr '[:upper:]' '[:lower:]')"
         ;;
     *)

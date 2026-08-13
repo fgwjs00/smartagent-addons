@@ -1,5 +1,5 @@
 name: SmartAgent AI Core
-version: 0.0.207
+version: 0.0.209
 slug: smart_agent_core
 description: 'SmartAgent 网关、管理界面和 AI 推理核心，运行于家庭助理插件环境。
 
@@ -84,7 +84,7 @@ schema:
   frigate_admin_api_url: str
   frigate_admin_auth_mode: list(interactive_login)
   frigate_admin_tls_verify: bool
-  active_ai_mode: list(off|shadow|canary|on)
+  active_ai_mode: list(off|shadow|canary)
   active_ai_canary_space_ids: str
   active_ai_canary_domains: str
   active_ai_canary_entity_ids: str
