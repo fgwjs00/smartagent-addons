@@ -1,5 +1,5 @@
 name: SmartAgent AI Core
-version: 0.0.212
+version: 0.0.215
 slug: smart_agent_core
 description: 'SmartAgent 网关、管理界面和 AI 推理核心，运行于家庭助理插件环境。
 
@@ -22,13 +22,22 @@ panel_admin: true
 ports:
   8234/tcp: 8234
   18099/tcp: null
+  18101/tcp: null
+  18102/tcp: null
+  18103/tcp: null
+  18104/tcp: null
 ports_description:
+  18101/tcp: RegistrySnapshot dedicated source ingress (disabled/unmapped by default)
+  18102/tcp: Field Canary operator identity ingress (disabled/unmapped by default)
+  18103/tcp: Output ledger dedicated ingress (disabled/unmapped by default)
+  18104/tcp: Maintenance delegation ledger ingress (disabled/unmapped by default)
   8234/tcp: SmartAgent 网关 / 管理界面
   18099/tcp: SmartAgent 内部接口（供家庭助理集成访问）
 options:
   ha_url: http://supervisor/core
   ha_token: ''
   auth_token: ''
+  user_intent_delegation_secret: ''
   addon_port: 18099
   gateway_ui_port: 8234
   ha_time_zone: Asia/Shanghai
@@ -54,17 +63,88 @@ options:
   active_ai_canary_entity_ids: ''
   domain_real_execution_enabled: false
   lighting_controlled_execution_enabled: false
+  operations_provider_readback_source_enabled: false
+  operations_provider_readback_runtime_enabled: false
+  operations_provider_readback_ledger_secret: ''
+  proactive_verified_outcome_integrity_secret: ''
   presence_probabilistic_mode: 'off'
-  firmware_provider_base_url: ''
-  firmware_trusted_ed25519_public_keys: ''
   presence_probabilistic_hard_off: true
   firmware_maintenance_wifi_ssid: ''
   firmware_maintenance_wifi_password: ''
-  matter_protocol_enabled: false
+  refresh_registry_source_ingress_enabled: false
+  refresh_registry_source_ingress_port: 18101
+  refresh_registry_site_id: ''
+  refresh_registry_ha_installation_digest: ''
+  refresh_registry_bridge_config_entry_id: ''
+  refresh_registry_ingress_secret: ''
+  refresh_registry_previous_ingress_secret: ''
+  refresh_registry_attestation_secret: ''
+  refresh_registry_previous_attestation_secret: ''
+  refresh_registry_source_ledger_secret: ''
+  refresh_registry_catalog_writer_secret: ''
+  refresh_registry_previous_catalog_writer_secret: ''
+  observation_refresh_evidence_ingress_enabled: false
+  observation_refresh_evidence_ingress_secret: ''
+  observation_refresh_evidence_previous_ingress_secret: ''
+  observation_refresh_evidence_world_integrity_secret: ''
+  observation_refresh_provider_runtime_enabled: false
+  observation_refresh_provider_request_secret: ''
+  observation_refresh_provider_previous_request_secret: ''
+  goal_schedule_controller_enabled: false
+  goal_schedule_site_id: ''
+  goal_schedule_interval_seconds: 60
+  goal_schedule_recovery_window_seconds: 172800
+  goal_schedule_lookahead_seconds: 86400
+  goal_schedule_max_window_days: 7
+  output_ledger_ingress_enabled: false
+  output_ledger_ingress_port: 18103
+  output_ledger_ha_installation_digest: ''
+  output_ledger_bridge_config_entry_id: ''
+  output_ledger_ingress_secret: ''
+  output_ledger_previous_ingress_secret: ''
+  output_ledger_attestation_secret: ''
+  output_ledger_previous_attestation_secret: ''
+  output_ledger_integrity_secret: ''
+  maintenance_change_ingress_enabled: false
+  maintenance_change_ingress_port: 18104
+  maintenance_change_ha_installation_digest: ''
+  maintenance_change_bridge_config_entry_id: ''
+  maintenance_change_ingress_secret: ''
+  maintenance_change_previous_ingress_secret: ''
+  maintenance_delegation_attestation_secret: ''
+  maintenance_delegation_previous_attestation_secret: ''
+  maintenance_change_ledger_integrity_secret: ''
+  field_canary_operator_identity_ingress_enabled: false
+  field_canary_operator_identity_ingress_port: 18102
+  field_canary_operator_ha_installation_digest: ''
+  field_canary_operator_bridge_config_entry_id: ''
+  field_canary_operator_ingress_secret: ''
+  field_canary_operator_previous_ingress_secret: ''
+  field_canary_operator_attestation_secret: ''
+  field_canary_operator_previous_attestation_secret: ''
+  field_canary_operator_challenge_ledger_secret: ''
+  field_canary_operator_identity_ledger_secret: ''
+  field_canary_operator_approval_ledger_secret: ''
+  field_canary_governance_runtime_enabled: false
+  field_canary_authority_issuer_secret: ''
+  field_canary_issuer_policy_secret: ''
+  field_canary_authority_ledger_secret: ''
+  field_canary_authority_snapshot_secret: ''
+  field_canary_materializer_secret: ''
+  field_canary_grant_proposal_secret: ''
+  field_canary_grant_secret: ''
+  field_canary_grant_revocation_proposal_secret: ''
+  field_canary_grant_revocation_receipt_secret: ''
+  field_canary_grant_use_secret: ''
+  field_canary_dispatch_precondition_secret: ''
+  field_canary_dispatch_permit_secret: ''
+  field_canary_proof_issuance_secret: ''
+  field_canary_host_dispatch_proof_secret: ''
 schema:
   ha_url: str
   ha_token: password
   auth_token: password
+  user_intent_delegation_secret: password
   addon_port: int
   gateway_ui_port: int
   ha_time_zone: str
@@ -90,13 +170,83 @@ schema:
   active_ai_canary_entity_ids: str
   domain_real_execution_enabled: bool
   lighting_controlled_execution_enabled: bool
+  operations_provider_readback_source_enabled: bool
+  operations_provider_readback_runtime_enabled: bool
+  operations_provider_readback_ledger_secret: password
+  proactive_verified_outcome_integrity_secret: password
   presence_probabilistic_mode: list(off|shadow|on)
-  firmware_provider_base_url: str
-  firmware_trusted_ed25519_public_keys: str
   presence_probabilistic_hard_off: bool
   firmware_maintenance_wifi_ssid: str
   firmware_maintenance_wifi_password: password
-  matter_protocol_enabled: bool
+  refresh_registry_source_ingress_enabled: bool
+  refresh_registry_source_ingress_port: int
+  refresh_registry_site_id: str
+  refresh_registry_ha_installation_digest: str
+  refresh_registry_bridge_config_entry_id: str
+  refresh_registry_ingress_secret: password
+  refresh_registry_previous_ingress_secret: password
+  refresh_registry_attestation_secret: password
+  refresh_registry_previous_attestation_secret: password
+  refresh_registry_source_ledger_secret: password
+  refresh_registry_catalog_writer_secret: password
+  refresh_registry_previous_catalog_writer_secret: password
+  observation_refresh_evidence_ingress_enabled: bool
+  observation_refresh_evidence_ingress_secret: password
+  observation_refresh_evidence_previous_ingress_secret: password
+  observation_refresh_evidence_world_integrity_secret: password
+  observation_refresh_provider_runtime_enabled: bool
+  observation_refresh_provider_request_secret: password
+  observation_refresh_provider_previous_request_secret: password
+  goal_schedule_controller_enabled: bool
+  goal_schedule_site_id: str
+  goal_schedule_interval_seconds: int
+  goal_schedule_recovery_window_seconds: int
+  goal_schedule_lookahead_seconds: int
+  goal_schedule_max_window_days: int
+  output_ledger_ingress_enabled: bool
+  output_ledger_ingress_port: int
+  output_ledger_ha_installation_digest: str
+  output_ledger_bridge_config_entry_id: str
+  output_ledger_ingress_secret: password
+  output_ledger_previous_ingress_secret: password
+  output_ledger_attestation_secret: password
+  output_ledger_previous_attestation_secret: password
+  output_ledger_integrity_secret: password
+  maintenance_change_ingress_enabled: bool
+  maintenance_change_ingress_port: int
+  maintenance_change_ha_installation_digest: str
+  maintenance_change_bridge_config_entry_id: str
+  maintenance_change_ingress_secret: password
+  maintenance_change_previous_ingress_secret: password
+  maintenance_delegation_attestation_secret: password
+  maintenance_delegation_previous_attestation_secret: password
+  maintenance_change_ledger_integrity_secret: password
+  field_canary_operator_identity_ingress_enabled: bool
+  field_canary_operator_identity_ingress_port: int
+  field_canary_operator_ha_installation_digest: str
+  field_canary_operator_bridge_config_entry_id: str
+  field_canary_operator_ingress_secret: password
+  field_canary_operator_previous_ingress_secret: password
+  field_canary_operator_attestation_secret: password
+  field_canary_operator_previous_attestation_secret: password
+  field_canary_operator_challenge_ledger_secret: password
+  field_canary_operator_identity_ledger_secret: password
+  field_canary_operator_approval_ledger_secret: password
+  field_canary_governance_runtime_enabled: bool
+  field_canary_authority_issuer_secret: password
+  field_canary_issuer_policy_secret: password
+  field_canary_authority_ledger_secret: password
+  field_canary_authority_snapshot_secret: password
+  field_canary_materializer_secret: password
+  field_canary_grant_proposal_secret: password
+  field_canary_grant_secret: password
+  field_canary_grant_revocation_proposal_secret: password
+  field_canary_grant_revocation_receipt_secret: password
+  field_canary_grant_use_secret: password
+  field_canary_dispatch_precondition_secret: password
+  field_canary_dispatch_permit_secret: password
+  field_canary_proof_issuance_secret: password
+  field_canary_host_dispatch_proof_secret: password
 environment:
   SA_INTERNAL_PORT: '18099'
   SA_GATEWAY_UI_PORT: '8234'
@@ -107,6 +257,7 @@ environment:
   SA_LOG_LEVEL: INFO
   SA_LOG_FILE: /data/logs/smart_agent.log
   SA_CORE_STORAGE_MODE: local_first
+  SA_USER_INTENT_DELEGATION_SECRET: ''
   SA_DATA_SYNC_ENABLED: 'false'
   SA_DATA_SYNC_CONSENT_VERSION: 2026-07-v1
   SA_LICENSE_KEY: ''
@@ -127,11 +278,65 @@ environment:
   SA_ACTIVE_AI_CANARY_ENTITY_IDS: ''
   SA_DOMAIN_REAL_EXECUTION_ENABLED: 'false'
   SA_LIGHTING_CONTROLLED_EXECUTION_ENABLED: 'false'
+  SA_PROACTIVE_VERIFIED_OUTCOME_INTEGRITY_SECRET: ''
   SA_PRESENCE_PROBABILISTIC_MODE: 'off'
-  SA_FIRMWARE_PROVIDER_BASE_URL: ''
-  SA_FIRMWARE_TRUSTED_ED25519_PUBLIC_KEYS: ''
   SA_PRESENCE_PROBABILISTIC_HARD_OFF: 'true'
   SA_FIRMWARE_MAINTENANCE_WIFI_SSID: ''
   SA_FIRMWARE_MAINTENANCE_WIFI_PASSWORD: ''
-  SA_MATTER_PROTOCOL_ENABLED: 'false'
+  SA_REFRESH_REGISTRY_SOURCE_INGRESS_ENABLED: 'false'
+  SA_REFRESH_REGISTRY_SOURCE_INGRESS_PORT: '18101'
+  SA_REFRESH_REGISTRY_SITE_ID: ''
+  SA_REFRESH_REGISTRY_HA_INSTALLATION_DIGEST: ''
+  SA_REFRESH_REGISTRY_BRIDGE_CONFIG_ENTRY_ID: ''
+  SA_REFRESH_REGISTRY_INGRESS_SECRET: ''
+  SA_REFRESH_REGISTRY_PREVIOUS_INGRESS_SECRET: ''
+  SA_REFRESH_REGISTRY_ATTESTATION_SECRET: ''
+  SA_REFRESH_REGISTRY_PREVIOUS_ATTESTATION_SECRET: ''
+  SA_REFRESH_REGISTRY_SOURCE_LEDGER_SECRET: ''
+  SA_REFRESH_REGISTRY_CATALOG_WRITER_SECRET: ''
+  SA_REFRESH_REGISTRY_PREVIOUS_CATALOG_WRITER_SECRET: ''
+  SA_OUTPUT_LEDGER_INGRESS_ENABLED: 'false'
+  SA_OUTPUT_LEDGER_INGRESS_PORT: '18103'
+  SA_OUTPUT_LEDGER_HA_INSTALLATION_DIGEST: ''
+  SA_OUTPUT_LEDGER_BRIDGE_CONFIG_ENTRY_ID: ''
+  SA_OUTPUT_LEDGER_INGRESS_SECRET: ''
+  SA_OUTPUT_LEDGER_PREVIOUS_INGRESS_SECRET: ''
+  SA_OUTPUT_LEDGER_ATTESTATION_SECRET: ''
+  SA_OUTPUT_LEDGER_PREVIOUS_ATTESTATION_SECRET: ''
+  SA_OUTPUT_LEDGER_INTEGRITY_SECRET: ''
+  SA_MAINTENANCE_CHANGE_INGRESS_ENABLED: 'false'
+  SA_MAINTENANCE_CHANGE_INGRESS_PORT: '18104'
+  SA_MAINTENANCE_CHANGE_HA_INSTALLATION_DIGEST: ''
+  SA_MAINTENANCE_CHANGE_BRIDGE_CONFIG_ENTRY_ID: ''
+  SA_MAINTENANCE_CHANGE_INGRESS_SECRET: ''
+  SA_MAINTENANCE_CHANGE_PREVIOUS_INGRESS_SECRET: ''
+  SA_MAINTENANCE_DELEGATION_ATTESTATION_SECRET: ''
+  SA_MAINTENANCE_DELEGATION_PREVIOUS_ATTESTATION_SECRET: ''
+  SA_MAINTENANCE_CHANGE_LEDGER_INTEGRITY_SECRET: ''
+  SA_FIELD_CANARY_OPERATOR_IDENTITY_INGRESS_ENABLED: 'false'
+  SA_FIELD_CANARY_OPERATOR_IDENTITY_INGRESS_PORT: '18102'
+  SA_FIELD_CANARY_OPERATOR_HA_INSTALLATION_DIGEST: ''
+  SA_FIELD_CANARY_OPERATOR_BRIDGE_CONFIG_ENTRY_ID: ''
+  SA_FIELD_CANARY_OPERATOR_INGRESS_SECRET: ''
+  SA_FIELD_CANARY_OPERATOR_PREVIOUS_INGRESS_SECRET: ''
+  SA_FIELD_CANARY_OPERATOR_ATTESTATION_SECRET: ''
+  SA_FIELD_CANARY_OPERATOR_PREVIOUS_ATTESTATION_SECRET: ''
+  SA_FIELD_CANARY_OPERATOR_CHALLENGE_LEDGER_SECRET: ''
+  SA_FIELD_CANARY_OPERATOR_IDENTITY_LEDGER_SECRET: ''
+  SA_FIELD_CANARY_OPERATOR_APPROVAL_LEDGER_SECRET: ''
+  SA_FIELD_CANARY_GOVERNANCE_RUNTIME_ENABLED: 'false'
+  SA_FIELD_CANARY_AUTHORITY_ISSUER_SECRET: ''
+  SA_FIELD_CANARY_ISSUER_POLICY_SECRET: ''
+  SA_FIELD_CANARY_AUTHORITY_LEDGER_SECRET: ''
+  SA_FIELD_CANARY_AUTHORITY_SNAPSHOT_SECRET: ''
+  SA_FIELD_CANARY_MATERIALIZER_SECRET: ''
+  SA_FIELD_CANARY_GRANT_PROPOSAL_SECRET: ''
+  SA_FIELD_CANARY_GRANT_SECRET: ''
+  SA_FIELD_CANARY_GRANT_REVOCATION_PROPOSAL_SECRET: ''
+  SA_FIELD_CANARY_GRANT_REVOCATION_RECEIPT_SECRET: ''
+  SA_FIELD_CANARY_GRANT_USE_SECRET: ''
+  SA_FIELD_CANARY_DISPATCH_PRECONDITION_SECRET: ''
+  SA_FIELD_CANARY_DISPATCH_PERMIT_SECRET: ''
+  SA_FIELD_CANARY_PROOF_ISSUANCE_SECRET: ''
+  SA_FIELD_CANARY_HOST_DISPATCH_PROOF_SECRET: ''
 image: crpi-sijm6r9k7e2benib.cn-hangzhou.personal.cr.aliyuncs.com/fgwjs00/smart_agent

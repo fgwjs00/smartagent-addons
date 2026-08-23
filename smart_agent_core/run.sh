@@ -27,6 +27,7 @@ PY
 HA_URL="$(read_addon_option 'ha_url')"
 HA_TOKEN="$(read_addon_option 'ha_token')"
 AUTH_TOKEN="$(read_addon_option 'auth_token')"
+USER_INTENT_DELEGATION_SECRET="$(read_addon_option 'user_intent_delegation_secret')"
 ADDON_PORT="$(read_addon_option 'addon_port')"
 GATEWAY_UI_PORT="$(read_addon_option 'gateway_ui_port')"
 HA_TIME_ZONE="$(read_addon_option 'ha_time_zone')"
@@ -52,13 +53,83 @@ ACTIVE_AI_CANARY_DOMAINS="$(read_addon_option 'active_ai_canary_domains')"
 ACTIVE_AI_CANARY_ENTITY_IDS="$(read_addon_option 'active_ai_canary_entity_ids')"
 DOMAIN_REAL_EXECUTION_ENABLED="$(read_addon_option 'domain_real_execution_enabled')"
 LIGHTING_CONTROLLED_EXECUTION_ENABLED="$(read_addon_option 'lighting_controlled_execution_enabled')"
-FIRMWARE_PROVIDER_BASE_URL="$(read_addon_option 'firmware_provider_base_url')"
-FIRMWARE_TRUSTED_ED25519_PUBLIC_KEYS="$(read_addon_option 'firmware_trusted_ed25519_public_keys')"
+OPERATIONS_PROVIDER_READBACK_SOURCE_ENABLED="$(read_addon_option 'operations_provider_readback_source_enabled')"
+OPERATIONS_PROVIDER_READBACK_RUNTIME_ENABLED="$(read_addon_option 'operations_provider_readback_runtime_enabled')"
+OPERATIONS_PROVIDER_READBACK_LEDGER_SECRET="$(read_addon_option 'operations_provider_readback_ledger_secret')"
+PROACTIVE_VERIFIED_OUTCOME_INTEGRITY_SECRET="$(read_addon_option 'proactive_verified_outcome_integrity_secret')"
 PRESENCE_PROBABILISTIC_MODE="$(read_addon_option 'presence_probabilistic_mode')"
 PRESENCE_PROBABILISTIC_HARD_OFF="$(read_addon_option 'presence_probabilistic_hard_off')"
 FIRMWARE_MAINTENANCE_WIFI_SSID="$(read_addon_option 'firmware_maintenance_wifi_ssid')"
 FIRMWARE_MAINTENANCE_WIFI_PASSWORD="$(read_addon_option 'firmware_maintenance_wifi_password')"
-MATTER_PROTOCOL_ENABLED="$(read_addon_option 'matter_protocol_enabled')"
+REFRESH_REGISTRY_SOURCE_INGRESS_ENABLED="$(read_addon_option 'refresh_registry_source_ingress_enabled')"
+REFRESH_REGISTRY_SOURCE_INGRESS_PORT="$(read_addon_option 'refresh_registry_source_ingress_port')"
+REFRESH_REGISTRY_SITE_ID="$(read_addon_option 'refresh_registry_site_id')"
+REFRESH_REGISTRY_HA_INSTALLATION_DIGEST="$(read_addon_option 'refresh_registry_ha_installation_digest')"
+REFRESH_REGISTRY_BRIDGE_CONFIG_ENTRY_ID="$(read_addon_option 'refresh_registry_bridge_config_entry_id')"
+REFRESH_REGISTRY_INGRESS_SECRET="$(read_addon_option 'refresh_registry_ingress_secret')"
+REFRESH_REGISTRY_PREVIOUS_INGRESS_SECRET="$(read_addon_option 'refresh_registry_previous_ingress_secret')"
+REFRESH_REGISTRY_ATTESTATION_SECRET="$(read_addon_option 'refresh_registry_attestation_secret')"
+REFRESH_REGISTRY_PREVIOUS_ATTESTATION_SECRET="$(read_addon_option 'refresh_registry_previous_attestation_secret')"
+REFRESH_REGISTRY_SOURCE_LEDGER_SECRET="$(read_addon_option 'refresh_registry_source_ledger_secret')"
+REFRESH_REGISTRY_CATALOG_WRITER_SECRET="$(read_addon_option 'refresh_registry_catalog_writer_secret')"
+REFRESH_REGISTRY_PREVIOUS_CATALOG_WRITER_SECRET="$(read_addon_option 'refresh_registry_previous_catalog_writer_secret')"
+OBSERVATION_REFRESH_EVIDENCE_INGRESS_ENABLED="$(read_addon_option 'observation_refresh_evidence_ingress_enabled')"
+OBSERVATION_REFRESH_EVIDENCE_INGRESS_SECRET="$(read_addon_option 'observation_refresh_evidence_ingress_secret')"
+OBSERVATION_REFRESH_EVIDENCE_PREVIOUS_INGRESS_SECRET="$(read_addon_option 'observation_refresh_evidence_previous_ingress_secret')"
+OBSERVATION_REFRESH_EVIDENCE_WORLD_INTEGRITY_SECRET="$(read_addon_option 'observation_refresh_evidence_world_integrity_secret')"
+OBSERVATION_REFRESH_PROVIDER_RUNTIME_ENABLED="$(read_addon_option 'observation_refresh_provider_runtime_enabled')"
+OBSERVATION_REFRESH_PROVIDER_REQUEST_SECRET="$(read_addon_option 'observation_refresh_provider_request_secret')"
+OBSERVATION_REFRESH_PROVIDER_PREVIOUS_REQUEST_SECRET="$(read_addon_option 'observation_refresh_provider_previous_request_secret')"
+GOAL_SCHEDULE_CONTROLLER_ENABLED="$(read_addon_option 'goal_schedule_controller_enabled')"
+GOAL_SCHEDULE_SITE_ID="$(read_addon_option 'goal_schedule_site_id')"
+GOAL_SCHEDULE_INTERVAL_SECONDS="$(read_addon_option 'goal_schedule_interval_seconds')"
+GOAL_SCHEDULE_RECOVERY_WINDOW_SECONDS="$(read_addon_option 'goal_schedule_recovery_window_seconds')"
+GOAL_SCHEDULE_LOOKAHEAD_SECONDS="$(read_addon_option 'goal_schedule_lookahead_seconds')"
+GOAL_SCHEDULE_MAX_WINDOW_DAYS="$(read_addon_option 'goal_schedule_max_window_days')"
+OUTPUT_LEDGER_INGRESS_ENABLED="$(read_addon_option 'output_ledger_ingress_enabled')"
+OUTPUT_LEDGER_INGRESS_PORT="$(read_addon_option 'output_ledger_ingress_port')"
+OUTPUT_LEDGER_HA_INSTALLATION_DIGEST="$(read_addon_option 'output_ledger_ha_installation_digest')"
+OUTPUT_LEDGER_BRIDGE_CONFIG_ENTRY_ID="$(read_addon_option 'output_ledger_bridge_config_entry_id')"
+OUTPUT_LEDGER_INGRESS_SECRET="$(read_addon_option 'output_ledger_ingress_secret')"
+OUTPUT_LEDGER_PREVIOUS_INGRESS_SECRET="$(read_addon_option 'output_ledger_previous_ingress_secret')"
+OUTPUT_LEDGER_ATTESTATION_SECRET="$(read_addon_option 'output_ledger_attestation_secret')"
+OUTPUT_LEDGER_PREVIOUS_ATTESTATION_SECRET="$(read_addon_option 'output_ledger_previous_attestation_secret')"
+OUTPUT_LEDGER_INTEGRITY_SECRET="$(read_addon_option 'output_ledger_integrity_secret')"
+MAINTENANCE_CHANGE_INGRESS_ENABLED="$(read_addon_option 'maintenance_change_ingress_enabled')"
+MAINTENANCE_CHANGE_INGRESS_PORT="$(read_addon_option 'maintenance_change_ingress_port')"
+MAINTENANCE_CHANGE_HA_INSTALLATION_DIGEST="$(read_addon_option 'maintenance_change_ha_installation_digest')"
+MAINTENANCE_CHANGE_BRIDGE_CONFIG_ENTRY_ID="$(read_addon_option 'maintenance_change_bridge_config_entry_id')"
+MAINTENANCE_CHANGE_INGRESS_SECRET="$(read_addon_option 'maintenance_change_ingress_secret')"
+MAINTENANCE_CHANGE_PREVIOUS_INGRESS_SECRET="$(read_addon_option 'maintenance_change_previous_ingress_secret')"
+MAINTENANCE_DELEGATION_ATTESTATION_SECRET="$(read_addon_option 'maintenance_delegation_attestation_secret')"
+MAINTENANCE_DELEGATION_PREVIOUS_ATTESTATION_SECRET="$(read_addon_option 'maintenance_delegation_previous_attestation_secret')"
+MAINTENANCE_CHANGE_LEDGER_INTEGRITY_SECRET="$(read_addon_option 'maintenance_change_ledger_integrity_secret')"
+FIELD_CANARY_OPERATOR_IDENTITY_INGRESS_ENABLED="$(read_addon_option 'field_canary_operator_identity_ingress_enabled')"
+FIELD_CANARY_OPERATOR_IDENTITY_INGRESS_PORT="$(read_addon_option 'field_canary_operator_identity_ingress_port')"
+FIELD_CANARY_OPERATOR_HA_INSTALLATION_DIGEST="$(read_addon_option 'field_canary_operator_ha_installation_digest')"
+FIELD_CANARY_OPERATOR_BRIDGE_CONFIG_ENTRY_ID="$(read_addon_option 'field_canary_operator_bridge_config_entry_id')"
+FIELD_CANARY_OPERATOR_INGRESS_SECRET="$(read_addon_option 'field_canary_operator_ingress_secret')"
+FIELD_CANARY_OPERATOR_PREVIOUS_INGRESS_SECRET="$(read_addon_option 'field_canary_operator_previous_ingress_secret')"
+FIELD_CANARY_OPERATOR_ATTESTATION_SECRET="$(read_addon_option 'field_canary_operator_attestation_secret')"
+FIELD_CANARY_OPERATOR_PREVIOUS_ATTESTATION_SECRET="$(read_addon_option 'field_canary_operator_previous_attestation_secret')"
+FIELD_CANARY_OPERATOR_CHALLENGE_LEDGER_SECRET="$(read_addon_option 'field_canary_operator_challenge_ledger_secret')"
+FIELD_CANARY_OPERATOR_IDENTITY_LEDGER_SECRET="$(read_addon_option 'field_canary_operator_identity_ledger_secret')"
+FIELD_CANARY_OPERATOR_APPROVAL_LEDGER_SECRET="$(read_addon_option 'field_canary_operator_approval_ledger_secret')"
+FIELD_CANARY_GOVERNANCE_RUNTIME_ENABLED="$(read_addon_option 'field_canary_governance_runtime_enabled')"
+FIELD_CANARY_AUTHORITY_ISSUER_SECRET="$(read_addon_option 'field_canary_authority_issuer_secret')"
+FIELD_CANARY_ISSUER_POLICY_SECRET="$(read_addon_option 'field_canary_issuer_policy_secret')"
+FIELD_CANARY_AUTHORITY_LEDGER_SECRET="$(read_addon_option 'field_canary_authority_ledger_secret')"
+FIELD_CANARY_AUTHORITY_SNAPSHOT_SECRET="$(read_addon_option 'field_canary_authority_snapshot_secret')"
+FIELD_CANARY_MATERIALIZER_SECRET="$(read_addon_option 'field_canary_materializer_secret')"
+FIELD_CANARY_GRANT_PROPOSAL_SECRET="$(read_addon_option 'field_canary_grant_proposal_secret')"
+FIELD_CANARY_GRANT_SECRET="$(read_addon_option 'field_canary_grant_secret')"
+FIELD_CANARY_GRANT_REVOCATION_PROPOSAL_SECRET="$(read_addon_option 'field_canary_grant_revocation_proposal_secret')"
+FIELD_CANARY_GRANT_REVOCATION_RECEIPT_SECRET="$(read_addon_option 'field_canary_grant_revocation_receipt_secret')"
+FIELD_CANARY_GRANT_USE_SECRET="$(read_addon_option 'field_canary_grant_use_secret')"
+FIELD_CANARY_DISPATCH_PRECONDITION_SECRET="$(read_addon_option 'field_canary_dispatch_precondition_secret')"
+FIELD_CANARY_DISPATCH_PERMIT_SECRET="$(read_addon_option 'field_canary_dispatch_permit_secret')"
+FIELD_CANARY_PROOF_ISSUANCE_SECRET="$(read_addon_option 'field_canary_proof_issuance_secret')"
+FIELD_CANARY_HOST_DISPATCH_PROOF_SECRET="$(read_addon_option 'field_canary_host_dispatch_proof_secret')"
 
 if [ -z "${HA_URL}" ] || [ "${HA_URL}" = "null" ]; then
     HA_URL="http://supervisor/core"
@@ -72,6 +143,20 @@ elif [ -z "${HA_TOKEN}" ] || [ "${HA_TOKEN}" = "null" ]; then
 fi
 if [ "${AUTH_TOKEN}" = "null" ]; then
     AUTH_TOKEN=""
+fi
+if [ -z "${USER_INTENT_DELEGATION_SECRET}" ] || [ "${USER_INTENT_DELEGATION_SECRET}" = "null" ]; then
+    USER_INTENT_DELEGATION_SECRET="${SA_USER_INTENT_DELEGATION_SECRET:-}"
+fi
+if [ -n "${USER_INTENT_DELEGATION_SECRET}" ]; then
+    if [ "${#USER_INTENT_DELEGATION_SECRET}" -lt 32 ]; then
+        echo "user_intent_delegation_secret must contain at least 32 characters" >&2
+        exit 1
+    fi
+    if [ "${USER_INTENT_DELEGATION_SECRET}" = "${AUTH_TOKEN}" ] || \
+       [ "${USER_INTENT_DELEGATION_SECRET}" = "${HA_TOKEN}" ]; then
+        echo "user_intent_delegation_secret must be independent from auth_token and ha_token" >&2
+        exit 1
+    fi
 fi
 if [ -z "${ADDON_PORT}" ] || [ "${ADDON_PORT}" = "null" ]; then
     ADDON_PORT="${SA_INTERNAL_PORT:-18099}"
@@ -243,12 +328,6 @@ case "$(printf '%s' "${LIGHTING_CONTROLLED_EXECUTION_ENABLED}" | tr '[:upper:]' 
         LIGHTING_CONTROLLED_EXECUTION_ENABLED="false"
         ;;
 esac
-if [ "${FIRMWARE_PROVIDER_BASE_URL}" = "null" ]; then
-    FIRMWARE_PROVIDER_BASE_URL="${SA_FIRMWARE_PROVIDER_BASE_URL:-}"
-fi
-if [ "${FIRMWARE_TRUSTED_ED25519_PUBLIC_KEYS}" = "null" ]; then
-    FIRMWARE_TRUSTED_ED25519_PUBLIC_KEYS="${SA_FIRMWARE_TRUSTED_ED25519_PUBLIC_KEYS:-}"
-fi
 if [ -z "${PRESENCE_PROBABILISTIC_MODE}" ] || [ "${PRESENCE_PROBABILISTIC_MODE}" = "null" ]; then
     PRESENCE_PROBABILISTIC_MODE="${SA_PRESENCE_PROBABILISTIC_MODE:-off}"
 fi
@@ -277,13 +356,249 @@ fi
 if [ "${FIRMWARE_MAINTENANCE_WIFI_PASSWORD}" = "null" ]; then
     FIRMWARE_MAINTENANCE_WIFI_PASSWORD="${SA_FIRMWARE_MAINTENANCE_WIFI_PASSWORD:-}"
 fi
-if [ -z "${MATTER_PROTOCOL_ENABLED}" ] || [ "${MATTER_PROTOCOL_ENABLED}" = "null" ]; then
-    MATTER_PROTOCOL_ENABLED="${SA_MATTER_PROTOCOL_ENABLED:-false}"
+case "$(printf '%s' "${REFRESH_REGISTRY_SOURCE_INGRESS_ENABLED}" | tr '[:upper:]' '[:lower:]')" in
+    1|true|yes|on)
+        REFRESH_REGISTRY_SOURCE_INGRESS_ENABLED="true"
+        ;;
+    *)
+        REFRESH_REGISTRY_SOURCE_INGRESS_ENABLED="false"
+        ;;
+esac
+if [ -z "${OPERATIONS_PROVIDER_READBACK_SOURCE_ENABLED}" ] || [ "${OPERATIONS_PROVIDER_READBACK_SOURCE_ENABLED}" = "null" ]; then
+    OPERATIONS_PROVIDER_READBACK_SOURCE_ENABLED="${SA_OPERATIONS_PROVIDER_READBACK_SOURCE_ENABLED:-false}"
 fi
-
+case "$(printf '%s' "${OPERATIONS_PROVIDER_READBACK_SOURCE_ENABLED}" | tr '[:upper:]' '[:lower:]')" in
+    true|1|yes|on)
+        OPERATIONS_PROVIDER_READBACK_SOURCE_ENABLED="true"
+        ;;
+    *)
+        OPERATIONS_PROVIDER_READBACK_SOURCE_ENABLED="false"
+        ;;
+esac
+if [ -z "${OPERATIONS_PROVIDER_READBACK_RUNTIME_ENABLED}" ] || [ "${OPERATIONS_PROVIDER_READBACK_RUNTIME_ENABLED}" = "null" ]; then
+    OPERATIONS_PROVIDER_READBACK_RUNTIME_ENABLED="${SA_OPERATIONS_PROVIDER_READBACK_RUNTIME_ENABLED:-false}"
+fi
+case "$(printf '%s' "${OPERATIONS_PROVIDER_READBACK_RUNTIME_ENABLED}" | tr '[:upper:]' '[:lower:]')" in
+    true|1|yes|on)
+        OPERATIONS_PROVIDER_READBACK_RUNTIME_ENABLED="true"
+        ;;
+    *)
+        OPERATIONS_PROVIDER_READBACK_RUNTIME_ENABLED="false"
+        ;;
+esac
+if [ -z "${OPERATIONS_PROVIDER_READBACK_LEDGER_SECRET}" ] || [ "${OPERATIONS_PROVIDER_READBACK_LEDGER_SECRET}" = "null" ]; then
+    OPERATIONS_PROVIDER_READBACK_LEDGER_SECRET="${SA_OPERATIONS_PROVIDER_READBACK_LEDGER_SECRET:-}"
+fi
+if [ -z "${PROACTIVE_VERIFIED_OUTCOME_INTEGRITY_SECRET}" ] || [ "${PROACTIVE_VERIFIED_OUTCOME_INTEGRITY_SECRET}" = "null" ]; then
+    PROACTIVE_VERIFIED_OUTCOME_INTEGRITY_SECRET="${SA_PROACTIVE_VERIFIED_OUTCOME_INTEGRITY_SECRET:-}"
+fi
+if [ -n "${PROACTIVE_VERIFIED_OUTCOME_INTEGRITY_SECRET}" ]; then
+    if [ "${#PROACTIVE_VERIFIED_OUTCOME_INTEGRITY_SECRET}" -lt 32 ]; then
+        echo "proactive_verified_outcome_integrity_secret must contain at least 32 characters" >&2
+        exit 1
+    fi
+    if [ "${PROACTIVE_VERIFIED_OUTCOME_INTEGRITY_SECRET}" = "${AUTH_TOKEN}" ] || \
+       [ "${PROACTIVE_VERIFIED_OUTCOME_INTEGRITY_SECRET}" = "${HA_TOKEN}" ] || \
+       [ "${PROACTIVE_VERIFIED_OUTCOME_INTEGRITY_SECRET}" = "${OPERATIONS_PROVIDER_READBACK_LEDGER_SECRET}" ]; then
+        echo "proactive_verified_outcome_integrity_secret must be purpose-specific" >&2
+        exit 1
+    fi
+fi
+if [ -z "${REFRESH_REGISTRY_SOURCE_INGRESS_PORT}" ] || [ "${REFRESH_REGISTRY_SOURCE_INGRESS_PORT}" = "null" ]; then
+    REFRESH_REGISTRY_SOURCE_INGRESS_PORT="${SA_REFRESH_REGISTRY_SOURCE_INGRESS_PORT:-18101}"
+fi
+for refresh_registry_value in \
+    REFRESH_REGISTRY_SITE_ID REFRESH_REGISTRY_HA_INSTALLATION_DIGEST \
+    REFRESH_REGISTRY_BRIDGE_CONFIG_ENTRY_ID REFRESH_REGISTRY_INGRESS_SECRET \
+    REFRESH_REGISTRY_PREVIOUS_INGRESS_SECRET REFRESH_REGISTRY_ATTESTATION_SECRET \
+    REFRESH_REGISTRY_PREVIOUS_ATTESTATION_SECRET REFRESH_REGISTRY_SOURCE_LEDGER_SECRET \
+    REFRESH_REGISTRY_CATALOG_WRITER_SECRET REFRESH_REGISTRY_PREVIOUS_CATALOG_WRITER_SECRET
+do
+    eval "refresh_registry_current=\${${refresh_registry_value}}"
+    if [ "${refresh_registry_current}" = "null" ]; then
+        eval "${refresh_registry_value}=''"
+    fi
+done
+case "$(printf '%s' "${OBSERVATION_REFRESH_EVIDENCE_INGRESS_ENABLED}" | tr '[:upper:]' '[:lower:]')" in
+    1|true|yes|on)
+        OBSERVATION_REFRESH_EVIDENCE_INGRESS_ENABLED="true"
+        ;;
+    ""|0|false|no|off|null)
+        OBSERVATION_REFRESH_EVIDENCE_INGRESS_ENABLED="false"
+        ;;
+    *)
+        echo "[SmartAgent] observation_refresh_evidence_ingress_enabled is invalid" >&2
+        exit 1
+        ;;
+esac
+for refresh_evidence_value in \
+    OBSERVATION_REFRESH_EVIDENCE_INGRESS_SECRET \
+    OBSERVATION_REFRESH_EVIDENCE_PREVIOUS_INGRESS_SECRET \
+    OBSERVATION_REFRESH_EVIDENCE_WORLD_INTEGRITY_SECRET
+do
+    eval "refresh_evidence_current=\${${refresh_evidence_value}}"
+    if [ "${refresh_evidence_current}" = "null" ]; then
+        eval "${refresh_evidence_value}=''"
+    fi
+done
+case "$(printf '%s' "${OBSERVATION_REFRESH_PROVIDER_RUNTIME_ENABLED}" | tr '[:upper:]' '[:lower:]')" in
+    1|true|yes|on)
+        OBSERVATION_REFRESH_PROVIDER_RUNTIME_ENABLED="true"
+        ;;
+    ""|0|false|no|off|null)
+        OBSERVATION_REFRESH_PROVIDER_RUNTIME_ENABLED="false"
+        ;;
+    *)
+        echo "[SmartAgent] observation_refresh_provider_runtime_enabled is invalid" >&2
+        exit 1
+        ;;
+esac
+for observation_refresh_provider_value in \
+    OBSERVATION_REFRESH_PROVIDER_REQUEST_SECRET \
+    OBSERVATION_REFRESH_PROVIDER_PREVIOUS_REQUEST_SECRET
+do
+    eval "observation_refresh_provider_current=\${${observation_refresh_provider_value}}"
+    if [ "${observation_refresh_provider_current}" = "null" ]; then
+        eval "${observation_refresh_provider_value}=''"
+    fi
+done
+case "$(printf '%s' "${GOAL_SCHEDULE_CONTROLLER_ENABLED}" | tr '[:upper:]' '[:lower:]')" in
+    1|true|yes|on)
+        GOAL_SCHEDULE_CONTROLLER_ENABLED="true"
+        ;;
+    ""|0|false|no|off|null)
+        GOAL_SCHEDULE_CONTROLLER_ENABLED="false"
+        ;;
+    *)
+        echo "[SmartAgent] goal_schedule_controller_enabled is invalid" >&2
+        exit 1
+        ;;
+esac
+if [ "${GOAL_SCHEDULE_SITE_ID}" = "null" ]; then
+    GOAL_SCHEDULE_SITE_ID=""
+fi
+case "$(printf '%s' "${OUTPUT_LEDGER_INGRESS_ENABLED}" | tr '[:upper:]' '[:lower:]')" in
+    1|true|yes|on)
+        OUTPUT_LEDGER_INGRESS_ENABLED="true"
+        ;;
+    ""|0|false|no|off|null)
+        OUTPUT_LEDGER_INGRESS_ENABLED="false"
+        ;;
+    *)
+        echo "[SmartAgent] output_ledger_ingress_enabled is invalid" >&2
+        exit 78
+        ;;
+esac
+if [ -z "${OUTPUT_LEDGER_INGRESS_PORT}" ] || [ "${OUTPUT_LEDGER_INGRESS_PORT}" = "null" ]; then
+    OUTPUT_LEDGER_INGRESS_PORT="${SA_OUTPUT_LEDGER_INGRESS_PORT:-18103}"
+fi
+for output_ledger_value in \
+    OUTPUT_LEDGER_HA_INSTALLATION_DIGEST \
+    OUTPUT_LEDGER_BRIDGE_CONFIG_ENTRY_ID \
+    OUTPUT_LEDGER_INGRESS_SECRET \
+    OUTPUT_LEDGER_PREVIOUS_INGRESS_SECRET \
+    OUTPUT_LEDGER_ATTESTATION_SECRET \
+    OUTPUT_LEDGER_PREVIOUS_ATTESTATION_SECRET \
+    OUTPUT_LEDGER_INTEGRITY_SECRET
+do
+    eval "output_ledger_current=\${${output_ledger_value}}"
+    if [ "${output_ledger_current}" = "null" ]; then
+        eval "${output_ledger_value}=''"
+    fi
+done
+case "$(printf '%s' "${MAINTENANCE_CHANGE_INGRESS_ENABLED}" | tr '[:upper:]' '[:lower:]')" in
+    1|true|yes|on)
+        MAINTENANCE_CHANGE_INGRESS_ENABLED="true"
+        ;;
+    ""|0|false|no|off|null)
+        MAINTENANCE_CHANGE_INGRESS_ENABLED="false"
+        ;;
+    *)
+        echo "[SmartAgent] maintenance_change_ingress_enabled is invalid" >&2
+        exit 78
+        ;;
+esac
+if [ -z "${MAINTENANCE_CHANGE_INGRESS_PORT}" ] || [ "${MAINTENANCE_CHANGE_INGRESS_PORT}" = "null" ]; then
+    MAINTENANCE_CHANGE_INGRESS_PORT="${SA_MAINTENANCE_CHANGE_INGRESS_PORT:-18104}"
+fi
+for maintenance_change_value in \
+    MAINTENANCE_CHANGE_HA_INSTALLATION_DIGEST \
+    MAINTENANCE_CHANGE_BRIDGE_CONFIG_ENTRY_ID \
+    MAINTENANCE_CHANGE_INGRESS_SECRET \
+    MAINTENANCE_CHANGE_PREVIOUS_INGRESS_SECRET \
+    MAINTENANCE_DELEGATION_ATTESTATION_SECRET \
+    MAINTENANCE_DELEGATION_PREVIOUS_ATTESTATION_SECRET \
+    MAINTENANCE_CHANGE_LEDGER_INTEGRITY_SECRET
+do
+    eval "maintenance_change_current=\${${maintenance_change_value}}"
+    if [ "${maintenance_change_current}" = "null" ]; then
+        eval "${maintenance_change_value}=''"
+    fi
+done
+case "$(printf '%s' "${FIELD_CANARY_OPERATOR_IDENTITY_INGRESS_ENABLED}" | tr '[:upper:]' '[:lower:]')" in
+    1|true|yes|on)
+        FIELD_CANARY_OPERATOR_IDENTITY_INGRESS_ENABLED="true"
+        ;;
+    *)
+        FIELD_CANARY_OPERATOR_IDENTITY_INGRESS_ENABLED="false"
+        ;;
+esac
+if [ -z "${FIELD_CANARY_OPERATOR_IDENTITY_INGRESS_PORT}" ] || [ "${FIELD_CANARY_OPERATOR_IDENTITY_INGRESS_PORT}" = "null" ]; then
+    FIELD_CANARY_OPERATOR_IDENTITY_INGRESS_PORT="${SA_FIELD_CANARY_OPERATOR_IDENTITY_INGRESS_PORT:-18102}"
+fi
+for field_canary_operator_value in \
+    FIELD_CANARY_OPERATOR_HA_INSTALLATION_DIGEST \
+    FIELD_CANARY_OPERATOR_BRIDGE_CONFIG_ENTRY_ID \
+    FIELD_CANARY_OPERATOR_INGRESS_SECRET \
+    FIELD_CANARY_OPERATOR_PREVIOUS_INGRESS_SECRET \
+    FIELD_CANARY_OPERATOR_ATTESTATION_SECRET \
+    FIELD_CANARY_OPERATOR_PREVIOUS_ATTESTATION_SECRET \
+    FIELD_CANARY_OPERATOR_CHALLENGE_LEDGER_SECRET \
+    FIELD_CANARY_OPERATOR_IDENTITY_LEDGER_SECRET \
+    FIELD_CANARY_OPERATOR_APPROVAL_LEDGER_SECRET
+do
+    eval "field_canary_operator_current=\${${field_canary_operator_value}}"
+    if [ "${field_canary_operator_current}" = "null" ]; then
+        eval "${field_canary_operator_value}=''"
+    fi
+done
+case "$(printf '%s' "${FIELD_CANARY_GOVERNANCE_RUNTIME_ENABLED}" | tr '[:upper:]' '[:lower:]')" in
+    1|true|yes|on)
+        FIELD_CANARY_GOVERNANCE_RUNTIME_ENABLED="true"
+        ;;
+    ""|0|false|no|off|null)
+        FIELD_CANARY_GOVERNANCE_RUNTIME_ENABLED="false"
+        ;;
+    *)
+        echo "[SmartAgent] field_canary_governance_runtime_enabled is invalid" >&2
+        exit 78
+        ;;
+esac
+for field_canary_governance_value in \
+    FIELD_CANARY_AUTHORITY_ISSUER_SECRET \
+    FIELD_CANARY_ISSUER_POLICY_SECRET \
+    FIELD_CANARY_AUTHORITY_LEDGER_SECRET \
+    FIELD_CANARY_AUTHORITY_SNAPSHOT_SECRET \
+    FIELD_CANARY_MATERIALIZER_SECRET \
+    FIELD_CANARY_GRANT_PROPOSAL_SECRET \
+    FIELD_CANARY_GRANT_SECRET \
+    FIELD_CANARY_GRANT_REVOCATION_PROPOSAL_SECRET \
+    FIELD_CANARY_GRANT_REVOCATION_RECEIPT_SECRET \
+    FIELD_CANARY_GRANT_USE_SECRET \
+    FIELD_CANARY_DISPATCH_PRECONDITION_SECRET \
+    FIELD_CANARY_DISPATCH_PERMIT_SECRET \
+    FIELD_CANARY_PROOF_ISSUANCE_SECRET \
+    FIELD_CANARY_HOST_DISPATCH_PROOF_SECRET
+do
+    eval "field_canary_governance_current=\${${field_canary_governance_value}}"
+    if [ "${field_canary_governance_current}" = "null" ]; then
+        eval "${field_canary_governance_value}=''"
+    fi
+done
 export SA_HA_URL="${HA_URL}"
 export SA_HA_TOKEN="${HA_TOKEN}"
 export SA_AUTH_TOKEN="${AUTH_TOKEN}"
+export SA_USER_INTENT_DELEGATION_SECRET="${USER_INTENT_DELEGATION_SECRET}"
 export SA_INTERNAL_PORT="${ADDON_PORT}"
 export SA_GATEWAY_UI_PORT="${GATEWAY_UI_PORT}"
 export SA_HA_TIME_ZONE="${HA_TIME_ZONE}"
@@ -313,13 +628,83 @@ export SA_ACTIVE_AI_CANARY_DOMAINS="${ACTIVE_AI_CANARY_DOMAINS}"
 export SA_ACTIVE_AI_CANARY_ENTITY_IDS="${ACTIVE_AI_CANARY_ENTITY_IDS}"
 export SA_DOMAIN_REAL_EXECUTION_ENABLED="${DOMAIN_REAL_EXECUTION_ENABLED}"
 export SA_LIGHTING_CONTROLLED_EXECUTION_ENABLED="${LIGHTING_CONTROLLED_EXECUTION_ENABLED}"
-export SA_FIRMWARE_PROVIDER_BASE_URL="${FIRMWARE_PROVIDER_BASE_URL}"
-export SA_FIRMWARE_TRUSTED_ED25519_PUBLIC_KEYS="${FIRMWARE_TRUSTED_ED25519_PUBLIC_KEYS}"
+export SA_OPERATIONS_PROVIDER_READBACK_SOURCE_ENABLED="${OPERATIONS_PROVIDER_READBACK_SOURCE_ENABLED}"
+export SA_OPERATIONS_PROVIDER_READBACK_RUNTIME_ENABLED="${OPERATIONS_PROVIDER_READBACK_RUNTIME_ENABLED}"
+export SA_OPERATIONS_PROVIDER_READBACK_LEDGER_SECRET="${OPERATIONS_PROVIDER_READBACK_LEDGER_SECRET}"
+export SA_PROACTIVE_VERIFIED_OUTCOME_INTEGRITY_SECRET="${PROACTIVE_VERIFIED_OUTCOME_INTEGRITY_SECRET}"
 export SA_PRESENCE_PROBABILISTIC_MODE="${PRESENCE_PROBABILISTIC_MODE}"
 export SA_PRESENCE_PROBABILISTIC_HARD_OFF="${PRESENCE_PROBABILISTIC_HARD_OFF}"
 export SA_FIRMWARE_MAINTENANCE_WIFI_SSID="${FIRMWARE_MAINTENANCE_WIFI_SSID}"
 export SA_FIRMWARE_MAINTENANCE_WIFI_PASSWORD="${FIRMWARE_MAINTENANCE_WIFI_PASSWORD}"
-export SA_MATTER_PROTOCOL_ENABLED="${MATTER_PROTOCOL_ENABLED}"
+export SA_REFRESH_REGISTRY_SOURCE_INGRESS_ENABLED="${REFRESH_REGISTRY_SOURCE_INGRESS_ENABLED}"
+export SA_REFRESH_REGISTRY_SOURCE_INGRESS_PORT="${REFRESH_REGISTRY_SOURCE_INGRESS_PORT}"
+export SA_OBSERVATION_REFRESH_PROVIDER_RUNTIME_ENABLED="${OBSERVATION_REFRESH_PROVIDER_RUNTIME_ENABLED}"
+export SA_OBSERVATION_REFRESH_PROVIDER_REQUEST_SECRET="${OBSERVATION_REFRESH_PROVIDER_REQUEST_SECRET}"
+export SA_OBSERVATION_REFRESH_PROVIDER_PREVIOUS_REQUEST_SECRET="${OBSERVATION_REFRESH_PROVIDER_PREVIOUS_REQUEST_SECRET}"
+export SA_GOAL_SCHEDULE_CONTROLLER_ENABLED="${GOAL_SCHEDULE_CONTROLLER_ENABLED}"
+export SA_GOAL_SCHEDULE_SITE_ID="${GOAL_SCHEDULE_SITE_ID}"
+export SA_GOAL_SCHEDULE_INTERVAL_SECONDS="${GOAL_SCHEDULE_INTERVAL_SECONDS}"
+export SA_GOAL_SCHEDULE_RECOVERY_WINDOW_SECONDS="${GOAL_SCHEDULE_RECOVERY_WINDOW_SECONDS}"
+export SA_GOAL_SCHEDULE_LOOKAHEAD_SECONDS="${GOAL_SCHEDULE_LOOKAHEAD_SECONDS}"
+export SA_GOAL_SCHEDULE_MAX_WINDOW_DAYS="${GOAL_SCHEDULE_MAX_WINDOW_DAYS}"
+export SA_REFRESH_REGISTRY_SITE_ID="${REFRESH_REGISTRY_SITE_ID}"
+export SA_REFRESH_REGISTRY_HA_INSTALLATION_DIGEST="${REFRESH_REGISTRY_HA_INSTALLATION_DIGEST}"
+export SA_REFRESH_REGISTRY_BRIDGE_CONFIG_ENTRY_ID="${REFRESH_REGISTRY_BRIDGE_CONFIG_ENTRY_ID}"
+export SA_REFRESH_REGISTRY_INGRESS_SECRET="${REFRESH_REGISTRY_INGRESS_SECRET}"
+export SA_REFRESH_REGISTRY_PREVIOUS_INGRESS_SECRET="${REFRESH_REGISTRY_PREVIOUS_INGRESS_SECRET}"
+export SA_REFRESH_REGISTRY_ATTESTATION_SECRET="${REFRESH_REGISTRY_ATTESTATION_SECRET}"
+export SA_REFRESH_REGISTRY_PREVIOUS_ATTESTATION_SECRET="${REFRESH_REGISTRY_PREVIOUS_ATTESTATION_SECRET}"
+export SA_REFRESH_REGISTRY_SOURCE_LEDGER_SECRET="${REFRESH_REGISTRY_SOURCE_LEDGER_SECRET}"
+export SA_REFRESH_REGISTRY_CATALOG_WRITER_SECRET="${REFRESH_REGISTRY_CATALOG_WRITER_SECRET}"
+export SA_REFRESH_REGISTRY_PREVIOUS_CATALOG_WRITER_SECRET="${REFRESH_REGISTRY_PREVIOUS_CATALOG_WRITER_SECRET}"
+export SA_OBSERVATION_REFRESH_EVIDENCE_INGRESS_ENABLED="${OBSERVATION_REFRESH_EVIDENCE_INGRESS_ENABLED}"
+export SA_OBSERVATION_REFRESH_EVIDENCE_INGRESS_SECRET="${OBSERVATION_REFRESH_EVIDENCE_INGRESS_SECRET}"
+export SA_OBSERVATION_REFRESH_EVIDENCE_PREVIOUS_INGRESS_SECRET="${OBSERVATION_REFRESH_EVIDENCE_PREVIOUS_INGRESS_SECRET}"
+export SA_OBSERVATION_REFRESH_EVIDENCE_WORLD_INTEGRITY_SECRET="${OBSERVATION_REFRESH_EVIDENCE_WORLD_INTEGRITY_SECRET}"
+export SA_OUTPUT_LEDGER_INGRESS_ENABLED="${OUTPUT_LEDGER_INGRESS_ENABLED}"
+export SA_OUTPUT_LEDGER_INGRESS_PORT="${OUTPUT_LEDGER_INGRESS_PORT}"
+export SA_OUTPUT_LEDGER_HA_INSTALLATION_DIGEST="${OUTPUT_LEDGER_HA_INSTALLATION_DIGEST}"
+export SA_OUTPUT_LEDGER_BRIDGE_CONFIG_ENTRY_ID="${OUTPUT_LEDGER_BRIDGE_CONFIG_ENTRY_ID}"
+export SA_OUTPUT_LEDGER_INGRESS_SECRET="${OUTPUT_LEDGER_INGRESS_SECRET}"
+export SA_OUTPUT_LEDGER_PREVIOUS_INGRESS_SECRET="${OUTPUT_LEDGER_PREVIOUS_INGRESS_SECRET}"
+export SA_OUTPUT_LEDGER_ATTESTATION_SECRET="${OUTPUT_LEDGER_ATTESTATION_SECRET}"
+export SA_OUTPUT_LEDGER_PREVIOUS_ATTESTATION_SECRET="${OUTPUT_LEDGER_PREVIOUS_ATTESTATION_SECRET}"
+export SA_OUTPUT_LEDGER_INTEGRITY_SECRET="${OUTPUT_LEDGER_INTEGRITY_SECRET}"
+export SA_MAINTENANCE_CHANGE_INGRESS_ENABLED="${MAINTENANCE_CHANGE_INGRESS_ENABLED}"
+export SA_MAINTENANCE_CHANGE_INGRESS_PORT="${MAINTENANCE_CHANGE_INGRESS_PORT}"
+export SA_MAINTENANCE_CHANGE_HA_INSTALLATION_DIGEST="${MAINTENANCE_CHANGE_HA_INSTALLATION_DIGEST}"
+export SA_MAINTENANCE_CHANGE_BRIDGE_CONFIG_ENTRY_ID="${MAINTENANCE_CHANGE_BRIDGE_CONFIG_ENTRY_ID}"
+export SA_MAINTENANCE_CHANGE_INGRESS_SECRET="${MAINTENANCE_CHANGE_INGRESS_SECRET}"
+export SA_MAINTENANCE_CHANGE_PREVIOUS_INGRESS_SECRET="${MAINTENANCE_CHANGE_PREVIOUS_INGRESS_SECRET}"
+export SA_MAINTENANCE_DELEGATION_ATTESTATION_SECRET="${MAINTENANCE_DELEGATION_ATTESTATION_SECRET}"
+export SA_MAINTENANCE_DELEGATION_PREVIOUS_ATTESTATION_SECRET="${MAINTENANCE_DELEGATION_PREVIOUS_ATTESTATION_SECRET}"
+export SA_MAINTENANCE_CHANGE_LEDGER_INTEGRITY_SECRET="${MAINTENANCE_CHANGE_LEDGER_INTEGRITY_SECRET}"
+export SA_FIELD_CANARY_OPERATOR_IDENTITY_INGRESS_ENABLED="${FIELD_CANARY_OPERATOR_IDENTITY_INGRESS_ENABLED}"
+export SA_FIELD_CANARY_OPERATOR_IDENTITY_INGRESS_PORT="${FIELD_CANARY_OPERATOR_IDENTITY_INGRESS_PORT}"
+export SA_FIELD_CANARY_OPERATOR_HA_INSTALLATION_DIGEST="${FIELD_CANARY_OPERATOR_HA_INSTALLATION_DIGEST}"
+export SA_FIELD_CANARY_OPERATOR_BRIDGE_CONFIG_ENTRY_ID="${FIELD_CANARY_OPERATOR_BRIDGE_CONFIG_ENTRY_ID}"
+export SA_FIELD_CANARY_OPERATOR_INGRESS_SECRET="${FIELD_CANARY_OPERATOR_INGRESS_SECRET}"
+export SA_FIELD_CANARY_OPERATOR_PREVIOUS_INGRESS_SECRET="${FIELD_CANARY_OPERATOR_PREVIOUS_INGRESS_SECRET}"
+export SA_FIELD_CANARY_OPERATOR_ATTESTATION_SECRET="${FIELD_CANARY_OPERATOR_ATTESTATION_SECRET}"
+export SA_FIELD_CANARY_OPERATOR_PREVIOUS_ATTESTATION_SECRET="${FIELD_CANARY_OPERATOR_PREVIOUS_ATTESTATION_SECRET}"
+export SA_FIELD_CANARY_OPERATOR_CHALLENGE_LEDGER_SECRET="${FIELD_CANARY_OPERATOR_CHALLENGE_LEDGER_SECRET}"
+export SA_FIELD_CANARY_OPERATOR_IDENTITY_LEDGER_SECRET="${FIELD_CANARY_OPERATOR_IDENTITY_LEDGER_SECRET}"
+export SA_FIELD_CANARY_OPERATOR_APPROVAL_LEDGER_SECRET="${FIELD_CANARY_OPERATOR_APPROVAL_LEDGER_SECRET}"
+export SA_FIELD_CANARY_GOVERNANCE_RUNTIME_ENABLED="${FIELD_CANARY_GOVERNANCE_RUNTIME_ENABLED}"
+export SA_FIELD_CANARY_AUTHORITY_ISSUER_SECRET="${FIELD_CANARY_AUTHORITY_ISSUER_SECRET}"
+export SA_FIELD_CANARY_ISSUER_POLICY_SECRET="${FIELD_CANARY_ISSUER_POLICY_SECRET}"
+export SA_FIELD_CANARY_AUTHORITY_LEDGER_SECRET="${FIELD_CANARY_AUTHORITY_LEDGER_SECRET}"
+export SA_FIELD_CANARY_AUTHORITY_SNAPSHOT_SECRET="${FIELD_CANARY_AUTHORITY_SNAPSHOT_SECRET}"
+export SA_FIELD_CANARY_MATERIALIZER_SECRET="${FIELD_CANARY_MATERIALIZER_SECRET}"
+export SA_FIELD_CANARY_GRANT_PROPOSAL_SECRET="${FIELD_CANARY_GRANT_PROPOSAL_SECRET}"
+export SA_FIELD_CANARY_GRANT_SECRET="${FIELD_CANARY_GRANT_SECRET}"
+export SA_FIELD_CANARY_GRANT_REVOCATION_PROPOSAL_SECRET="${FIELD_CANARY_GRANT_REVOCATION_PROPOSAL_SECRET}"
+export SA_FIELD_CANARY_GRANT_REVOCATION_RECEIPT_SECRET="${FIELD_CANARY_GRANT_REVOCATION_RECEIPT_SECRET}"
+export SA_FIELD_CANARY_GRANT_USE_SECRET="${FIELD_CANARY_GRANT_USE_SECRET}"
+export SA_FIELD_CANARY_DISPATCH_PRECONDITION_SECRET="${FIELD_CANARY_DISPATCH_PRECONDITION_SECRET}"
+export SA_FIELD_CANARY_DISPATCH_PERMIT_SECRET="${FIELD_CANARY_DISPATCH_PERMIT_SECRET}"
+export SA_FIELD_CANARY_PROOF_ISSUANCE_SECRET="${FIELD_CANARY_PROOF_ISSUANCE_SECRET}"
+export SA_FIELD_CANARY_HOST_DISPATCH_PROOF_SECRET="${FIELD_CANARY_HOST_DISPATCH_PROOF_SECRET}"
 
 APP_BOOTSTRAP="/app/api_server_bootstrap.py"
 if [ -n "${DEV_SOURCE_ROOT}" ]; then

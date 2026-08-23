@@ -8,6 +8,9 @@ configuration:
   auth_token:
     name: SmartAgent 内部访问令牌
     description: SmartAgent 网关和 HA 集成访问插件内部接口时使用；需要和集成侧配置保持一致。
+  user_intent_delegation_secret:
+    name: 用户意图委托密钥
+    description: 用于签名并验证 HA 已认证用户的短时、单次执行意图委托；至少 32 字节，必须独立配置，不得复用内部访问令牌或 HA 令牌。
   addon_port:
     name: 核心服务端口
     description: SmartAgent 核心服务对 HA 集成开放的内部接口端口；修改后需要同步更新集成侧端口配置并重启。
@@ -43,7 +46,7 @@ configuration:
     description: 连接 HTTPS 管理端时验证服务器证书；仅在受控的本地测试环境中关闭。
   active_ai_mode:
     name: 主动 AI 运行模式
-    description: off 不调用模型；shadow 只记录决策；canary 仅允许指定空间和设备域执行；on 仍受置信度、世界快照、安全守卫和全局执行开关约束。默认 shadow。
+    description: off 不调用模型；shadow 只记录决策；canary 仅允许经精确空间、能力、设备和授权范围核验的动作执行。当前不提供全屋无范围 on 模式，默认 shadow。
   active_ai_canary_space_ids:
     name: 主动 AI 灰度空间
     description: canary 模式允许真实执行的空间 ID，使用逗号或空格分隔。留空时 canary 不执行任何动作。
@@ -62,24 +65,15 @@ configuration:
   presence_probabilistic_mode:
     name: 概率在场判定模式
     description: 控制新的概率式在场判定是否只记录分歧或参与实时决策；默认关闭，现场观察稳定后再调整。
-  firmware_provider_base_url:
-    name: 固件提供方基础地址
-    description: 设备维护模式从此地址下载已验签固件。只允许当前家庭 RFC1918 私网 IPv4 的 HTTP 地址；HTTP 仅负责局域网传输，固件真实性和完整性由 Ed25519 与 SHA256 保证。
-  firmware_trusted_ed25519_public_keys:
-    name: 固件签名公钥
-    description: 用于校验 .safw 固件包签名的 Ed25519 公钥列表。多个公钥以换行分隔；未配置时拒绝任何固件入库和升级。
   presence_probabilistic_hard_off:
     name: 概率在场绝对关闭
     description: 默认开启。开启时无论运行配置或快照请求为何值，概率在场均强制关闭；修改后需重启插件生效。
   firmware_maintenance_wifi_ssid:
-    name: 固件维护 Wi-Fi 名称
-    description: 设备进入 service_ota 后连接的本地维护网络名称。仅用于当前家庭内网 OTA，不得填写公网热点或访客网络。
+    name: 设备维护 Wi-Fi 名称
+    description: 雷达远程调试维护会话使用的本地网络名称，不用于固件升级。
   firmware_maintenance_wifi_password:
-    name: 固件维护 Wi-Fi 密码
-    description: 本地维护网络密码。该字段按密码保存和注入，不在普通页面、日志或固件事务响应中回显。
-  matter_protocol_enabled:
-    name: 启用 Matter 固件管理
-    description: 当前默认关闭。只有 Matter 分区、设备传输和现场验收全部通过后才能开启；协议切换由 Bootselect 完成，不通过 OTA 切换。
+    name: 设备维护 Wi-Fi 密码
+    description: 雷达远程调试维护网络密码。该字段按密码保存和注入，不在普通页面或日志中回显。
   data_sync_enabled:
     name: 兼容字段（不控制数据同步）
     description: 此旧字段不参与运行授权。请只在 V3 隐私页明确授权、停用或撤回数据同步。
@@ -104,6 +98,225 @@ configuration:
   remote_gateway_label:
     name: 远程网关显示名称
     description: 用于在已授权家庭账户中辨认本设备的公开显示名称；不要填写令牌或家庭隐私信息。
+  operations_provider_readback_source_enabled:
+    name: 运维 Provider 回读来源
+    description: 启用受控运维动作的权威回读来源。默认关闭；未完成 Provider 合同和回执验证前不要开启。
+  operations_provider_readback_runtime_enabled:
+    name: 运维 Provider 回读运行时
+    description: 启用运维动作的回读对账运行时。它不授予执行权限，来源或回执不完整时会失败关闭。
+  operations_provider_readback_ledger_secret:
+    name: 运维回读账本完整性密钥
+    description: 用于保护运维回读持久账本；至少 32 字节，必须独立配置，不得与访问令牌或其他用途密钥复用。
+  proactive_verified_outcome_integrity_secret:
+    name: 主动学习结果账本密钥
+    description: 用于保护 canonical 执行回执、物理状态读回与习惯证据之间的验证结果；至少 32 字节，必须独立配置，不能把设备 ACK 或普通访问令牌当作验证证明。
+  refresh_registry_source_ingress_enabled:
+    name: 观测刷新注册表来源入口
+    description: 启用 HA 到插件的专用注册表签名入口。默认关闭；启用前必须完成独立端口、密钥和安装身份绑定。
+  refresh_registry_source_ingress_port:
+    name: 观测刷新注册表入口端口
+    description: 专用注册表来源监听端口，只供受信 HA 主机使用，不得与管理界面或通用内部接口端口复用。
+  refresh_registry_site_id:
+    name: 观测刷新站点 ID
+    description: 注册表来源固定绑定的服务端站点标识；必须与当前安装点权威配置完全一致。
+  refresh_registry_ha_installation_digest:
+    name: HA 安装身份摘要
+    description: 当前 Home Assistant installation ID 的固定摘要，用于拒绝跨安装重放；这里只填写规范 SHA-256 摘要。
+  refresh_registry_bridge_config_entry_id:
+    name: 注册表桥接配置项 ID
+    description: 当前 SmartAgent HA ConfigEntry 的精确 ID，用于把签名快照绑定到唯一集成实例。
+  refresh_registry_ingress_secret:
+    name: 注册表入口当前密钥
+    description: HA 与插件专用入口的当前传输密钥；至少 32 字节，不得复用 SmartAgent 通用访问令牌。
+  refresh_registry_previous_ingress_secret:
+    name: 注册表入口上一密钥
+    description: 仅用于受控轮换窗口内验证旧入口请求；轮换完成后清空，不得长期保留。
+  refresh_registry_attestation_secret:
+    name: 注册表证明当前密钥
+    description: HA 对完整注册表快照签名的当前密钥；与入口、账本及 writer 密钥相互独立。
+  refresh_registry_previous_attestation_secret:
+    name: 注册表证明上一密钥
+    description: 用于验证轮换窗口内已签发的旧快照；不得用于签发新的证明。
+  refresh_registry_source_ledger_secret:
+    name: 注册表来源账本密钥
+    description: 插件侧保护 challenge、来源 head 与提交回执的持久完整性密钥；至少 32 字节并稳定保存。
+  refresh_registry_catalog_writer_secret:
+    name: 刷新目录 writer 当前密钥
+    description: 用于签名当前目录写入与成员关系回执；不得与来源账本或传输密钥复用。
+  refresh_registry_previous_catalog_writer_secret:
+    name: 刷新目录 writer 上一密钥
+    description: 用于复核历史目录写入回执的上一密钥；历史材料仍被引用期间不得删除。
+  observation_refresh_evidence_ingress_enabled:
+    name: 观测刷新 Evidence 入口
+    description: 启用 canonical Evidence 的专用签名入口。默认关闭；没有生产 issuer 和 exact Binding 时保持关闭。
+  observation_refresh_evidence_ingress_secret:
+    name: Evidence 入口当前密钥
+    description: Evidence context 和 commit 请求的当前独立传输密钥；至少 32 字节。
+  observation_refresh_evidence_previous_ingress_secret:
+    name: Evidence 入口上一密钥
+    description: 仅用于短期验证旧 Evidence 入口请求和响应；不得签发新的提交。
+  observation_refresh_evidence_world_integrity_secret:
+    name: EvidenceWorld 账本密钥
+    description: 保护 canonical EvidenceWorld head、记录和成员关系的插件侧完整性密钥。
+  observation_refresh_provider_runtime_enabled:
+    name: 观测刷新 Provider 运行时
+    description: 启用默认关闭的 observation-only Provider 请求链。无精确 Adapter、Binding 和签名回执时不会调用 Provider。
+  observation_refresh_provider_request_secret:
+    name: Provider 请求当前密钥
+    description: 插件与 HA 之间签名观测刷新 Provider 请求和响应的当前独立密钥。
+  observation_refresh_provider_previous_request_secret:
+    name: Provider 请求上一密钥
+    description: 用于受控轮换期间验证旧 Provider 请求；不得用于新的请求签发。
+  goal_schedule_controller_enabled:
+    name: Goal 固定时间控制器
+    description: 启用只生成 GoalTask occurrence 的后台控制器。默认关闭；它本身不调用 Planner、Provider 或设备。
+  goal_schedule_site_id:
+    name: Goal 调度站点 ID
+    description: 固定时间 occurrence 所属的精确站点标识，必须与持久 GoalSpec 完全一致。
+  goal_schedule_interval_seconds:
+    name: Goal 调度扫描间隔
+    description: 后台控制器重新检查固定时间计划的间隔秒数；只影响 occurrence 物化频率。
+  goal_schedule_recovery_window_seconds:
+    name: Goal 调度恢复窗口
+    description: 重启后允许核对的历史窗口秒数；超出窗口的缺口失败关闭，不自动补执行。
+  goal_schedule_lookahead_seconds:
+    name: Goal 调度前瞻窗口
+    description: 每轮预先物化未来 occurrence 的秒数；不表示提前执行或获得 Provider 权限。
+  goal_schedule_max_window_days:
+    name: Goal 调度最大窗口天数
+    description: 单次物化允许覆盖的最大天数，用于限制计算量和错误配置范围。
+  output_ledger_ingress_enabled:
+    name: 输出账本签名入口
+    description: 启用 HA 到插件的通知、TTS 等输出事实入口。默认关闭；它与设备执行权限相互独立。
+  output_ledger_ingress_port:
+    name: 输出账本入口端口
+    description: 输出事实专用内部监听端口，不得与管理界面或通用内部接口复用。
+  output_ledger_ha_installation_digest:
+    name: 输出入口 HA 安装摘要
+    description: 输出事实允许来源的 Home Assistant 安装身份摘要，用于拒绝跨安装重放。
+  output_ledger_bridge_config_entry_id:
+    name: 输出入口配置项 ID
+    description: 输出事实精确绑定的 SmartAgent ConfigEntry ID。
+  output_ledger_ingress_secret:
+    name: 输出入口当前密钥
+    description: 输出事实专用传输密钥；至少 32 字节，不得复用通用访问令牌。
+  output_ledger_previous_ingress_secret:
+    name: 输出入口上一密钥
+    description: 仅用于受控轮换期间验证旧入口请求。
+  output_ledger_attestation_secret:
+    name: 输出证明当前密钥
+    description: HA 对输出结果证明签名的当前密钥，与入口和账本密钥分离。
+  output_ledger_previous_attestation_secret:
+    name: 输出证明上一密钥
+    description: 用于验证轮换窗口内的旧输出证明，不得签发新证明。
+  output_ledger_integrity_secret:
+    name: 输出账本完整性密钥
+    description: 插件侧保护输出请求、结果和去重事实的持久完整性密钥。
+  maintenance_change_ingress_enabled:
+    name: 维护变更入口
+    description: 启用管理员维护变更的专用签名入口。默认关闭；普通 screen、gateway 或 active-AI 均不能取得该权限。
+  maintenance_change_ingress_port:
+    name: 维护变更入口端口
+    description: 维护变更专用内部监听端口，不得暴露为普通管理或 gateway 接口。
+  maintenance_change_ha_installation_digest:
+    name: 维护入口 HA 安装摘要
+    description: 维护委托允许来源的 Home Assistant 安装身份摘要。
+  maintenance_change_bridge_config_entry_id:
+    name: 维护入口配置项 ID
+    description: 维护变更精确绑定的 SmartAgent ConfigEntry ID。
+  maintenance_change_ingress_secret:
+    name: 维护入口当前密钥
+    description: 维护变更专用传输密钥；必须与通用访问凭据、证明密钥和账本密钥分离。
+  maintenance_change_previous_ingress_secret:
+    name: 维护入口上一密钥
+    description: 仅用于受控轮换窗口内验证旧维护请求。
+  maintenance_delegation_attestation_secret:
+    name: 维护委托证明当前密钥
+    description: HA 对当前管理员维护委托签名的密钥；委托必须短期、精确、单次且可撤销。
+  maintenance_delegation_previous_attestation_secret:
+    name: 维护委托证明上一密钥
+    description: 用于验证轮换窗口内已签发的旧维护委托。
+  maintenance_change_ledger_integrity_secret:
+    name: 维护变更账本密钥
+    description: 保护维护 proposal、委托消费、before/after 摘要和结果回执的持久完整性密钥。
+  field_canary_operator_identity_ingress_enabled:
+    name: 现场灰度管理员身份入口
+    description: 启用 HA 当前管理员会话证明的专用入口。默认关闭；只有完整 challenge 和签名身份链才能提交。
+  field_canary_operator_identity_ingress_port:
+    name: 现场灰度管理员入口端口
+    description: 管理员身份与审批专用内部监听端口，不得复用 gateway 或普通 screen 接口。
+  field_canary_operator_ha_installation_digest:
+    name: 现场灰度 HA 安装摘要
+    description: 管理员身份事实允许来源的 Home Assistant 安装身份摘要。
+  field_canary_operator_bridge_config_entry_id:
+    name: 现场灰度配置项 ID
+    description: 管理员身份事实精确绑定的 SmartAgent ConfigEntry ID。
+  field_canary_operator_ingress_secret:
+    name: 管理员入口当前密钥
+    description: 管理员身份入口专用传输密钥；不得与普通访问凭据或 Grant 密钥复用。
+  field_canary_operator_previous_ingress_secret:
+    name: 管理员入口上一密钥
+    description: 仅用于受控轮换期间验证旧入口请求。
+  field_canary_operator_attestation_secret:
+    name: 管理员身份当前证明密钥
+    description: HA 对当前管理员会话和 challenge 绑定事实签名的当前密钥。
+  field_canary_operator_previous_attestation_secret:
+    name: 管理员身份上一证明密钥
+    description: 用于验证轮换窗口内已签发的旧管理员身份事实。
+  field_canary_operator_challenge_ledger_secret:
+    name: 管理员 challenge 账本密钥
+    description: 保护一次性 challenge、nonce 摘要、消费和过期状态的持久完整性密钥。
+  field_canary_operator_identity_ledger_secret:
+    name: 管理员身份账本密钥
+    description: 保护已验证管理员身份记录及其 challenge lineage 的持久完整性密钥。
+  field_canary_operator_approval_ledger_secret:
+    name: 管理员审批账本密钥
+    description: 保护审批定义、签名审批和单次消费记录的持久完整性密钥。
+  field_canary_governance_runtime_enabled:
+    name: 现场灰度治理运行时
+    description: 启用默认关闭的 Field Canary 治理组合。未 provisioning 完整权威来源时会失败关闭且不获得设备执行权。
+  field_canary_authority_issuer_secret:
+    name: 灰度事实签发密钥
+    description: 对候选、范围、安全和回执等 authority fact 签名的 issuer 密钥。
+  field_canary_issuer_policy_secret:
+    name: 灰度 issuer 策略密钥
+    description: 保护 issuer、允许事实类型、版本和撤销状态的独立策略注册表密钥。
+  field_canary_authority_ledger_secret:
+    name: 灰度事实账本密钥
+    description: 保护 authority fact、subject head、撤销和选择 lineage 的持久完整性密钥。
+  field_canary_authority_snapshot_secret:
+    name: 灰度 authority 快照密钥
+    description: 对短期 readiness authority snapshot 签名的独立密钥。
+  field_canary_materializer_secret:
+    name: 灰度 readiness 物化密钥
+    description: 保护不可变 readiness materialization 记录的持久完整性密钥。
+  field_canary_grant_proposal_secret:
+    name: PromotionGrant 提案密钥
+    description: 保护 Grant 提案与 exact target tuple 集的独立持久密钥。
+  field_canary_grant_secret:
+    name: PromotionGrant 账本密钥
+    description: 保护短期、精确、可撤销 PromotionGrant 的持久完整性密钥。
+  field_canary_grant_revocation_proposal_secret:
+    name: Grant 撤销提案密钥
+    description: 保护撤销提案、原因和目标 Grant 绑定的独立密钥。
+  field_canary_grant_revocation_receipt_secret:
+    name: Grant 撤销回执密钥
+    description: 保护 Grant 终态撤销回执和单调状态事实的独立密钥。
+  field_canary_grant_use_secret:
+    name: Grant 使用账本密钥
+    description: 保护 Grant 使用 reservation、次数上限和终态消费事实的独立密钥。
+  field_canary_dispatch_precondition_secret:
+    name: 灰度派发前提密钥
+    description: 保护执行前 readiness、Grant、Policy、范围和当前状态重验事实。
+  field_canary_dispatch_permit_secret:
+    name: 灰度派发许可密钥
+    description: 保护单次、短期且精确绑定命令的 dispatch permit；它不能替代 HA 主机 proof。
+  field_canary_proof_issuance_secret:
+    name: 主机 proof 签发账本密钥
+    description: 保护一次性 host dispatch proof 的签发和状态记录。
+  field_canary_host_dispatch_proof_secret:
+    name: 主机派发 proof 密钥
+    description: 插件与 HA 主机共同验证 exact canary 派发 proof 的独立密钥，不得复用 Grant 或通用访问凭据。
 network:
   8234/tcp: SmartAgent 网关 / 管理界面
   18099/tcp: SmartAgent 内部接口（供家庭助理集成访问）
