@@ -24,10 +24,45 @@ print(value)
 PY
 }
 
+HOST_DISPATCH_PROOF_MATERIAL_PATH="${SA_HOST_DISPATCH_PROOF_MATERIAL_PATH:-/config/smartagent/host_dispatch_proof.json}"
+HOST_DISPATCH_PROOF_PROVISIONER="${SA_HOST_DISPATCH_PROOF_PROVISIONER:-/app/api_server_host_proof_provisioning.pyc}"
+if [ ! -f "${HOST_DISPATCH_PROOF_PROVISIONER}" ]; then
+    echo "[SmartAgent] Host Proof provisioning runtime is missing" >&2
+    exit 78
+fi
+SA_HOST_DISPATCH_PROOF_MATERIAL_PATH="${HOST_DISPATCH_PROOF_MATERIAL_PATH}" \
+    python3 "${HOST_DISPATCH_PROOF_PROVISIONER}"
+
+read_host_proof_material_field() {
+    key="$1"
+    python3 - "$key" "${HOST_DISPATCH_PROOF_MATERIAL_PATH}" <<'PY'
+import json
+import sys
+from pathlib import Path
+
+key = sys.argv[1]
+payload = json.loads(Path(sys.argv[2]).read_text(encoding="utf-8"))
+if payload.get("schema_version") != "smartagent.host_dispatch_proof_material.v1":
+    raise SystemExit("host_proof_material_version_invalid")
+value = payload.get(key)
+if key == "enabled":
+    if value is not True:
+        raise SystemExit("host_proof_material_not_enabled")
+    print("true")
+elif type(value) is str:
+    print(value)
+else:
+    raise SystemExit("host_proof_material_field_invalid")
+PY
+}
+
 HA_URL="$(read_addon_option 'ha_url')"
 HA_TOKEN="$(read_addon_option 'ha_token')"
 AUTH_TOKEN="$(read_addon_option 'auth_token')"
-USER_INTENT_DELEGATION_SECRET="$(read_addon_option 'user_intent_delegation_secret')"
+PROACTIVE_CANARY_AUTHORIZATION_SECRET="$(read_addon_option 'proactive_canary_authorization_secret')"
+HOST_DISPATCH_PROOF_ENABLED="$(read_host_proof_material_field 'enabled')"
+HOST_DISPATCH_PROOF_CURRENT_SECRET="$(read_host_proof_material_field 'current_secret')"
+HOST_DISPATCH_PROOF_STAGED_SECRET="$(read_host_proof_material_field 'staged_secret')"
 ADDON_PORT="$(read_addon_option 'addon_port')"
 GATEWAY_UI_PORT="$(read_addon_option 'gateway_ui_port')"
 HA_TIME_ZONE="$(read_addon_option 'ha_time_zone')"
@@ -57,10 +92,19 @@ OPERATIONS_PROVIDER_READBACK_SOURCE_ENABLED="$(read_addon_option 'operations_pro
 OPERATIONS_PROVIDER_READBACK_RUNTIME_ENABLED="$(read_addon_option 'operations_provider_readback_runtime_enabled')"
 OPERATIONS_PROVIDER_READBACK_LEDGER_SECRET="$(read_addon_option 'operations_provider_readback_ledger_secret')"
 PROACTIVE_VERIFIED_OUTCOME_INTEGRITY_SECRET="$(read_addon_option 'proactive_verified_outcome_integrity_secret')"
+OWNER_AUTONOMY_ENABLED="$(read_addon_option 'owner_autonomy_enabled')"
+OWNER_AUTONOMY_PRINCIPAL_ID="$(read_addon_option 'owner_autonomy_principal_id')"
+OWNER_AUTONOMY_ENVELOPE_ID="$(read_addon_option 'owner_autonomy_envelope_id')"
+OWNER_AUTONOMY_PUBLIC_KEY="$(read_addon_option 'owner_autonomy_public_key')"
 PRESENCE_PROBABILISTIC_MODE="$(read_addon_option 'presence_probabilistic_mode')"
 PRESENCE_PROBABILISTIC_HARD_OFF="$(read_addon_option 'presence_probabilistic_hard_off')"
 FIRMWARE_MAINTENANCE_WIFI_SSID="$(read_addon_option 'firmware_maintenance_wifi_ssid')"
 FIRMWARE_MAINTENANCE_WIFI_PASSWORD="$(read_addon_option 'firmware_maintenance_wifi_password')"
+STEWARD_CHANNEL_ENABLED="$(read_addon_option 'steward_channel_enabled')"
+STEWARD_BASE_URL="$(read_addon_option 'steward_base_url')"
+STEWARD_EVENTS_TOKEN="$(read_addon_option 'steward_events_token')"
+STEWARD_HOUSEHOLD_ID="$(read_addon_option 'steward_household_id')"
+STEWARD_CHANNEL_TIMEOUT_SECONDS="$(read_addon_option 'steward_channel_timeout_seconds')"
 REFRESH_REGISTRY_SOURCE_INGRESS_ENABLED="$(read_addon_option 'refresh_registry_source_ingress_enabled')"
 REFRESH_REGISTRY_SOURCE_INGRESS_PORT="$(read_addon_option 'refresh_registry_source_ingress_port')"
 REFRESH_REGISTRY_SITE_ID="$(read_addon_option 'refresh_registry_site_id')"
@@ -144,17 +188,17 @@ fi
 if [ "${AUTH_TOKEN}" = "null" ]; then
     AUTH_TOKEN=""
 fi
-if [ -z "${USER_INTENT_DELEGATION_SECRET}" ] || [ "${USER_INTENT_DELEGATION_SECRET}" = "null" ]; then
-    USER_INTENT_DELEGATION_SECRET="${SA_USER_INTENT_DELEGATION_SECRET:-}"
+if [ -z "${PROACTIVE_CANARY_AUTHORIZATION_SECRET}" ] || [ "${PROACTIVE_CANARY_AUTHORIZATION_SECRET}" = "null" ]; then
+    PROACTIVE_CANARY_AUTHORIZATION_SECRET="${SA_PROACTIVE_CANARY_AUTHORIZATION_SECRET:-}"
 fi
-if [ -n "${USER_INTENT_DELEGATION_SECRET}" ]; then
-    if [ "${#USER_INTENT_DELEGATION_SECRET}" -lt 32 ]; then
-        echo "user_intent_delegation_secret must contain at least 32 characters" >&2
+if [ -n "${PROACTIVE_CANARY_AUTHORIZATION_SECRET}" ]; then
+    if [ "${#PROACTIVE_CANARY_AUTHORIZATION_SECRET}" -lt 32 ]; then
+        echo "proactive_canary_authorization_secret must contain at least 32 characters" >&2
         exit 1
     fi
-    if [ "${USER_INTENT_DELEGATION_SECRET}" = "${AUTH_TOKEN}" ] || \
-       [ "${USER_INTENT_DELEGATION_SECRET}" = "${HA_TOKEN}" ]; then
-        echo "user_intent_delegation_secret must be independent from auth_token and ha_token" >&2
+    if [ "${PROACTIVE_CANARY_AUTHORIZATION_SECRET}" = "${AUTH_TOKEN}" ] || \
+       [ "${PROACTIVE_CANARY_AUTHORIZATION_SECRET}" = "${HA_TOKEN}" ]; then
+        echo "proactive_canary_authorization_secret must be independent from auth_token and ha_token" >&2
         exit 1
     fi
 fi
@@ -290,7 +334,7 @@ if [ -z "${ACTIVE_AI_MODE}" ] || [ "${ACTIVE_AI_MODE}" = "null" ]; then
     ACTIVE_AI_MODE="${SA_ACTIVE_AI_MODE:-shadow}"
 fi
 case "$(printf '%s' "${ACTIVE_AI_MODE}" | tr '[:upper:]' '[:lower:]')" in
-    off|shadow|canary)
+    off|shadow|active|canary)
         ACTIVE_AI_MODE="$(printf '%s' "${ACTIVE_AI_MODE}" | tr '[:upper:]' '[:lower:]')"
         ;;
     *)
@@ -356,6 +400,58 @@ fi
 if [ "${FIRMWARE_MAINTENANCE_WIFI_PASSWORD}" = "null" ]; then
     FIRMWARE_MAINTENANCE_WIFI_PASSWORD="${SA_FIRMWARE_MAINTENANCE_WIFI_PASSWORD:-}"
 fi
+if [ -z "${STEWARD_CHANNEL_ENABLED}" ] || [ "${STEWARD_CHANNEL_ENABLED}" = "null" ]; then
+    STEWARD_CHANNEL_ENABLED="${SA_STEWARD_CHANNEL_ENABLED:-false}"
+fi
+case "$(printf '%s' "${STEWARD_CHANNEL_ENABLED}" | tr '[:upper:]' '[:lower:]')" in
+    true)
+        STEWARD_CHANNEL_ENABLED="true"
+        ;;
+    false)
+        STEWARD_CHANNEL_ENABLED="false"
+        ;;
+    *)
+        echo "steward_channel_enabled must be true or false" >&2
+        exit 1
+        ;;
+esac
+if [ -z "${STEWARD_BASE_URL}" ] || [ "${STEWARD_BASE_URL}" = "null" ]; then
+    STEWARD_BASE_URL="${SA_STEWARD_BASE_URL:-}"
+fi
+if [ -z "${STEWARD_EVENTS_TOKEN}" ] || [ "${STEWARD_EVENTS_TOKEN}" = "null" ]; then
+    STEWARD_EVENTS_TOKEN="${SA_STEWARD_EVENTS_TOKEN:-}"
+fi
+if [ -z "${STEWARD_HOUSEHOLD_ID}" ] || [ "${STEWARD_HOUSEHOLD_ID}" = "null" ]; then
+    STEWARD_HOUSEHOLD_ID="${SA_STEWARD_HOUSEHOLD_ID:-}"
+fi
+if [ -z "${STEWARD_CHANNEL_TIMEOUT_SECONDS}" ] || [ "${STEWARD_CHANNEL_TIMEOUT_SECONDS}" = "null" ]; then
+    STEWARD_CHANNEL_TIMEOUT_SECONDS="${SA_STEWARD_CHANNEL_TIMEOUT_SECONDS:-5}"
+fi
+case "${STEWARD_CHANNEL_TIMEOUT_SECONDS}" in
+    *[!0-9]*|'')
+        echo "steward_channel_timeout_seconds must be an integer between 1 and 30" >&2
+        exit 1
+        ;;
+esac
+if [ "${STEWARD_CHANNEL_TIMEOUT_SECONDS}" -lt 1 ] || [ "${STEWARD_CHANNEL_TIMEOUT_SECONDS}" -gt 30 ]; then
+    echo "steward_channel_timeout_seconds must be an integer between 1 and 30" >&2
+    exit 1
+fi
+if [ "${STEWARD_CHANNEL_ENABLED}" = "true" ]; then
+    if [ -z "${STEWARD_BASE_URL}" ] || [ -z "${STEWARD_EVENTS_TOKEN}" ] || [ -z "${STEWARD_HOUSEHOLD_ID}" ]; then
+        echo "enabled steward channel requires base_url, events_token, and household_id" >&2
+        exit 1
+    fi
+    if [ "${#STEWARD_EVENTS_TOKEN}" -lt 16 ]; then
+        echo "steward_events_token must contain at least 16 characters" >&2
+        exit 1
+    fi
+    if [ "${STEWARD_EVENTS_TOKEN}" = "${AUTH_TOKEN}" ] || \
+       [ "${STEWARD_EVENTS_TOKEN}" = "${HA_TOKEN}" ]; then
+        echo "steward_events_token must be purpose-specific" >&2
+        exit 1
+    fi
+fi
 case "$(printf '%s' "${REFRESH_REGISTRY_SOURCE_INGRESS_ENABLED}" | tr '[:upper:]' '[:lower:]')" in
     1|true|yes|on)
         REFRESH_REGISTRY_SOURCE_INGRESS_ENABLED="true"
@@ -364,6 +460,38 @@ case "$(printf '%s' "${REFRESH_REGISTRY_SOURCE_INGRESS_ENABLED}" | tr '[:upper:]
         REFRESH_REGISTRY_SOURCE_INGRESS_ENABLED="false"
         ;;
 esac
+if [ -z "${OWNER_AUTONOMY_ENABLED}" ] || [ "${OWNER_AUTONOMY_ENABLED}" = "null" ]; then
+    OWNER_AUTONOMY_ENABLED="${SA_OWNER_AUTONOMY_ENABLED:-false}"
+fi
+case "$(printf '%s' "${OWNER_AUTONOMY_ENABLED}" | tr '[:upper:]' '[:lower:]')" in
+    true)
+        OWNER_AUTONOMY_ENABLED="true"
+        ;;
+    false)
+        OWNER_AUTONOMY_ENABLED="false"
+        ;;
+    *)
+        echo "owner_autonomy_enabled must be true or false" >&2
+        exit 1
+        ;;
+esac
+if [ -z "${OWNER_AUTONOMY_PRINCIPAL_ID}" ] || [ "${OWNER_AUTONOMY_PRINCIPAL_ID}" = "null" ]; then
+    OWNER_AUTONOMY_PRINCIPAL_ID="${SA_OWNER_AUTONOMY_PRINCIPAL_ID:-}"
+fi
+if [ -z "${OWNER_AUTONOMY_ENVELOPE_ID}" ] || [ "${OWNER_AUTONOMY_ENVELOPE_ID}" = "null" ]; then
+    OWNER_AUTONOMY_ENVELOPE_ID="${SA_OWNER_AUTONOMY_ENVELOPE_ID:-}"
+fi
+if [ -z "${OWNER_AUTONOMY_PUBLIC_KEY}" ] || [ "${OWNER_AUTONOMY_PUBLIC_KEY}" = "null" ]; then
+    OWNER_AUTONOMY_PUBLIC_KEY="${SA_OWNER_AUTONOMY_PUBLIC_KEY:-}"
+fi
+if [ "${OWNER_AUTONOMY_ENABLED}" = "true" ]; then
+    if [ -z "${OWNER_AUTONOMY_PRINCIPAL_ID}" ] || \
+       [ -z "${OWNER_AUTONOMY_ENVELOPE_ID}" ] || \
+       [ -z "${OWNER_AUTONOMY_PUBLIC_KEY}" ]; then
+        echo "enabled owner autonomy requires principal_id, envelope_id, and Ed25519 public_key" >&2
+        exit 1
+    fi
+fi
 if [ -z "${OPERATIONS_PROVIDER_READBACK_SOURCE_ENABLED}" ] || [ "${OPERATIONS_PROVIDER_READBACK_SOURCE_ENABLED}" = "null" ]; then
     OPERATIONS_PROVIDER_READBACK_SOURCE_ENABLED="${SA_OPERATIONS_PROVIDER_READBACK_SOURCE_ENABLED:-false}"
 fi
@@ -598,7 +726,10 @@ done
 export SA_HA_URL="${HA_URL}"
 export SA_HA_TOKEN="${HA_TOKEN}"
 export SA_AUTH_TOKEN="${AUTH_TOKEN}"
-export SA_USER_INTENT_DELEGATION_SECRET="${USER_INTENT_DELEGATION_SECRET}"
+export SA_PROACTIVE_CANARY_AUTHORIZATION_SECRET="${PROACTIVE_CANARY_AUTHORIZATION_SECRET}"
+export SA_HOST_DISPATCH_PROOF_ENABLED="${HOST_DISPATCH_PROOF_ENABLED}"
+export SA_HOST_DISPATCH_PROOF_CURRENT_SECRET="${HOST_DISPATCH_PROOF_CURRENT_SECRET}"
+export SA_HOST_DISPATCH_PROOF_STAGED_SECRET="${HOST_DISPATCH_PROOF_STAGED_SECRET}"
 export SA_INTERNAL_PORT="${ADDON_PORT}"
 export SA_GATEWAY_UI_PORT="${GATEWAY_UI_PORT}"
 export SA_HA_TIME_ZONE="${HA_TIME_ZONE}"
@@ -632,10 +763,19 @@ export SA_OPERATIONS_PROVIDER_READBACK_SOURCE_ENABLED="${OPERATIONS_PROVIDER_REA
 export SA_OPERATIONS_PROVIDER_READBACK_RUNTIME_ENABLED="${OPERATIONS_PROVIDER_READBACK_RUNTIME_ENABLED}"
 export SA_OPERATIONS_PROVIDER_READBACK_LEDGER_SECRET="${OPERATIONS_PROVIDER_READBACK_LEDGER_SECRET}"
 export SA_PROACTIVE_VERIFIED_OUTCOME_INTEGRITY_SECRET="${PROACTIVE_VERIFIED_OUTCOME_INTEGRITY_SECRET}"
+export SA_OWNER_AUTONOMY_ENABLED="${OWNER_AUTONOMY_ENABLED}"
+export SA_OWNER_AUTONOMY_PRINCIPAL_ID="${OWNER_AUTONOMY_PRINCIPAL_ID}"
+export SA_OWNER_AUTONOMY_ENVELOPE_ID="${OWNER_AUTONOMY_ENVELOPE_ID}"
+export SA_OWNER_AUTONOMY_PUBLIC_KEY="${OWNER_AUTONOMY_PUBLIC_KEY}"
 export SA_PRESENCE_PROBABILISTIC_MODE="${PRESENCE_PROBABILISTIC_MODE}"
 export SA_PRESENCE_PROBABILISTIC_HARD_OFF="${PRESENCE_PROBABILISTIC_HARD_OFF}"
 export SA_FIRMWARE_MAINTENANCE_WIFI_SSID="${FIRMWARE_MAINTENANCE_WIFI_SSID}"
 export SA_FIRMWARE_MAINTENANCE_WIFI_PASSWORD="${FIRMWARE_MAINTENANCE_WIFI_PASSWORD}"
+export SA_STEWARD_CHANNEL_ENABLED="${STEWARD_CHANNEL_ENABLED}"
+export SA_STEWARD_BASE_URL="${STEWARD_BASE_URL}"
+export SA_STEWARD_EVENTS_TOKEN="${STEWARD_EVENTS_TOKEN}"
+export SA_STEWARD_HOUSEHOLD_ID="${STEWARD_HOUSEHOLD_ID}"
+export SA_STEWARD_CHANNEL_TIMEOUT_SECONDS="${STEWARD_CHANNEL_TIMEOUT_SECONDS}"
 export SA_REFRESH_REGISTRY_SOURCE_INGRESS_ENABLED="${REFRESH_REGISTRY_SOURCE_INGRESS_ENABLED}"
 export SA_REFRESH_REGISTRY_SOURCE_INGRESS_PORT="${REFRESH_REGISTRY_SOURCE_INGRESS_PORT}"
 export SA_OBSERVATION_REFRESH_PROVIDER_RUNTIME_ENABLED="${OBSERVATION_REFRESH_PROVIDER_RUNTIME_ENABLED}"
