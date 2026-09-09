@@ -1,5 +1,5 @@
 name: SmartAgent AI Core
-version: 0.0.223
+version: 0.0.225
 slug: smart_agent_core
 description: 'SmartAgent 网关、管理界面和 AI 推理核心，运行于家庭助理插件环境。
 
@@ -32,6 +32,8 @@ options:
   remote_access_enabled: false
   remote_cloud_url: https://cloud.tuojiayi.com
   remote_gateway_label: ''
+  steward_base_url: ''
+  steward_device_delegation_enabled: false
 schema:
   auth_token: password
   ha_time_zone: str
@@ -41,6 +43,8 @@ schema:
   remote_access_enabled: bool
   remote_cloud_url: str
   remote_gateway_label: str
+  steward_base_url: str?
+  steward_device_delegation_enabled: bool
 environment:
   SA_INTERNAL_PORT: '18099'
   SA_GATEWAY_UI_PORT: '8234'
@@ -83,6 +87,7 @@ environment:
   SA_FIRMWARE_MAINTENANCE_WIFI_PASSWORD: ''
   SA_STEWARD_CHANNEL_ENABLED: 'false'
   SA_STEWARD_BASE_URL: ''
+  SA_STEWARD_DEVICE_DELEGATION_ENABLED: 'false'
   SA_STEWARD_EVENTS_TOKEN: ''
   SA_STEWARD_HOUSEHOLD_ID: ''
   SA_STEWARD_CHANNEL_TIMEOUT_SECONDS: '5'
@@ -109,6 +114,7 @@ environment:
   SA_OUTPUT_LEDGER_INTEGRITY_SECRET: ''
   SA_MAINTENANCE_CHANGE_INGRESS_ENABLED: 'false'
   SA_MAINTENANCE_CHANGE_INGRESS_PORT: '18104'
+  SA_STEWARD_MODEL_INGRESS_PORT: '18105'
   SA_MAINTENANCE_CHANGE_HA_INSTALLATION_DIGEST: ''
   SA_MAINTENANCE_CHANGE_BRIDGE_CONFIG_ENTRY_ID: ''
   SA_MAINTENANCE_CHANGE_INGRESS_SECRET: ''

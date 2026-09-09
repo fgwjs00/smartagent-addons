@@ -23,5 +23,11 @@ configuration:
   remote_gateway_label:
     name: 远程网关名称
     description: 家庭业主在远程设备列表中看到的本机名称，不要填写密码或家庭隐私信息。
+  steward_base_url:
+    name: AI 管家服务地址
+    description: 用于连接同一家庭的 AI 管家；通常留空使用默认地址，本地安装时填写对应的内部服务地址。
+  steward_device_delegation_enabled:
+    name: AI 管家设备控制
+    description: 允许 AI 管家将设备请求交给 SmartAgent 规划和执行；两端版本匹配、服务连接完成后开启。
 network:
   8234/tcp: SmartAgent 网关 / 管理界面

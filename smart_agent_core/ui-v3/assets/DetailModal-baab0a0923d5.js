@@ -1,0 +1,1 @@
+import"./rolldown-runtime-1b13387cb23d.js";import{E as e,Vr as t}from"./ui-shared-cf05475b7ccd.js";import{t as n}from"./DialogShell-0ace5e169033.js";t();var r=e(),i=({open:e,onClose:t,title:i,subtitle:a,width:o=`md`,children:s,footer:c})=>(0,r.jsx)(n,{open:e,onClose:t,title:i,subtitle:a,width:o,footer:c,children:s});export{i as t};

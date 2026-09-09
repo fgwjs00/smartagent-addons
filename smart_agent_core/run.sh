@@ -24,45 +24,10 @@ print(value)
 PY
 }
 
-HOST_DISPATCH_PROOF_MATERIAL_PATH="${SA_HOST_DISPATCH_PROOF_MATERIAL_PATH:-/config/smartagent/host_dispatch_proof.json}"
-HOST_DISPATCH_PROOF_PROVISIONER="${SA_HOST_DISPATCH_PROOF_PROVISIONER:-/app/api_server_host_proof_provisioning.pyc}"
-if [ ! -f "${HOST_DISPATCH_PROOF_PROVISIONER}" ]; then
-    echo "[SmartAgent] Host Proof provisioning runtime is missing" >&2
-    exit 78
-fi
-SA_HOST_DISPATCH_PROOF_MATERIAL_PATH="${HOST_DISPATCH_PROOF_MATERIAL_PATH}" \
-    python3 "${HOST_DISPATCH_PROOF_PROVISIONER}"
-
-read_host_proof_material_field() {
-    key="$1"
-    python3 - "$key" "${HOST_DISPATCH_PROOF_MATERIAL_PATH}" <<'PY'
-import json
-import sys
-from pathlib import Path
-
-key = sys.argv[1]
-payload = json.loads(Path(sys.argv[2]).read_text(encoding="utf-8"))
-if payload.get("schema_version") != "smartagent.host_dispatch_proof_material.v1":
-    raise SystemExit("host_proof_material_version_invalid")
-value = payload.get(key)
-if key == "enabled":
-    if value is not True:
-        raise SystemExit("host_proof_material_not_enabled")
-    print("true")
-elif type(value) is str:
-    print(value)
-else:
-    raise SystemExit("host_proof_material_field_invalid")
-PY
-}
-
 HA_URL="$(read_addon_option 'ha_url')"
 HA_TOKEN="$(read_addon_option 'ha_token')"
 AUTH_TOKEN="$(read_addon_option 'auth_token')"
 PROACTIVE_CANARY_AUTHORIZATION_SECRET="$(read_addon_option 'proactive_canary_authorization_secret')"
-HOST_DISPATCH_PROOF_ENABLED="$(read_host_proof_material_field 'enabled')"
-HOST_DISPATCH_PROOF_CURRENT_SECRET="$(read_host_proof_material_field 'current_secret')"
-HOST_DISPATCH_PROOF_STAGED_SECRET="$(read_host_proof_material_field 'staged_secret')"
 ADDON_PORT="$(read_addon_option 'addon_port')"
 GATEWAY_UI_PORT="$(read_addon_option 'gateway_ui_port')"
 HA_TIME_ZONE="$(read_addon_option 'ha_time_zone')"
@@ -102,6 +67,7 @@ FIRMWARE_MAINTENANCE_WIFI_SSID="$(read_addon_option 'firmware_maintenance_wifi_s
 FIRMWARE_MAINTENANCE_WIFI_PASSWORD="$(read_addon_option 'firmware_maintenance_wifi_password')"
 STEWARD_CHANNEL_ENABLED="$(read_addon_option 'steward_channel_enabled')"
 STEWARD_BASE_URL="$(read_addon_option 'steward_base_url')"
+STEWARD_DEVICE_DELEGATION_ENABLED="$(read_addon_option 'steward_device_delegation_enabled')"
 STEWARD_EVENTS_TOKEN="$(read_addon_option 'steward_events_token')"
 STEWARD_HOUSEHOLD_ID="$(read_addon_option 'steward_household_id')"
 STEWARD_CHANNEL_TIMEOUT_SECONDS="$(read_addon_option 'steward_channel_timeout_seconds')"
@@ -418,6 +384,9 @@ esac
 if [ -z "${STEWARD_BASE_URL}" ] || [ "${STEWARD_BASE_URL}" = "null" ]; then
     STEWARD_BASE_URL="${SA_STEWARD_BASE_URL:-}"
 fi
+if [ -z "${STEWARD_DEVICE_DELEGATION_ENABLED}" ]; then
+    STEWARD_DEVICE_DELEGATION_ENABLED="${SA_STEWARD_DEVICE_DELEGATION_ENABLED:-false}"
+fi
 if [ -z "${STEWARD_EVENTS_TOKEN}" ] || [ "${STEWARD_EVENTS_TOKEN}" = "null" ]; then
     STEWARD_EVENTS_TOKEN="${SA_STEWARD_EVENTS_TOKEN:-}"
 fi
@@ -727,9 +696,6 @@ export SA_HA_URL="${HA_URL}"
 export SA_HA_TOKEN="${HA_TOKEN}"
 export SA_AUTH_TOKEN="${AUTH_TOKEN}"
 export SA_PROACTIVE_CANARY_AUTHORIZATION_SECRET="${PROACTIVE_CANARY_AUTHORIZATION_SECRET}"
-export SA_HOST_DISPATCH_PROOF_ENABLED="${HOST_DISPATCH_PROOF_ENABLED}"
-export SA_HOST_DISPATCH_PROOF_CURRENT_SECRET="${HOST_DISPATCH_PROOF_CURRENT_SECRET}"
-export SA_HOST_DISPATCH_PROOF_STAGED_SECRET="${HOST_DISPATCH_PROOF_STAGED_SECRET}"
 export SA_INTERNAL_PORT="${ADDON_PORT}"
 export SA_GATEWAY_UI_PORT="${GATEWAY_UI_PORT}"
 export SA_HA_TIME_ZONE="${HA_TIME_ZONE}"
@@ -773,6 +739,7 @@ export SA_FIRMWARE_MAINTENANCE_WIFI_SSID="${FIRMWARE_MAINTENANCE_WIFI_SSID}"
 export SA_FIRMWARE_MAINTENANCE_WIFI_PASSWORD="${FIRMWARE_MAINTENANCE_WIFI_PASSWORD}"
 export SA_STEWARD_CHANNEL_ENABLED="${STEWARD_CHANNEL_ENABLED}"
 export SA_STEWARD_BASE_URL="${STEWARD_BASE_URL}"
+export SA_STEWARD_DEVICE_DELEGATION_ENABLED="${STEWARD_DEVICE_DELEGATION_ENABLED}"
 export SA_STEWARD_EVENTS_TOKEN="${STEWARD_EVENTS_TOKEN}"
 export SA_STEWARD_HOUSEHOLD_ID="${STEWARD_HOUSEHOLD_ID}"
 export SA_STEWARD_CHANNEL_TIMEOUT_SECONDS="${STEWARD_CHANNEL_TIMEOUT_SECONDS}"
