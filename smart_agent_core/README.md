@@ -1,6 +1,6 @@
 # SmartAgent AI Core
 
-当前公开版本：`Beta 0.0.230`
+当前公开版本：`Beta 0.0.231`
 
 当前测试版仅支持 `amd64 / x86_64`。安装时 Home Assistant 会从发布元数据指定的 ACR 仓库拉取 SmartAgent 官方预构建 add-on 镜像。
 
