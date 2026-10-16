@@ -1,5 +1,5 @@
 name: SmartAgent AI Core
-version: 0.0.237
+version: 0.0.238
 slug: smart_agent_core
 description: 'SmartAgent 网关、管理界面和 AI 推理核心，运行于家庭助理插件环境。
 
@@ -10,6 +10,8 @@ arch:
 startup: services
 boot: auto
 init: false
+backup: cold
+timeout: 120
 map:
 - config:rw
 - share:rw
