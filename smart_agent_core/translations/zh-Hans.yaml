@@ -1,10 +1,19 @@
 configuration:
+  trace_compression_enabled:
+    name: 决策追踪无损压缩（默认关闭）
+    description: 完成冷备后可启用，原始原因和执行证据按原文还原。关闭不会还原已经压缩的数据；回退不支持压缩的旧版时需恢复升级前备份。
+  trace_tiering_enabled:
+    name: 决策追踪详情分层保留（默认关闭）
+    description: 普通无动作详情保留 3 天，其他已结束详情保留 14 天；原因和结果摘要沿用 90 天清理规则。待确认、仍被引用、授权和防重放证据继续保留。到期详情无法恢复。
   auth_token:
     name: 家庭业主访问令牌
     description: 供中控屏、家庭助理集成和 SmartAgent 网关识别同一家庭业主；家庭版只使用这一份业主令牌。
   ha_time_zone:
     name: 家庭时区
     description: 用于解析家庭助理返回的本地时间；中国大陆环境建议保持亚洲上海时区。
+  legacy_event_time_zone:
+    name: 历史事件时区（默认不迁移）
+    description: 仅在确认旧事件的原始时区并完成备份后填写，例如 Asia/Shanghai。留空保留无时区旧记录；填写后按原有保留天数分批迁移和清理，不能仅按当前家庭时区猜测。
   log_level:
     name: 日志详细程度
     description: 平时保持信息级别，仅在排查故障时临时提高日志详细程度。
@@ -26,6 +35,9 @@ configuration:
   steward_base_url:
     name: AI 管家服务地址
     description: 用于连接同一家庭的 AI 管家；通常留空使用默认地址，本地安装时填写对应的内部服务地址。
+  steward_household_id:
+    name: AI 管家家庭标识
+    description: 连接 AI 管家设备服务时，填写 AI 管家中对应家庭的标识，需与已绑定终端所属家庭一致。留空不会启用设备请求接入；填写后仍需开启设备控制并完成两端服务连接。
   steward_device_delegation_enabled:
     name: AI 管家设备控制
     description: 允许 AI 管家将设备请求交给 SmartAgent 规划和执行；两端版本匹配、服务连接完成后开启。
