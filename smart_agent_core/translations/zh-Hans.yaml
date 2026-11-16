@@ -41,5 +41,8 @@ configuration:
   steward_device_delegation_enabled:
     name: AI 管家设备控制
     description: 允许 AI 管家将设备请求交给 SmartAgent 规划和执行；两端版本匹配、服务连接完成后开启。
+  steward_home_query_read_grant:
+    name: AI 管家家庭状态读取
+    description: 默认关闭。开启后，已连接且通过当前家庭授权的 AI 管家可读取房间、设备及状态；设备控制仍需单独授权。
 network:
   8234/tcp: SmartAgent 网关 / 管理界面

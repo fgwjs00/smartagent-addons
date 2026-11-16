@@ -69,6 +69,7 @@ PRESENCE_PROBABILISTIC_HARD_OFF="$(read_addon_option 'presence_probabilistic_har
 FIRMWARE_MAINTENANCE_WIFI_SSID="$(read_addon_option 'firmware_maintenance_wifi_ssid')"
 FIRMWARE_MAINTENANCE_WIFI_PASSWORD="$(read_addon_option 'firmware_maintenance_wifi_password')"
 STEWARD_CHANNEL_ENABLED="$(read_addon_option 'steward_channel_enabled')"
+STEWARD_HOME_QUERY_READ_GRANT="$(read_addon_option 'steward_home_query_read_grant')"
 STEWARD_BASE_URL="$(read_addon_option 'steward_base_url')"
 STEWARD_DEVICE_DELEGATION_ENABLED="$(read_addon_option 'steward_device_delegation_enabled')"
 STEWARD_EVENTS_TOKEN="$(read_addon_option 'steward_events_token')"
@@ -396,6 +397,13 @@ fi
 if [ -z "${STEWARD_HOUSEHOLD_ID}" ] || [ "${STEWARD_HOUSEHOLD_ID}" = "null" ]; then
     STEWARD_HOUSEHOLD_ID="${SA_STEWARD_HOUSEHOLD_ID:-}"
 fi
+if [ -z "${STEWARD_HOME_QUERY_READ_GRANT}" ] || [ "${STEWARD_HOME_QUERY_READ_GRANT}" = "null" ]; then
+    STEWARD_HOME_QUERY_READ_GRANT="${SA_STEWARD_HOME_QUERY_READ_GRANT:-false}"
+fi
+case "$(printf '%s' "${STEWARD_HOME_QUERY_READ_GRANT}" | tr '[:upper:]' '[:lower:]')" in
+    true|false) ;;
+    *) echo "steward_home_query_read_grant must be true or false" >&2; exit 1 ;;
+esac
 if [ -z "${STEWARD_CHANNEL_TIMEOUT_SECONDS}" ] || [ "${STEWARD_CHANNEL_TIMEOUT_SECONDS}" = "null" ]; then
     STEWARD_CHANNEL_TIMEOUT_SECONDS="${SA_STEWARD_CHANNEL_TIMEOUT_SECONDS:-5}"
 fi
@@ -745,6 +753,7 @@ export SA_PRESENCE_PROBABILISTIC_HARD_OFF="${PRESENCE_PROBABILISTIC_HARD_OFF}"
 export SA_FIRMWARE_MAINTENANCE_WIFI_SSID="${FIRMWARE_MAINTENANCE_WIFI_SSID}"
 export SA_FIRMWARE_MAINTENANCE_WIFI_PASSWORD="${FIRMWARE_MAINTENANCE_WIFI_PASSWORD}"
 export SA_STEWARD_CHANNEL_ENABLED="${STEWARD_CHANNEL_ENABLED}"
+export SA_STEWARD_HOME_QUERY_READ_GRANT="${STEWARD_HOME_QUERY_READ_GRANT}"
 export SA_STEWARD_BASE_URL="${STEWARD_BASE_URL}"
 export SA_STEWARD_DEVICE_DELEGATION_ENABLED="${STEWARD_DEVICE_DELEGATION_ENABLED}"
 export SA_STEWARD_EVENTS_TOKEN="${STEWARD_EVENTS_TOKEN}"
@@ -831,8 +840,6 @@ if [ -n "${DEV_SOURCE_ROOT}" ]; then
     if [ -d "${DEV_SOURCE_ROOT}/ui-v3" ]; then
         export SA_UI_ROOT="${DEV_SOURCE_ROOT}/ui-v3"
         export SA_UI_V3_ROOT="${DEV_SOURCE_ROOT}/ui-v3"
-    elif [ -d "${DEV_SOURCE_ROOT}/ui" ]; then
-        export SA_UI_ROOT="${DEV_SOURCE_ROOT}/ui"
     fi
     if [ -d "${DEV_SOURCE_ROOT}/screen" ]; then
         export SA_SCREEN_ROOT="${DEV_SOURCE_ROOT}/screen"
