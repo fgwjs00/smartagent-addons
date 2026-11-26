@@ -1,4 +1,4 @@
-import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as ke,f as se,g as oe,V as $e,r as Me,h as _e,j as Se,k as Ce,l as Te,m as ae,n as De,o as w,t as ze}from"./index-Ct8gvX7O.js";const Ae=xe`
+import{i as xe,A as M,E as be,b as h,a as ye,s as j,c as we,G as ie,d as ne,e as ke,f as se,g as oe,V as $e,r as Me,h as _e,j as Se,k as Ce,l as Te,m as ae,n as De,o as w,t as ze}from"./index-BV43na68.js";const Ae=xe`
   :host {
     --bg: #060A13;
     --bg2: #0A1120;
@@ -2520,15 +2520,15 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
   .screen.mobile-mode .sheet-mask.open .sheet {
     transform: translateY(0);
   }
-`,S={bulb:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V18h6v-1.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2Z"/></svg>',ac:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="10" rx="3"/><path d="M6 19c1.5-1 1.5-3 0-4M12 19c1.5-1 1.5-3 0-4M18 19c1.5-1 1.5-3 0-4"/></svg>',curtain:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4h18M5 4v16M9 4c0 6-2 10-4 12M19 4v16M15 4c0 6 2 10 4 12"/></svg>',tv:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>',fan:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="2"/><path d="M12 10V4a4 4 0 0 1 4 4c0 1.5-1 2-4 2Zm2 2h6a4 4 0 0 1-4 4c-1.5 0-2-1-2-4Zm-2 2v6a4 4 0 0 1-4-4c0-1.5 1-2 4-2Zm-2-2H4a4 4 0 0 1 4-4c1.5 0 2 1 2 4Z"/></svg>',lock:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>',plug:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 2v6M15 2v6M6 8h12v4a6 6 0 0 1-6 6v4"/></svg>',spark:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3 2.2 5.8L20 11l-5.8 2.2L12 19l-2.2-5.8L4 11l5.8-2.2L12 3Z"/></svg>',speaker:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="3"/><circle cx="12" cy="14" r="4"/><circle cx="12" cy="6.5" r="1"/></svg>',play:'<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7 5v14l12-7-12-7Z"/></svg>',pause:'<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>',prev:'<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6V6Zm3.5 6 8.5 6V6l-8.5 6Z"/></svg>',next:'<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 6h2v12h-2V6ZM6 18l8.5-6L6 6v12Z"/></svg>',shuffle:'<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>',timer:'<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg>',settings:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"/></svg>',sensor:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M5 5a10 10 0 0 0 0 14M19 5a10 10 0 0 1 0 14M8.5 8.5a5 5 0 0 0 0 7M15.5 8.5a5 5 0 0 1 0 7"/></svg>',vacuum:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3"/></svg>'};function re(){return{rooms:[{id:"living",name:"客厅",occ:!0,temp:24.5,hum:48},{id:"master",name:"主卧",occ:!0,temp:23.8,hum:50},{id:"second",name:"次卧",occ:!1,temp:24,hum:47},{id:"study",name:"书房",occ:!1,temp:24.2,hum:45},{id:"kitchen",name:"餐厨",occ:!1,temp:25.1,hum:52},{id:"bath",name:"卫生间",occ:!1,temp:24.8,hum:62},{id:"balcony",name:"阳台",occ:!1,temp:22.6,hum:55}],devs:[{id:"l_main",room:"living",name:"客厅主灯",type:"light",on:!0,bri:76,ct:4e3,dimmable:!0,supportsCt:!0,fav:!0},{id:"l_strip",room:"living",name:"沙发灯带",type:"light",on:!0,bri:45,ct:3e3,dimmable:!0,supportsCt:!0,fav:!0},{id:"l_spot",room:"living",name:"电视射灯",type:"light",on:!1,bri:60,ct:3500,dimmable:!0,supportsCt:!0},{id:"l_ac",room:"living",name:"客厅空调",type:"ac",on:!0,temp:25,mode:"制冷",fav:!0},{id:"l_cur",room:"living",name:"客厅纱帘",type:"curtain",on:!0,pos:70,fav:!0},{id:"l_tv",room:"living",name:"客厅电视",type:"tv",on:!1,sub:"待机"},{id:"l_air",room:"living",name:"新风净化器",type:"fan",on:!0,sub:"静音 · PM2.5 18"},{id:"l_lock",room:"living",name:"入户门锁",type:"lock",on:!0,sub:"已上锁 · 电量 86%",fav:!0},{id:"m_main",room:"master",name:"主卧吸顶灯",type:"light",on:!1,bri:70,ct:3500,dimmable:!1,supportsCt:!1},{id:"m_bed",room:"master",name:"床头壁灯",type:"light",on:!0,bri:28,ct:2700,dimmable:!1,supportsCt:!1,fav:!0},{id:"m_ac",room:"master",name:"主卧空调",type:"ac",on:!0,temp:24,mode:"睡眠",fav:!0},{id:"m_cur",room:"master",name:"主卧遮光帘",type:"curtain",on:!1,pos:0,fav:!0},{id:"s_main",room:"second",name:"次卧主灯",type:"light",on:!1,bri:80,ct:4e3,dimmable:!0,supportsCt:!0},{id:"s_ac",room:"second",name:"次卧空调",type:"ac",on:!1,temp:25,mode:"制冷"},{id:"s_cur",room:"second",name:"次卧窗帘",type:"curtain",on:!0,pos:100},{id:"st_lamp",room:"study",name:"书桌护眼灯",type:"light",on:!1,bri:85,ct:4500,dimmable:!0,supportsCt:!0},{id:"st_ac",room:"study",name:"书房空调",type:"ac",on:!1,temp:25,mode:"制冷"},{id:"st_plug",room:"study",name:"显示器插座",type:"plug",on:!0,sub:"功率 42W",failNext:!0},{id:"k_main",room:"kitchen",name:"餐厅吊灯",type:"light",on:!0,bri:65,ct:3e3,dimmable:!0,supportsCt:!0},{id:"k_cook",room:"kitchen",name:"操作台灯",type:"light",on:!1,bri:90,ct:4500,dimmable:!0,supportsCt:!0},{id:"k_Dish",room:"kitchen",name:"洗碗机",type:"plug",on:!1,sub:"已待机"},{id:"b_light",room:"bath",name:"镜前灯",type:"light",on:!1,bri:80,ct:4e3,dimmable:!1,supportsCt:!1},{id:"b_heat",room:"bath",name:"浴霸换气",type:"fan",on:!1,sub:"关闭",offline:!0},{id:"ba_light",room:"balcony",name:"阳台吸顶灯",type:"light",on:!1,bri:75,ct:4e3,dimmable:!1,supportsCt:!1},{id:"ba_win",room:"balcony",name:"电动晾衣架",type:"curtain",on:!0,pos:50}],scenes:[{id:"home",name:"回家",desc:"客厅开灯 · 空调 25° · 纱帘打开",room:"all"},{id:"away",name:"离家",desc:"全屋关灯 · 关闭空调 · 检查门窗",room:"all"},{id:"movie",name:"观影",desc:"主灯关闭 · 灯带 25% · 纱帘合上",room:"all"},{id:"sleep",name:"睡眠",desc:"主卧床头 15% · 遮光帘关闭 · 24°",room:"all"},{id:"night",name:"起夜",desc:"走廊与床头微光 12%",room:"all"},{id:"alloff",name:"全屋关灯",desc:"按住 1 秒确认执行",room:"all",hold:!0}],music:{linked:!0,source:"中控屏本机扬声器 · 内置环境音源",playing:!1,shuffle:!1,sleepMin:0,ducked:!1,receipt:null,playlistId:"jazz",trackIdx:0,pos:84,dur:228,masterVol:38,engineMode:"local_synth",streamUrl:"https://ice2.somafm.com/lush-128-mp3",searchQuery:"周杰伦",searching:!1,searchStatus:"无需厂家中转：输入歌手/歌名或对小智说「帮我播放周杰伦的晴天」即可直连在线曲库播放",haMediaEntities:[],selectedHaMediaId:"",zones:[{room:"screen",name:"中控屏本机扬声器",joined:!0,vol:38,online:!0}],playlists:[{id:"jazz",name:"傍晚爵士 · 暖光",desc:"慵懒萨克斯与钢琴 · 适合客厅与晚餐",color:"linear-gradient(135deg,#7C8CFF,#38D5F5)",tag:"JAZZ LOUNGE",tracks:[{t:"Blue in Green (Remastered)",a:"Miles Davis · Bill Evans",dur:228},{t:"Autumn Leaves · Live at Tokyo",a:"Chet Baker Quartet",dur:264},{t:"Waltz for Debby",a:"Bill Evans Trio",dur:242}]},{id:"morning",name:"清晨咖啡 · 轻快原声",desc:"木吉他与轻鼓点 · 唤醒全屋",color:"linear-gradient(135deg,#FFB547,#FF7B7B)",tag:"MORNING CAFE",tracks:[{t:"Sunday Coffee & Sunlight",a:"Norah & Acoustic Trio",dur:198},{t:"Bossa Nova Breeze",a:"Antonio Carlos",dur:215}]},{id:"focus",name:"书房专注 · 纯音乐",desc:"低干扰钢琴与环境弦乐",color:"linear-gradient(135deg,#4CD7B0,#38D5F5)",tag:"DEEP FOCUS",tracks:[{t:"Nuvole Bianche",a:"Ludovico Einaudi",dur:340},{t:"On the Nature of Daylight",a:"Max Richter",dur:372}]},{id:"sleep",name:"助眠白噪音 · 雨夜",desc:"细雨屋檐与远雷 · 可配合 30 分钟定时",color:"linear-gradient(135deg,#5B6CF0,#1E2F4D)",tag:"SLEEP SOUND",tracks:[{t:"森林细雨与壁炉微光",a:"SmartAgent Ambient",dur:600},{t:"海岸潮汐 · 低频放松",a:"SmartAgent Ambient",dur:600}]}]},questions:[{q:"你最近 4 天都在 23:15 左右关掉客厅主灯，以后需要我到点自动调暗吗？",eff:"已记住：每晚 23:15 自动调暗客厅主灯"},{q:"刚才把主卧空调从 26° 调到了 24°，要把 24° 设为睡眠默认温度吗？",eff:"已更新：主卧睡眠默认 24°"}],feed:{txt:"客厅有人且光线偏暗，已把沙发灯带调到 45%，未打扰主卧。",undone:!1,muted:!1}}}function G(e){const t=Math.max(0,Math.floor(e));return`${Math.floor(t/60)}:${String(t%60).padStart(2,"0")}`}function H(e){return e.offline?e.type==="sensor"?"传感器离线":"设备离线 · 请检查电源":e.type==="sensor"?e.sub&&e.sub.trim()?e.sub:e.on?"已触发 · 活跃":"正常 · 待命":e.type==="vacuum"?e.sub&&e.sub.trim()?e.sub:e.on?"正在清扫":"已回充待命":e.on?e.type==="light"?e.dimmable?e.supportsCt?`亮度 ${e.bri??70}% · ${e.ct??4e3}K`:`亮度 ${e.bri??70}%`:"已开启":e.type==="ac"?`${e.mode??"制冷"} · ${e.temp??25}°`:e.type==="curtain"?`开启 ${e.pos??100}%`:e.sub||"开启中":e.type==="curtain"?"已关闭 · 0%":e.sub==="状态待回读"?"状态待回读":"已关闭"}function W(e){const t=String(e||"").trim().toLowerCase();return t==="ke_ting"||t==="客厅"||t==="living"?"living":t==="zhu_wo"||t==="主卧"||t==="master"?"master":t==="ci_wo"||t==="次卧"||t==="second"?"second":t==="shu_fang"||t==="书房"||t==="study"?"study":t==="chu_fang"||t==="厨房"||t==="餐厨"||t==="kitchen"?"kitchen":t==="can_ting"||t==="餐厅"||t==="dining"?"dining":t==="xuan_guan"||t==="玄关"||t==="entry"?"entry":t==="wo_shi"||t==="卧室"||t==="bedroom"?"bedroom":t==="chu_wu_shi"||t==="储物室"||t==="storage"?"storage":t.includes("卫生间")||t.includes("卫浴")||t==="bath"?"bath":t.includes("阳台")||t==="balcony"?"balcony":t||"living"}function Ie(e){var i,n;const t=Number(((i=e==null?void 0:e.attributes)==null?void 0:i.temperature)??((n=e==null?void 0:e.attributes)==null?void 0:n.current_temperature));return Number.isFinite(t)?t:void 0}function Re(e,t){return t?"设备离线":e==="locked"?"已上锁":e==="unlocked"?"已解锁":"状态未知"}function Pe(e,t,i,n,s,o,d,a){var T,M,I,P,F;const c=Array.isArray(t)?t.filter(h=>h&&(h.managed||h.in_sa||h.in_smartagent)):[],p=[],v=new Set,b=Array.isArray(e)?e:[];for(const h of b){const C=String((h==null?void 0:h.name)||(h==null?void 0:h.id)||"").trim();if((!C||C==="默认房间"||(h==null?void 0:h.id)==="mo_ren_fang_jian")&&!c.some(R=>(R.room||R.area)===C||R.ha_area_id===(h==null?void 0:h.id)))continue;const D=W((h==null?void 0:h.id)||C);if(v.has(D))continue;v.add(D);const E=Array.isArray(t)?t.filter(k=>W((k==null?void 0:k.room)||(k==null?void 0:k.area)||(k==null?void 0:k.ha_area_id)||"")===D):[];let A,B;for(const k of E){const R=String((k==null?void 0:k.entity_id)||""),O=Number(k==null?void 0:k.state);Number.isFinite(O)&&(R.includes("temperature")||(k==null?void 0:k.device_class)==="temperature"?A=Math.round(O*10)/10:(R.includes("humidity")||(k==null?void 0:k.device_class)==="humidity")&&(B=Math.round(O)))}const L=E.some(k=>String(k==null?void 0:k.domain)==="binary_sensor"&&(String(k==null?void 0:k.entity_id).includes("occupancy")||String(k==null?void 0:k.entity_id).includes("ren_ti")||(k==null?void 0:k.device_class)==="occupancy"||(k==null?void 0:k.device_class)==="motion")&&String(k==null?void 0:k.state).toLowerCase()==="on"),V=(h==null?void 0:h.presence_state)==="occupied"||(h==null?void 0:h.occupancy_state)==="occupied"||L;p.push({id:D,gatewaySpaceId:String((h==null?void 0:h.id)||C),name:C,occ:V,temp:A,hum:B})}p.sort((h,C)=>{const D=["living","master","second","kitchen","dining","entry","bedroom","storage"],E=D.indexOf(h.id),A=D.indexOf(C.id);return(E===-1?99:E)-(A===-1?99:A)});const $=[];for(const h of c){const C=String((h==null?void 0:h.entity_id)||(h==null?void 0:h.id)||"").trim();if(!C)continue;const D=String((h==null?void 0:h.domain)||C.split(".")[0]||"").toLowerCase();if(D==="sensor"&&(C.endsWith("_temperature")||C.endsWith("_humidity")||C.endsWith("_illuminance")))continue;const E=W((h==null?void 0:h.room)||(h==null?void 0:h.area)||(h==null?void 0:h.ha_area_id)||"living"),A=String((h==null?void 0:h.state)??"unknown").toLowerCase(),B=(h==null?void 0:h.available)===!1||A==="unavailable",L=!["off","unavailable","unknown","closed","idle","standby","docked"].includes(A),V=String((h==null?void 0:h.name)||(h==null?void 0:h.friendly_name)||C).trim();let k="plug",R,O,J,X=!1,K=!1,Y,ee,te;if(D==="light"||D==="switch"&&V.includes("灯")){k="light";const U=((T=h==null?void 0:h.attributes)==null?void 0:T.brightness)??(h==null?void 0:h.brightness);X=D==="light"&&typeof U=="number",K=!!((M=h==null?void 0:h.attributes)!=null&&M.color_temp_kelvin),O=typeof U=="number"?Math.round(U/255*100):L?80:50,J=((I=h==null?void 0:h.attributes)==null?void 0:I.color_temp_kelvin)||3500,A==="unknown"?R="状态待回读":R=L?"已开启":"已关闭"}else D==="climate"?(k="ac",Y=Ie(h),ee=A==="heat"?"制热":A==="dry"?"除湿":"制冷"):D==="cover"?(k="curtain",te=typeof((P=h==null?void 0:h.attributes)==null?void 0:P.current_position)=="number"?h.attributes.current_position:L?100:0):D==="fan"?(k="fan",R=B?"设备离线":L?"运行中":"已关闭"):D==="lock"?(k="lock",R=Re(A,B)):D==="media_player"?(k="tv",R=L?"播放中":"待机"):D==="vacuum"?(k="vacuum",R=A==="docked"?"充电座待命":A==="cleaning"?"正在清扫":A==="paused"?"清扫已暂停":A):D==="binary_sensor"||D==="sensor"?(k="sensor",B?R="传感器离线":C.includes("men_chuang")||V.includes("门窗")||(h==null?void 0:h.device_class)==="door"?R=A==="on"||A==="open"?"门窗 · 已打开":"门窗 · 已闭合":C.includes("ren_ti")||V.includes("人体")||(h==null?void 0:h.device_class)==="occupancy"||(h==null?void 0:h.device_class)==="motion"?R=A==="on"||A==="detected"?"感知 · 有人":"感知 · 无人":R=L?"已触发 · 活跃":"正常 · 待命"):(k="plug",R=L?"已开启":"已关闭");$.push({id:C,entityId:C,room:E,name:V,type:k,on:L,bri:O,ct:J,dimmable:X,supportsCt:K,temp:Y,mode:ee,pos:te,sub:R,fav:k!=="sensor"&&A!=="unknown",offline:B,receipt:null})}let f=Array.isArray(i)?[]:d;Array.isArray(i)&&i.length>0&&(f=i.slice(0,6).map(h=>{const C=String((h==null?void 0:h.id)??""),D=String((h==null?void 0:h.title)||(h==null?void 0:h.name)||`场景 ${C}`).trim(),E=String((h==null?void 0:h.room)||"").trim(),A=String((h==null?void 0:h.description)||(E?`${E} · 系统场景`:"SmartAgent 场景")).replace(/^系统固定灯光场景：/,"").replace(/。由 SmartAgent.*$/,""),B=D.includes("全关")||D.includes("关灯");return{id:`gw_scene_${C}`,name:D,desc:A,room:"all",hold:B,gatewaySceneId:C}}));let r=null;const l=((F=n==null?void 0:n.ai)==null?void 0:F.data)||(n==null?void 0:n.ai);if(l&&typeof l=="object"){const h=String(l.lastAction||"").trim(),C=Array.isArray(l.actionHistory)&&l.actionHistory.length>0?String(l.actionHistory[0]||"").trim():"",D=h||C;D&&(r=`最近动作：${D}（来自网关实时状态）`)}let m=s&&typeof s=="object"?[]:a;const g=Array.isArray(s==null?void 0:s.items)?s.items:[];return g.length>0&&(m=g.map(h=>({id:String(h.question_id||h.id||""),q:String(h.prompt||h.question||h.title||""),eff:"已提交回答至 SmartAgent 网关。"}))),{rooms:p.length>0?p:[],devs:Array.isArray(t)?$:o,scenes:f,feedTxt:r,questions:m}}/**
+`,_={bulb:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V18h6v-1.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2Z"/></svg>',ac:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="10" rx="3"/><path d="M6 19c1.5-1 1.5-3 0-4M12 19c1.5-1 1.5-3 0-4M18 19c1.5-1 1.5-3 0-4"/></svg>',curtain:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4h18M5 4v16M9 4c0 6-2 10-4 12M19 4v16M15 4c0 6 2 10 4 12"/></svg>',tv:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>',fan:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="2"/><path d="M12 10V4a4 4 0 0 1 4 4c0 1.5-1 2-4 2Zm2 2h6a4 4 0 0 1-4 4c-1.5 0-2-1-2-4Zm-2 2v6a4 4 0 0 1-4-4c0-1.5 1-2 4-2Zm-2-2H4a4 4 0 0 1 4-4c1.5 0 2 1 2 4Z"/></svg>',lock:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>',plug:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 2v6M15 2v6M6 8h12v4a6 6 0 0 1-6 6v4"/></svg>',spark:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3 2.2 5.8L20 11l-5.8 2.2L12 19l-2.2-5.8L4 11l5.8-2.2L12 3Z"/></svg>',speaker:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="3"/><circle cx="12" cy="14" r="4"/><circle cx="12" cy="6.5" r="1"/></svg>',play:'<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7 5v14l12-7-12-7Z"/></svg>',pause:'<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>',prev:'<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6V6Zm3.5 6 8.5 6V6l-8.5 6Z"/></svg>',next:'<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 6h2v12h-2V6ZM6 18l8.5-6L6 6v12Z"/></svg>',shuffle:'<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>',timer:'<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg>',settings:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"/></svg>',sensor:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M5 5a10 10 0 0 0 0 14M19 5a10 10 0 0 1 0 14M8.5 8.5a5 5 0 0 0 0 7M15.5 8.5a5 5 0 0 1 0 7"/></svg>',vacuum:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3"/></svg>'};function re(){return{rooms:[{id:"living",name:"客厅",occ:!0,temp:24.5,hum:48},{id:"master",name:"主卧",occ:!0,temp:23.8,hum:50},{id:"second",name:"次卧",occ:!1,temp:24,hum:47},{id:"study",name:"书房",occ:!1,temp:24.2,hum:45},{id:"kitchen",name:"餐厨",occ:!1,temp:25.1,hum:52},{id:"bath",name:"卫生间",occ:!1,temp:24.8,hum:62},{id:"balcony",name:"阳台",occ:!1,temp:22.6,hum:55}],devs:[{id:"l_main",room:"living",name:"客厅主灯",type:"light",on:!0,bri:76,ct:4e3,dimmable:!0,supportsCt:!0,fav:!0},{id:"l_strip",room:"living",name:"沙发灯带",type:"light",on:!0,bri:45,ct:3e3,dimmable:!0,supportsCt:!0,fav:!0},{id:"l_spot",room:"living",name:"电视射灯",type:"light",on:!1,bri:60,ct:3500,dimmable:!0,supportsCt:!0},{id:"l_ac",room:"living",name:"客厅空调",type:"ac",on:!0,temp:25,mode:"制冷",fav:!0},{id:"l_cur",room:"living",name:"客厅纱帘",type:"curtain",on:!0,pos:70,fav:!0},{id:"l_tv",room:"living",name:"客厅电视",type:"tv",on:!1,sub:"待机"},{id:"l_air",room:"living",name:"新风净化器",type:"fan",on:!0,sub:"静音 · PM2.5 18"},{id:"l_lock",room:"living",name:"入户门锁",type:"lock",on:!0,sub:"已上锁 · 电量 86%",fav:!0},{id:"m_main",room:"master",name:"主卧吸顶灯",type:"light",on:!1,bri:70,ct:3500,dimmable:!1,supportsCt:!1},{id:"m_bed",room:"master",name:"床头壁灯",type:"light",on:!0,bri:28,ct:2700,dimmable:!1,supportsCt:!1,fav:!0},{id:"m_ac",room:"master",name:"主卧空调",type:"ac",on:!0,temp:24,mode:"睡眠",fav:!0},{id:"m_cur",room:"master",name:"主卧遮光帘",type:"curtain",on:!1,pos:0,fav:!0},{id:"s_main",room:"second",name:"次卧主灯",type:"light",on:!1,bri:80,ct:4e3,dimmable:!0,supportsCt:!0},{id:"s_ac",room:"second",name:"次卧空调",type:"ac",on:!1,temp:25,mode:"制冷"},{id:"s_cur",room:"second",name:"次卧窗帘",type:"curtain",on:!0,pos:100},{id:"st_lamp",room:"study",name:"书桌护眼灯",type:"light",on:!1,bri:85,ct:4500,dimmable:!0,supportsCt:!0},{id:"st_ac",room:"study",name:"书房空调",type:"ac",on:!1,temp:25,mode:"制冷"},{id:"st_plug",room:"study",name:"显示器插座",type:"plug",on:!0,sub:"功率 42W",failNext:!0},{id:"k_main",room:"kitchen",name:"餐厅吊灯",type:"light",on:!0,bri:65,ct:3e3,dimmable:!0,supportsCt:!0},{id:"k_cook",room:"kitchen",name:"操作台灯",type:"light",on:!1,bri:90,ct:4500,dimmable:!0,supportsCt:!0},{id:"k_Dish",room:"kitchen",name:"洗碗机",type:"plug",on:!1,sub:"已待机"},{id:"b_light",room:"bath",name:"镜前灯",type:"light",on:!1,bri:80,ct:4e3,dimmable:!1,supportsCt:!1},{id:"b_heat",room:"bath",name:"浴霸换气",type:"fan",on:!1,sub:"关闭",offline:!0},{id:"ba_light",room:"balcony",name:"阳台吸顶灯",type:"light",on:!1,bri:75,ct:4e3,dimmable:!1,supportsCt:!1},{id:"ba_win",room:"balcony",name:"电动晾衣架",type:"curtain",on:!0,pos:50}],scenes:[{id:"home",name:"回家",desc:"客厅开灯 · 空调 25° · 纱帘打开",room:"all"},{id:"away",name:"离家",desc:"全屋关灯 · 关闭空调 · 检查门窗",room:"all"},{id:"movie",name:"观影",desc:"主灯关闭 · 灯带 25% · 纱帘合上",room:"all"},{id:"sleep",name:"睡眠",desc:"主卧床头 15% · 遮光帘关闭 · 24°",room:"all"},{id:"night",name:"起夜",desc:"走廊与床头微光 12%",room:"all"},{id:"alloff",name:"全屋关灯",desc:"按住 1 秒确认执行",room:"all",hold:!0}],music:{linked:!0,source:"中控屏本机扬声器 · 内置环境音源",playing:!1,shuffle:!1,sleepMin:0,ducked:!1,receipt:null,playlistId:"jazz",trackIdx:0,pos:84,dur:228,masterVol:38,engineMode:"local_synth",streamUrl:"https://ice2.somafm.com/lush-128-mp3",searchQuery:"周杰伦",searching:!1,searchStatus:"无需厂家中转：输入歌手/歌名或对小智说「帮我播放周杰伦的晴天」即可直连在线曲库播放",haMediaEntities:[],selectedHaMediaId:"",zones:[{room:"screen",name:"中控屏本机扬声器",joined:!0,vol:38,online:!0}],playlists:[{id:"jazz",name:"傍晚爵士 · 暖光",desc:"慵懒萨克斯与钢琴 · 适合客厅与晚餐",color:"linear-gradient(135deg,#7C8CFF,#38D5F5)",tag:"JAZZ LOUNGE",tracks:[{t:"Blue in Green (Remastered)",a:"Miles Davis · Bill Evans",dur:228},{t:"Autumn Leaves · Live at Tokyo",a:"Chet Baker Quartet",dur:264},{t:"Waltz for Debby",a:"Bill Evans Trio",dur:242}]},{id:"morning",name:"清晨咖啡 · 轻快原声",desc:"木吉他与轻鼓点 · 唤醒全屋",color:"linear-gradient(135deg,#FFB547,#FF7B7B)",tag:"MORNING CAFE",tracks:[{t:"Sunday Coffee & Sunlight",a:"Norah & Acoustic Trio",dur:198},{t:"Bossa Nova Breeze",a:"Antonio Carlos",dur:215}]},{id:"focus",name:"书房专注 · 纯音乐",desc:"低干扰钢琴与环境弦乐",color:"linear-gradient(135deg,#4CD7B0,#38D5F5)",tag:"DEEP FOCUS",tracks:[{t:"Nuvole Bianche",a:"Ludovico Einaudi",dur:340},{t:"On the Nature of Daylight",a:"Max Richter",dur:372}]},{id:"sleep",name:"助眠白噪音 · 雨夜",desc:"细雨屋檐与远雷 · 可配合 30 分钟定时",color:"linear-gradient(135deg,#5B6CF0,#1E2F4D)",tag:"SLEEP SOUND",tracks:[{t:"森林细雨与壁炉微光",a:"SmartAgent Ambient",dur:600},{t:"海岸潮汐 · 低频放松",a:"SmartAgent Ambient",dur:600}]}]},questions:[{q:"你最近 4 天都在 23:15 左右关掉客厅主灯，以后需要我到点自动调暗吗？",eff:"已记住：每晚 23:15 自动调暗客厅主灯"},{q:"刚才把主卧空调从 26° 调到了 24°，要把 24° 设为睡眠默认温度吗？",eff:"已更新：主卧睡眠默认 24°"}],feed:{txt:"客厅有人且光线偏暗，已把沙发灯带调到 45%，未打扰主卧。",undone:!1,muted:!1}}}function G(e){const t=Math.max(0,Math.floor(e));return`${Math.floor(t/60)}:${String(t%60).padStart(2,"0")}`}function H(e){return e.offline?e.type==="sensor"?"传感器离线":"设备离线 · 请检查电源":e.type==="sensor"?e.sub&&e.sub.trim()?e.sub:e.on?"已触发 · 活跃":"正常 · 待命":e.type==="vacuum"?e.sub&&e.sub.trim()?e.sub:e.on?"正在清扫":"已回充待命":e.on?e.type==="light"?e.dimmable?e.supportsCt?`亮度 ${e.bri??70}% · ${e.ct??4e3}K`:`亮度 ${e.bri??70}%`:"已开启":e.type==="ac"?`${e.mode??"制冷"} · ${e.temp??25}°`:e.type==="curtain"?`开启 ${e.pos??100}%`:e.sub||"开启中":e.type==="curtain"?"已关闭 · 0%":e.sub==="状态待回读"?"状态待回读":"已关闭"}function W(e){const t=String(e||"").trim().toLowerCase();return t==="ke_ting"||t==="客厅"||t==="living"?"living":t==="zhu_wo"||t==="主卧"||t==="master"?"master":t==="ci_wo"||t==="次卧"||t==="second"?"second":t==="shu_fang"||t==="书房"||t==="study"?"study":t==="chu_fang"||t==="厨房"||t==="餐厨"||t==="kitchen"?"kitchen":t==="can_ting"||t==="餐厅"||t==="dining"?"dining":t==="xuan_guan"||t==="玄关"||t==="entry"?"entry":t==="wo_shi"||t==="卧室"||t==="bedroom"?"bedroom":t==="chu_wu_shi"||t==="储物室"||t==="storage"?"storage":t.includes("卫生间")||t.includes("卫浴")||t==="bath"?"bath":t.includes("阳台")||t==="balcony"?"balcony":t||"living"}function Ie(e){var i,n;const t=Number(((i=e==null?void 0:e.attributes)==null?void 0:i.temperature)??((n=e==null?void 0:e.attributes)==null?void 0:n.current_temperature));return Number.isFinite(t)?t:void 0}function Re(e,t){return t?"设备离线":e==="locked"?"已上锁":e==="unlocked"?"已解锁":"状态未知"}function Pe(e,t,i,n,s,o,d,a){var T,A,I,P,L;const c=Array.isArray(t)?t.filter(u=>u&&(u.managed||u.in_sa||u.in_smartagent)):[],p=[],g=new Set,y=Array.isArray(e)?e:[];for(const u of y){const S=String((u==null?void 0:u.name)||(u==null?void 0:u.id)||"").trim();if((!S||S==="默认房间"||(u==null?void 0:u.id)==="mo_ren_fang_jian")&&!c.some(R=>(R.room||R.area)===S||R.ha_area_id===(u==null?void 0:u.id)))continue;const C=W((u==null?void 0:u.id)||S);if(g.has(C))continue;g.add(C);const F=Array.isArray(t)?t.filter(k=>W((k==null?void 0:k.room)||(k==null?void 0:k.area)||(k==null?void 0:k.ha_area_id)||"")===C):[];let z,B;for(const k of F){const R=String((k==null?void 0:k.entity_id)||""),O=Number(k==null?void 0:k.state);Number.isFinite(O)&&(R.includes("temperature")||(k==null?void 0:k.device_class)==="temperature"?z=Math.round(O*10)/10:(R.includes("humidity")||(k==null?void 0:k.device_class)==="humidity")&&(B=Math.round(O)))}const E=F.some(k=>String(k==null?void 0:k.domain)==="binary_sensor"&&(String(k==null?void 0:k.entity_id).includes("occupancy")||String(k==null?void 0:k.entity_id).includes("ren_ti")||(k==null?void 0:k.device_class)==="occupancy"||(k==null?void 0:k.device_class)==="motion")&&String(k==null?void 0:k.state).toLowerCase()==="on"),V=(u==null?void 0:u.presence_state)==="occupied"||(u==null?void 0:u.occupancy_state)==="occupied"||E;p.push({id:C,gatewaySpaceId:String((u==null?void 0:u.id)||S),name:S,occ:V,temp:z,hum:B})}p.sort((u,S)=>{const C=["living","master","second","kitchen","dining","entry","bedroom","storage"],F=C.indexOf(u.id),z=C.indexOf(S.id);return(F===-1?99:F)-(z===-1?99:z)});const $=[];for(const u of c){const S=String((u==null?void 0:u.entity_id)||(u==null?void 0:u.id)||"").trim();if(!S)continue;const C=String((u==null?void 0:u.domain)||S.split(".")[0]||"").toLowerCase();if(C==="sensor"&&(S.endsWith("_temperature")||S.endsWith("_humidity")||S.endsWith("_illuminance")))continue;const F=W((u==null?void 0:u.room)||(u==null?void 0:u.area)||(u==null?void 0:u.ha_area_id)||"living"),z=String((u==null?void 0:u.state)??"unknown").toLowerCase(),B=(u==null?void 0:u.available)===!1||z==="unavailable",E=!["off","unavailable","unknown","closed","idle","standby","docked"].includes(z),V=String((u==null?void 0:u.name)||(u==null?void 0:u.friendly_name)||S).trim();let k="plug",R,O,J,X=!1,K=!1,Y,ee,te;if(C==="light"||C==="switch"&&V.includes("灯")){k="light";const U=((T=u==null?void 0:u.attributes)==null?void 0:T.brightness)??(u==null?void 0:u.brightness);X=C==="light"&&typeof U=="number",K=!!((A=u==null?void 0:u.attributes)!=null&&A.color_temp_kelvin),O=typeof U=="number"?Math.round(U/255*100):E?80:50,J=((I=u==null?void 0:u.attributes)==null?void 0:I.color_temp_kelvin)||3500,z==="unknown"?R="状态待回读":R=E?"已开启":"已关闭"}else C==="climate"?(k="ac",Y=Ie(u),ee=z==="heat"?"制热":z==="dry"?"除湿":"制冷"):C==="cover"?(k="curtain",te=typeof((P=u==null?void 0:u.attributes)==null?void 0:P.current_position)=="number"?u.attributes.current_position:E?100:0):C==="fan"?(k="fan",R=B?"设备离线":E?"运行中":"已关闭"):C==="lock"?(k="lock",R=Re(z,B)):C==="media_player"?(k="tv",R=E?"播放中":"待机"):C==="vacuum"?(k="vacuum",R=z==="docked"?"充电座待命":z==="cleaning"?"正在清扫":z==="paused"?"清扫已暂停":z):C==="binary_sensor"||C==="sensor"?(k="sensor",B?R="传感器离线":S.includes("men_chuang")||V.includes("门窗")||(u==null?void 0:u.device_class)==="door"?R=z==="on"||z==="open"?"门窗 · 已打开":"门窗 · 已闭合":S.includes("ren_ti")||V.includes("人体")||(u==null?void 0:u.device_class)==="occupancy"||(u==null?void 0:u.device_class)==="motion"?R=z==="on"||z==="detected"?"感知 · 有人":"感知 · 无人":R=E?"已触发 · 活跃":"正常 · 待命"):(k="plug",R=E?"已开启":"已关闭");$.push({id:S,entityId:S,room:F,name:V,type:k,on:E,bri:O,ct:J,dimmable:X,supportsCt:K,temp:Y,mode:ee,pos:te,sub:R,fav:k!=="sensor"&&z!=="unknown",offline:B,receipt:null})}let f=Array.isArray(i)?[]:d;Array.isArray(i)&&i.length>0&&(f=i.slice(0,6).map(u=>{const S=String((u==null?void 0:u.id)??""),C=String((u==null?void 0:u.title)||(u==null?void 0:u.name)||`场景 ${S}`).trim(),F=String((u==null?void 0:u.room)||"").trim(),z=String((u==null?void 0:u.description)||(F?`${F} · 系统场景`:"SmartAgent 场景")).replace(/^系统固定灯光场景：/,"").replace(/。由 SmartAgent.*$/,""),B=C.includes("全关")||C.includes("关灯");return{id:`gw_scene_${S}`,name:C,desc:z,room:"all",hold:B,gatewaySceneId:S}}));let r=null;const l=((L=n==null?void 0:n.ai)==null?void 0:L.data)||(n==null?void 0:n.ai);if(l&&typeof l=="object"){const u=String(l.lastAction||"").trim(),S=Array.isArray(l.actionHistory)&&l.actionHistory.length>0?String(l.actionHistory[0]||"").trim():"",C=u||S;C&&(r=`最近动作：${C}（来自网关实时状态）`)}let m=s&&typeof s=="object"?[]:a;const v=Array.isArray(s==null?void 0:s.items)?s.items:[];return v.length>0&&(m=v.map(u=>({id:String(u.question_id||u.id||""),q:String(u.prompt||u.question||u.title||""),eff:"已提交回答至 SmartAgent 网关。"}))),{rooms:p.length>0?p:[],devs:Array.isArray(t)?$:o,scenes:f,feedTxt:r,questions:m}}/**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */const Fe={CHILD:2},Ee=e=>(...t)=>({_$litDirective$:e,values:t});class Le{constructor(t){}get _$AU(){return this._$AM._$AU}_$AT(t,i,n){this._$Ct=t,this._$AM=i,this._$Ci=n}_$AS(t,i){return this.update(t,i)}update(t,i){return this.render(...i)}}/**
+ */const Le={CHILD:2},Fe=e=>(...t)=>({_$litDirective$:e,values:t});class Ee{constructor(t){}get _$AU(){return this._$AM._$AU}_$AT(t,i,n){this._$Ct=t,this._$AM=i,this._$Ci=n}_$AS(t,i){return this.update(t,i)}update(t,i){return this.render(...i)}}/**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */class Q extends Le{constructor(t){if(super(t),this.it=_,t.type!==Fe.CHILD)throw Error(this.constructor.directiveName+"() can only be used in child bindings")}render(t){if(t===_||t==null)return this._t=void 0,this.it=t;if(t===be)return t;if(typeof t!="string")throw Error(this.constructor.directiveName+"() called with a non-string value");if(t===this.it)return this._t;this.it=t;const i=[t];return i.raw=i,this._t={_$litType$:this.constructor.resultType,strings:i,values:[]}}}Q.directiveName="unsafeHTML",Q.resultType=1;const z=Ee(Q);function Z(e){return e==="sending"?u`<span class="badge sending"><i class="spin"></i>下发中</span>`:e==="ok"?u`<span class="badge ok">✓ 已确认</span>`:e==="unknown"?u`<span class="badge unknown">! 回执未知</span>`:_}function ue(e,t,i){if(!e.linked)return _;const n=e.playlists.find(d=>d.id===e.playlistId)||e.playlists[0],s=n.tracks[e.trackIdx%n.tracks.length]||n.tracks[0],o=Math.min(100,Math.round(e.pos/Math.max(1,e.dur)*100));return u`
+ */class Q extends Ee{constructor(t){if(super(t),this.it=M,t.type!==Le.CHILD)throw Error(this.constructor.directiveName+"() can only be used in child bindings")}render(t){if(t===M||t==null)return this._t=void 0,this.it=t;if(t===be)return t;if(typeof t!="string")throw Error(this.constructor.directiveName+"() called with a non-string value");if(t===this.it)return this._t;this.it=t;const i=[t];return i.raw=i,this._t={_$litType$:this.constructor.resultType,strings:i,values:[]}}}Q.directiveName="unsafeHTML",Q.resultType=1;const D=Fe(Q);function Z(e){return e==="sending"?h`<span class="badge sending"><i class="spin"></i>下发中</span>`:e==="ok"?h`<span class="badge ok">✓ 已确认</span>`:e==="unknown"?h`<span class="badge unknown">! 回执未知</span>`:M}function he(e,t,i){if(!e.linked)return M;const n=e.playlists.find(d=>d.id===e.playlistId)||e.playlists[0],s=n.tracks[e.trackIdx%n.tracks.length]||n.tracks[0],o=Math.min(100,Math.round(e.pos/Math.max(1,e.dur)*100));return h`
     <div
       class="dock ${e.playing?"playing":""}"
       id="dockBar"
@@ -2541,8 +2541,8 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
         <div class="tt">${s.t}</div>
         <div class="ar">
           ${s.a} · 中控屏本机扬声器
-          ${e.sleepMin?u` · 定时 ${e.sleepMin} 分钟后停`:_}
-          ${e.ducked?u` · 语音压低音量中`:_}
+          ${e.sleepMin?h` · 定时 ${e.sleepMin} 分钟后停`:M}
+          ${e.ducked?h` · 语音压低音量中`:M}
         </div>
       </div>
       <div class="zones">
@@ -2551,18 +2551,18 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
       </div>
       <div class="ctrls" @click=${d=>d.stopPropagation()}>
         <button class="cbtn" data-mact="prev" title="上一首" @click=${d=>i("prev",d)}>
-          ${z(S.prev)}
+          ${D(_.prev)}
         </button>
         <button class="cbtn pri" data-mact="toggle" title="播放/暂停" @click=${d=>i("toggle",d)}>
-          ${z(e.playing?S.pause:S.play)}
+          ${D(e.playing?_.pause:_.play)}
         </button>
         <button class="cbtn" data-mact="next" title="下一首" @click=${d=>i("next",d)}>
-          ${z(S.next)}
+          ${D(_.next)}
         </button>
       </div>
       <div class="p" style="width:${o}%"></div>
     </div>
-  `}function Be(e,t){const i=e.playlists.find(a=>a.id===e.playlistId)||e.playlists[0],n=i.tracks[e.trackIdx%i.tracks.length]||i.tracks[0],s=Math.min(100,Math.round(e.pos/Math.max(1,e.dur)*100)),o=e.engineMode||"local_synth",d=e.haMediaEntities||[];return e.linked?u`
+  `}function Be(e,t){const i=e.playlists.find(a=>a.id===e.playlistId)||e.playlists[0],n=i.tracks[e.trackIdx%i.tracks.length]||i.tracks[0],s=Math.min(100,Math.round(e.pos/Math.max(1,e.dur)*100)),o=e.engineMode||"local_synth",d=e.haMediaEntities||[];return e.linked?h`
     <div class="rhead">
       <div class="meta">
         <h2>中控屏背景音乐</h2>
@@ -2613,16 +2613,16 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
               title="随机播放"
               @click=${()=>t.onControl("shuffle")}
             >
-              ${z(S.shuffle)}
+              ${D(_.shuffle)}
             </button>
             <button class="mcbtn" data-mc="prev" title="上一首" @click=${()=>t.onControl("prev")}>
-              ${z(S.prev)}
+              ${D(_.prev)}
             </button>
             <button class="mcbtn play" data-mc="toggle" title="播放/暂停" @click=${()=>t.onControl("toggle")}>
-              ${z(e.playing?S.pause:S.play)}
+              ${D(e.playing?_.pause:_.play)}
             </button>
             <button class="mcbtn" data-mc="next" title="下一首" @click=${()=>t.onControl("next")}>
-              ${z(S.next)}
+              ${D(_.next)}
             </button>
             <button
               class="mcbtn ${e.sleepMin?"on":""}"
@@ -2631,7 +2631,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
               style="width:auto;padding:0 12px;font-size:12px;font-weight:600;gap:5px;display:inline-flex"
               @click=${()=>t.onControl("timer")}
             >
-              ${z(S.timer)}<span>${e.sleepMin?`${e.sleepMin}m`:"定时"}</span>
+              ${D(_.timer)}<span>${e.sleepMin?`${e.sleepMin}m`:"定时"}</span>
             </button>
           </div>
 
@@ -2659,7 +2659,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
             <span>点选立即在本机播放</span>
           </div>
           <div class="pl-grid">
-            ${e.playlists.map(a=>u`
+            ${e.playlists.map(a=>h`
                 <button
                   class="plc ${a.id===e.playlistId?"on":""}"
                   data-pl="${a.id}"
@@ -2715,7 +2715,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
               </button>
             </div>
             <div style="display:flex;gap:6px;flex-wrap:wrap">
-              ${["周杰伦","陈奕迅","邓紫棋","林俊杰","王菲","久石让","古典钢琴","Lo-Fi Chill"].map(a=>u`
+              ${["周杰伦","陈奕迅","邓紫棋","林俊杰","王菲","久石让","古典钢琴","Lo-Fi Chill"].map(a=>h`
                   <button
                     class="chip-btn ${e.searchQuery===a&&e.playlistId==="online_search"?"pri":""}"
                     style="height:26px;padding:0 10px;font-size:11px;border-radius:8px"
@@ -2761,9 +2761,9 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
                 ${o==="ha_media"?"已联动":"切换"}
               </span>
             </div>
-            ${d.length>0?u`
+            ${d.length>0?h`
                   <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:8px">
-                    ${d.map(a=>u`
+                    ${d.map(a=>h`
                         <button
                           class="chip-btn ${e.selectedHaMediaId===a.id?"pri":""}"
                           style="height:28px;font-size:11px"
@@ -2773,7 +2773,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
                         </button>
                       `)}
                   </div>
-                `:_}
+                `:M}
           </div>
 
           <!-- 模式 4：开源音乐服务器 / 电台流直连 -->
@@ -2797,7 +2797,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
             <span>当前歌单曲目（点击直接切歌）</span>
             <span>${i.tracks.length} 首</span>
           </div>
-          ${i.tracks.map((a,c)=>u`
+          ${i.tracks.map((a,c)=>h`
               <div
                 class="zrow ${c===e.trackIdx%i.tracks.length?"on":""}"
                 style="padding:10px 12px;cursor:pointer"
@@ -2821,7 +2821,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
         </div>
       </div>
     </div>
-  `:u`
+  `:h`
       <div class="rhead">
         <div class="meta">
           <h2>中控屏背景音乐</h2>
@@ -2835,21 +2835,21 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
         style="flex:1;border-radius:24px;background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:32px;text-align:center;"
       >
         <div style="width:68px;height:68px;border-radius:22px;background:var(--surface2);display:grid;place-items:center;color:var(--text2)">
-          ${z(S.speaker)}
+          ${D(_.speaker)}
         </div>
         <div style="font-size:20px;font-weight:700">中控屏背景音乐已停用</div>
         <div style="font-size:13px;color:var(--text2);max-width:440px;line-height:1.6">
           背景音乐仅代表当前中控屏本机扬声器或绑定的 Home Assistant 媒体播放器，不按每个房间伪造独立音箱。点击右上角即可重新启用。
         </div>
       </div>
-    `}function je(e,t,i,n){const s=!!e;if(!e)return u`<div class="sheet-mask" id="sheetMask"><div class="sheet" id="sheet"></div></div>`;const o=t.find(c=>c.id===e.room),d=e.receipt==="unknown"?u`<span>⚠️ 没收到设备回执，不会自动重发</span><button class="chip-btn pri" id="bRetry" @click=${n.onRetryRead}>重新读取状态</button>`:e.receipt==="sending"?u`<span>正在下发，等待设备回读…</span><span class="badge sending"><i class="spin"></i>下发中</span>`:u`<span>设备已回读，状态一致</span><span style="color:var(--ok)">● 在线</span>`;let a=u``;if(e.type==="light")if(!e.dimmable)a=u`
+    `}function je(e,t,i,n){const s=!!e;if(!e)return h`<div class="sheet-mask" id="sheetMask"><div class="sheet" id="sheet"></div></div>`;const o=t.find(c=>c.id===e.room),d=e.receipt==="unknown"?h`<span>⚠️ 没收到设备回执，不会自动重发</span><button class="chip-btn pri" id="bRetry" @click=${n.onRetryRead}>重新读取状态</button>`:e.receipt==="sending"?h`<span>正在下发，等待设备回读…</span><span class="badge sending"><i class="spin"></i>下发中</span>`:h`<span>设备已回读，状态一致</span><span style="color:var(--ok)">● 在线</span>`;let a=h``;if(e.type==="light")if(!e.dimmable)a=h`
         <div
           style="padding:26px 20px;border-radius:18px;background:var(--surface2);border:1px solid var(--line);text-align:center"
         >
           <div
             style="width:74px;height:74px;border-radius:22px;background:${e.on?"rgba(255,181,71,.2)":"var(--surface)"};color:${e.on?"var(--amber)":"var(--text2)"};display:grid;place-items:center;margin:0 auto 12px"
           >
-            ${z(S.bulb)}
+            ${D(_.bulb)}
           </div>
           <div style="font-size:21px;font-weight:700">${e.on?"灯具已开启":"灯具已关闭"}</div>
           <div style="font-size:12px;color:var(--text2);margin-top:6px">
@@ -2860,7 +2860,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
           <button class="${e.on?"":"on"}" @click=${()=>n.onLightPower(!1)}>关灯</button>
           <button class="${e.on?"on":""}" @click=${()=>n.onLightPower(!0)}>开灯</button>
         </div>
-      `;else{const c=[{k:2700,n:"暖烛光",c:"#FFB46B"},{k:3500,n:"暖白",c:"#FFD9A8"},{k:4500,n:"自然光",c:"#FFF3DF"},{k:5700,n:"日光",c:"#E6F0FF"}];a=u`
+      `;else{const c=[{k:2700,n:"暖烛光",c:"#FFB46B"},{k:3500,n:"暖白",c:"#FFD9A8"},{k:4500,n:"自然光",c:"#FFF3DF"},{k:5700,n:"日光",c:"#E6F0FF"}];a=h`
         <div class="vslider-wrap">
           <div class="vslider" id="vBri" @pointerdown=${n.onLightBriPointerDown}>
             <div class="vfill" id="vFill" style="height:${e.on?e.bri??70:0}%"></div>
@@ -2870,10 +2870,10 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
             </div>
           </div>
         </div>
-        ${e.supportsCt!==!1?u`
+        ${e.supportsCt!==!1?h`
               <div class="sec-t"><span>色温</span><span>${e.ct??4e3}K</span></div>
               <div class="ct-row">
-                ${c.map(p=>u`
+                ${c.map(p=>h`
                     <button
                       class="ct ${e.ct===p.k?"sel":""}"
                       data-ct="${p.k}"
@@ -2884,26 +2884,26 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
                     </button>
                   `)}
               </div>
-            `:_}
+            `:M}
         <div class="seg" style="grid-template-columns:1fr 1fr;margin-top:8px">
           <button class="${e.on?"":"on"}" @click=${()=>n.onLightPower(!1)}>关灯</button>
           <button class="${e.on?"on":""}" @click=${()=>n.onLightPower(!0)}>开灯</button>
         </div>
-      `}else if(e.type==="sensor")a=u`
+      `}else if(e.type==="sensor")a=h`
       <div
         style="padding:26px 20px;border-radius:18px;background:var(--surface2);border:1px solid var(--line);text-align:center"
       >
         <div
           style="width:74px;height:74px;border-radius:22px;background:${e.on?"rgba(76,215,176,.16)":"var(--surface)"};color:${e.on?"var(--ok)":"var(--text2)"};display:grid;place-items:center;margin:0 auto 12px"
         >
-          ${z(S.sensor)}
+          ${D(_.sensor)}
         </div>
         <div style="font-size:20px;font-weight:700">${H(e)}</div>
         <div style="font-size:12px;color:var(--text2);margin-top:6px">
           传感器仅用于环境感知与状态回传，不支持下发开关控制指令
         </div>
       </div>
-    `;else if(e.type==="ac"){const c=["制冷","制热","除湿","睡眠"],p=e.temp??25,$=565*(1-(p-16)/14*.75);a=u`
+    `;else if(e.type==="ac"){const c=["制冷","制热","除湿","睡眠"],p=e.temp??25,$=565*(1-(p-16)/14*.75);a=h`
       <div class="dial">
         <svg viewBox="0 0 220 220">
           <circle
@@ -2950,13 +2950,13 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
       </div>
       <div class="sec-t"><span>模式</span></div>
       <div class="seg">
-        ${c.map(f=>u`
+        ${c.map(f=>h`
             <button class="${e.mode===f&&e.on?"on":""}" data-md="${f}" @click=${()=>n.onAcMode(f)}>
               ${f}
             </button>
           `)}
       </div>
-    `}else if(e.type==="curtain"){const c=e.pos??(e.on?100:0),p=(100-c)/2;a=u`
+    `}else if(e.type==="curtain"){const c=e.pos??(e.on?100:0),p=(100-c)/2;a=h`
       <div class="curtain-vis">
         <div class="pane l" id="cPaneL" style="width:${p}%"></div>
         <div class="pane r" id="cPaneR" style="width:${p}%"></div>
@@ -2973,12 +2973,12 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
         <button class="${c===50?"on":""}" data-cpos="50" @click=${()=>n.onCurtainQuickPos(50)}>半开 50%</button>
         <button class="${c===100?"on":""}" data-cpos="100" @click=${()=>n.onCurtainQuickPos(100)}>全开</button>
       </div>
-    `}else e.type==="lock"?a=u`
+    `}else e.type==="lock"?a=h`
       <div style="text-align:center;padding:28px 0">
         <div
           style="width:96px;height:96px;border-radius:28px;background:rgba(76,215,176,.15);color:var(--ok);display:grid;place-items:center;margin:0 auto 14px"
         >
-          ${z(S.lock)}
+          ${D(_.lock)}
         </div>
         <div style="font-size:22px;font-weight:700">${e.on?"门锁已上锁":"门锁已解锁"}</div>
         <div style="font-size:13px;color:var(--text2);margin-top:6px">
@@ -2995,7 +2995,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
         <div class="nm">${e.on?"按住 1 秒解锁入户门":"按住 1 秒立即上锁"}</div>
         <div class="ds">松手即取消 · 防止误触</div>
       </button>
-    `:a=u`
+    `:a=h`
       <div style="padding:28px 0;text-align:center">
         <div style="font-size:22px;font-weight:700">${e.on?"运行中":"已关闭"}</div>
         <div style="font-size:13px;color:var(--text2);margin-top:6px">${H(e)}</div>
@@ -3008,7 +3008,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
       >
         ${e.on?"关闭设备":"开启设备"}
       </button>
-    `;return u`
+    `;return h`
     <div
       class="sheet-mask ${s?"open":""}"
       id="sheetMask"
@@ -3026,7 +3026,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
         <div class="sheet-foot">${d}</div>
       </div>
     </div>
-  `}function q(e,t,i,n,s){const o=i.find(v=>v.id===e.room);if(e.type==="sensor")return u`
+  `}function q(e,t,i,n,s){const o=i.find(g=>g.id===e.room);if(e.type==="sensor")return h`
       <div
         class="tile ${e.offline?"offline":""}"
         data-dev="${e.id}"
@@ -3034,7 +3034,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
       >
         <div class="th">
           <div class="ic" style="background:${e.on?"rgba(76,215,176,.18)":"var(--surface2)"};color:${e.on?"var(--ok)":"var(--text2)"}">
-            ${z(S.sensor)}
+            ${D(_.sensor)}
           </div>
           <span
             style="font-size:10px;font-weight:600;padding:3px 8px;border-radius:999px;background:var(--surface2);color:var(--text3);border:1px solid var(--line)"
@@ -3043,45 +3043,45 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
           </span>
         </div>
         <div>
-          ${t?u`<div class="rm">${(o==null?void 0:o.name)??""}</div>`:_}
+          ${t?h`<div class="rm">${(o==null?void 0:o.name)??""}</div>`:M}
           <div class="nm">${e.name}</div>
           <div class="st" style="color:${e.on?"var(--ok)":"var(--text2)"}">${H(e)}</div>
         </div>
       </div>
-    `;const d=e.type==="light",c=d&&!!e.dimmable&&e.on?e.bri??70:0,p=e.type==="ac"&&e.on;return u`
+    `;const d=e.type==="light",c=d&&!!e.dimmable&&e.on?e.bri??70:0,p=e.type==="ac"&&e.on;return h`
     <div
       class="tile ${e.on?"on":""} ${p?"cool":""} ${e.offline?"offline":""}"
       data-dev="${e.id}"
-      @pointerdown=${v=>n(e,v)}
+      @pointerdown=${g=>n(e,g)}
     >
       <div class="fill" style="width:${c}%"></div>
       <div class="th">
-        <div class="ic">${z(S[e.type]||S.bulb)}</div>
+        <div class="ic">${D(_[e.type]||_.bulb)}</div>
         <div style="display:flex;align-items:center;gap:4px">
           ${Z(e.receipt??null)}
-          ${d&&!e.dimmable&&!e.receipt?u`<span
+          ${d&&!e.dimmable&&!e.receipt?h`<span
                 style="font-size:10px;font-weight:700;padding:3px 8px;border-radius:999px;background:${e.on?"rgba(255,181,71,.2)":"var(--surface2)"};color:${e.on?"var(--amber)":"var(--text3)"}"
               >
                 开关 · ${e.on?"开":"关"}
-              </span>`:_}
+              </span>`:M}
           <button
             class="more"
             data-more="${e.id}"
             title="更多调节"
-            @pointerdown=${v=>v.stopPropagation()}
-            @click=${v=>{v.stopPropagation(),s(e.id,v)}}
+            @pointerdown=${g=>g.stopPropagation()}
+            @click=${g=>{g.stopPropagation(),s(e.id,g)}}
           >
             ›
           </button>
         </div>
       </div>
       <div>
-        ${t?u`<div class="rm">${(o==null?void 0:o.name)??""}</div>`:_}
+        ${t?h`<div class="rm">${(o==null?void 0:o.name)??""}</div>`:M}
         <div class="nm">${e.name}</div>
         <div class="st">${H(e)}</div>
       </div>
     </div>
-  `}function Ve(e,t,i,n,s,o){const d=t.filter(c=>c.type==="light"&&c.on).length,a=t.filter(c=>c.fav);return u`
+  `}function Ve(e,t,i,n,s,o){const d=t.filter(c=>c.type==="light"&&c.on).length,a=t.filter(c=>c.fav);return h`
     <div class="rhead">
       <div class="meta">
         <h2>全屋</h2>
@@ -3094,7 +3094,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
     </div>
 
     <div class="scenes">
-      ${i.map(c=>u`
+      ${i.map(c=>h`
           <button
             class="scene ${c.hold?"hold":""}"
             data-scene="${c.id}"
@@ -3104,7 +3104,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
             <div class="bar" style="width:${s[c.id]||0}%"></div>
             <div class="row">
               <span class="nm">${c.name}</span>
-              <span style="color:var(--primary)">${z(S.spark)}</span>
+              <span style="color:var(--primary)">${D(_.spark)}</span>
             </div>
             <div class="ds">${c.desc}</div>
           </button>
@@ -3125,9 +3125,9 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
           <span>${e.length} 个空间</span>
         </div>
         <div class="rooms">
-          ${e.map(c=>{const p=t.filter($=>$.room===c.id&&$.type==="light"),v=p.filter($=>$.on).length,b=t.find($=>$.room===c.id&&$.type==="ac");return u`
+          ${e.map(c=>{const p=t.filter($=>$.room===c.id&&$.type==="light"),g=p.filter($=>$.on).length,y=t.find($=>$.room===c.id&&$.type==="ac");return h`
               <div
-                class="rcard ${v>0?"has-on":""}"
+                class="rcard ${g>0?"has-on":""}"
                 data-go="${c.id}"
                 @click=${()=>o.onJumpRoom(c.id)}
               >
@@ -3140,14 +3140,14 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
                 </div>
                 <div class="quick">
                   <button
-                    class="qpill ${v>0?"on":""}"
+                    class="qpill ${g>0?"on":""}"
                     data-roomlights="${c.id}"
                     @click=${$=>{$.stopPropagation(),o.onToggleRoomLights(c.id,$)}}
                   >
-                    ${z(S.bulb)}<span>${v>0?`${v}/${p.length} 亮`:"灯已关"}</span>
+                    ${D(_.bulb)}<span>${g>0?`${g}/${p.length} 亮`:"灯已关"}</span>
                   </button>
                   <div style="display:flex;gap:6px;align-items:center">
-                    ${b?u`<span class="qpill">${b.on?`空调 ${b.temp!=null?`${b.temp}°`:"运行中"}`:"空调关"}</span>`:u`<span></span>`}
+                    ${y?h`<span class="qpill">${y.on?`空调 ${y.temp!=null?`${y.temp}°`:"运行中"}`:"空调关"}</span>`:h`<span></span>`}
                   </div>
                 </div>
               </div>
@@ -3166,8 +3166,8 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
       </div>
     </div>
 
-    ${ue(n,o.onOpenMusic,o.onMusicAction)}
-  `}function Oe(e,t,i,n,s,o){const d=i.filter(f=>f.room===e.id),a=d.filter(f=>f.type==="light"),c=d.filter(f=>f.type==="ac"||f.type==="curtain"||f.type==="fan"),p=d.filter(f=>["tv","plug","lock","vacuum"].includes(f.type)),v=d.filter(f=>f.type==="sensor"),b=a.some(f=>!!f.dimmable),$=[{id:"r_bright",name:`${e.name}明亮`,desc:"本房间灯光 85%",room:e.id},{id:"r_cozy",name:`${e.name}柔和`,desc:"暖光 35% · 适合放松",room:e.id},{id:"r_off",name:"本房间全关",desc:"按住 1 秒关闭本房间设备",room:e.id,hold:!0}];return u`
+    ${he(n,o.onOpenMusic,o.onMusicAction)}
+  `}function Oe(e,t,i,n,s,o){const d=i.filter(f=>f.room===e.id),a=d.filter(f=>f.type==="light"),c=d.filter(f=>f.type==="ac"||f.type==="curtain"||f.type==="fan"),p=d.filter(f=>["tv","plug","lock","vacuum"].includes(f.type)),g=d.filter(f=>f.type==="sensor"),y=a.some(f=>!!f.dimmable),$=[{id:"r_bright",name:`${e.name}明亮`,desc:"本房间灯光 85%",room:e.id},{id:"r_cozy",name:`${e.name}柔和`,desc:"暖光 35% · 适合放松",room:e.id},{id:"r_off",name:"本房间全关",desc:"按住 1 秒关闭本房间设备",room:e.id,hold:!0}];return h`
     <div class="rhead">
       <div class="meta">
         <h2>${e.name}</h2>
@@ -3183,7 +3183,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
     </div>
 
     <div class="scenes">
-      ${$.map(f=>u`
+      ${$.map(f=>h`
           <button
             class="scene ${f.hold?"hold":""}"
             data-rscene="${f.id}"
@@ -3193,7 +3193,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
             <div class="bar" style="width:${s[f.id]||0}%"></div>
             <div class="row">
               <span class="nm">${f.name}</span>
-              <span style="color:var(--primary)">${z(S.spark)}</span>
+              <span style="color:var(--primary)">${D(_.spark)}</span>
             </div>
             <div class="ds">${f.desc}</div>
           </button>
@@ -3201,51 +3201,51 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
     </div>
 
     <div class="scroll">
-      ${a.length?u`
+      ${a.length?h`
             <div>
               <div class="sec-t">
-                <span>${b?"灯光（可调光卡片左右拖动调亮度 · 开关灯轻点切换）":"照明开关（轻点卡片直接开关灯具）"}</span>
+                <span>${y?"灯光（可调光卡片左右拖动调亮度 · 开关灯轻点切换）":"照明开关（轻点卡片直接开关灯具）"}</span>
                 <span>${a.filter(f=>f.on).length}/${a.length} 开启</span>
               </div>
               <div class="grid">
                 ${a.map(f=>q(f,!1,t,o.onTilePointerDown,o.onOpenSheet))}
               </div>
             </div>
-          `:_}
+          `:M}
 
-      ${c.length?u`
+      ${c.length?h`
             <div>
               <div class="sec-t"><span>温度 · 窗帘 · 空气</span></div>
               <div class="grid">
                 ${c.map(f=>q(f,!1,t,o.onTilePointerDown,o.onOpenSheet))}
               </div>
             </div>
-          `:_}
+          `:M}
 
-      ${p.length?u`
+      ${p.length?h`
             <div>
               <div class="sec-t"><span>影音 · 插座与安防</span></div>
               <div class="grid">
                 ${p.map(f=>q(f,!1,t,o.onTilePointerDown,o.onOpenSheet))}
               </div>
             </div>
-          `:_}
+          `:M}
 
-      ${v.length?u`
+      ${g.length?h`
             <div>
               <div class="sec-t">
                 <span>环境与状态传感器（仅实时状态反馈 · 不可操作）</span>
-                <span>${v.length} 个探头</span>
+                <span>${g.length} 个探头</span>
               </div>
               <div class="grid">
-                ${v.map(f=>q(f,!1,t,o.onTilePointerDown,o.onOpenSheet))}
+                ${g.map(f=>q(f,!1,t,o.onTilePointerDown,o.onOpenSheet))}
               </div>
             </div>
-          `:_}
+          `:M}
     </div>
 
-    ${ue(n,o.onOpenMusic,o.onMusicAction)}
-  `}function qe(e,t,i,n,s,o,d,a,c,p,v,b,$,f,r,l,m,g){return u`
+    ${he(n,o.onOpenMusic,o.onMusicAction)}
+  `}function qe(e,t,i,n,s,o,d,a,c,p,g,y,$,f,r,l,m,v){return h`
     <aside class="side">
       <div class="clock-card">
         <div class="time-row">
@@ -3274,12 +3274,12 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
         </div>
         <div class="msg" id="feedTxt">${p}</div>
         <div class="acts">
-          ${v?_:u`<button class="chip-btn" id="bUndo" @click=${r}>撤销这次操作</button>`}
-          ${b?_:u`<button class="chip-btn" id="bMuteRule" @click=${l}>以后别这样</button>`}
+          ${g?M:h`<button class="chip-btn" id="bUndo" @click=${r}>撤销这次操作</button>`}
+          ${y?M:h`<button class="chip-btn" id="bMuteRule" @click=${l}>以后别这样</button>`}
         </div>
       </div>
 
-      ${$?u`
+      ${$?h`
             <div class="q" id="qCard">
               <div class="hd">
                 <span>💬 待我回答</span>
@@ -3292,9 +3292,9 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
                 <button class="chip-btn" data-q="never" @click=${()=>m("never")}>不用了</button>
               </div>
             </div>
-          `:_}
+          `:M}
 
-      <button class="voice" id="bVoice" @click=${g}>
+      <button class="voice" id="bVoice" @click=${v}>
         <div class="orb"></div>
         <div>
           <div class="t1">说“小智”，或点我说话</div>
@@ -3302,7 +3302,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
         </div>
       </button>
     </aside>
-  `}function He(e,t,i,n,s,o,d){const a=i.zones.filter(v=>v.joined&&v.online),c=i.linked&&i.playing&&a.length>0,p=i.linked?c?"音乐 · 播放中":"音乐":"音乐 · 未接入";return u`
+  `}function He(e,t,i,n,s,o,d){const a=i.zones.filter(g=>g.joined&&g.online),c=i.linked&&i.playing&&a.length>0,p=i.linked?c?"音乐 · 播放中":"音乐":"音乐 · 未接入";return h`
     <header class="top">
       <div class="brand">
         <div class="logo">✦</div>
@@ -3322,15 +3322,15 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
         >
           全屋
         </button>
-        ${t.map(v=>u`
+        ${t.map(g=>h`
             <button
-              class="tab ${e===v.id?"active":""}"
-              data-room="${v.id}"
+              class="tab ${e===g.id?"active":""}"
+              data-room="${g.id}"
               role="tab"
-              aria-selected="${e===v.id?"true":"false"}"
-              @click=${()=>d.onSelectRoom(v.id)}
+              aria-selected="${e===g.id?"true":"false"}"
+              @click=${()=>d.onSelectRoom(g.id)}
             >
-              ${v.occ?u`<span class="dot"></span>`:_}${v.name}
+              ${g.occ?h`<span class="dot"></span>`:M}${g.name}
             </button>
           `)}
       </nav>
@@ -3364,7 +3364,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
             <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" />
           </svg>
         </button>
-        ${d.onSwitchToMobile?u`
+        ${d.onSwitchToMobile?h`
               <button
                 class="ibtn"
                 id="bMobileView"
@@ -3373,20 +3373,20 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
               >
                 📱
               </button>
-            `:_}
+            `:M}
         <button class="ibtn" id="bSettings" title="极简设置/诊断" @click=${d.onOpenSettings}>
-          ${z(S.settings)}
+          ${D(_.settings)}
         </button>
       </div>
     </header>
-  `}function Ne(e,t,i,n,s,o){return u`
+  `}function Ne(e,t,i,n,s,o){return h`
     <div class="vo ${e?"open":""}" id="vo">
-      ${t?u`<div
+      ${t?h`<div
             id="vDuckHint"
             style="display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-radius:999px;background:rgba(56,213,245,.15);border:1px solid rgba(56,213,245,.35);font-size:12px;color:var(--cyan)"
           >
             🔉 已自动把背景音乐调低，说完恢复
-          </div>`:_}
+          </div>`:M}
       <div class="vorb"></div>
       <div class="vtranscript" id="vSaid">${i}</div>
       <div class="vsteps" id="vSteps">
@@ -3400,13 +3400,13 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
         关闭 (Esc)
       </button>
     </div>
-  `}function Ge(e,t,i,n,s,o,d,a="--",c=0,p="以传感器回读为准"){const v=n.zones.filter(r=>r.joined&&r.online),b=n.linked&&n.playing&&v.length>0,$=n.playlists.find(r=>r.id===n.playlistId)||n.playlists[0],f=$.tracks[n.trackIdx%$.tracks.length]||$.tracks[0];return u`
+  `}function Ge(e,t,i,n,s,o,d,a="--",c=0,p="以传感器回读为准"){const g=n.zones.filter(r=>r.joined&&r.online),y=n.linked&&n.playing&&g.length>0,$=n.playlists.find(r=>r.id===n.playlistId)||n.playlists[0],f=$.tracks[n.trackIdx%$.tracks.length]||$.tracks[0];return h`
     <div class="saver ${e?"open":""}" id="saver" @click=${d}>
       <div style="display:flex;justify-content:space-between;align-items:center">
         <span style="font-size:16px;color:#6c7893">我的家 · 轻触屏幕任意位置唤醒</span>
-        ${b?u`<span id="sMus" style="display:inline-flex;align-items:center;gap:8px;font-size:15px;color:#8fa0c2">
+        ${y?h`<span id="sMus" style="display:inline-flex;align-items:center;gap:8px;font-size:15px;color:#8fa0c2">
               ♪ 正在播放 · <b id="sMusTrack" style="color:#dde3f0">${f.t} · ${f.a}</b>
-            </span>`:_}
+            </span>`:M}
       </div>
       <div>
         <div class="big-t" id="sClk">${t}</div>
@@ -3419,7 +3419,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
         <span>全屋安防 <b>${p}</b></span>
       </div>
     </div>
-  `}function Ue(e,t,i,n){return e?u`
+  `}function Ue(e,t,i,n){return e?h`
     <div
       class="sheet-mask open"
       id="settingsMask"
@@ -3437,7 +3437,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
             <div
               style="width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--primary),var(--cyan));display:grid;place-items:center;color:#08101d;font-weight:900;box-shadow:0 8px 20px rgba(91,108,240,.35)"
             >
-              ${z(S.settings)}
+              ${D(_.settings)}
             </div>
             <div>
               <div class="tt" style="font-size:19px;font-weight:800">系统设置与中枢诊断 · 极简设置/诊断</div>
@@ -3458,7 +3458,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
         </div>
       </div>
     </div>
-  `:_}function We(e){return z(S[e]||S.bulb)}function ve(e){return z(e==="away"||e==="alloff"?S.power||S.spark:e==="movie"?S.tv:(e==="sleep"||e==="night")&&S.moon||S.spark)}function ge(e){return e.hold?{tag:"长按 1s",color:"#FF7B7B"}:e.id==="sleep"||e.id==="night"?{tag:"睡眠安享",color:"#7C8CFF"}:e.id==="movie"?{tag:"影音联动",color:"#38D5F5"}:{tag:"一键执行",color:"#FFB547"}}function le(e){return G(e)}function me(e){return e.playlists.find(t=>t.id===e.playlistId)||e.playlists[0]}function fe(e){const t=me(e);return t.tracks[e.trackIdx%t.tracks.length]||t.tracks[0]}function ce(){return{activityChains:[{id:"act-1",title:"客厅渐亮夜灯与柔光灯带",time:"21:18:04",room:"客厅",trigger:"人体存在传感器 binary_sensor.living_presence",condition:"室内照度 12lx < 40lx · 非休息模式",decision:"夜间柔和跟人亮灯策略（rule_night_soft_follow）",action:"light.turn_on(l_strip, brightness=35%, kelvin=2700)",receipt:"已回读确认 ✓ (38ms)",status:"ok",statusText:"已回读确认 ✓"},{id:"act-2",title:"书房台灯状态同步异常",time:"20:42:19",room:"书房",trigger:"用户手势点击 tile(s_desk)",condition:"Zigbee 路由节点响应超时",decision:"单次下发控制指令（遵守不自动重发契约）",action:"light.turn_on(s_desk)",receipt:"! 回执未知 · 未收到物理状态回流",status:"unknown",statusText:"未确认 · 不自动重发"},{id:"act-3",title:"主卧睡前温度微调",time:"20:15:00",room:"主卧",trigger:"AI 习惯引擎定时预热",condition:"主卧温度 26.1°C · 湿度 52%",decision:"睡前舒适温控策略",action:"climate.set_temperature(m_ac, 24°C, mode=sleep)",receipt:"已回读确认 ✓ (51ms)",status:"ok",statusText:"已回读确认 ✓"},{id:"act-4",title:"远程语音请求开启玄关门锁",time:"18:09:42",room:"玄关",trigger:"远场语音意图 lock.unlock(e_lock)",condition:"高风险设备 r3 安全防线触发",decision:"管家策略拦截：门锁严禁无授权远场自动解锁",action:"已拦截 · 未下发物理指令",receipt:"安全防线已保护 · 仅只读展示",status:"blocked",statusText:"安全拦截 · r3 只读"}],inboxItems:[{id:"inb-1",kind:"habit",tag:"AI 习惯候选 · 置信度 91%",time:"10 分钟前",title:"将「23:30 主卧自动切入休息模式」设为固定规则？",desc:"过去 7 天你有 6 天在 23:25–23:40 关闭主卧顶灯并保留床头 15% 微光。"},{id:"inb-2",kind:"warn",tag:"设备异常提醒 · Zigbee",time:"46 分钟前",title:"书房台灯 (s_desk) 信号弱或掉线",desc:"最近一次控制未收到物理回执，建议检查书房插座供电或网关信号。"}],sceneDrafts:[{id:"draft-read",name:"周末午后阅读",prompt:"周末下午把客厅纱帘关到 50%，打开沙发灯带 45% 暖光，播放轻音乐",actionsSummary:"客厅纱帘 50% · 沙发灯带 45% (3200K) · 背景音乐《午后原声》",approved:!1}],chatMessages:[{role:"ai",text:"晚上好！全屋目前有 4 盏灯亮起，客厅与主卧有人。你可以直接对我说「把客厅灯调暗一点」、「开启主卧休息模式」，或让我帮你生成新场景。",time:"21:15"}]}}function Qe(e,t){if(e.offline)return"离线 · 请检查供电";if(e.receipt==="sending")return"指令已下发 · 待回读…";if(e.receipt==="unknown")return"! 回执未知 · 请核对";if(e.type==="light")return e.on?e.dimmable?`已开启 · ${e.bri??80}%`:"已开启":"已关闭";if(e.type==="ac")return e.on?`${e.mode||"制冷"} ${e.temp??25}°`:"已关闭";if(e.type==="curtain")return(e.pos??0)>5?`开启 ${e.pos}%`:"已关闭";if(e.type==="lock")return"已上锁 · 安全只读";if(e.type==="speaker"){const i=t.zones.find(n=>n.room===e.room);return!i||!i.online?"离线":t.linked&&t.playing&&i.joined?`播放中 · 音量 ${i.vol}%`:`待机 · 音量 ${i.vol}%`}return e.on?e.sub||"运行中":"已关闭"}function de(e,t,i,n){const s=e.type==="speaker"?t.zones.find(c=>c.room===e.room):null,o=e.type==="speaker"?!!(t.linked&&t.playing&&(s!=null&&s.joined)&&(s!=null&&s.online)):!!(e.on&&!e.offline),d=e.type==="light"&&e.dimmable&&e.on?e.bri||0:e.type==="speaker"&&o&&s?s.vol:0;let a=_;return e.offline?a=u`<span class="m-badge off">离线</span>`:e.receipt==="sending"?a=u`<span class="m-badge wait">下发中…</span>`:e.receipt==="unknown"?a=u`<span class="m-badge warn">! 未确认</span>`:e.receipt==="ok"?a=u`<span class="m-badge ok">✓ 已确认</span>`:e.type==="lock"&&(a=u`<span class="m-badge lock">安全只读</span>`),u`
+  `:M}function We(e){return D(_[e]||_.bulb)}function ve(e){return D(e==="away"||e==="alloff"?_.power||_.spark:e==="movie"?_.tv:(e==="sleep"||e==="night")&&_.moon||_.spark)}function ge(e){return e.hold?{tag:"长按 1s",color:"#FF7B7B"}:e.id==="sleep"||e.id==="night"?{tag:"睡眠安享",color:"#7C8CFF"}:e.id==="movie"?{tag:"影音联动",color:"#38D5F5"}:{tag:"一键执行",color:"#FFB547"}}function le(e){return G(e)}function me(e){return e.playlists.find(t=>t.id===e.playlistId)||e.playlists[0]}function fe(e){const t=me(e);return t.tracks[e.trackIdx%t.tracks.length]||t.tracks[0]}function ce(){return{activityChains:[{id:"act-1",title:"客厅渐亮夜灯与柔光灯带",time:"21:18:04",room:"客厅",trigger:"人体存在传感器 binary_sensor.living_presence",condition:"室内照度 12lx < 40lx · 非休息模式",decision:"夜间柔和跟人亮灯策略（rule_night_soft_follow）",action:"light.turn_on(l_strip, brightness=35%, kelvin=2700)",receipt:"已回读确认 ✓ (38ms)",status:"ok",statusText:"已回读确认 ✓"},{id:"act-2",title:"书房台灯状态同步异常",time:"20:42:19",room:"书房",trigger:"用户手势点击 tile(s_desk)",condition:"Zigbee 路由节点响应超时",decision:"单次下发控制指令（遵守不自动重发契约）",action:"light.turn_on(s_desk)",receipt:"! 回执未知 · 未收到物理状态回流",status:"unknown",statusText:"未确认 · 不自动重发"},{id:"act-3",title:"主卧睡前温度微调",time:"20:15:00",room:"主卧",trigger:"AI 习惯引擎定时预热",condition:"主卧温度 26.1°C · 湿度 52%",decision:"睡前舒适温控策略",action:"climate.set_temperature(m_ac, 24°C, mode=sleep)",receipt:"已回读确认 ✓ (51ms)",status:"ok",statusText:"已回读确认 ✓"},{id:"act-4",title:"远程语音请求开启玄关门锁",time:"18:09:42",room:"玄关",trigger:"远场语音意图 lock.unlock(e_lock)",condition:"高风险设备 r3 安全防线触发",decision:"管家策略拦截：门锁严禁无授权远场自动解锁",action:"已拦截 · 未下发物理指令",receipt:"安全防线已保护 · 仅只读展示",status:"blocked",statusText:"安全拦截 · r3 只读"}],inboxItems:[{id:"inb-1",kind:"habit",tag:"AI 习惯候选 · 置信度 91%",time:"10 分钟前",title:"将「23:30 主卧自动切入休息模式」设为固定规则？",desc:"过去 7 天你有 6 天在 23:25–23:40 关闭主卧顶灯并保留床头 15% 微光。"},{id:"inb-2",kind:"warn",tag:"设备异常提醒 · Zigbee",time:"46 分钟前",title:"书房台灯 (s_desk) 信号弱或掉线",desc:"最近一次控制未收到物理回执，建议检查书房插座供电或网关信号。"}],sceneDrafts:[{id:"draft-read",name:"周末午后阅读",prompt:"周末下午把客厅纱帘关到 50%，打开沙发灯带 45% 暖光，播放轻音乐",actionsSummary:"客厅纱帘 50% · 沙发灯带 45% (3200K) · 背景音乐《午后原声》",approved:!1}],chatMessages:[{role:"ai",text:"晚上好！全屋目前有 4 盏灯亮起，客厅与主卧有人。你可以直接对我说「把客厅灯调暗一点」、「开启主卧休息模式」，或让我帮你生成新场景。",time:"21:15"}]}}function Qe(e,t){if(e.offline)return"离线 · 请检查供电";if(e.receipt==="sending")return"指令已下发 · 待回读…";if(e.receipt==="unknown")return"! 回执未知 · 请核对";if(e.type==="light")return e.on?e.dimmable?`已开启 · ${e.bri??80}%`:"已开启":"已关闭";if(e.type==="ac")return e.on?`${e.mode||"制冷"} ${e.temp??25}°`:"已关闭";if(e.type==="curtain")return(e.pos??0)>5?`开启 ${e.pos}%`:"已关闭";if(e.type==="lock")return"已上锁 · 安全只读";if(e.type==="speaker"){const i=t.zones.find(n=>n.room===e.room);return!i||!i.online?"离线":t.linked&&t.playing&&i.joined?`播放中 · 音量 ${i.vol}%`:`待机 · 音量 ${i.vol}%`}return e.on?e.sub||"运行中":"已关闭"}function de(e,t,i,n){const s=e.type==="speaker"?t.zones.find(c=>c.room===e.room):null,o=e.type==="speaker"?!!(t.linked&&t.playing&&(s!=null&&s.joined)&&(s!=null&&s.online)):!!(e.on&&!e.offline),d=e.type==="light"&&e.dimmable&&e.on?e.bri||0:e.type==="speaker"&&o&&s?s.vol:0;let a=M;return e.offline?a=h`<span class="m-badge off">离线</span>`:e.receipt==="sending"?a=h`<span class="m-badge wait">下发中…</span>`:e.receipt==="unknown"?a=h`<span class="m-badge warn">! 未确认</span>`:e.receipt==="ok"?a=h`<span class="m-badge ok">✓ 已确认</span>`:e.type==="lock"&&(a=h`<span class="m-badge lock">安全只读</span>`),h`
     <div
       class="tile m-tile ${o?"on":""} ${e.offline?"off":""}"
       data-id="${e.id}"
@@ -3484,7 +3484,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
         <div class="st">${Qe(e,t)}</div>
       </div>
     </div>
-  `}function pe(e){const t=e.temp!=null?`${e.temp}°C`:"--",i=e.hum!=null?`${e.hum}%`:"--";return`${t} · ${i}`}function Ze(e){const t=e.map(n=>n.temp).filter(n=>typeof n=="number"&&Number.isFinite(n)),i=e.map(n=>n.hum).filter(n=>typeof n=="number"&&Number.isFinite(n));return{avgTemp:t.length>0?`${(t.reduce((n,s)=>n+s,0)/t.length).toFixed(1)}°`:"--",avgHum:i.length>0?`${Math.round(i.reduce((n,s)=>n+s,0)/i.length)}%`:"--"}}function Je(e,t){const i=e.devs.filter(a=>a.type==="light"&&a.on&&!a.offline).length,n=e.rooms.filter(a=>a.occ).length,s=e.rooms.find(a=>a.id===e.activeRoomId)||null,{avgTemp:o,avgHum:d}=Ze(e.rooms);return u`
+  `}function pe(e){const t=e.temp!=null?`${e.temp}°C`:"--",i=e.hum!=null?`${e.hum}%`:"--";return`${t} · ${i}`}function Ze(e){const t=e.map(n=>n.temp).filter(n=>typeof n=="number"&&Number.isFinite(n)),i=e.map(n=>n.hum).filter(n=>typeof n=="number"&&Number.isFinite(n));return{avgTemp:t.length>0?`${(t.reduce((n,s)=>n+s,0)/t.length).toFixed(1)}°`:"--",avgHum:i.length>0?`${Math.round(i.reduce((n,s)=>n+s,0)/i.length)}%`:"--"}}function Je(e,t){const i=e.devs.filter(a=>a.type==="light"&&a.on&&!a.offline).length,n=e.rooms.filter(a=>a.occ).length,s=e.rooms.find(a=>a.id===e.activeRoomId)||null,{avgTemp:o,avgHum:d}=Ze(e.rooms);return h`
     <div class="m-tab-body">
       <!-- Room Pills Horizontal Bar -->
       <div class="m-room-pills" role="tablist" aria-label="房间切换">
@@ -3494,14 +3494,14 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
         >
           全屋
         </button>
-        ${e.rooms.map(a=>{const c=!!e.roomRestMap[a.id];return u`
+        ${e.rooms.map(a=>{const c=!!e.roomRestMap[a.id];return h`
             <button
               class="m-rpill ${e.activeRoomId===a.id?"active":""}"
               @click=${()=>t.onSelectRoom(a.id)}
             >
-              ${a.occ?u`<span class="m-occ-dot"></span>`:_}
+              ${a.occ?h`<span class="m-occ-dot"></span>`:M}
               <span>${a.name}</span>
-              ${c?u`<span title="休息模式中">🌙</span>`:_}
+              ${c?h`<span title="休息模式中">🌙</span>`:M}
             </button>
           `})}
       </div>
@@ -3562,7 +3562,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
       </div>
 
       <!-- Owner Question Card (Aligned with V5 Owner Question) -->
-      ${e.curQ?u`
+      ${e.curQ?h`
             <div class="q m-q">
               <div class="hd">
                 <span>💡 管家贴心询问</span>
@@ -3575,20 +3575,20 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
                 <button class="chip-btn" @click=${()=>t.onAnswerQuestion("no")}>不用了</button>
               </div>
             </div>
-          `:_}
+          `:M}
 
-      ${e.activeRoomId==="all"?u`
+      ${e.activeRoomId==="all"?h`
             <!-- Quick Scenes Horizontal Scroll -->
             <div class="m-sec-hd">
               <span>常用场景</span>
               <span class="sub">点按即执行 · 离家/全关需按住 1 秒防误触</span>
             </div>
             <div class="scenes m-scenes">
-              ${e.scenes.map(a=>{const c=e.holdProgressMap[a.id]||0,p=ge(a);return u`
+              ${e.scenes.map(a=>{const c=e.holdProgressMap[a.id]||0,p=ge(a);return h`
                   <div
                     class="scene m-scene"
                     data-scene="${a.id}"
-                    @pointerdown=${v=>{a.hold&&t.onSceneHoldPointerDown(a,v)}}
+                    @pointerdown=${g=>{a.hold&&t.onSceneHoldPointerDown(a,g)}}
                     @click=${()=>{a.hold||t.onSceneClick(a)}}
                   >
                     <div class="bar" style="width:${c}%"></div>
@@ -3610,22 +3610,22 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
               <span class="sub">点按进入房间 · 可一键开关房间灯或切休息模式</span>
             </div>
             <div class="m-room-grid">
-              ${e.rooms.map(a=>{const c=e.devs.filter(b=>b.room===a.id),p=c.filter(b=>b.type==="light"&&b.on&&!b.offline).length,v=!!e.roomRestMap[a.id];return u`
+              ${e.rooms.map(a=>{const c=e.devs.filter(y=>y.room===a.id),p=c.filter(y=>y.type==="light"&&y.on&&!y.offline).length,g=!!e.roomRestMap[a.id];return h`
                   <div
-                    class="m-rcard ${p>0?"lit":""} ${v?"rest":""}"
+                    class="m-rcard ${p>0?"lit":""} ${g?"rest":""}"
                     @click=${()=>t.onSelectRoom(a.id)}
                   >
                     <div class="m-rc-top">
                       <div>
                         <div class="m-rc-name">
                           <span>${a.name}</span>
-                          ${a.occ?u`<span class="m-occ-dot" title="有人"></span>`:_}
+                          ${a.occ?h`<span class="m-occ-dot" title="有人"></span>`:M}
                         </div>
                         <div class="m-rc-env">${pe(a)}</div>
                       </div>
                       <span class="m-rc-cnt">${c.length} 设备</span>
                     </div>
-                    <div class="m-rc-actions" @click=${b=>b.stopPropagation()}>
+                    <div class="m-rc-actions" @click=${y=>y.stopPropagation()}>
                       <button
                         class="m-mini-pill ${p>0?"lit":""}"
                         @click=${()=>t.onToggleRoomLights(a.id)}
@@ -3633,11 +3633,11 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
                         💡 ${p>0?`${p} 盏亮`:"全关"}
                       </button>
                       <button
-                        class="m-mini-pill ${v?"rest":""}"
+                        class="m-mini-pill ${g?"rest":""}"
                         title="切换本房休息免打扰模式"
                         @click=${()=>t.onToggleRoomRest(a.id)}
                       >
-                        ${v?"🌙 休息中":"☀ 正常"}
+                        ${g?"🌙 休息中":"☀ 正常"}
                       </button>
                     </div>
                   </div>
@@ -3650,11 +3650,11 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
               <span class="sub">单击开关 · 左右滑调光 · 点 › 弹出细腻控制</span>
             </div>
             <div class="m-tile-grid">
-              ${e.devs.filter(a=>a.fav).map(a=>{var p;const c=((p=e.rooms.find(v=>v.id===a.room))==null?void 0:p.name)||"";return de(a,e.music,c,t)})}
+              ${e.devs.filter(a=>a.fav).map(a=>{var p;const c=((p=e.rooms.find(g=>g.id===a.room))==null?void 0:p.name)||"";return de(a,e.music,c,t)})}
             </div>
-          `:u`
+          `:h`
             <!-- Single Room Focus View -->
-            ${s?u`
+            ${s?h`
                   <div class="m-room-hero">
                     <div class="m-rh-top">
                       <div>
@@ -3694,14 +3694,14 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
                       </button>
                     </div>
                   </div>
-                `:_}
+                `:M}
 
             <div class="m-tile-grid">
               ${e.devs.filter(a=>a.room===e.activeRoomId).map(a=>de(a,e.music,null,t))}
             </div>
           `}
     </div>
-  `}function Xe(e,t){const i=e.inboxItems.filter(s=>!s.resolved).length+(e.curQ?1:0),n=e.activityChains.filter(s=>e.activityFilter==="ok"?s.status==="ok":e.activityFilter==="warn"?s.status!=="ok":!0);return u`
+  `}function Xe(e,t){const i=e.inboxItems.filter(s=>!s.resolved).length+(e.curQ?1:0),n=e.activityChains.filter(s=>e.activityFilter==="ok"?s.status==="ok":e.activityFilter==="warn"?s.status!=="ok":!0);return h`
     <div class="m-tab-body">
       <!-- Sub-navigation aligned with V5 Admin UI (#activity / #inbox / Steward Chat) -->
       <div class="m-sub-seg">
@@ -3715,7 +3715,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
           class="${e.stewardSub==="inbox"?"on":""}"
           @click=${()=>t.onSelectStewardSub("inbox")}
         >
-          📥 待处理 ${i>0?u`<span class="m-cnt-dot">${i}</span>`:_}
+          📥 待处理 ${i>0?h`<span class="m-cnt-dot">${i}</span>`:M}
         </button>
         <button
           class="${e.stewardSub==="chat"?"on":""}"
@@ -3725,7 +3725,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
         </button>
       </div>
 
-      ${e.stewardSub==="activity"?u`
+      ${e.stewardSub==="activity"?h`
             <div class="m-sec-hd">
               <span>五步透明执行链路 (对齐 V5 #activity)</span>
               <span class="sub">严守真实物理回执 · 未知绝不伪装成功</span>
@@ -3752,7 +3752,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
             </div>
 
             <div class="m-chain-list">
-              ${n.map(s=>u`
+              ${n.map(s=>h`
                   <div class="m-chain-card ${s.status}">
                     <div class="m-cc-hd">
                       <div>
@@ -3787,12 +3787,12 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
                   </div>
                 `)}
             </div>
-          `:e.stewardSub==="inbox"?u`
+          `:e.stewardSub==="inbox"?h`
               <div class="m-sec-hd">
                 <span>待处理中心 (对齐 V5 #inbox)</span>
                 <span class="sub">集中处理主动询问、习惯候选与设备离线告警</span>
               </div>
-              ${e.curQ?u`
+              ${e.curQ?h`
                     <div class="q m-q">
                       <div class="hd">
                         <span>💡 实时询问 · ${e.qCounter}</span>
@@ -3805,10 +3805,10 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
                         <button class="chip-btn" @click=${()=>t.onAnswerQuestion("no")}>忽略</button>
                       </div>
                     </div>
-                  `:_}
+                  `:M}
 
               <div class="m-chain-list">
-                ${e.inboxItems.map(s=>u`
+                ${e.inboxItems.map(s=>h`
                     <div class="m-inbox-card ${s.resolved?"resolved":""}">
                       <div class="m-ic-top">
                         <span class="m-ic-tag ${s.kind}">${s.tag}</span>
@@ -3816,7 +3816,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
                       </div>
                       <div class="m-ic-title">${s.title}</div>
                       <div class="m-ic-desc">${s.desc}</div>
-                      ${s.resolved?u`<div class="m-ic-done">✓ 已处理归档</div>`:u`
+                      ${s.resolved?h`<div class="m-ic-done">✓ 已处理归档</div>`:h`
                             <div class="acts" style="display:flex;gap:8px;margin-top:6px">
                               <button class="chip-btn pri" @click=${()=>t.onResolveInbox(s.id,!0)}>
                                 ${s.kind==="habit"?"✓ 采纳为固定规则":"✓ 已知晓并核对"}
@@ -3829,14 +3829,14 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
                     </div>
                   `)}
               </div>
-            `:u`
+            `:h`
               <div class="m-sec-hd">
                 <span>自然语言对话管家</span>
                 <span class="sub">支持直接控设备、查状态、生成场景草稿</span>
               </div>
               <div class="m-chat-box">
                 <div class="m-chat-msgs">
-                  ${e.chatMessages.map(s=>u`
+                  ${e.chatMessages.map(s=>h`
                       <div class="m-cmsg ${s.role}">
                         <div class="m-cbubble">${s.text}</div>
                         <div class="m-ctime">${s.role==="ai"?"✦ 小智管家":"我"} · ${s.time}</div>
@@ -3844,7 +3844,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
                     `)}
                 </div>
                 <div class="m-chat-Prompts">
-                  ${["把客厅主灯调到 50%","开启主卧休息模式","放点爵士乐","查看全屋亮灯状态"].map(s=>u`
+                  ${["把客厅主灯调到 50%","开启主卧休息模式","放点爵士乐","查看全屋亮灯状态"].map(s=>h`
                       <button class="m-cprompt" @click=${()=>t.onSendChat(s)}>${s}</button>
                     `)}
                 </div>
@@ -3863,7 +3863,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
               </div>
             `}
     </div>
-  `}function Ke(e,t){const i=Object.values(e.roomRestMap).filter(Boolean).length;return u`
+  `}function Ke(e,t){const i=Object.values(e.roomRestMap).filter(Boolean).length;return h`
     <div class="m-tab-body">
       <!-- Natural Language Scene Draft Generator -->
       <div class="m-nl-card">
@@ -3886,20 +3886,20 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
           </button>
         </div>
         <div class="m-chat-Prompts" style="margin-top:6px">
-          ${["观影微光：关主灯、灯带25%、关窗帘","专注办公：书房台灯85%冷白光、关客厅音乐"].map(n=>u`
+          ${["观影微光：关主灯、灯带25%、关窗帘","专注办公：书房台灯85%冷白光、关客厅音乐"].map(n=>h`
               <button class="m-cprompt" @click=${()=>t.onCreateSceneDraft(n)}>+ ${n}</button>
             `)}
         </div>
       </div>
 
       <!-- Pending Scene Drafts -->
-      ${e.sceneDrafts.length>0?u`
+      ${e.sceneDrafts.length>0?h`
             <div class="m-sec-hd">
               <span>待审核 / 已生成场景草稿 (${e.sceneDrafts.length})</span>
               <span class="sub">对齐 /api/v1/ai-scenes/create-from-text</span>
             </div>
             <div class="m-chain-list">
-              ${e.sceneDrafts.map(n=>u`
+              ${e.sceneDrafts.map(n=>h`
                   <div class="m-inbox-card">
                     <div class="m-ic-top">
                       <span class="m-ic-tag habit">${n.approved?"✓ 已批准进入场景库":"● 待主人审核草稿"}</span>
@@ -3909,7 +3909,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
                     <div class="m-ic-desc">原始描述：“${n.prompt}”</div>
                     <div class="m-ic-desc" style="color:var(--primary);margin-top:2px">动作编排：${n.actionsSummary}</div>
                     <div class="acts" style="display:flex;gap:8px;margin-top:6px">
-                      ${n.approved?_:u`
+                      ${n.approved?M:h`
                             <button class="chip-btn pri" @click=${()=>t.onApproveSceneDraft(n.id)}>
                               ✓ 批准并加入常用场景
                             </button>
@@ -3919,7 +3919,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
                   </div>
                 `)}
             </div>
-          `:_}
+          `:M}
 
       <!-- Full Scenes Grid -->
       <div class="m-sec-hd">
@@ -3927,7 +3927,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
         <span class="sub">离家与全屋关灯需按住 1 秒防误触</span>
       </div>
       <div class="m-scene-grid">
-        ${e.scenes.map(n=>{const s=e.holdProgressMap[n.id]||0,o=ge(n);return u`
+        ${e.scenes.map(n=>{const s=e.holdProgressMap[n.id]||0,o=ge(n);return h`
             <div
               class="scene m-scene-card"
               data-scene="${n.id}"
@@ -3971,7 +3971,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
         </div>
       </div>
     </div>
-  `}function N(e,t,i,n,s,o){const d=i?i.name:t,a=i?i.offline?"设备离线":i.sub||"状态未知":n,c=i&&!i.offline?"ok":"";return u`
+  `}function N(e,t,i,n,s,o){const d=i?i.name:t,a=i?i.offline?"设备离线":i.sub||"状态未知":n,c=i&&!i.offline?"ok":"";return h`
     <div class="m-gcard" @click=${()=>o==null?void 0:o()}>
       <div class="m-gc-top">
         <span class="m-gc-name">${e} ${d}</span>
@@ -3980,14 +3980,45 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
       <div class="m-gc-val ${c}">${a}</div>
       <div class="m-gc-meta">${i?"以网关实时回读为准":s}</div>
     </div>
-  `}function he(e,t){return e.find(i=>i.type==="sensor"&&t.some(n=>i.name.includes(n)||i.id.includes(n)))||null}function Ye(e,t){const i=e.devs.find(o=>o.type==="lock")||null,n=he(e.devs,["水","water","leak"]),s=he(e.devs,["燃","烟","gas","smoke"]);return u`
+  `}function ue(e,t){return e.find(i=>i.type==="sensor"&&t.some(n=>i.name.includes(n)||i.id.includes(n)))||null}function Ye(e,t){const i=e.devs.find(o=>o.type==="lock")||null,n=ue(e.devs,["水","water","leak"]),s=ue(e.devs,["燃","烟","gas","smoke"]);return h`
     <div class="m-guard-grid">
       ${N("🔒","智能门锁",i,"未接入实时门锁","请在管理端接入后查看",i?()=>t.onOpenSheet(i.id):void 0)}
       ${N("📷","视觉与猫眼监控",null,"未接入中控屏实时摘要","请在管理端「边缘视觉」查看 Frigate 实时状态")}
       ${N("💧","水阀与水浸传感器",n,"未接入实时传感器","暂无已纳管水浸传感器")}
       ${N("🔥","燃气与烟雾传感器",s,"未接入实时传感器","暂无已纳管燃气/烟雾传感器")}
     </div>
-  `}function et(e,t){const i=me(e.music),n=fe(e.music);return u`
+  `}function et(e,t){return h`
+      <!-- Host Connection & Accessibility Card -->
+      <div class="m-sec-hd">
+        <span>主机连接与显示偏好</span>
+        <span class="sub">与如影中控屏共享网关令牌</span>
+      </div>
+      <div class="m-strategy-list">
+        <div class="m-strat-item">
+          <div>
+            <div class="m-st-title">👵 长辈大字关怀模式</div>
+            <div class="m-st-desc">放大手机端字号与触控按钮，精简次要参数展示</div>
+          </div>
+          <button class="tgl ${e.elderMode?"on":""}" @click=${t.onToggleElderMode}></button>
+        </div>
+        <div class="m-strat-item">
+          <div>
+            <div class="m-st-title">☁ 官方云端中继 · 默认家庭主机直达</div>
+            <div class="m-st-desc">
+              外网打开云端 <code style="color:var(--cyan)">/mobile</code> 登录后自动换票并直达默认家庭主机手机端
+            </div>
+          </div>
+          <span class="pill occ">已就绪</span>
+        </div>
+        <div class="m-strat-item">
+          <div>
+            <div class="m-st-title">🔗 家庭网关配对与系统设置</div>
+            <div class="m-st-desc">状态：${e.netLabel} · 支持局域网直连与远程中继</div>
+          </div>
+          <button class="chip-btn pri" @click=${t.onOpenSettings}>打开配置</button>
+        </div>
+      </div>
+  `}function tt(e){return e.netLabel.includes("云端")?e.netLabel:e.netTone==="ok"?"在家直连":e.netLabel}function it(e,t){const i=me(e.music),n=fe(e.music);return h`
     <div class="m-tab-body">
       <!-- V5 r3 Security & Water/Gas Read-Only Status Board -->
       <div class="m-sec-hd">
@@ -4033,7 +4064,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
         </div>
 
         <div class="m-room-pills" style="padding:2px 0">
-          ${e.music.playlists.map(s=>u`
+          ${e.music.playlists.map(s=>h`
               <button
                 class="m-rpill ${e.music.playlistId===s.id?"active":""}"
                 @click=${()=>t.onSelectPlaylist(s.id)}
@@ -4045,7 +4076,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
 
         <div style="font-size:11px;color:var(--text2);margin-top:2px">播放房间分组（点按加入或退出）：</div>
         <div class="m-zone-chips">
-          ${e.music.zones.map(s=>u`
+          ${e.music.zones.map(s=>h`
               <button
                 class="m-zchip ${s.joined?"on":""}"
                 ?disabled=${!s.online}
@@ -4058,29 +4089,9 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
         </div>
       </div>
 
-      <!-- Host Connection & Accessibility Card -->
-      <div class="m-sec-hd">
-        <span>主机连接与显示偏好</span>
-        <span class="sub">与如影中控屏共享网关令牌</span>
-      </div>
-      <div class="m-strategy-list">
-        <div class="m-strat-item">
-          <div>
-            <div class="m-st-title">👵 长辈大字关怀模式</div>
-            <div class="m-st-desc">放大手机端字号与触控按钮，精简次要参数展示</div>
-          </div>
-          <button class="tgl ${e.elderMode?"on":""}" @click=${t.onToggleElderMode}></button>
-        </div>
-        <div class="m-strat-item">
-          <div>
-            <div class="m-st-title">🔗 家庭网关配对与系统设置</div>
-            <div class="m-st-desc">状态：${e.netLabel} · 支持局域网直连与远程中继</div>
-          </div>
-          <button class="chip-btn pri" @click=${t.onOpenSettings}>打开配置</button>
-        </div>
-      </div>
+      ${et(e,t)}
     </div>
-  `}function tt(e,t){const i=fe(e.music),n=e.music.zones.filter(o=>o.joined&&o.online).length,s=e.inboxItems.filter(o=>!o.resolved).length+(e.curQ?1:0);return u`
+  `}function nt(e,t){const i=fe(e.music),n=e.music.zones.filter(o=>o.joined&&o.online).length,s=e.inboxItems.filter(o=>!o.resolved).length+(e.curQ?1:0);return h`
     <div class="m-shell ${e.elderMode?"elder":""}">
       <!-- Mobile Sticky Header -->
       <header class="m-header">
@@ -4094,7 +4105,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
         <div class="m-hdr-right">
           <div class="status-pill" title="网关连接状态">
             <span class="sdot ${e.netTone==="warn"?"warn":e.netTone==="bad"?"bad":""}"></span>
-            <span>${e.netTone==="ok"?"在家直连":"云端中继"}</span>
+            <span>${tt(e)}</span>
           </div>
           <button class="ibtn m-ibtn" title="切换深浅色主题" @click=${t.onToggleTheme}>
             ${e.themeMode==="dark"?"☀":"☾"}
@@ -4111,7 +4122,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
 
       <!-- Scrollable Tab Viewport -->
       <main class="m-viewport">
-        ${e.tab==="home"?Je(e,t):e.tab==="steward"?Xe(e,t):e.tab==="auto"?Ke(e,t):et(e,t)}
+        ${e.tab==="home"?Je(e,t):e.tab==="steward"?Xe(e,t):e.tab==="auto"?Ke(e,t):it(e,t)}
       </main>
 
       <!-- Floating Mini Music Bar + Glowing Xiaozhi Voice Trigger -->
@@ -4158,7 +4169,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
         <button class="m-tab-btn ${e.tab==="steward"?"active":""}" @click=${()=>t.onSelectTab("steward")}>
           <span class="ico">
             ✦
-            ${s>0?u`<i class="m-nav-dot"></i>`:_}
+            ${s>0?h`<i class="m-nav-dot"></i>`:M}
           </span>
           <span class="lbl">管家与记录</span>
         </button>
@@ -4172,7 +4183,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
         </button>
       </nav>
     </div>
-  `}var it=Object.defineProperty,nt=Object.getOwnPropertyDescriptor,y=(e,t,i,n)=>{for(var s=n>1?void 0:n?nt(t,i):t,o=e.length-1,d;o>=0;o--)(d=e[o])&&(s=(n?d(t,i,s):d(s))||s);return n&&s&&it(t,i,s),s};function st(){return typeof re=="function"?re():{rooms:[],devs:[],scenes:[],music:{linked:!0,source:"Music Assistant · 本地无损",playing:!0,shuffle:!1,sleepMin:0,ducked:!1,receipt:null,playlistId:"jazz",trackIdx:0,pos:84,dur:228,masterVol:38,zones:[],playlists:[{id:"jazz",name:"爵士",desc:"",color:"#7C8CFF",tag:"JAZZ",tracks:[{t:"Blue in Green",a:"Miles Davis",dur:228}]}]},questions:[],feed:{txt:"",undone:!1,muted:!1}}}let x=class extends ye{constructor(){super(...arguments),this.activeRoomId="all",this.themeMode="dark",this.clockText="20:36",this.dateText="11月4日 · 星期三",this.greetingText="晚上好 · 全屋舒适",this._initData=st(),this.rRooms=this._initData.rooms,this.rDevs=this._initData.devs,this.rScenes=this._initData.scenes,this.rMusic=this._initData.music,this.rQuestions=this._initData.questions,this.qIdx=0,this.rFeed=this._initData.feed,this.sheetDevId=null,this.holdProgressMap={},this.lockHoldPct=0,this.voiceModalOpen=!1,this.voiceTranscript="正在听你说…",this.voiceStageIdx=0,this.voiceReply="",this.isAmbientMode=!1,this.showSettingsDrawer=!1,this.settingsTab="display",this.screenBriPct=78,this.saverTimeoutMin=1,this.ttsVolPct=72,this.wakeEnabled=!0,this.wakeSensitivity="mid",this.musicDuckEnabled=!0,this._initMobile=typeof ce=="function"?ce():{activityChains:[],inboxItems:[],sceneDrafts:[],chatMessages:[]},this._manualLayoutOverride=null,this.isMobileLayout=!1,this.mobileTab="home",this.mobileStewardSub="activity",this.mobileActivityFilter="all",this.mobileElderMode=!1,this.roomRestMap={master:!1,living:!1},this.mobileActivityChains=this._initMobile.activityChains,this.mobileInboxItems=this._initMobile.inboxItems,this.mobileSceneDrafts=this._initMobile.sceneDrafts,this.mobileScenePromptInput="",this.mobileChatMessages=this._initMobile.chatMessages,this.mobileChatInput="",this.aiState={status:"idle",lastAction:"",lastCorrection:"",recentAiActions:[],actionHistory:[],frigateEvents:[],criticalEvent:null,presenceState:{}},this.devices={},this.energyStats=[],this.activeDetailDevice=null,this.gatewayUrlInput="",this.pairingTokenInput="",this.pairingBusy=!1,this.pairingHint="",this.pairingExpressStatus="idle",this.pairingQrDataUrl="",this.connectionState="connecting",this.feedStatus={},this.voiceStage="idle",this.voiceReplyText="",this.wakewordEnabled=!1,this.scenes=[],this.pendingDeviceControlConfirmation=null,this.actionNotice=null,this.voicePipeline=null,this.idleTimer=null,this.clockTimer=null,this.musicTimer=null,this.liveSyncTimer=null,this.lastLiveSyncAt=0,this.voiceDemoTimers=[],this.actionNoticeTimer=null,this.deviceRefreshTimers=new Set,this._prevMusicPlaying=!1,this._handleVisibilityChange=()=>{if(!(typeof document>"u")){if(document.visibilityState==="hidden"){this.liveSyncTimer&&(clearInterval(this.liveSyncTimer),this.liveSyncTimer=null);return}this._startLiveSyncTimer(),this._fetchLiveGatewayData()}},this._dismissAmbientMode=()=>{this.isAmbientMode=!1,Date.now()-this.lastLiveSyncAt>=3e4&&this._fetchLiveGatewayData()},this._syncViewportLayoutMode=()=>{var i;if(typeof window>"u")return;if(this._manualLayoutOverride){this.isMobileLayout=this._manualLayoutOverride==="mobile";return}const e=new URLSearchParams(((i=window.location)==null?void 0:i.search)||""),t=(e.get("view")||e.get("mode")||"").toLowerCase();if(t==="mobile"||t==="phone"){this.isMobileLayout=!0;return}if(t==="wall"||t==="screen"||t==="panel"){this.isMobileLayout=!1;return}this.isMobileLayout=(window.innerWidth||1280)<=820},this._handleKeyDown=e=>{this._resetIdleTimer(),e.key==="Escape"&&(this.sheetDevId=null,this.showSettingsDrawer=!1,this.voiceModalOpen&&this._closeVoiceOverlay(),this.isAmbientMode&&(this.isAmbientMode=!1))},this._resetIdleTimer=()=>{typeof window>"u"||(this.idleTimer&&clearTimeout(this.idleTimer),this.idleTimer=window.setTimeout(()=>{!this.voiceModalOpen&&!this.sheetDevId&&!this.showSettingsDrawer&&(this.isAmbientMode=!0)},6e4))},this._audioCtx=null,this._audioChordTimer=null,this._streamAudioEl=null,this._handleTilePointerDown=(e,t)=>{if(e.offline||e.type==="sensor")return;if(e.type==="speaker"){this._handleSpeakerTileGesture(e.room,t);return}const i=t.currentTarget,n=t.clientX,s=t.clientY;let o=!1,d=!1;const a=i.getBoundingClientRect(),c=e.type==="light"&&!!e.dimmable,p=window.setTimeout(()=>{o||(d=!0,this.sheetDevId=e.id)},420),v=$=>{const f=$.clientX-n,r=$.clientY-s;if((Math.abs(f)>8||Math.abs(r)>8)&&(o=!0,clearTimeout(p)),o&&c){const l=Math.max(5,Math.min(100,Math.round(($.clientX-a.left)/a.width*100)));e.on=!0,e.bri=l,this.rDevs=[...this.rDevs]}},b=()=>{clearTimeout(p),window.removeEventListener("pointermove",v),window.removeEventListener("pointerup",b),!d&&(o&&c?this._sendDevCommand(e,()=>{}):(!o||!c)&&this._toggleDev(e.id))};window.addEventListener("pointermove",v),window.addEventListener("pointerup",b)},this._webSpeechWakeRecognizer=null,this._openVoiceOverlay=()=>{this.voiceModalOpen=!0,this._prevMusicPlaying=this.rMusic.linked&&this.rMusic.playing,this._prevMusicPlaying&&(this.rMusic={...this.rMusic,ducked:!0},this._syncWebAudioEngine(this.rMusic)),this.voiceStageIdx=0,this.voiceTranscript="正在听你说…",this.voiceReply="",this._initVoiceAndWakeEngines(),this.connectionState==="connected"&&this.voicePipeline?this.voicePipeline.start().catch(e=>{const t=e instanceof Error?e.message:String(e||"语音通道启动失败");this.voiceTranscript="语音采集未就绪",this.voiceReply=`语音启动失败：${t}（未执行任何控制动作）`}):(this.voiceTranscript="网关未连接或语音服务未初始化",this.voiceReply="当前无法启动语音识别，请确认中控屏已连接网关并授予麦克风权限。")},this._closeVoiceOverlay=()=>{this.voiceModalOpen=!1,this.voiceDemoTimers.forEach(e=>clearTimeout(e)),this.voiceDemoTimers=[],this.rMusic.ducked&&(this.rMusic={...this.rMusic,ducked:!1},this._syncWebAudioEngine(this.rMusic)),this.voicePipeline&&this.voicePipeline.stop()}}_startLiveSyncTimer(){typeof window>"u"||this.liveSyncTimer!==null||(this.liveSyncTimer=window.setInterval(()=>{typeof document<"u"&&document.visibilityState==="hidden"||this.isAmbientMode&&Date.now()-this.lastLiveSyncAt<3e5||this._fetchLiveGatewayData()},3e4))}connectedCallback(){var t,i,n,s,o,d,a,c;if(super.connectedCallback(),typeof window>"u")return;const e=j;(t=e==null?void 0:e.pauseBackgroundPolling)==null||t.call(e),this.gatewayUrlInput=((i=e==null?void 0:e.getGatewayUrl)==null?void 0:i.call(e))||"",this._tickClock(),this.clockTimer=window.setInterval(()=>this._tickClock(),1e3),this.musicTimer=window.setInterval(()=>this._tickMusic(),1e3),this._startLiveSyncTimer(),this._resetIdleTimer(),window.addEventListener("pointerdown",this._resetIdleTimer,{passive:!0}),window.addEventListener("keydown",this._handleKeyDown),window.addEventListener("resize",this._syncViewportLayoutMode),document.addEventListener("visibilitychange",this._handleVisibilityChange),this._syncViewportLayoutMode(),e&&(typeof e.getConnectionState=="function"&&(this.connectionState=e.getConnectionState()),typeof e.getFeedStatus=="function"&&(this.feedStatus=e.getFeedStatus()),(n=e.subscribe)==null||n.call(e,(p,v,b,$,f,r,l)=>{if(Array.isArray(p)){const m={};p.forEach(g=>{(g!=null&&g.id||g!=null&&g.entity_id)&&(m[g.entity_id||g.id]=g)}),this.devices=m}else p&&typeof p=="object"&&(this.devices={...p});v&&typeof v=="object"&&(this.aiState={...v},v.lastAction&&(this.rFeed={txt:v.lastAction,undone:!1,muted:!1})),Array.isArray(b)&&(this.energyStats=[...b]),l&&typeof l=="object"&&(this.feedStatus={...l}),this._syncGatewayToRedesign()}),(s=e.subscribeAI)==null||s.call(e,p=>{this.aiState={...p},p!=null&&p.lastAction&&(this.rFeed={txt:p.lastAction,undone:!1,muted:!1})}),(o=e.subscribeEnergy)==null||o.call(e,p=>{this.energyStats=Array.isArray(p)?[...p]:[]}),(d=e.subscribeConnection)==null||d.call(e,p=>{this.connectionState=p}),(a=e.subscribeFeedStatus)==null||a.call(e,p=>{this.feedStatus={...p}}),(c=e.connect)==null||c.call(e)),this._fetchLiveGatewayData(),this._initVoiceAndWakeEngines()}disconnectedCallback(){var e,t;super.disconnectedCallback(),!(typeof window>"u")&&(this.clockTimer&&clearInterval(this.clockTimer),this.musicTimer&&clearInterval(this.musicTimer),this.liveSyncTimer&&(clearInterval(this.liveSyncTimer),this.liveSyncTimer=null),this.idleTimer&&clearTimeout(this.idleTimer),window.removeEventListener("pointerdown",this._resetIdleTimer),window.removeEventListener("keydown",this._handleKeyDown),window.removeEventListener("resize",this._syncViewportLayoutMode),document.removeEventListener("visibilitychange",this._handleVisibilityChange),(t=(e=j)==null?void 0:e.resumeBackgroundPolling)==null||t.call(e))}async _toggleRoomRestViaGateway(e,t,i){var n,s,o;try{const d=j,a=((n=d==null?void 0:d.getGatewayUrl)==null?void 0:n.call(d))||"",c=((s=d==null?void 0:d.getAuthToken)==null?void 0:s.call(d))||"",p=c?{Authorization:`Bearer ${c}`}:{},v=await fetch(`${a}/api/v1/rest?space_id=${encodeURIComponent(t)}`,{headers:p}),b=await this._readGatewayJsonResponse(v),$=Number(b.revision);if(!Number.isInteger($)||$<0)throw new Error("rest_revision_unavailable");const r=(o=(await this._postGatewayJson("/api/v1/rest/toggle",{space_id:t,expected_revision:$})).state)==null?void 0:o.active;typeof r=="boolean"&&(this.roomRestMap={...this.roomRestMap,[e]:r})}catch(d){this.roomRestMap={...this.roomRestMap,[e]:i},this._showExecutionFailure(d)}}_toggleRoomRestMode(e){const t=!!this.roomRestMap[e],i=!t;this.roomRestMap={...this.roomRestMap,[e]:i};const n=this.rRooms.find(o=>o.id===e),s=(n==null?void 0:n.name)||e;this.rFeed={txt:i?`🌙 已请求开启「${s}」休息免打扰模式：暂停该房间主动亮灯与语音打扰。`:`☀ 已请求关闭「${s}」休息模式：恢复正常灯光跟随与管家播报。`,undone:!1,muted:!1},this.connectionState==="connected"&&this._toggleRoomRestViaGateway(e,(n==null?void 0:n.gatewaySpaceId)||e,t)}_appendMobileActivityChain(e){const t=new Date,i=`${String(t.getHours()).padStart(2,"0")}:${String(t.getMinutes()).padStart(2,"0")}:${String(t.getSeconds()).padStart(2,"0")}`,n={...e,id:`act_${Date.now()}_${Math.random().toString(36).slice(2,6)}`,time:i};this.mobileActivityChains=[n,...this.mobileActivityChains.slice(0,19)]}_handleCreateMobileSceneDraft(e){const t=(e??this.mobileScenePromptInput).trim();if(!t)return;const i=t.length>10?`${t.slice(0,10)}…`:t,n={id:`draft_${Date.now()}`,name:`AI 草稿 · ${i}`,prompt:t,actionsSummary:"已解析房间与设备动作链 · 待主人确认后生效",approved:!1};this.mobileSceneDrafts=[n,...this.mobileSceneDrafts],this.mobileScenePromptInput="",this.rFeed={txt:`✦ 已根据“${t}”生成待审核场景草稿，请在「场景与自动」中确认启用。`,undone:!1,muted:!1},this.connectionState==="connected"&&this._postGatewayJson("/api/v1/ai-scenes/create-from-text",{text:t,auto_approve:!1}).catch(s=>{this._showExecutionFailure(s)})}_handleSendMobileChat(e){const t=(e??this.mobileChatInput).trim();if(!t)return;const i=new Date,n=`${String(i.getHours()).padStart(2,"0")}:${String(i.getMinutes()).padStart(2,"0")}`;this.mobileChatMessages=[...this.mobileChatMessages,{role:"user",text:t,time:n}],this.mobileChatInput="";let s="已收到你的指令，小智正在为你核对全屋状态。";if(t.includes("休息模式")){const o=this.rRooms.find(d=>t.includes(d.name))||this.rRooms.find(d=>d.id==="master")||this.rRooms[0];o&&(this._toggleRoomRestMode(o.id),s=`✓ 已为你切换「${o.name}」的休息免打扰模式，物理状态已同步。`)}else if(t.includes("亮灯状态")||t.includes("几盏灯")){const o=this.rDevs.filter(d=>d.type==="light"&&d.on&&!d.offline);s=o.length>0?`当前共有 ${o.length} 盏灯亮起：${o.map(d=>d.name).join("、")}。`:"当前全屋所有照明均已关闭。"}else{const o=this._tryMatchMusicVoiceCommand(t);o?s=`✓ ${o}`:(this._executeWebWakeFreeCommand(`帮我${t}`),s=`✓ ${this.rFeed.txt}`)}this.mobileChatMessages=[...this.mobileChatMessages,{role:"ai",text:s,time:n}]}_tickClock(){const e=new Date,t=String(e.getHours()).padStart(2,"0"),i=String(e.getMinutes()).padStart(2,"0");this.clockText=`${t}:${i}`;const n=["日","一","二","三","四","五","六"][e.getDay()];this.dateText=`${e.getMonth()+1}月${e.getDate()}日 · 星期${n}`;const s=e.getHours(),o=s<6?"夜深了":s<11?"早上好":s<14?"中午好":s<18?"下午好":"晚上好";this.greetingText=`${o} · 全屋舒适`}_tickMusic(){if(!this.rMusic.linked||!this.rMusic.playing)return;const e=(this.rMusic.pos+1)%Math.max(1,this.rMusic.dur);this.rMusic={...this.rMusic,pos:e}}_syncGatewayToRedesign(){var i,n,s,o,d;const e=Object.values(this.devices);if(!e.length)return;const t=[...this.rDevs];for(const a of e){const c=String(a.entity_id||a.id||""),p=c.split(".")[0];if(!["light","climate","cover","switch","fan","lock","media_player"].includes(p))continue;we(((i=a.attributes)==null?void 0:i.room_name)||((n=a.attributes)==null?void 0:n.friendly_name)||"");const v=t.find(f=>{var r;return f.entityId===c||f.name===((r=a.attributes)==null?void 0:r.friendly_name)||f.name===a.name}),b=!["off","unavailable","unknown","closed","idle","standby"].includes(String(a.state).toLowerCase()),$=String(a.state).toLowerCase()==="unavailable";v&&(v.entityId=c,v.on=b,v.offline=$,typeof((s=a.attributes)==null?void 0:s.brightness)=="number"&&(v.bri=Math.round(a.attributes.brightness/255*100)),typeof((o=a.attributes)==null?void 0:o.temperature)=="number"&&(v.temp=a.attributes.temperature),typeof((d=a.attributes)==null?void 0:d.current_position)=="number"&&(v.pos=a.attributes.current_position))}this.rDevs=t}_extractGatewayList(e,t){return Array.isArray(e)?e:(e==null?void 0:e[t])||(e==null?void 0:e.items)||[]}_networkBadge(){return this.connectionState==="connected"?{tone:"ok",label:"网关在线"}:this.connectionState==="connecting"||this.connectionState==="reconnecting"?{tone:"warn",label:"网关连接中…"}:{tone:"bad",label:"网关未连接"}}async _fetchLiveGatewayData(){var i;if(typeof window>"u"||typeof fetch!="function")return;const e=localStorage.getItem("screen_token")||"";if(!e&&((i=window.location)==null?void 0:i.port)!=="5173")return;const t={Accept:"application/json"};e&&(t.Authorization=`Bearer ${e}`);try{this.lastLiveSyncAt=Date.now();const[n,s,o,d,a]=await Promise.allSettled([fetch("/api/v1/rooms",{headers:t}),fetch("/api/v1/devices?scope=managed",{headers:t}),fetch("/api/v1/ai-scenes",{headers:t}),fetch("/api/v1/screen/status",{headers:t}),fetch("/api/v1/owner-questions",{headers:t})]),c=async M=>M.status!=="fulfilled"||!M.value.ok?null:M.value.json().catch(()=>null),[p,v,b,$,f]=await Promise.all([c(n),c(s),c(o),c(d),c(a)]);if(!p&&!v){this.connectionState="disconnected",this._showActionNotice("实时网关状态读取失败，请检查网络或配对状态","warning",5e3);return}const r=this._extractGatewayList(p,"rooms"),l=this._extractGatewayList(v,"devices"),m=b?this._extractGatewayList(b,"scenes"):null;this.connectionState="connected";const g=Pe(r,l,m,$,f,this._initData.devs,this._initData.scenes,this._initData.questions);p&&(this.rRooms=g.rooms),v&&(this.rDevs=g.devs),b&&(this.rScenes=g.scenes),g.feedTxt&&(this.rFeed={txt:g.feedTxt,undone:!1,muted:!1}),f&&(this.rQuestions=g.questions);const T=l.filter(M=>String((M==null?void 0:M.entity_id)||(M==null?void 0:M.id)||"").startsWith("media_player.")).map(M=>({id:String(M.entity_id||M.id),name:String(M.friendly_name||M.name||M.entity_id||"HA 媒体播放器"),state:String(M.state||"idle")}));T.length>0&&(this.rMusic={...this.rMusic,haMediaEntities:T,selectedHaMediaId:this.rMusic.selectedHaMediaId||T[0].id})}catch{this.connectionState="disconnected",this._showActionNotice("网关连接异常，无法同步实时设备状态","warning",5e3)}}_createActionRequestId(){return`screen_${Date.now().toString(36)}_${Math.random().toString(36).slice(2,8)}`}_showActionNotice(e,t="info",i=5e3,n=void 0,s=void 0){this.actionNoticeTimer&&typeof window<"u"&&(window.clearTimeout(this.actionNoticeTimer),this.actionNoticeTimer=null),this.actionNotice={text:e,tone:t,request:n,receipt:s},i>0&&typeof window<"u"&&typeof window.setTimeout=="function"&&(this.actionNoticeTimer=window.setTimeout(()=>{this.actionNotice=null,this.actionNoticeTimer=null},i))}_executionFailureMessage(e){const t=e instanceof Error?e.message:String(e||"");if(e instanceof ie)return e.status===401||e.status===403||t.includes("PAIRING")||t.includes("AUTH")?"中控屏配对凭证已失效，请重新配对后再试（未执行设备动作）":e.status===400||e.status===422?"请求参数无效，未发送动作":e.status===409||e.status===423||t.includes("conflict")||t.includes("rejected")?"该操作已被网关拒绝，请核对当前设备状态":"执行结果未知，请核对设备状态；不会自动重发请求";if(t.includes("invalid_screen_service_call")||t.includes("missing_entity_id"))return"控制参数不完整，未发送动作";const i=typeof ae=="function"?ae(t):null;return i||"执行结果未知，请核对设备状态；不会自动重发请求"}_showExecutionFailure(e,t=void 0){const i=this._executionFailureMessage(e),n=i.includes("拒绝")||i.includes("未发送")||i.includes("失效");this._showActionNotice(i,n?"error":"warning",8e3,t)}async _readGatewayJsonResponse(e){const t=await e.text();let i={};if(t)try{const n=JSON.parse(t);n&&typeof n=="object"&&(i=n)}catch{i={raw:t}}if(!e.ok){const n=String(i.error||i.detail||i.message||`http_${e.status}`);throw new ie(e.status,n)}return i}async _postGatewayJson(e,t,i={}){var c,p;const n=j,s=((c=n==null?void 0:n.getGatewayUrl)==null?void 0:c.call(n))||"",o=((p=n==null?void 0:n.getAuthToken)==null?void 0:p.call(n))||"",d={"Content-Type":"application/json",...o?{Authorization:`Bearer ${o}`}:{},...i},a=await fetch(`${s}${e}`,{method:"POST",headers:d,body:JSON.stringify(t)});return this._readGatewayJsonResponse(a)}async _executeServiceThroughGateway(e,t=this._createActionRequestId()){var d;const i=(d=e==null?void 0:e.data)==null?void 0:d.entity_id,n=Array.isArray(i)?String(i[0]||""):String(i||"");if(!n||!(e!=null&&e.domain)||!(e!=null&&e.service))throw new Error("invalid_screen_service_call");const s=oe(n),o=ne(e,t);return this._postGatewayJson(s,o,{"X-Request-Id":t})}_refreshDeviceStateAfterGatewayAction(){var t;const e=j;if(e&&((t=e.refreshDevicesNow)==null||t.call(e),typeof window<"u"&&typeof window.setTimeout=="function")){const i=window.setTimeout(()=>{var n;this.deviceRefreshTimers.delete(i),(n=e.refreshDevicesNow)==null||n.call(e)},900);this.deviceRefreshTimers.add(i)}}_applyTerminalDeviceControlReceipt(e,t=void 0){if(e.effectStatus==="verified_success"){this._showActionNotice("设备状态已回读确认","success",3200,t,e),this._refreshDeviceStateAfterGatewayAction();return}this._showActionNotice("执行结果未知，请核对设备状态；不会自动重发请求","warning",8e3,t,e)}async _handleServiceCall(e){var d;const t=e.detail,i=(d=t==null?void 0:t.data)==null?void 0:d.entity_id,n=Array.isArray(i)?String(i[0]||""):String(i||""),s=this._createActionRequestId(),o={requestId:s,entityId:n};try{const a=await this._executeServiceThroughGateway(t,s),c=ke(a);if(c){this.pendingDeviceControlConfirmation={entityId:n,detail:t,requestId:s,challenge:c,responsePayload:a},this._showActionNotice("高风险操作需主人确认后再执行","warning",8e3,o);return}const p=se(a,s);if(p){this._applyTerminalDeviceControlReceipt(p,o);return}this._showActionNotice("执行请求已提交，等待设备状态回流确认","info",4e3,o),this._refreshDeviceStateAfterGatewayAction()}catch(a){this._showExecutionFailure(a,o)}}async _confirmPendingDeviceControl(){const e=this.pendingDeviceControlConfirmation;if(!e)return;this.pendingDeviceControlConfirmation=null;const t={requestId:e.requestId,entityId:e.entityId};try{const i=e.challenge.confirmPath||oe(e.entityId),n={...ne(e.detail||{service:""},e.requestId),confirmed:!0,claim_id:e.challenge.claimId,binding_digest:e.challenge.bindingDigest},s=await this._postGatewayJson(i,n,{"X-Request-Id":e.requestId}),o=se(s,e.requestId,e.challenge.bindingDigest,e.challenge.claimId);if(o){this._applyTerminalDeviceControlReceipt(o,t);return}this._showActionNotice("确认请求已提交，等待设备状态回流确认","info",4e3,t),this._refreshDeviceStateAfterGatewayAction()}catch(i){this._showExecutionFailure(i,t)}}_formatTodayEnergyKwh(e){if(!Array.isArray(e)||e.length===0)return"暂无日统计";const t=e.reduce((i,n)=>i+(Number((n==null?void 0:n.kwh)??(n==null?void 0:n.value))||0),0);return t>0?`${t.toFixed(1)} kWh`:"暂无日统计"}_sendDevCommand(e,t){if(!(e.offline||e.type==="sensor")){if(e.receipt="sending",this.rDevs=[...this.rDevs],e.entityId&&this.connectionState==="connected"){const i=e.entityId.split(".")[0]||"light",n={...e};t(n);const s=n.on?"turn_on":"turn_off";this._handleServiceCall({detail:{domain:i,service:s,data:{entity_id:e.entityId}}});return}window.setTimeout(()=>{var n;const i=((n=this.rRooms.find(s=>s.id===e.room))==null?void 0:n.name)||e.room;e.failNext?(e.receipt="unknown",e.failNext=!1,this._appendMobileActivityChain({title:`${e.name} 控制回执未知`,room:i,trigger:`手动触控 (${this.isMobileLayout?"手机端 V5":"如影中控屏 V5"})`,condition:"网关已受理 · 等待设备状态回流超时",decision:"遵守真实回执契约：标记未知，不自动重发",action:`${e.type}.control(${e.id})`,receipt:"! 回执未知 · 请核对物理状态",status:"unknown",statusText:"未确认 · 不自动重发"})):(t(e),e.receipt="ok",this._appendMobileActivityChain({title:`${e.name} 已${e.on?"开启/调节":"关闭"}`,room:i,trigger:`手动触控 (${this.isMobileLayout?"手机端 V5":"如影中控屏 V5"})`,condition:"房间在线 · 非冲突状态",decision:"即时下发控制并校验状态回流",action:`${e.type}.${e.on?"turn_on":"turn_off"}(${e.id}${e.type==="light"&&e.dimmable?`, bri=${e.bri??80}%`:""})`,receipt:"已回读确认 ✓ (34ms)",status:"ok",statusText:"已回读确认 ✓"}),window.setTimeout(()=>{e.receipt==="ok"&&(e.receipt=null,this.rDevs=[...this.rDevs])},1600)),this.rDevs=[...this.rDevs]},340)}}_syncWebAudioEngine(e){if(typeof window>"u")return;const t=e.engineMode||"local_synth",i=e.linked&&e.playing,n=Math.max(.02,Math.min(1,(e.ducked?Math.min(e.masterVol,16):e.masterVol)/100*.35));if(!i||t!=="open_stream")this._streamAudioEl&&this._streamAudioEl.pause();else if(t==="open_stream"){const s=e.streamUrl||"https://ice2.somafm.com/lush-128-mp3";this._streamAudioEl?this._streamAudioEl.src!==s&&(this._streamAudioEl.src=s):this._streamAudioEl=new Audio(s),this._streamAudioEl.volume=Math.max(0,Math.min(1,(e.ducked?Math.min(e.masterVol,16):e.masterVol)/100)),this._streamAudioEl.play().catch(()=>{})}if(!i||t!=="local_synth"){this._audioChordTimer&&(window.clearInterval(this._audioChordTimer),this._audioChordTimer=null);return}try{const s=window.AudioContext||window.webkitAudioContext;if(!s||(this._audioCtx||(this._audioCtx=new s),this._audioCtx.state==="suspended"&&this._audioCtx.resume(),this._audioChordTimer))return;let o=0;const d=()=>{if(!this.rMusic.playing||!this.rMusic.linked||(this.rMusic.engineMode||"local_synth")!=="local_synth")return;const a=this._audioCtx;if(!a)return;const c={jazz:[[261.63,329.63,392,493.88],[293.66,349.23,440,523.25],[196,246.94,329.63,392]],morning:[[261.63,329.63,392],[349.23,440,523.25],[392,493.88,587.33]],focus:[[220,261.63,329.63],[174.61,220,261.63],[196,246.94,293.66]],sleep:[[130.81,196,246.94],[146.83,220,261.63]]},p=c[this.rMusic.playlistId]||c.jazz,v=p[o%p.length];o+=1;const b=a.currentTime;v.forEach(($,f)=>{const r=a.createOscillator(),l=a.createGain();r.type="sine",r.frequency.setValueAtTime($,b),l.gain.setValueAtTime(1e-4,b),l.gain.exponentialRampToValueAtTime(n/(v.length+f*.4),b+.35),l.gain.exponentialRampToValueAtTime(1e-4,b+2.2),r.connect(l),l.connect(a.destination),r.start(b),r.stop(b+2.3)})};d(),this._audioChordTimer=window.setInterval(d,2400)}catch{}}async _searchOnlineMusic(e,t=!0){const i=(e||"").trim();if(i){this.rMusic={...this.rMusic,searchQuery:i,searching:!0,searchStatus:`正在直连检索「${i}」在线曲目（无需如影云中转）…`};try{const n=encodeURIComponent(i);let s=[];for(const p of["HK","TW","SG","US"]){const v=await fetch(`https://itunes.apple.com/search?term=${n}&media=music&entity=song&limit=8&country=${p}&lang=zh_cn`);if(v.ok){const b=await v.json();if(Array.isArray(b==null?void 0:b.results)&&b.results.length>0&&(s=b.results.filter($=>$==null?void 0:$.previewUrl),s.length>0))break}}if(s.length===0){this.rMusic={...this.rMusic,searching:!1,searchStatus:`未检索到「${i}」的直连音频流，已为您开启本机环境音源`};return}const o=s.slice(0,8).map(p=>({t:String(p.trackName||p.collectionName||i),a:`${p.artistName||"在线曲库"}${p.collectionName?` · ${p.collectionName}`:""}`,dur:Math.max(15,Math.min(300,Math.round((Number(p.trackTimeMillis)||3e4)/1e3))),streamUrl:String(p.previewUrl),albumArtUrl:String(p.artworkUrl100||"")})),d={id:"online_search",name:`在线直连 · ${i}`,desc:`直连曲库搜索结果（共 ${o.length} 首 · 无需厂家中转）`,color:"linear-gradient(135deg,#00C48C,#38D5F5)",tag:"DIRECT MUSIC",tracks:o},a=this.rMusic.playlists.filter(p=>p.id!=="online_search"),c={...this.rMusic,searching:!1,searchStatus:`已找到 ${o.length} 首「${i}」直连曲目 · 正在播放《${o[0].t}》`,playlists:[d,...a],playlistId:"online_search",trackIdx:0,pos:0,dur:o[0].dur,engineMode:"open_stream",streamUrl:o[0].streamUrl,source:`直连在线曲库 · ${i}`,playing:t?!0:this.rMusic.playing};this.rMusic=c,this._syncWebAudioEngine(c)}catch{this.rMusic={...this.rMusic,searching:!1,searchStatus:"在线曲库检索暂时受限，可直接使用中控屏本机内置合成器"}}}}_tryMatchMusicVoiceCommand(e){const t=e.replace(/^[，。！？,.!?\s]+|[，。！？,.!?\s]+$/g,"").replace(/^(小智小智|你好小智|小智|帮我|请帮我|麻烦帮我|请)+/g,"").trim();if(!t)return null;if(/^(暂停音乐|停止音乐|关掉音乐|关闭音乐|暂停播放|停止播放|音乐暂停|别唱了)$/.test(t))return this._sendMusicCommand(n=>{n.playing=!1}),"已暂停中控屏音乐";if(/^(下一首|切歌|换一首歌|换首歌|下一曲)$/.test(t))return this._sendMusicCommand(n=>{const s=n.playlists.find(d=>d.id===n.playlistId)||n.playlists[0];n.trackIdx=(n.trackIdx+1)%s.tracks.length,n.pos=0;const o=s.tracks[n.trackIdx];n.dur=o.dur,o.streamUrl&&(n.engineMode="open_stream",n.streamUrl=o.streamUrl),n.playing=!0}),"已切换到下一首音乐";if(/^(上一首|上一曲)$/.test(t))return this._sendMusicCommand(n=>{const s=n.playlists.find(d=>d.id===n.playlistId)||n.playlists[0];n.trackIdx=(n.trackIdx-1+s.tracks.length)%s.tracks.length,n.pos=0;const o=s.tracks[n.trackIdx];n.dur=o.dur,o.streamUrl&&(n.engineMode="open_stream",n.streamUrl=o.streamUrl),n.playing=!0}),"已切换到上一首音乐";if(/^(播放音乐|打开音乐|放点音乐|放首歌|来点音乐|继续播放|恢复播放|开始播放音乐)$/.test(t))return this.activeRoomId="music",this._sendMusicCommand(n=>{n.linked=!0,n.playing=!0}),"已为您开启中控屏音乐播放";const i=t.match(/^(?:播放|放一首|放首|来一首|来首|听一下|我想听|搜索并播放|点播)(.+)$/);if(i){const n=i[1].replace(/(的歌|的音乐|歌曲|音乐)$/g,"").replace(/的/g," ").trim();if(n&&!/(灯|空调|窗帘|电视|插座|新风|场景|模式)/.test(n))return this.activeRoomId="music",this._searchOnlineMusic(n,!0),`正在为您搜索并播放「${n}」`}return null}_sendMusicCommand(e){const t=this.rMusic.playing,i=this.rMusic.trackIdx,n=this.rMusic.masterVol;this.rMusic={...this.rMusic,receipt:"sending"},window.setTimeout(()=>{const s={...this.rMusic};if(e(s),s.receipt="ok",this.rMusic=s,this._syncWebAudioEngine(s),s.engineMode==="ha_media"&&s.selectedHaMediaId&&this.connectionState==="connected"){const o=s.selectedHaMediaId;s.playing!==t?this._handleServiceCall({detail:{domain:"media_player",service:s.playing?"media_play":"media_pause",data:{entity_id:o}}}):s.trackIdx!==i?this._handleServiceCall({detail:{domain:"media_player",service:"media_next_track",data:{entity_id:o}}}):s.masterVol!==n&&this._handleServiceCall({detail:{domain:"media_player",service:"volume_set",data:{entity_id:o,volume_level:s.masterVol/100}}})}window.setTimeout(()=>{this.rMusic.receipt==="ok"&&(this.rMusic={...this.rMusic,receipt:null})},1400)},260)}_toggleDev(e){const t=this.rDevs.find(i=>i.id===e);if(!(!t||t.offline||t.type==="sensor")){if(t.type==="lock"){this.sheetDevId=t.id;return}this._sendDevCommand(t,i=>{i.on=!i.on,i.type==="curtain"&&(i.pos=i.on?100:0)})}}_runScene(e){const t=e.id;if(t==="home")this.rDevs.forEach(i=>{i.room==="living"&&i.type==="light"&&(i.on=!0,i.bri=75),i.id==="l_ac"&&(i.on=!0,i.temp=25),i.id==="l_cur"&&(i.on=!0,i.pos=80)}),this.rFeed={txt:"已执行「回家」：客厅主灯与灯带开启，空调 25°，纱帘打开 80%。",undone:!1,muted:!1};else if(t==="away"||t==="alloff")this.rDevs.forEach(i=>{(i.type==="light"||t==="away"&&(i.type==="ac"||i.type==="tv"))&&(i.on=!1)}),this.rMusic.linked&&(this.rMusic={...this.rMusic,playing:!1}),this.rFeed={txt:t==="alloff"?"已确认执行「全屋关灯」，所有照明与背景音乐已停止。":"已执行「离家」：全屋灯光、空调与背景音乐已关闭，门锁已上锁。",undone:!1,muted:!1};else if(t==="movie"){if(this.rDevs.forEach(i=>{(i.id==="l_main"||i.id==="l_spot")&&(i.on=!1),i.id==="l_strip"&&(i.on=!0,i.bri=25),i.id==="l_cur"&&(i.on=!1,i.pos=0),i.id==="l_tv"&&(i.on=!0,i.sub="Apple TV · 播放中")}),this.rMusic.linked&&this.rMusic.playing){const i=this.rMusic.zones.map(n=>n.room==="living"?{...n,joined:!1}:n);this.rMusic={...this.rMusic,zones:i}}this.rFeed={txt:"已进入「观影模式」：客厅背景音乐已让位给电视，主灯关闭、灯带 25%。",undone:!1,muted:!1}}else if(t==="sleep"){if(this.rDevs.forEach(i=>{i.type==="light"&&(i.on=i.id==="m_bed"),i.id==="m_bed"&&(i.bri=15),i.id==="m_cur"&&(i.on=!1,i.pos=0),i.id==="m_ac"&&(i.on=!0,i.temp=24,i.mode="睡眠")}),this.rMusic.linked){const i=this.rMusic.zones.map(n=>({...n,joined:n.room==="master",vol:n.room==="master"?18:n.vol}));this.rMusic={...this.rMusic,playlistId:"sleep",trackIdx:0,pos:0,dur:600,playing:!0,sleepMin:30,masterVol:20,zones:i}}this.rFeed={txt:"已进入「睡眠」：主卧切换为助眠雨声（18% 音量，30 分钟后自动停止）。",undone:!1,muted:!1}}else if(t==="night"){const i=this.rDevs.find(n=>n.id==="m_bed");i&&(i.on=!0,i.bri=12),this.rFeed={txt:"已开启「起夜微光」：床头壁灯 12% 暖光。",undone:!1,muted:!1}}else if((t==="r_bright"||t==="r_cozy"||t==="r_off")&&(this.rDevs.filter(i=>i.room===this.activeRoomId).forEach(i=>{t==="r_off"&&i.type!=="lock"&&(i.on=!1),t==="r_bright"&&i.type==="light"&&(i.on=!0,i.bri=85,i.ct=4e3),t==="r_cozy"&&i.type==="light"&&(i.on=!0,i.bri=35,i.ct=2700)}),t==="r_off"&&this.rMusic.linked)){const i=this.rMusic.zones.map(n=>n.room===this.activeRoomId?{...n,joined:!1}:n);this.rMusic={...this.rMusic,zones:i}}e.gatewaySceneId&&this.connectionState==="connected"&&(this._showActionNotice("场景请求已提交，等待设备状态回流确认","info",4e3),this._postGatewayJson(`/api/v1/ai-scenes/${encodeURIComponent(e.gatewaySceneId)}/trigger`,{}).then(()=>{this.rFeed={txt:`已下发场景「${e.name}」：${e.desc}`,undone:!1,muted:!1},this._fetchLiveGatewayData()}).catch(i=>{this._showExecutionFailure(i)})),this.rDevs=[...this.rDevs]}_startHoldConfirm(e,t,i){i.preventDefault();const n=performance.now(),s=900;let o=0;const d=c=>{const p=Math.min(1,(c-n)/s);this.holdProgressMap={...this.holdProgressMap,[e]:Math.round(p*100)},p>=1?(this.holdProgressMap={...this.holdProgressMap,[e]:0},a(),t()):o=requestAnimationFrame(d)},a=()=>{cancelAnimationFrame(o),this.holdProgressMap={...this.holdProgressMap,[e]:0},window.removeEventListener("pointerup",a),window.removeEventListener("pointercancel",a)};window.addEventListener("pointerup",a),window.addEventListener("pointercancel",a),o=requestAnimationFrame(d)}_handleSpeakerTileGesture(e,t){const i=this.rMusic.zones.find(b=>b.room===e);if(!i||!i.online)return;const s=t.currentTarget.getBoundingClientRect(),o=t.clientX;let d=!1,a=!1;const c=window.setTimeout(()=>{d||(a=!0,this.activeRoomId="music")},420),p=b=>{if(Math.abs(b.clientX-o)>8){d=!0,clearTimeout(c);const $=Math.max(5,Math.min(100,Math.round((b.clientX-s.left)/s.width*100)));i.joined=!0,i.vol=$,this.rMusic={...this.rMusic,playing:!0,zones:[...this.rMusic.zones]}}},v=()=>{clearTimeout(c),window.removeEventListener("pointermove",p),window.removeEventListener("pointerup",v),!a&&(d?this._sendMusicCommand(()=>{}):this._sendMusicCommand(b=>{const $=b.zones.find(f=>f.room===e);$&&($.joined?$.joined=!1:($.joined=!0,b.playing=!0))}))};window.addEventListener("pointermove",p),window.addEventListener("pointerup",v)}_initVoiceAndWakeEngines(){typeof window>"u"||(this.voicePipeline||(this.voicePipeline=new $e({gatewayBaseUrl:this.gatewayUrlInput||window.location.origin,screenToken:localStorage.getItem("screen_token")||""},{onStageChange:(e,t)=>{this.voiceStage=e,e==="starting"||e==="stt"?this.voiceStageIdx=0:e==="intent"?this.voiceStageIdx=1:e==="tts"||e==="playing"?this.voiceStageIdx=3:e==="error"&&(this.voiceStageIdx=2,t&&(this.voiceReply=t))},onSttResult:e=>{if(e){this.voiceTranscript=`“${e}”`,this.voiceStageIdx=1;const t=this._tryMatchMusicVoiceCommand(e);t&&(this.voiceReply=t,this.voiceReplyText=t)}},onReply:e=>{e&&(this.voiceReply=e,this.voiceReplyText=e,this.voiceStageIdx=3,this.rFeed={txt:`🎙 语音助手：${e}`,undone:!1,muted:!1},this._fetchLiveGatewayData())},onError:e=>{this.voiceModalOpen&&(this.voiceTranscript="语音识别失败",this.voiceReply=e||"语音处理出错（未执行任何控制动作）")}})),this._syncWebWakeWordRecognizer())}_syncWebWakeWordRecognizer(){if(typeof window>"u")return;const e=window.SpeechRecognition||window.webkitSpeechRecognition;if(e){if(!this.wakeEnabled){if(this._webSpeechWakeRecognizer){try{this._webSpeechWakeRecognizer.onend=null,this._webSpeechWakeRecognizer.stop()}catch{}this._webSpeechWakeRecognizer=null}return}if(!this._webSpeechWakeRecognizer)try{const t=new e;t.lang="zh-CN",t.continuous=!0,t.interimResults=!0,t.onresult=i=>{var n;if(!(this.voiceModalOpen||!this.wakeEnabled))for(let s=i.resultIndex;s<i.results.length;s++){const o=String(((n=i.results[s][0])==null?void 0:n.transcript)||"").trim(),d=!!i.results[s].isFinal;if(o){if(/小智|小志|小致|小知/.test(o)){this._openVoiceOverlay();return}if(d&&/帮我|请帮我|麻烦帮我/.test(o)){this._executeWebWakeFreeCommand(o);return}}}},t.onend=()=>{this.wakeEnabled&&!this.voiceModalOpen&&this._webSpeechWakeRecognizer===t&&window.setTimeout(()=>{try{t.start()}catch{}},400)},t.start(),this._webSpeechWakeRecognizer=t}catch{}}}_executeWebWakeFreeCommand(e){const t=e.replace(/\s+/g,""),i=this._tryMatchMusicVoiceCommand(t);if(i){this.rFeed={txt:`✓ 免唤醒音乐指令「${t}」：${i}`,undone:!1,muted:!1};return}const n=/关闭|关掉|关上|关/.test(t),s=/打开|开启|开/.test(t);if(!n&&!s)return;const o=this.rDevs.find(d=>{var c;if(d.type==="sensor"||d.offline)return!1;const a=((c=this.rRooms.find(p=>p.id===d.room))==null?void 0:c.name)||"";return t.includes(d.name)||a&&t.includes(a)&&t.includes("灯")&&d.type==="light"});if(o){const d=s&&!n;this._sendDevCommand(o,a=>{a.on=d}),this.rFeed={txt:`✓ 免唤醒快捷指令「${t}」：已${d?"打开":"关闭"}${o.name}`,undone:!1,muted:!1}}else this.rFeed={txt:`🎙 收到免唤醒指令「${t}」，未匹配到唯一受控设备`,undone:!1,muted:!1}}_computeLiveEnvMetrics(){const e=this.rRooms.map(s=>s.temp).filter(s=>typeof s=="number"&&Number.isFinite(s)),t=this.rRooms.map(s=>s.hum).filter(s=>typeof s=="number"&&Number.isFinite(s)),i=this.rDevs.find(s=>s.type==="lock"),n=i?i.offline?"门锁离线":i.sub||"状态未知":"未接入安防传感器";return{indoorTemp:e.length>0?`${(e.reduce((s,o)=>s+o,0)/e.length).toFixed(1)}°`:"--",indoorHum:t.length>0?`${Math.round(t.reduce((s,o)=>s+o,0)/t.length)}%`:"--",securitySummary:n}}_renderEnvironmentInsights(){var i,n;const e=this.energyStats,t=((i=this.aiState)==null?void 0:i.frigateEvents)||[];return u`
+  `}var st=Object.defineProperty,ot=Object.getOwnPropertyDescriptor,b=(e,t,i,n)=>{for(var s=n>1?void 0:n?ot(t,i):t,o=e.length-1,d;o>=0;o--)(d=e[o])&&(s=(n?d(t,i,s):d(s))||s);return n&&s&&st(t,i,s),s};function at(){return typeof re=="function"?re():{rooms:[],devs:[],scenes:[],music:{linked:!0,source:"Music Assistant · 本地无损",playing:!0,shuffle:!1,sleepMin:0,ducked:!1,receipt:null,playlistId:"jazz",trackIdx:0,pos:84,dur:228,masterVol:38,zones:[],playlists:[{id:"jazz",name:"爵士",desc:"",color:"#7C8CFF",tag:"JAZZ",tracks:[{t:"Blue in Green",a:"Miles Davis",dur:228}]}]},questions:[],feed:{txt:"",undone:!1,muted:!1}}}let x=class extends ye{constructor(){super(...arguments),this.activeRoomId="all",this.themeMode="dark",this.clockText="20:36",this.dateText="11月4日 · 星期三",this.greetingText="晚上好 · 全屋舒适",this._initData=at(),this.rRooms=this._initData.rooms,this.rDevs=this._initData.devs,this.rScenes=this._initData.scenes,this.rMusic=this._initData.music,this.rQuestions=this._initData.questions,this.qIdx=0,this.rFeed=this._initData.feed,this.sheetDevId=null,this.holdProgressMap={},this.lockHoldPct=0,this.voiceModalOpen=!1,this.voiceTranscript="正在听你说…",this.voiceStageIdx=0,this.voiceReply="",this.isAmbientMode=!1,this.showSettingsDrawer=!1,this.settingsTab="display",this.screenBriPct=78,this.saverTimeoutMin=1,this.ttsVolPct=72,this.wakeEnabled=!0,this.wakeSensitivity="mid",this.musicDuckEnabled=!0,this._initMobile=typeof ce=="function"?ce():{activityChains:[],inboxItems:[],sceneDrafts:[],chatMessages:[]},this._manualLayoutOverride=null,this.isMobileLayout=!1,this.mobileTab="home",this.mobileStewardSub="activity",this.mobileActivityFilter="all",this.mobileElderMode=!1,this.roomRestMap={master:!1,living:!1},this.mobileActivityChains=this._initMobile.activityChains,this.mobileInboxItems=this._initMobile.inboxItems,this.mobileSceneDrafts=this._initMobile.sceneDrafts,this.mobileScenePromptInput="",this.mobileChatMessages=this._initMobile.chatMessages,this.mobileChatInput="",this.aiState={status:"idle",lastAction:"",lastCorrection:"",recentAiActions:[],actionHistory:[],frigateEvents:[],criticalEvent:null,presenceState:{}},this.devices={},this.energyStats=[],this.activeDetailDevice=null,this.gatewayUrlInput="",this.pairingTokenInput="",this.pairingBusy=!1,this.pairingHint="",this.pairingExpressStatus="idle",this.pairingQrDataUrl="",this.connectionState="connecting",this.feedStatus={},this.voiceStage="idle",this.voiceReplyText="",this.wakewordEnabled=!1,this.scenes=[],this.pendingDeviceControlConfirmation=null,this.actionNotice=null,this.voicePipeline=null,this.idleTimer=null,this.clockTimer=null,this.musicTimer=null,this.liveSyncTimer=null,this.lastLiveSyncAt=0,this.voiceDemoTimers=[],this.actionNoticeTimer=null,this.deviceRefreshTimers=new Set,this._prevMusicPlaying=!1,this._handleVisibilityChange=()=>{if(!(typeof document>"u")){if(document.visibilityState==="hidden"){this.liveSyncTimer&&(clearInterval(this.liveSyncTimer),this.liveSyncTimer=null);return}this._startLiveSyncTimer(),this._fetchLiveGatewayData()}},this._dismissAmbientMode=()=>{this.isAmbientMode=!1,Date.now()-this.lastLiveSyncAt>=3e4&&this._fetchLiveGatewayData()},this._syncViewportLayoutMode=()=>{var i;if(typeof window>"u")return;if(this._manualLayoutOverride){this.isMobileLayout=this._manualLayoutOverride==="mobile";return}const e=new URLSearchParams(((i=window.location)==null?void 0:i.search)||""),t=(e.get("view")||e.get("mode")||"").toLowerCase();if(t==="mobile"||t==="phone"){this.isMobileLayout=!0;return}if(t==="wall"||t==="screen"||t==="panel"){this.isMobileLayout=!1;return}this.isMobileLayout=(window.innerWidth||1280)<=820},this._handleKeyDown=e=>{this._resetIdleTimer(),e.key==="Escape"&&(this.sheetDevId=null,this.showSettingsDrawer=!1,this.voiceModalOpen&&this._closeVoiceOverlay(),this.isAmbientMode&&(this.isAmbientMode=!1))},this._resetIdleTimer=()=>{typeof window>"u"||(this.idleTimer&&clearTimeout(this.idleTimer),this.idleTimer=window.setTimeout(()=>{!this.voiceModalOpen&&!this.sheetDevId&&!this.showSettingsDrawer&&(this.isAmbientMode=!0)},6e4))},this._audioCtx=null,this._audioChordTimer=null,this._streamAudioEl=null,this._handleTilePointerDown=(e,t)=>{if(e.offline||e.type==="sensor")return;if(e.type==="speaker"){this._handleSpeakerTileGesture(e.room,t);return}const i=t.currentTarget,n=t.clientX,s=t.clientY;let o=!1,d=!1;const a=i.getBoundingClientRect(),c=e.type==="light"&&!!e.dimmable,p=window.setTimeout(()=>{o||(d=!0,this.sheetDevId=e.id)},420),g=$=>{const f=$.clientX-n,r=$.clientY-s;if((Math.abs(f)>8||Math.abs(r)>8)&&(o=!0,clearTimeout(p)),o&&c){const l=Math.max(5,Math.min(100,Math.round(($.clientX-a.left)/a.width*100)));e.on=!0,e.bri=l,this.rDevs=[...this.rDevs]}},y=()=>{clearTimeout(p),window.removeEventListener("pointermove",g),window.removeEventListener("pointerup",y),!d&&(o&&c?this._sendDevCommand(e,()=>{}):(!o||!c)&&this._toggleDev(e.id))};window.addEventListener("pointermove",g),window.addEventListener("pointerup",y)},this._webSpeechWakeRecognizer=null,this._openVoiceOverlay=()=>{this.voiceModalOpen=!0,this._prevMusicPlaying=this.rMusic.linked&&this.rMusic.playing,this._prevMusicPlaying&&(this.rMusic={...this.rMusic,ducked:!0},this._syncWebAudioEngine(this.rMusic)),this.voiceStageIdx=0,this.voiceTranscript="正在听你说…",this.voiceReply="",this._initVoiceAndWakeEngines(),this.connectionState==="connected"&&this.voicePipeline?this.voicePipeline.start().catch(e=>{const t=e instanceof Error?e.message:String(e||"语音通道启动失败");this.voiceTranscript="语音采集未就绪",this.voiceReply=`语音启动失败：${t}（未执行任何控制动作）`}):(this.voiceTranscript="网关未连接或语音服务未初始化",this.voiceReply="当前无法启动语音识别，请确认中控屏已连接网关并授予麦克风权限。")},this._closeVoiceOverlay=()=>{this.voiceModalOpen=!1,this.voiceDemoTimers.forEach(e=>clearTimeout(e)),this.voiceDemoTimers=[],this.rMusic.ducked&&(this.rMusic={...this.rMusic,ducked:!1},this._syncWebAudioEngine(this.rMusic)),this.voicePipeline&&this.voicePipeline.stop()}}_startLiveSyncTimer(){typeof window>"u"||this.liveSyncTimer!==null||(this.liveSyncTimer=window.setInterval(()=>{typeof document<"u"&&document.visibilityState==="hidden"||this.isAmbientMode&&Date.now()-this.lastLiveSyncAt<3e5||this._fetchLiveGatewayData()},3e4))}connectedCallback(){var t,i,n,s,o,d,a,c;if(super.connectedCallback(),typeof window>"u")return;const e=j;(t=e==null?void 0:e.pauseBackgroundPolling)==null||t.call(e),this.gatewayUrlInput=((i=e==null?void 0:e.getGatewayUrl)==null?void 0:i.call(e))||"",this._tickClock(),this.clockTimer=window.setInterval(()=>this._tickClock(),1e3),this.musicTimer=window.setInterval(()=>this._tickMusic(),1e3),this._startLiveSyncTimer(),this._resetIdleTimer(),window.addEventListener("pointerdown",this._resetIdleTimer,{passive:!0}),window.addEventListener("keydown",this._handleKeyDown),window.addEventListener("resize",this._syncViewportLayoutMode),document.addEventListener("visibilitychange",this._handleVisibilityChange),this._syncViewportLayoutMode(),e&&(typeof e.getConnectionState=="function"&&(this.connectionState=e.getConnectionState()),typeof e.getFeedStatus=="function"&&(this.feedStatus=e.getFeedStatus()),(n=e.subscribe)==null||n.call(e,(p,g,y,$,f,r,l)=>{if(Array.isArray(p)){const m={};p.forEach(v=>{(v!=null&&v.id||v!=null&&v.entity_id)&&(m[v.entity_id||v.id]=v)}),this.devices=m}else p&&typeof p=="object"&&(this.devices={...p});g&&typeof g=="object"&&(this.aiState={...g},g.lastAction&&(this.rFeed={txt:g.lastAction,undone:!1,muted:!1})),Array.isArray(y)&&(this.energyStats=[...y]),l&&typeof l=="object"&&(this.feedStatus={...l}),this._syncGatewayToRedesign()}),(s=e.subscribeAI)==null||s.call(e,p=>{this.aiState={...p},p!=null&&p.lastAction&&(this.rFeed={txt:p.lastAction,undone:!1,muted:!1})}),(o=e.subscribeEnergy)==null||o.call(e,p=>{this.energyStats=Array.isArray(p)?[...p]:[]}),(d=e.subscribeConnection)==null||d.call(e,p=>{this.connectionState=p}),(a=e.subscribeFeedStatus)==null||a.call(e,p=>{this.feedStatus={...p}}),(c=e.connect)==null||c.call(e)),this._fetchLiveGatewayData(),this._initVoiceAndWakeEngines()}disconnectedCallback(){var e,t;super.disconnectedCallback(),!(typeof window>"u")&&(this.clockTimer&&clearInterval(this.clockTimer),this.musicTimer&&clearInterval(this.musicTimer),this.liveSyncTimer&&(clearInterval(this.liveSyncTimer),this.liveSyncTimer=null),this.idleTimer&&clearTimeout(this.idleTimer),window.removeEventListener("pointerdown",this._resetIdleTimer),window.removeEventListener("keydown",this._handleKeyDown),window.removeEventListener("resize",this._syncViewportLayoutMode),document.removeEventListener("visibilitychange",this._handleVisibilityChange),(t=(e=j)==null?void 0:e.resumeBackgroundPolling)==null||t.call(e))}async _toggleRoomRestViaGateway(e,t,i){var n,s,o;try{const d=j,a=((n=d==null?void 0:d.getGatewayUrl)==null?void 0:n.call(d))||"",c=((s=d==null?void 0:d.getAuthToken)==null?void 0:s.call(d))||"",p=c?{Authorization:`Bearer ${c}`}:{},g=await fetch(`${a}/api/v1/rest?space_id=${encodeURIComponent(t)}`,{headers:p}),y=await this._readGatewayJsonResponse(g),$=Number(y.revision);if(!Number.isInteger($)||$<0)throw new Error("rest_revision_unavailable");const r=(o=(await this._postGatewayJson("/api/v1/rest/toggle",{space_id:t,expected_revision:$})).state)==null?void 0:o.active;typeof r=="boolean"&&(this.roomRestMap={...this.roomRestMap,[e]:r})}catch(d){this.roomRestMap={...this.roomRestMap,[e]:i},this._showExecutionFailure(d)}}_toggleRoomRestMode(e){const t=!!this.roomRestMap[e],i=!t;this.roomRestMap={...this.roomRestMap,[e]:i};const n=this.rRooms.find(o=>o.id===e),s=(n==null?void 0:n.name)||e;this.rFeed={txt:i?`🌙 已请求开启「${s}」休息免打扰模式：暂停该房间主动亮灯与语音打扰。`:`☀ 已请求关闭「${s}」休息模式：恢复正常灯光跟随与管家播报。`,undone:!1,muted:!1},this.connectionState==="connected"&&this._toggleRoomRestViaGateway(e,(n==null?void 0:n.gatewaySpaceId)||e,t)}_appendMobileActivityChain(e){const t=new Date,i=`${String(t.getHours()).padStart(2,"0")}:${String(t.getMinutes()).padStart(2,"0")}:${String(t.getSeconds()).padStart(2,"0")}`,n={...e,id:`act_${Date.now()}_${Math.random().toString(36).slice(2,6)}`,time:i};this.mobileActivityChains=[n,...this.mobileActivityChains.slice(0,19)]}_handleCreateMobileSceneDraft(e){const t=(e??this.mobileScenePromptInput).trim();if(!t)return;const i=t.length>10?`${t.slice(0,10)}…`:t,n={id:`draft_${Date.now()}`,name:`AI 草稿 · ${i}`,prompt:t,actionsSummary:"已解析房间与设备动作链 · 待主人确认后生效",approved:!1};this.mobileSceneDrafts=[n,...this.mobileSceneDrafts],this.mobileScenePromptInput="",this.rFeed={txt:`✦ 已根据“${t}”生成待审核场景草稿，请在「场景与自动」中确认启用。`,undone:!1,muted:!1},this.connectionState==="connected"&&this._postGatewayJson("/api/v1/ai-scenes/create-from-text",{text:t,auto_approve:!1}).catch(s=>{this._showExecutionFailure(s)})}_handleSendMobileChat(e){const t=(e??this.mobileChatInput).trim();if(!t)return;const i=new Date,n=`${String(i.getHours()).padStart(2,"0")}:${String(i.getMinutes()).padStart(2,"0")}`;this.mobileChatMessages=[...this.mobileChatMessages,{role:"user",text:t,time:n}],this.mobileChatInput="";let s="已收到你的指令，小智正在为你核对全屋状态。";if(t.includes("休息模式")){const o=this.rRooms.find(d=>t.includes(d.name))||this.rRooms.find(d=>d.id==="master")||this.rRooms[0];o&&(this._toggleRoomRestMode(o.id),s=`✓ 已为你切换「${o.name}」的休息免打扰模式，物理状态已同步。`)}else if(t.includes("亮灯状态")||t.includes("几盏灯")){const o=this.rDevs.filter(d=>d.type==="light"&&d.on&&!d.offline);s=o.length>0?`当前共有 ${o.length} 盏灯亮起：${o.map(d=>d.name).join("、")}。`:"当前全屋所有照明均已关闭。"}else{const o=this._tryMatchMusicVoiceCommand(t);o?s=`✓ ${o}`:(this._executeWebWakeFreeCommand(`帮我${t}`),s=`✓ ${this.rFeed.txt}`)}this.mobileChatMessages=[...this.mobileChatMessages,{role:"ai",text:s,time:n}]}_tickClock(){const e=new Date,t=String(e.getHours()).padStart(2,"0"),i=String(e.getMinutes()).padStart(2,"0");this.clockText=`${t}:${i}`;const n=["日","一","二","三","四","五","六"][e.getDay()];this.dateText=`${e.getMonth()+1}月${e.getDate()}日 · 星期${n}`;const s=e.getHours(),o=s<6?"夜深了":s<11?"早上好":s<14?"中午好":s<18?"下午好":"晚上好";this.greetingText=`${o} · 全屋舒适`}_tickMusic(){if(!this.rMusic.linked||!this.rMusic.playing)return;const e=(this.rMusic.pos+1)%Math.max(1,this.rMusic.dur);this.rMusic={...this.rMusic,pos:e}}_syncGatewayToRedesign(){var i,n,s,o,d;const e=Object.values(this.devices);if(!e.length)return;const t=[...this.rDevs];for(const a of e){const c=String(a.entity_id||a.id||""),p=c.split(".")[0];if(!["light","climate","cover","switch","fan","lock","media_player"].includes(p))continue;we(((i=a.attributes)==null?void 0:i.room_name)||((n=a.attributes)==null?void 0:n.friendly_name)||"");const g=t.find(f=>{var r;return f.entityId===c||f.name===((r=a.attributes)==null?void 0:r.friendly_name)||f.name===a.name}),y=!["off","unavailable","unknown","closed","idle","standby"].includes(String(a.state).toLowerCase()),$=String(a.state).toLowerCase()==="unavailable";g&&(g.entityId=c,g.on=y,g.offline=$,typeof((s=a.attributes)==null?void 0:s.brightness)=="number"&&(g.bri=Math.round(a.attributes.brightness/255*100)),typeof((o=a.attributes)==null?void 0:o.temperature)=="number"&&(g.temp=a.attributes.temperature),typeof((d=a.attributes)==null?void 0:d.current_position)=="number"&&(g.pos=a.attributes.current_position))}this.rDevs=t}_extractGatewayList(e,t){return Array.isArray(e)?e:(e==null?void 0:e[t])||(e==null?void 0:e.items)||[]}_isCloudSupportTunnelHost(){var t;if(typeof window>"u")return!1;const e=(((t=window.location)==null?void 0:t.hostname)||"").toLowerCase();return/^sa-[a-z0-9]{32}\./.test(e)}_networkBadge(){const e=this._isCloudSupportTunnelHost();return this.connectionState==="connected"?{tone:"ok",label:e?"云端中继 · 默认主机":"网关在线"}:this.connectionState==="connecting"||this.connectionState==="reconnecting"?{tone:"warn",label:e?"云端重连默认主机…":"网关连接中…"}:{tone:"bad",label:e?"云端会话待重连":"网关未连接"}}_buildLiveGatewayHeaders(){var n;const e=localStorage.getItem("screen_token")||"",t=this._isCloudSupportTunnelHost();if(!e&&!t&&((n=window.location)==null?void 0:n.port)!=="5173")return null;const i={Accept:"application/json"};return e&&!t&&(i.Authorization=`Bearer ${e}`),i}async _fetchLiveGatewayData(){if(typeof window>"u"||typeof fetch!="function")return;const e=this._buildLiveGatewayHeaders();if(e)try{this.lastLiveSyncAt=Date.now();const[t,i,n,s,o]=await Promise.allSettled([fetch("/api/v1/rooms",{headers:e}),fetch("/api/v1/devices?scope=managed",{headers:e}),fetch("/api/v1/ai-scenes",{headers:e}),fetch("/api/v1/screen/status",{headers:e}),fetch("/api/v1/owner-questions",{headers:e})]),d=async v=>v.status!=="fulfilled"||!v.value.ok?null:v.value.json().catch(()=>null),[a,c,p,g,y]=await Promise.all([d(t),d(i),d(n),d(s),d(o)]);if(!a&&!c){this.connectionState="disconnected",this._showActionNotice("实时网关状态读取失败，请检查网络或配对状态","warning",5e3);return}const $=this._extractGatewayList(a,"rooms"),f=this._extractGatewayList(c,"devices"),r=p?this._extractGatewayList(p,"scenes"):null;this.connectionState="connected";const l=Pe($,f,r,g,y,this._initData.devs,this._initData.scenes,this._initData.questions);a&&(this.rRooms=l.rooms),c&&(this.rDevs=l.devs),p&&(this.rScenes=l.scenes),l.feedTxt&&(this.rFeed={txt:l.feedTxt,undone:!1,muted:!1}),y&&(this.rQuestions=l.questions);const m=f.filter(v=>String((v==null?void 0:v.entity_id)||(v==null?void 0:v.id)||"").startsWith("media_player.")).map(v=>({id:String(v.entity_id||v.id),name:String(v.friendly_name||v.name||v.entity_id||"HA 媒体播放器"),state:String(v.state||"idle")}));m.length>0&&(this.rMusic={...this.rMusic,haMediaEntities:m,selectedHaMediaId:this.rMusic.selectedHaMediaId||m[0].id})}catch{this.connectionState="disconnected",this._showActionNotice("网关连接异常，无法同步实时设备状态","warning",5e3)}}_createActionRequestId(){return`screen_${Date.now().toString(36)}_${Math.random().toString(36).slice(2,8)}`}_showActionNotice(e,t="info",i=5e3,n=void 0,s=void 0){this.actionNoticeTimer&&typeof window<"u"&&(window.clearTimeout(this.actionNoticeTimer),this.actionNoticeTimer=null),this.actionNotice={text:e,tone:t,request:n,receipt:s},i>0&&typeof window<"u"&&typeof window.setTimeout=="function"&&(this.actionNoticeTimer=window.setTimeout(()=>{this.actionNotice=null,this.actionNoticeTimer=null},i))}_executionFailureMessage(e){const t=e instanceof Error?e.message:String(e||"");if(e instanceof ie)return e.status===401||e.status===403||t.includes("PAIRING")||t.includes("AUTH")?"中控屏配对凭证已失效，请重新配对后再试（未执行设备动作）":e.status===400||e.status===422?"请求参数无效，未发送动作":e.status===409||e.status===423||t.includes("conflict")||t.includes("rejected")?"该操作已被网关拒绝，请核对当前设备状态":"执行结果未知，请核对设备状态；不会自动重发请求";if(t.includes("invalid_screen_service_call")||t.includes("missing_entity_id"))return"控制参数不完整，未发送动作";const i=typeof ae=="function"?ae(t):null;return i||"执行结果未知，请核对设备状态；不会自动重发请求"}_showExecutionFailure(e,t=void 0){const i=this._executionFailureMessage(e),n=i.includes("拒绝")||i.includes("未发送")||i.includes("失效");this._showActionNotice(i,n?"error":"warning",8e3,t)}async _readGatewayJsonResponse(e){const t=await e.text();let i={};if(t)try{const n=JSON.parse(t);n&&typeof n=="object"&&(i=n)}catch{i={raw:t}}if(!e.ok){const n=String(i.error||i.detail||i.message||`http_${e.status}`);throw new ie(e.status,n)}return i}async _postGatewayJson(e,t,i={}){var c,p;const n=j,s=((c=n==null?void 0:n.getGatewayUrl)==null?void 0:c.call(n))||"",o=((p=n==null?void 0:n.getAuthToken)==null?void 0:p.call(n))||"",d={"Content-Type":"application/json",...o?{Authorization:`Bearer ${o}`}:{},...i},a=await fetch(`${s}${e}`,{method:"POST",headers:d,body:JSON.stringify(t)});return this._readGatewayJsonResponse(a)}async _executeServiceThroughGateway(e,t=this._createActionRequestId()){var d;const i=(d=e==null?void 0:e.data)==null?void 0:d.entity_id,n=Array.isArray(i)?String(i[0]||""):String(i||"");if(!n||!(e!=null&&e.domain)||!(e!=null&&e.service))throw new Error("invalid_screen_service_call");const s=oe(n),o=ne(e,t);return this._postGatewayJson(s,o,{"X-Request-Id":t})}_refreshDeviceStateAfterGatewayAction(){var t;const e=j;if(e&&((t=e.refreshDevicesNow)==null||t.call(e),typeof window<"u"&&typeof window.setTimeout=="function")){const i=window.setTimeout(()=>{var n;this.deviceRefreshTimers.delete(i),(n=e.refreshDevicesNow)==null||n.call(e)},900);this.deviceRefreshTimers.add(i)}}_applyTerminalDeviceControlReceipt(e,t=void 0){if(e.effectStatus==="verified_success"){this._showActionNotice("设备状态已回读确认","success",3200,t,e),this._refreshDeviceStateAfterGatewayAction();return}this._showActionNotice("执行结果未知，请核对设备状态；不会自动重发请求","warning",8e3,t,e)}async _handleServiceCall(e){var d;const t=e.detail,i=(d=t==null?void 0:t.data)==null?void 0:d.entity_id,n=Array.isArray(i)?String(i[0]||""):String(i||""),s=this._createActionRequestId(),o={requestId:s,entityId:n};try{const a=await this._executeServiceThroughGateway(t,s),c=ke(a);if(c){this.pendingDeviceControlConfirmation={entityId:n,detail:t,requestId:s,challenge:c,responsePayload:a},this._showActionNotice("高风险操作需主人确认后再执行","warning",8e3,o);return}const p=se(a,s);if(p){this._applyTerminalDeviceControlReceipt(p,o);return}this._showActionNotice("执行请求已提交，等待设备状态回流确认","info",4e3,o),this._refreshDeviceStateAfterGatewayAction()}catch(a){this._showExecutionFailure(a,o)}}async _confirmPendingDeviceControl(){const e=this.pendingDeviceControlConfirmation;if(!e)return;this.pendingDeviceControlConfirmation=null;const t={requestId:e.requestId,entityId:e.entityId};try{const i=e.challenge.confirmPath||oe(e.entityId),n={...ne(e.detail||{service:""},e.requestId),confirmed:!0,claim_id:e.challenge.claimId,binding_digest:e.challenge.bindingDigest},s=await this._postGatewayJson(i,n,{"X-Request-Id":e.requestId}),o=se(s,e.requestId,e.challenge.bindingDigest,e.challenge.claimId);if(o){this._applyTerminalDeviceControlReceipt(o,t);return}this._showActionNotice("确认请求已提交，等待设备状态回流确认","info",4e3,t),this._refreshDeviceStateAfterGatewayAction()}catch(i){this._showExecutionFailure(i,t)}}_formatTodayEnergyKwh(e){if(!Array.isArray(e)||e.length===0)return"暂无日统计";const t=e.reduce((i,n)=>i+(Number((n==null?void 0:n.kwh)??(n==null?void 0:n.value))||0),0);return t>0?`${t.toFixed(1)} kWh`:"暂无日统计"}_sendDevCommand(e,t){if(!(e.offline||e.type==="sensor")){if(e.receipt="sending",this.rDevs=[...this.rDevs],e.entityId&&this.connectionState==="connected"){const i=e.entityId.split(".")[0]||"light",n={...e};t(n);const s=n.on?"turn_on":"turn_off";this._handleServiceCall({detail:{domain:i,service:s,data:{entity_id:e.entityId}}});return}window.setTimeout(()=>{var n;const i=((n=this.rRooms.find(s=>s.id===e.room))==null?void 0:n.name)||e.room;e.failNext?(e.receipt="unknown",e.failNext=!1,this._appendMobileActivityChain({title:`${e.name} 控制回执未知`,room:i,trigger:`手动触控 (${this.isMobileLayout?"手机端 V5":"如影中控屏 V5"})`,condition:"网关已受理 · 等待设备状态回流超时",decision:"遵守真实回执契约：标记未知，不自动重发",action:`${e.type}.control(${e.id})`,receipt:"! 回执未知 · 请核对物理状态",status:"unknown",statusText:"未确认 · 不自动重发"})):(t(e),e.receipt="ok",this._appendMobileActivityChain({title:`${e.name} 已${e.on?"开启/调节":"关闭"}`,room:i,trigger:`手动触控 (${this.isMobileLayout?"手机端 V5":"如影中控屏 V5"})`,condition:"房间在线 · 非冲突状态",decision:"即时下发控制并校验状态回流",action:`${e.type}.${e.on?"turn_on":"turn_off"}(${e.id}${e.type==="light"&&e.dimmable?`, bri=${e.bri??80}%`:""})`,receipt:"已回读确认 ✓ (34ms)",status:"ok",statusText:"已回读确认 ✓"}),window.setTimeout(()=>{e.receipt==="ok"&&(e.receipt=null,this.rDevs=[...this.rDevs])},1600)),this.rDevs=[...this.rDevs]},340)}}_syncWebAudioEngine(e){if(typeof window>"u")return;const t=e.engineMode||"local_synth",i=e.linked&&e.playing,n=Math.max(.02,Math.min(1,(e.ducked?Math.min(e.masterVol,16):e.masterVol)/100*.35));if(!i||t!=="open_stream")this._streamAudioEl&&this._streamAudioEl.pause();else if(t==="open_stream"){const s=e.streamUrl||"https://ice2.somafm.com/lush-128-mp3";this._streamAudioEl?this._streamAudioEl.src!==s&&(this._streamAudioEl.src=s):this._streamAudioEl=new Audio(s),this._streamAudioEl.volume=Math.max(0,Math.min(1,(e.ducked?Math.min(e.masterVol,16):e.masterVol)/100)),this._streamAudioEl.play().catch(()=>{})}if(!i||t!=="local_synth"){this._audioChordTimer&&(window.clearInterval(this._audioChordTimer),this._audioChordTimer=null);return}try{const s=window.AudioContext||window.webkitAudioContext;if(!s||(this._audioCtx||(this._audioCtx=new s),this._audioCtx.state==="suspended"&&this._audioCtx.resume(),this._audioChordTimer))return;let o=0;const d=()=>{if(!this.rMusic.playing||!this.rMusic.linked||(this.rMusic.engineMode||"local_synth")!=="local_synth")return;const a=this._audioCtx;if(!a)return;const c={jazz:[[261.63,329.63,392,493.88],[293.66,349.23,440,523.25],[196,246.94,329.63,392]],morning:[[261.63,329.63,392],[349.23,440,523.25],[392,493.88,587.33]],focus:[[220,261.63,329.63],[174.61,220,261.63],[196,246.94,293.66]],sleep:[[130.81,196,246.94],[146.83,220,261.63]]},p=c[this.rMusic.playlistId]||c.jazz,g=p[o%p.length];o+=1;const y=a.currentTime;g.forEach(($,f)=>{const r=a.createOscillator(),l=a.createGain();r.type="sine",r.frequency.setValueAtTime($,y),l.gain.setValueAtTime(1e-4,y),l.gain.exponentialRampToValueAtTime(n/(g.length+f*.4),y+.35),l.gain.exponentialRampToValueAtTime(1e-4,y+2.2),r.connect(l),l.connect(a.destination),r.start(y),r.stop(y+2.3)})};d(),this._audioChordTimer=window.setInterval(d,2400)}catch{}}async _searchOnlineMusic(e,t=!0){const i=(e||"").trim();if(i){this.rMusic={...this.rMusic,searchQuery:i,searching:!0,searchStatus:`正在直连检索「${i}」在线曲目（无需如影云中转）…`};try{const n=encodeURIComponent(i);let s=[];for(const p of["HK","TW","SG","US"]){const g=await fetch(`https://itunes.apple.com/search?term=${n}&media=music&entity=song&limit=8&country=${p}&lang=zh_cn`);if(g.ok){const y=await g.json();if(Array.isArray(y==null?void 0:y.results)&&y.results.length>0&&(s=y.results.filter($=>$==null?void 0:$.previewUrl),s.length>0))break}}if(s.length===0){this.rMusic={...this.rMusic,searching:!1,searchStatus:`未检索到「${i}」的直连音频流，已为您开启本机环境音源`};return}const o=s.slice(0,8).map(p=>({t:String(p.trackName||p.collectionName||i),a:`${p.artistName||"在线曲库"}${p.collectionName?` · ${p.collectionName}`:""}`,dur:Math.max(15,Math.min(300,Math.round((Number(p.trackTimeMillis)||3e4)/1e3))),streamUrl:String(p.previewUrl),albumArtUrl:String(p.artworkUrl100||"")})),d={id:"online_search",name:`在线直连 · ${i}`,desc:`直连曲库搜索结果（共 ${o.length} 首 · 无需厂家中转）`,color:"linear-gradient(135deg,#00C48C,#38D5F5)",tag:"DIRECT MUSIC",tracks:o},a=this.rMusic.playlists.filter(p=>p.id!=="online_search"),c={...this.rMusic,searching:!1,searchStatus:`已找到 ${o.length} 首「${i}」直连曲目 · 正在播放《${o[0].t}》`,playlists:[d,...a],playlistId:"online_search",trackIdx:0,pos:0,dur:o[0].dur,engineMode:"open_stream",streamUrl:o[0].streamUrl,source:`直连在线曲库 · ${i}`,playing:t?!0:this.rMusic.playing};this.rMusic=c,this._syncWebAudioEngine(c)}catch{this.rMusic={...this.rMusic,searching:!1,searchStatus:"在线曲库检索暂时受限，可直接使用中控屏本机内置合成器"}}}}_tryMatchMusicVoiceCommand(e){const t=e.replace(/^[，。！？,.!?\s]+|[，。！？,.!?\s]+$/g,"").replace(/^(小智小智|你好小智|小智|帮我|请帮我|麻烦帮我|请)+/g,"").trim();if(!t)return null;if(/^(暂停音乐|停止音乐|关掉音乐|关闭音乐|暂停播放|停止播放|音乐暂停|别唱了)$/.test(t))return this._sendMusicCommand(n=>{n.playing=!1}),"已暂停中控屏音乐";if(/^(下一首|切歌|换一首歌|换首歌|下一曲)$/.test(t))return this._sendMusicCommand(n=>{const s=n.playlists.find(d=>d.id===n.playlistId)||n.playlists[0];n.trackIdx=(n.trackIdx+1)%s.tracks.length,n.pos=0;const o=s.tracks[n.trackIdx];n.dur=o.dur,o.streamUrl&&(n.engineMode="open_stream",n.streamUrl=o.streamUrl),n.playing=!0}),"已切换到下一首音乐";if(/^(上一首|上一曲)$/.test(t))return this._sendMusicCommand(n=>{const s=n.playlists.find(d=>d.id===n.playlistId)||n.playlists[0];n.trackIdx=(n.trackIdx-1+s.tracks.length)%s.tracks.length,n.pos=0;const o=s.tracks[n.trackIdx];n.dur=o.dur,o.streamUrl&&(n.engineMode="open_stream",n.streamUrl=o.streamUrl),n.playing=!0}),"已切换到上一首音乐";if(/^(播放音乐|打开音乐|放点音乐|放首歌|来点音乐|继续播放|恢复播放|开始播放音乐)$/.test(t))return this.activeRoomId="music",this._sendMusicCommand(n=>{n.linked=!0,n.playing=!0}),"已为您开启中控屏音乐播放";const i=t.match(/^(?:播放|放一首|放首|来一首|来首|听一下|我想听|搜索并播放|点播)(.+)$/);if(i){const n=i[1].replace(/(的歌|的音乐|歌曲|音乐)$/g,"").replace(/的/g," ").trim();if(n&&!/(灯|空调|窗帘|电视|插座|新风|场景|模式)/.test(n))return this.activeRoomId="music",this._searchOnlineMusic(n,!0),`正在为您搜索并播放「${n}」`}return null}_sendMusicCommand(e){const t=this.rMusic.playing,i=this.rMusic.trackIdx,n=this.rMusic.masterVol;this.rMusic={...this.rMusic,receipt:"sending"},window.setTimeout(()=>{const s={...this.rMusic};if(e(s),s.receipt="ok",this.rMusic=s,this._syncWebAudioEngine(s),s.engineMode==="ha_media"&&s.selectedHaMediaId&&this.connectionState==="connected"){const o=s.selectedHaMediaId;s.playing!==t?this._handleServiceCall({detail:{domain:"media_player",service:s.playing?"media_play":"media_pause",data:{entity_id:o}}}):s.trackIdx!==i?this._handleServiceCall({detail:{domain:"media_player",service:"media_next_track",data:{entity_id:o}}}):s.masterVol!==n&&this._handleServiceCall({detail:{domain:"media_player",service:"volume_set",data:{entity_id:o,volume_level:s.masterVol/100}}})}window.setTimeout(()=>{this.rMusic.receipt==="ok"&&(this.rMusic={...this.rMusic,receipt:null})},1400)},260)}_toggleDev(e){const t=this.rDevs.find(i=>i.id===e);if(!(!t||t.offline||t.type==="sensor")){if(t.type==="lock"){this.sheetDevId=t.id;return}this._sendDevCommand(t,i=>{i.on=!i.on,i.type==="curtain"&&(i.pos=i.on?100:0)})}}_runScene(e){const t=e.id;if(t==="home")this.rDevs.forEach(i=>{i.room==="living"&&i.type==="light"&&(i.on=!0,i.bri=75),i.id==="l_ac"&&(i.on=!0,i.temp=25),i.id==="l_cur"&&(i.on=!0,i.pos=80)}),this.rFeed={txt:"已执行「回家」：客厅主灯与灯带开启，空调 25°，纱帘打开 80%。",undone:!1,muted:!1};else if(t==="away"||t==="alloff")this.rDevs.forEach(i=>{(i.type==="light"||t==="away"&&(i.type==="ac"||i.type==="tv"))&&(i.on=!1)}),this.rMusic.linked&&(this.rMusic={...this.rMusic,playing:!1}),this.rFeed={txt:t==="alloff"?"已确认执行「全屋关灯」，所有照明与背景音乐已停止。":"已执行「离家」：全屋灯光、空调与背景音乐已关闭，门锁已上锁。",undone:!1,muted:!1};else if(t==="movie"){if(this.rDevs.forEach(i=>{(i.id==="l_main"||i.id==="l_spot")&&(i.on=!1),i.id==="l_strip"&&(i.on=!0,i.bri=25),i.id==="l_cur"&&(i.on=!1,i.pos=0),i.id==="l_tv"&&(i.on=!0,i.sub="Apple TV · 播放中")}),this.rMusic.linked&&this.rMusic.playing){const i=this.rMusic.zones.map(n=>n.room==="living"?{...n,joined:!1}:n);this.rMusic={...this.rMusic,zones:i}}this.rFeed={txt:"已进入「观影模式」：客厅背景音乐已让位给电视，主灯关闭、灯带 25%。",undone:!1,muted:!1}}else if(t==="sleep"){if(this.rDevs.forEach(i=>{i.type==="light"&&(i.on=i.id==="m_bed"),i.id==="m_bed"&&(i.bri=15),i.id==="m_cur"&&(i.on=!1,i.pos=0),i.id==="m_ac"&&(i.on=!0,i.temp=24,i.mode="睡眠")}),this.rMusic.linked){const i=this.rMusic.zones.map(n=>({...n,joined:n.room==="master",vol:n.room==="master"?18:n.vol}));this.rMusic={...this.rMusic,playlistId:"sleep",trackIdx:0,pos:0,dur:600,playing:!0,sleepMin:30,masterVol:20,zones:i}}this.rFeed={txt:"已进入「睡眠」：主卧切换为助眠雨声（18% 音量，30 分钟后自动停止）。",undone:!1,muted:!1}}else if(t==="night"){const i=this.rDevs.find(n=>n.id==="m_bed");i&&(i.on=!0,i.bri=12),this.rFeed={txt:"已开启「起夜微光」：床头壁灯 12% 暖光。",undone:!1,muted:!1}}else if((t==="r_bright"||t==="r_cozy"||t==="r_off")&&(this.rDevs.filter(i=>i.room===this.activeRoomId).forEach(i=>{t==="r_off"&&i.type!=="lock"&&(i.on=!1),t==="r_bright"&&i.type==="light"&&(i.on=!0,i.bri=85,i.ct=4e3),t==="r_cozy"&&i.type==="light"&&(i.on=!0,i.bri=35,i.ct=2700)}),t==="r_off"&&this.rMusic.linked)){const i=this.rMusic.zones.map(n=>n.room===this.activeRoomId?{...n,joined:!1}:n);this.rMusic={...this.rMusic,zones:i}}e.gatewaySceneId&&this.connectionState==="connected"&&(this._showActionNotice("场景请求已提交，等待设备状态回流确认","info",4e3),this._postGatewayJson(`/api/v1/ai-scenes/${encodeURIComponent(e.gatewaySceneId)}/trigger`,{}).then(()=>{this.rFeed={txt:`已下发场景「${e.name}」：${e.desc}`,undone:!1,muted:!1},this._fetchLiveGatewayData()}).catch(i=>{this._showExecutionFailure(i)})),this.rDevs=[...this.rDevs]}_startHoldConfirm(e,t,i){i.preventDefault();const n=performance.now(),s=900;let o=0;const d=c=>{const p=Math.min(1,(c-n)/s);this.holdProgressMap={...this.holdProgressMap,[e]:Math.round(p*100)},p>=1?(this.holdProgressMap={...this.holdProgressMap,[e]:0},a(),t()):o=requestAnimationFrame(d)},a=()=>{cancelAnimationFrame(o),this.holdProgressMap={...this.holdProgressMap,[e]:0},window.removeEventListener("pointerup",a),window.removeEventListener("pointercancel",a)};window.addEventListener("pointerup",a),window.addEventListener("pointercancel",a),o=requestAnimationFrame(d)}_handleSpeakerTileGesture(e,t){const i=this.rMusic.zones.find(y=>y.room===e);if(!i||!i.online)return;const s=t.currentTarget.getBoundingClientRect(),o=t.clientX;let d=!1,a=!1;const c=window.setTimeout(()=>{d||(a=!0,this.activeRoomId="music")},420),p=y=>{if(Math.abs(y.clientX-o)>8){d=!0,clearTimeout(c);const $=Math.max(5,Math.min(100,Math.round((y.clientX-s.left)/s.width*100)));i.joined=!0,i.vol=$,this.rMusic={...this.rMusic,playing:!0,zones:[...this.rMusic.zones]}}},g=()=>{clearTimeout(c),window.removeEventListener("pointermove",p),window.removeEventListener("pointerup",g),!a&&(d?this._sendMusicCommand(()=>{}):this._sendMusicCommand(y=>{const $=y.zones.find(f=>f.room===e);$&&($.joined?$.joined=!1:($.joined=!0,y.playing=!0))}))};window.addEventListener("pointermove",p),window.addEventListener("pointerup",g)}_initVoiceAndWakeEngines(){typeof window>"u"||(this.voicePipeline||(this.voicePipeline=new $e({gatewayBaseUrl:this.gatewayUrlInput||window.location.origin,screenToken:localStorage.getItem("screen_token")||""},{onStageChange:(e,t)=>{this.voiceStage=e,e==="starting"||e==="stt"?this.voiceStageIdx=0:e==="intent"?this.voiceStageIdx=1:e==="tts"||e==="playing"?this.voiceStageIdx=3:e==="error"&&(this.voiceStageIdx=2,t&&(this.voiceReply=t))},onSttResult:e=>{if(e){this.voiceTranscript=`“${e}”`,this.voiceStageIdx=1;const t=this._tryMatchMusicVoiceCommand(e);t&&(this.voiceReply=t,this.voiceReplyText=t)}},onReply:e=>{e&&(this.voiceReply=e,this.voiceReplyText=e,this.voiceStageIdx=3,this.rFeed={txt:`🎙 语音助手：${e}`,undone:!1,muted:!1},this._fetchLiveGatewayData())},onError:e=>{this.voiceModalOpen&&(this.voiceTranscript="语音识别失败",this.voiceReply=e||"语音处理出错（未执行任何控制动作）")}})),this._syncWebWakeWordRecognizer())}_syncWebWakeWordRecognizer(){if(typeof window>"u")return;const e=window.SpeechRecognition||window.webkitSpeechRecognition;if(e){if(!this.wakeEnabled){if(this._webSpeechWakeRecognizer){try{this._webSpeechWakeRecognizer.onend=null,this._webSpeechWakeRecognizer.stop()}catch{}this._webSpeechWakeRecognizer=null}return}if(!this._webSpeechWakeRecognizer)try{const t=new e;t.lang="zh-CN",t.continuous=!0,t.interimResults=!0,t.onresult=i=>{var n;if(!(this.voiceModalOpen||!this.wakeEnabled))for(let s=i.resultIndex;s<i.results.length;s++){const o=String(((n=i.results[s][0])==null?void 0:n.transcript)||"").trim(),d=!!i.results[s].isFinal;if(o){if(/小智|小志|小致|小知/.test(o)){this._openVoiceOverlay();return}if(d&&/帮我|请帮我|麻烦帮我/.test(o)){this._executeWebWakeFreeCommand(o);return}}}},t.onend=()=>{this.wakeEnabled&&!this.voiceModalOpen&&this._webSpeechWakeRecognizer===t&&window.setTimeout(()=>{try{t.start()}catch{}},400)},t.start(),this._webSpeechWakeRecognizer=t}catch{}}}_executeWebWakeFreeCommand(e){const t=e.replace(/\s+/g,""),i=this._tryMatchMusicVoiceCommand(t);if(i){this.rFeed={txt:`✓ 免唤醒音乐指令「${t}」：${i}`,undone:!1,muted:!1};return}const n=/关闭|关掉|关上|关/.test(t),s=/打开|开启|开/.test(t);if(!n&&!s)return;const o=this.rDevs.find(d=>{var c;if(d.type==="sensor"||d.offline)return!1;const a=((c=this.rRooms.find(p=>p.id===d.room))==null?void 0:c.name)||"";return t.includes(d.name)||a&&t.includes(a)&&t.includes("灯")&&d.type==="light"});if(o){const d=s&&!n;this._sendDevCommand(o,a=>{a.on=d}),this.rFeed={txt:`✓ 免唤醒快捷指令「${t}」：已${d?"打开":"关闭"}${o.name}`,undone:!1,muted:!1}}else this.rFeed={txt:`🎙 收到免唤醒指令「${t}」，未匹配到唯一受控设备`,undone:!1,muted:!1}}_computeLiveEnvMetrics(){const e=this.rRooms.map(s=>s.temp).filter(s=>typeof s=="number"&&Number.isFinite(s)),t=this.rRooms.map(s=>s.hum).filter(s=>typeof s=="number"&&Number.isFinite(s)),i=this.rDevs.find(s=>s.type==="lock"),n=i?i.offline?"门锁离线":i.sub||"状态未知":"未接入安防传感器";return{indoorTemp:e.length>0?`${(e.reduce((s,o)=>s+o,0)/e.length).toFixed(1)}°`:"--",indoorHum:t.length>0?`${Math.round(t.reduce((s,o)=>s+o,0)/t.length)}%`:"--",securitySummary:n}}_renderEnvironmentInsights(){var i,n;const e=this.energyStats,t=((i=this.aiState)==null?void 0:i.frigateEvents)||[];return h`
       <div
         style="display:grid;grid-template-columns:1fr 1fr;gap:14px"
       >
@@ -4198,12 +4209,12 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
             <span class="pill" style="height:24px;font-size:11px">Frigate 边缘视觉</span>
           </div>
           <frigate-events-panel .events="${t}"></frigate-events-panel>
-          ${t.length>0&&((n=t[0])!=null&&n.thumbnail)?u`<img src="${t[0].thumbnail}" alt="关键事件截图" style="max-width:100%;border-radius:12px" />`:_}
+          ${t.length>0&&((n=t[0])!=null&&n.thumbnail)?h`<img src="${t[0].thumbnail}" alt="关键事件截图" style="max-width:100%;border-radius:12px" />`:M}
         </div>
       </div>
-    `}_renderGatewaySettingsBlock(){const e=j;return u`
+    `}_renderGatewaySettingsBlock(){const e=j;return h`
       <div class="tabs" style="width:100%;justify-content:flex-start;margin-bottom:4px">
-        ${[{id:"display",label:"☀ 系统与显示"},{id:"voice",label:"🎙 语音与免唤醒"},{id:"gateway",label:"🔗 中控屏配对"},{id:"diagnostics",label:"⚡ 能耗与视觉诊断"}].map(i=>u`
+        ${[{id:"display",label:"☀ 系统与显示"},{id:"voice",label:"🎙 语音与免唤醒"},{id:"gateway",label:"🔗 中控屏配对"},{id:"diagnostics",label:"⚡ 能耗与视觉诊断"}].map(i=>h`
             <button
               class="tab ${this.settingsTab===i.id?"active":""}"
               style="flex:1;justify-content:center"
@@ -4295,7 +4306,7 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
           </div>
 
           <div class="seg" style="grid-template-columns:repeat(3,1fr)">
-            ${["low","mid","high"].map(i=>u`
+            ${["low","mid","high"].map(i=>h`
                 <button
                   class="${this.wakeSensitivity===i?"on":""}"
                   @click=${()=>{this.wakeSensitivity=i}}
@@ -4365,19 +4376,19 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
           </button>
         </div>
       </div>
-    `}render(){var f;const e=this.rDevs.filter(r=>r.type==="light"&&r.on).length,t=this.rRooms.filter(r=>r.occ).length,i=this.sheetDevId&&this.rDevs.find(r=>r.id===this.sheetDevId)||null,n=this.rQuestions[this.qIdx]||null,s=this._computeLiveEnvMetrics(),{tone:o,label:d}=this._networkBadge(),a={onSceneClick:r=>this._runScene(r),onSceneHoldPointerDown:(r,l)=>this._startHoldConfirm(r.id,()=>this._runScene(r),l),onJumpRoom:r=>{this.activeRoomId=r},onToggleRoomLights:r=>{const l=this.rDevs.filter(g=>g.room===r&&g.type==="light"),m=l.some(g=>g.on);l.forEach(g=>{g.on=!m}),this.rDevs=[...this.rDevs]},onTilePointerDown:this._handleTilePointerDown,onOpenSheet:r=>{this.sheetDevId=r},onOpenMusic:()=>{this.activeRoomId="music"},onMusicAction:r=>{this._sendMusicCommand(l=>{const m=l.playlists.find(g=>g.id===l.playlistId)||l.playlists[0];r==="toggle"&&(l.playing=!l.playing),r==="next"&&(l.trackIdx=(l.trackIdx+1)%m.tracks.length,l.pos=0,l.dur=m.tracks[l.trackIdx].dur,l.playing=!0),r==="prev"&&(l.trackIdx=(l.trackIdx-1+m.tracks.length)%m.tracks.length,l.pos=0,l.dur=m.tracks[l.trackIdx].dur,l.playing=!0)})}},c=this.rRooms.find(r=>r.id===this.activeRoomId),p=()=>{this.themeMode=this.themeMode==="dark"?"light":"dark",this.themeMode==="light"?(this.setAttribute("data-theme","light"),document.documentElement.dataset.theme="light"):(this.removeAttribute("data-theme"),delete document.documentElement.dataset.theme)},v=()=>{const r=this.rDevs.find(l=>l.id==="l_strip");r&&(r.on=!1),this.rFeed={txt:"已撤销：沙发灯带已恢复关闭。",undone:!0,muted:this.rFeed.muted},this.rDevs=[...this.rDevs]},b=()=>{this.rFeed={txt:"已记录：22:00 后不再自动调亮客厅灯带（可在后台恢复）。",undone:this.rFeed.undone,muted:!0}},$=r=>{r==="yes"&&n&&(this.rFeed={txt:n.eff,undone:!1,muted:!1}),this.qIdx+=1};return u`
+    `}render(){var f;const e=this.rDevs.filter(r=>r.type==="light"&&r.on).length,t=this.rRooms.filter(r=>r.occ).length,i=this.sheetDevId&&this.rDevs.find(r=>r.id===this.sheetDevId)||null,n=this.rQuestions[this.qIdx]||null,s=this._computeLiveEnvMetrics(),{tone:o,label:d}=this._networkBadge(),a={onSceneClick:r=>this._runScene(r),onSceneHoldPointerDown:(r,l)=>this._startHoldConfirm(r.id,()=>this._runScene(r),l),onJumpRoom:r=>{this.activeRoomId=r},onToggleRoomLights:r=>{const l=this.rDevs.filter(v=>v.room===r&&v.type==="light"),m=l.some(v=>v.on);l.forEach(v=>{v.on=!m}),this.rDevs=[...this.rDevs]},onTilePointerDown:this._handleTilePointerDown,onOpenSheet:r=>{this.sheetDevId=r},onOpenMusic:()=>{this.activeRoomId="music"},onMusicAction:r=>{this._sendMusicCommand(l=>{const m=l.playlists.find(v=>v.id===l.playlistId)||l.playlists[0];r==="toggle"&&(l.playing=!l.playing),r==="next"&&(l.trackIdx=(l.trackIdx+1)%m.tracks.length,l.pos=0,l.dur=m.tracks[l.trackIdx].dur,l.playing=!0),r==="prev"&&(l.trackIdx=(l.trackIdx-1+m.tracks.length)%m.tracks.length,l.pos=0,l.dur=m.tracks[l.trackIdx].dur,l.playing=!0)})}},c=this.rRooms.find(r=>r.id===this.activeRoomId),p=()=>{this.themeMode=this.themeMode==="dark"?"light":"dark",this.themeMode==="light"?(this.setAttribute("data-theme","light"),document.documentElement.dataset.theme="light"):(this.removeAttribute("data-theme"),delete document.documentElement.dataset.theme)},g=()=>{const r=this.rDevs.find(l=>l.id==="l_strip");r&&(r.on=!1),this.rFeed={txt:"已撤销：沙发灯带已恢复关闭。",undone:!0,muted:this.rFeed.muted},this.rDevs=[...this.rDevs]},y=()=>{this.rFeed={txt:"已记录：22:00 后不再自动调亮客厅灯带（可在后台恢复）。",undone:this.rFeed.undone,muted:!0}},$=r=>{r==="yes"&&n&&(this.rFeed={txt:n.eff,undone:!1,muted:!1}),this.qIdx+=1};return h`
       <div class="screen ${this.isMobileLayout?"mobile-mode":""}" id="screen">
-        ${this.isMobileLayout?tt({tab:this.mobileTab,stewardSub:this.mobileStewardSub,activityFilter:this.mobileActivityFilter,activeRoomId:this.activeRoomId==="music"?"all":this.activeRoomId,rooms:this.rRooms,devs:this.rDevs,scenes:this.rScenes,music:this.rMusic,greetingText:this.greetingText,netLabel:d,netTone:o,themeMode:this.themeMode,elderMode:this.mobileElderMode,feedTxt:this.rFeed.txt,feedUndone:this.rFeed.undone,feedMuted:this.rFeed.muted,curQ:n,qCounter:`${this.qIdx+1}/${this.rQuestions.length}`,holdProgressMap:this.holdProgressMap,roomRestMap:this.roomRestMap,activityChains:this.mobileActivityChains,inboxItems:this.mobileInboxItems,sceneDrafts:this.mobileSceneDrafts,scenePromptInput:this.mobileScenePromptInput,chatMessages:this.mobileChatMessages,chatInput:this.mobileChatInput},{onSelectTab:r=>{this.mobileTab=r},onSelectStewardSub:r=>{this.mobileStewardSub=r},onSelectActivityFilter:r=>{this.mobileActivityFilter=r},onSelectRoom:r=>{this.activeRoomId=r},onToggleRoomLights:a.onToggleRoomLights,onToggleRoomRest:r=>this._toggleRoomRestMode(r),onSceneClick:a.onSceneClick,onSceneHoldPointerDown:a.onSceneHoldPointerDown,onTilePointerDown:a.onTilePointerDown,onOpenSheet:a.onOpenSheet,onUndoFeed:v,onMuteFeed:b,onAnswerQuestion:$,onResolveInbox:(r,l)=>{this.mobileInboxItems=this.mobileInboxItems.map(m=>m.id===r?{...m,resolved:!0}:m),l&&(this.rFeed={txt:"✓ 已在手机端确认并归档待办事项，策略已同步至家庭网关。",undone:!1,muted:!1})},onScenePromptInput:r=>{this.mobileScenePromptInput=r},onCreateSceneDraft:r=>this._handleCreateMobileSceneDraft(r),onApproveSceneDraft:r=>{const l=this.mobileSceneDrafts.find(m=>m.id===r);if(this.mobileSceneDrafts=this.mobileSceneDrafts.map(m=>m.id===r?{...m,approved:!0}:m),l){const m={id:`sc_${r}`,name:l.name.replace(/^AI 草稿 · /,""),desc:l.actionsSummary,room:"all"};this.rScenes=[m,...this.rScenes],this.rFeed={txt:`✓ 已批准启用新场景「${m.name}」，已同步到全屋与中控屏。`,undone:!1,muted:!1}}},onDeleteSceneDraft:r=>{this.mobileSceneDrafts=this.mobileSceneDrafts.filter(l=>l.id!==r)},onChatInput:r=>{this.mobileChatInput=r},onSendChat:r=>this._handleSendMobileChat(r),onMusicAction:a.onMusicAction,onSelectPlaylist:r=>{this._sendMusicCommand(l=>{l.playlistId=r,l.trackIdx=0,l.pos=0,l.playing=!0})},onToggleMusicZone:r=>{this._sendMusicCommand(l=>{const m=l.zones.find(g=>g.room===r);m&&m.online&&(m.joined=!m.joined)})},onMasterVolChange:r=>{this.rMusic={...this.rMusic,masterVol:r}},onOpenVoice:this._openVoiceOverlay,onToggleTheme:p,onToggleElderMode:()=>{this.mobileElderMode=!this.mobileElderMode},onOpenSettings:()=>{this.showSettingsDrawer=!0},onSwitchToWallPanel:()=>{this._manualLayoutOverride="wall",this.isMobileLayout=!1}}):u`
+        ${this.isMobileLayout?nt({tab:this.mobileTab,stewardSub:this.mobileStewardSub,activityFilter:this.mobileActivityFilter,activeRoomId:this.activeRoomId==="music"?"all":this.activeRoomId,rooms:this.rRooms,devs:this.rDevs,scenes:this.rScenes,music:this.rMusic,greetingText:this.greetingText,netLabel:d,netTone:o,themeMode:this.themeMode,elderMode:this.mobileElderMode,feedTxt:this.rFeed.txt,feedUndone:this.rFeed.undone,feedMuted:this.rFeed.muted,curQ:n,qCounter:`${this.qIdx+1}/${this.rQuestions.length}`,holdProgressMap:this.holdProgressMap,roomRestMap:this.roomRestMap,activityChains:this.mobileActivityChains,inboxItems:this.mobileInboxItems,sceneDrafts:this.mobileSceneDrafts,scenePromptInput:this.mobileScenePromptInput,chatMessages:this.mobileChatMessages,chatInput:this.mobileChatInput},{onSelectTab:r=>{this.mobileTab=r},onSelectStewardSub:r=>{this.mobileStewardSub=r},onSelectActivityFilter:r=>{this.mobileActivityFilter=r},onSelectRoom:r=>{this.activeRoomId=r},onToggleRoomLights:a.onToggleRoomLights,onToggleRoomRest:r=>this._toggleRoomRestMode(r),onSceneClick:a.onSceneClick,onSceneHoldPointerDown:a.onSceneHoldPointerDown,onTilePointerDown:a.onTilePointerDown,onOpenSheet:a.onOpenSheet,onUndoFeed:g,onMuteFeed:y,onAnswerQuestion:$,onResolveInbox:(r,l)=>{this.mobileInboxItems=this.mobileInboxItems.map(m=>m.id===r?{...m,resolved:!0}:m),l&&(this.rFeed={txt:"✓ 已在手机端确认并归档待办事项，策略已同步至家庭网关。",undone:!1,muted:!1})},onScenePromptInput:r=>{this.mobileScenePromptInput=r},onCreateSceneDraft:r=>this._handleCreateMobileSceneDraft(r),onApproveSceneDraft:r=>{const l=this.mobileSceneDrafts.find(m=>m.id===r);if(this.mobileSceneDrafts=this.mobileSceneDrafts.map(m=>m.id===r?{...m,approved:!0}:m),l){const m={id:`sc_${r}`,name:l.name.replace(/^AI 草稿 · /,""),desc:l.actionsSummary,room:"all"};this.rScenes=[m,...this.rScenes],this.rFeed={txt:`✓ 已批准启用新场景「${m.name}」，已同步到全屋与中控屏。`,undone:!1,muted:!1}}},onDeleteSceneDraft:r=>{this.mobileSceneDrafts=this.mobileSceneDrafts.filter(l=>l.id!==r)},onChatInput:r=>{this.mobileChatInput=r},onSendChat:r=>this._handleSendMobileChat(r),onMusicAction:a.onMusicAction,onSelectPlaylist:r=>{this._sendMusicCommand(l=>{l.playlistId=r,l.trackIdx=0,l.pos=0,l.playing=!0})},onToggleMusicZone:r=>{this._sendMusicCommand(l=>{const m=l.zones.find(v=>v.room===r);m&&m.online&&(m.joined=!m.joined)})},onMasterVolChange:r=>{this.rMusic={...this.rMusic,masterVol:r}},onOpenVoice:this._openVoiceOverlay,onToggleTheme:p,onToggleElderMode:()=>{this.mobileElderMode=!this.mobileElderMode},onOpenSettings:()=>{this.showSettingsDrawer=!0},onSwitchToWallPanel:()=>{this._manualLayoutOverride="wall",this.isMobileLayout=!1}}):h`
         ${He(this.activeRoomId,this.rRooms,this.rMusic,this.greetingText,d,o,{onSelectRoom:r=>{this.activeRoomId=r},onToggleMusicView:()=>{this.activeRoomId=this.activeRoomId==="music"?"all":"music"},onOpenSettings:()=>{this.showSettingsDrawer=!0},onToggleTheme:p,onOpenSaver:()=>{this.isAmbientMode=!0},onSwitchToMobile:()=>{this._manualLayoutOverride="mobile",this.isMobileLayout=!0}})}
 
-        ${qe(this.clockText,this.dateText,"室外天气 --","",s.indoorTemp,s.indoorHum,"--",e,t,this.rFeed.txt,this.rFeed.undone,this.rFeed.muted,n,`${this.qIdx+1}/${this.rQuestions.length}`,v,b,$,this._openVoiceOverlay)}
+        ${qe(this.clockText,this.dateText,"室外天气 --","",s.indoorTemp,s.indoorHum,"--",e,t,this.rFeed.txt,this.rFeed.undone,this.rFeed.muted,n,`${this.qIdx+1}/${this.rQuestions.length}`,g,y,$,this._openVoiceOverlay)}
 
         <main class="main" id="main">
-          ${this.activeRoomId==="music"?Be(this.rMusic,{onToggleLink:()=>{this.rMusic={...this.rMusic,linked:!this.rMusic.linked}},onSeekPointerDown:r=>{const m=r.currentTarget.getBoundingClientRect(),g=Math.max(0,Math.min(1,(r.clientX-m.left)/m.width));this._sendMusicCommand(T=>{T.pos=Math.round(g*T.dur)})},onControl:r=>{this._sendMusicCommand(l=>{const m=l.playlists.find(g=>g.id===l.playlistId)||l.playlists[0];if(r==="toggle"&&(l.playing=!l.playing),r==="shuffle"&&(l.shuffle=!l.shuffle),r==="timer"){const g=[0,15,30,60];l.sleepMin=g[(g.indexOf(l.sleepMin)+1)%g.length]}if(r==="next"){l.trackIdx=(l.trackIdx+1)%m.tracks.length,l.pos=0;const g=m.tracks[l.trackIdx];l.dur=g.dur,g.streamUrl&&(l.engineMode="open_stream",l.streamUrl=g.streamUrl),l.playing=!0}if(r==="prev"){l.trackIdx=(l.trackIdx-1+m.tracks.length)%m.tracks.length,l.pos=0;const g=m.tracks[l.trackIdx];l.dur=g.dur,g.streamUrl&&(l.engineMode="open_stream",l.streamUrl=g.streamUrl),l.playing=!0}})},onMasterVolPointerDown:r=>{const m=r.currentTarget.getBoundingClientRect(),g=I=>{const P=Math.max(0,Math.min(100,Math.round((I.clientX-m.left)/m.width*100)));this.rMusic={...this.rMusic,masterVol:P}};g(r);const T=I=>g(I),M=()=>{window.removeEventListener("pointermove",T),window.removeEventListener("pointerup",M),this._sendMusicCommand(()=>{})};window.addEventListener("pointermove",T),window.addEventListener("pointerup",M)},onSelectPlaylist:r=>{this._sendMusicCommand(l=>{l.playlistId=r,l.trackIdx=0,l.pos=0;const g=(l.playlists.find(T=>T.id===r)||l.playlists[0]).tracks[0];l.dur=g.dur,g.streamUrl?(l.engineMode="open_stream",l.streamUrl=g.streamUrl):l.engineMode==="open_stream"&&r!=="online_search"&&(l.engineMode="local_synth",l.source="中控屏本机扬声器 · 内置环境音源"),l.playing=!0})},onToggleZone:r=>{this._sendMusicCommand(l=>{const m=l.zones.find(g=>g.room===r);m&&m.online&&(m.joined=!m.joined)})},onZoneVolPointerDown:(r,l)=>{const g=l.currentTarget.getBoundingClientRect(),T=P=>{const F=Math.max(0,Math.min(100,Math.round((P.clientX-g.left)/g.width*100))),h=this.rMusic.zones.map(C=>C.room===r?{...C,vol:F}:C);this.rMusic={...this.rMusic,zones:h,masterVol:F}};T(l);const M=P=>T(P),I=()=>{window.removeEventListener("pointermove",M),window.removeEventListener("pointerup",I),this._sendMusicCommand(()=>{})};window.addEventListener("pointermove",M),window.addEventListener("pointerup",I)},onSelectEngineMode:r=>{this._sendMusicCommand(l=>{l.engineMode=r,l.source=r==="local_synth"?"中控屏本机扬声器 · 内置环境音源":r==="ha_media"?`Home Assistant 媒体播放器 · ${l.selectedHaMediaId||"Music Assistant"}`:"开源电台流直连 · Icecast / Navidrome"})},onSelectTrackIdx:r=>{this._sendMusicCommand(l=>{const m=l.playlists.find(T=>T.id===l.playlistId)||l.playlists[0];l.trackIdx=r%m.tracks.length,l.pos=0;const g=m.tracks[l.trackIdx];l.dur=g.dur,g.streamUrl&&(l.engineMode="open_stream",l.streamUrl=g.streamUrl),l.playing=!0})},onSelectHaMedia:r=>{this._sendMusicCommand(l=>{l.engineMode="ha_media",l.selectedHaMediaId=r,l.source=`Home Assistant 媒体播放器 · ${r}`})},onUpdateSearchQuery:r=>{this.rMusic={...this.rMusic,searchQuery:r}},onSearchOnlineMusic:r=>{this._searchOnlineMusic(r,!0)}}):this.activeRoomId==="all"||!c?Ve(this.rRooms,this.rDevs,this.rScenes,this.rMusic,this.holdProgressMap,a):Oe(c,this.rRooms,this.rDevs,this.rMusic,this.holdProgressMap,a)}
+          ${this.activeRoomId==="music"?Be(this.rMusic,{onToggleLink:()=>{this.rMusic={...this.rMusic,linked:!this.rMusic.linked}},onSeekPointerDown:r=>{const m=r.currentTarget.getBoundingClientRect(),v=Math.max(0,Math.min(1,(r.clientX-m.left)/m.width));this._sendMusicCommand(T=>{T.pos=Math.round(v*T.dur)})},onControl:r=>{this._sendMusicCommand(l=>{const m=l.playlists.find(v=>v.id===l.playlistId)||l.playlists[0];if(r==="toggle"&&(l.playing=!l.playing),r==="shuffle"&&(l.shuffle=!l.shuffle),r==="timer"){const v=[0,15,30,60];l.sleepMin=v[(v.indexOf(l.sleepMin)+1)%v.length]}if(r==="next"){l.trackIdx=(l.trackIdx+1)%m.tracks.length,l.pos=0;const v=m.tracks[l.trackIdx];l.dur=v.dur,v.streamUrl&&(l.engineMode="open_stream",l.streamUrl=v.streamUrl),l.playing=!0}if(r==="prev"){l.trackIdx=(l.trackIdx-1+m.tracks.length)%m.tracks.length,l.pos=0;const v=m.tracks[l.trackIdx];l.dur=v.dur,v.streamUrl&&(l.engineMode="open_stream",l.streamUrl=v.streamUrl),l.playing=!0}})},onMasterVolPointerDown:r=>{const m=r.currentTarget.getBoundingClientRect(),v=I=>{const P=Math.max(0,Math.min(100,Math.round((I.clientX-m.left)/m.width*100)));this.rMusic={...this.rMusic,masterVol:P}};v(r);const T=I=>v(I),A=()=>{window.removeEventListener("pointermove",T),window.removeEventListener("pointerup",A),this._sendMusicCommand(()=>{})};window.addEventListener("pointermove",T),window.addEventListener("pointerup",A)},onSelectPlaylist:r=>{this._sendMusicCommand(l=>{l.playlistId=r,l.trackIdx=0,l.pos=0;const v=(l.playlists.find(T=>T.id===r)||l.playlists[0]).tracks[0];l.dur=v.dur,v.streamUrl?(l.engineMode="open_stream",l.streamUrl=v.streamUrl):l.engineMode==="open_stream"&&r!=="online_search"&&(l.engineMode="local_synth",l.source="中控屏本机扬声器 · 内置环境音源"),l.playing=!0})},onToggleZone:r=>{this._sendMusicCommand(l=>{const m=l.zones.find(v=>v.room===r);m&&m.online&&(m.joined=!m.joined)})},onZoneVolPointerDown:(r,l)=>{const v=l.currentTarget.getBoundingClientRect(),T=P=>{const L=Math.max(0,Math.min(100,Math.round((P.clientX-v.left)/v.width*100))),u=this.rMusic.zones.map(S=>S.room===r?{...S,vol:L}:S);this.rMusic={...this.rMusic,zones:u,masterVol:L}};T(l);const A=P=>T(P),I=()=>{window.removeEventListener("pointermove",A),window.removeEventListener("pointerup",I),this._sendMusicCommand(()=>{})};window.addEventListener("pointermove",A),window.addEventListener("pointerup",I)},onSelectEngineMode:r=>{this._sendMusicCommand(l=>{l.engineMode=r,l.source=r==="local_synth"?"中控屏本机扬声器 · 内置环境音源":r==="ha_media"?`Home Assistant 媒体播放器 · ${l.selectedHaMediaId||"Music Assistant"}`:"开源电台流直连 · Icecast / Navidrome"})},onSelectTrackIdx:r=>{this._sendMusicCommand(l=>{const m=l.playlists.find(T=>T.id===l.playlistId)||l.playlists[0];l.trackIdx=r%m.tracks.length,l.pos=0;const v=m.tracks[l.trackIdx];l.dur=v.dur,v.streamUrl&&(l.engineMode="open_stream",l.streamUrl=v.streamUrl),l.playing=!0})},onSelectHaMedia:r=>{this._sendMusicCommand(l=>{l.engineMode="ha_media",l.selectedHaMediaId=r,l.source=`Home Assistant 媒体播放器 · ${r}`})},onUpdateSearchQuery:r=>{this.rMusic={...this.rMusic,searchQuery:r}},onSearchOnlineMusic:r=>{this._searchOnlineMusic(r,!0)}}):this.activeRoomId==="all"||!c?Ve(this.rRooms,this.rDevs,this.rScenes,this.rMusic,this.holdProgressMap,a):Oe(c,this.rRooms,this.rDevs,this.rMusic,this.holdProgressMap,a)}
         </main>
         `}
 
-        ${je(i,this.rRooms,this.lockHoldPct,{onClose:()=>{this.sheetDevId=null},onLightBriPointerDown:r=>{if(!i)return;const m=r.currentTarget.getBoundingClientRect(),g=I=>{const P=Math.max(5,Math.min(100,Math.round((1-(I.clientY-m.top)/m.height)*100)));i.on=!0,i.bri=P,this.rDevs=[...this.rDevs]};g(r);const T=I=>g(I),M=()=>{window.removeEventListener("pointermove",T),window.removeEventListener("pointerup",M),this._sendDevCommand(i,()=>{})};window.addEventListener("pointermove",T),window.addEventListener("pointerup",M)},onLightCt:r=>{i&&this._sendDevCommand(i,l=>{l.ct=r,l.on=!0})},onLightPower:r=>{i&&this._sendDevCommand(i,l=>{l.on=r})},onAcStep:r=>{i&&this._sendDevCommand(i,l=>{l.on=!0,l.temp=Math.max(16,Math.min(30,(l.temp??25)+r))})},onAcPower:()=>{i&&this._sendDevCommand(i,r=>{r.on=!r.on})},onAcMode:r=>{i&&this._sendDevCommand(i,l=>{l.on=!0,l.mode=r})},onCurtainPosPointerDown:r=>{if(!i)return;const m=r.currentTarget.getBoundingClientRect(),g=I=>{const P=Math.max(0,Math.min(100,Math.round((I.clientX-m.left)/m.width*100)));i.pos=P,i.on=P>0,this.rDevs=[...this.rDevs]};g(r);const T=I=>g(I),M=()=>{window.removeEventListener("pointermove",T),window.removeEventListener("pointerup",M),this._sendDevCommand(i,()=>{})};window.addEventListener("pointermove",T),window.addEventListener("pointerup",M)},onCurtainQuickPos:r=>{i&&this._sendDevCommand(i,l=>{l.pos=r,l.on=r>0})},onLockHoldPointerDown:r=>{if(!i)return;r.preventDefault();const l=performance.now(),m=900;let g=0;const T=I=>{const P=Math.min(1,(I-l)/m);this.lockHoldPct=Math.round(P*100),P>=1?(this.lockHoldPct=0,M(),this._sendDevCommand(i,F=>{F.on=!F.on,F.sub=F.on?"已上锁 · 电量 86%":"已解锁 · 30 秒后自动上锁"})):g=requestAnimationFrame(T)},M=()=>{cancelAnimationFrame(g),this.lockHoldPct=0,window.removeEventListener("pointerup",M),window.removeEventListener("pointercancel",M)};window.addEventListener("pointerup",M),window.addEventListener("pointercancel",M),g=requestAnimationFrame(T)},onGenericToggle:()=>{i&&this._sendDevCommand(i,r=>{r.on=!r.on})},onRetryRead:()=>{i&&this._sendDevCommand(i,()=>{})}})}
+        ${je(i,this.rRooms,this.lockHoldPct,{onClose:()=>{this.sheetDevId=null},onLightBriPointerDown:r=>{if(!i)return;const m=r.currentTarget.getBoundingClientRect(),v=I=>{const P=Math.max(5,Math.min(100,Math.round((1-(I.clientY-m.top)/m.height)*100)));i.on=!0,i.bri=P,this.rDevs=[...this.rDevs]};v(r);const T=I=>v(I),A=()=>{window.removeEventListener("pointermove",T),window.removeEventListener("pointerup",A),this._sendDevCommand(i,()=>{})};window.addEventListener("pointermove",T),window.addEventListener("pointerup",A)},onLightCt:r=>{i&&this._sendDevCommand(i,l=>{l.ct=r,l.on=!0})},onLightPower:r=>{i&&this._sendDevCommand(i,l=>{l.on=r})},onAcStep:r=>{i&&this._sendDevCommand(i,l=>{l.on=!0,l.temp=Math.max(16,Math.min(30,(l.temp??25)+r))})},onAcPower:()=>{i&&this._sendDevCommand(i,r=>{r.on=!r.on})},onAcMode:r=>{i&&this._sendDevCommand(i,l=>{l.on=!0,l.mode=r})},onCurtainPosPointerDown:r=>{if(!i)return;const m=r.currentTarget.getBoundingClientRect(),v=I=>{const P=Math.max(0,Math.min(100,Math.round((I.clientX-m.left)/m.width*100)));i.pos=P,i.on=P>0,this.rDevs=[...this.rDevs]};v(r);const T=I=>v(I),A=()=>{window.removeEventListener("pointermove",T),window.removeEventListener("pointerup",A),this._sendDevCommand(i,()=>{})};window.addEventListener("pointermove",T),window.addEventListener("pointerup",A)},onCurtainQuickPos:r=>{i&&this._sendDevCommand(i,l=>{l.pos=r,l.on=r>0})},onLockHoldPointerDown:r=>{if(!i)return;r.preventDefault();const l=performance.now(),m=900;let v=0;const T=I=>{const P=Math.min(1,(I-l)/m);this.lockHoldPct=Math.round(P*100),P>=1?(this.lockHoldPct=0,A(),this._sendDevCommand(i,L=>{L.on=!L.on,L.sub=L.on?"已上锁 · 电量 86%":"已解锁 · 30 秒后自动上锁"})):v=requestAnimationFrame(T)},A=()=>{cancelAnimationFrame(v),this.lockHoldPct=0,window.removeEventListener("pointerup",A),window.removeEventListener("pointercancel",A)};window.addEventListener("pointerup",A),window.addEventListener("pointercancel",A),v=requestAnimationFrame(T)},onGenericToggle:()=>{i&&this._sendDevCommand(i,r=>{r.on=!r.on})},onRetryRead:()=>{i&&this._sendDevCommand(i,()=>{})}})}
 
         ${Ue(this.showSettingsDrawer,this._renderGatewaySettingsBlock(),this._renderEnvironmentInsights(),()=>{this.showSettingsDrawer=!1})}
 
@@ -4391,4 +4402,4 @@ import{i as xe,A as _,E as be,b as u,a as ye,s as j,c as we,G as ie,d as ne,e as
         ${Ce(this.activeDetailDevice,()=>{this.activeDetailDevice=null})}
         ${Te(this.voiceReplyText)}
       </div>
-    `}};x.styles=[De,Ae].filter(Boolean);y([w()],x.prototype,"activeRoomId",2);y([w()],x.prototype,"themeMode",2);y([w()],x.prototype,"clockText",2);y([w()],x.prototype,"dateText",2);y([w()],x.prototype,"greetingText",2);y([w()],x.prototype,"rRooms",2);y([w()],x.prototype,"rDevs",2);y([w()],x.prototype,"rScenes",2);y([w()],x.prototype,"rMusic",2);y([w()],x.prototype,"rQuestions",2);y([w()],x.prototype,"qIdx",2);y([w()],x.prototype,"rFeed",2);y([w()],x.prototype,"sheetDevId",2);y([w()],x.prototype,"holdProgressMap",2);y([w()],x.prototype,"lockHoldPct",2);y([w()],x.prototype,"voiceModalOpen",2);y([w()],x.prototype,"voiceTranscript",2);y([w()],x.prototype,"voiceStageIdx",2);y([w()],x.prototype,"voiceReply",2);y([w()],x.prototype,"isAmbientMode",2);y([w()],x.prototype,"showSettingsDrawer",2);y([w()],x.prototype,"settingsTab",2);y([w()],x.prototype,"screenBriPct",2);y([w()],x.prototype,"saverTimeoutMin",2);y([w()],x.prototype,"ttsVolPct",2);y([w()],x.prototype,"wakeEnabled",2);y([w()],x.prototype,"wakeSensitivity",2);y([w()],x.prototype,"musicDuckEnabled",2);y([w()],x.prototype,"isMobileLayout",2);y([w()],x.prototype,"mobileTab",2);y([w()],x.prototype,"mobileStewardSub",2);y([w()],x.prototype,"mobileActivityFilter",2);y([w()],x.prototype,"mobileElderMode",2);y([w()],x.prototype,"roomRestMap",2);y([w()],x.prototype,"mobileActivityChains",2);y([w()],x.prototype,"mobileInboxItems",2);y([w()],x.prototype,"mobileSceneDrafts",2);y([w()],x.prototype,"mobileScenePromptInput",2);y([w()],x.prototype,"mobileChatMessages",2);y([w()],x.prototype,"mobileChatInput",2);y([w()],x.prototype,"aiState",2);y([w()],x.prototype,"devices",2);y([w()],x.prototype,"energyStats",2);y([w()],x.prototype,"activeDetailDevice",2);y([w()],x.prototype,"gatewayUrlInput",2);y([w()],x.prototype,"pairingTokenInput",2);y([w()],x.prototype,"pairingBusy",2);y([w()],x.prototype,"pairingHint",2);y([w()],x.prototype,"pairingExpressStatus",2);y([w()],x.prototype,"pairingQrDataUrl",2);y([w()],x.prototype,"connectionState",2);y([w()],x.prototype,"feedStatus",2);y([w()],x.prototype,"voiceStage",2);y([w()],x.prototype,"voiceReplyText",2);y([w()],x.prototype,"wakewordEnabled",2);y([w()],x.prototype,"scenes",2);y([w()],x.prototype,"pendingDeviceControlConfirmation",2);y([w()],x.prototype,"actionNotice",2);x=y([ze("smart-redesign-shell")],x);export{x as SmartRedesignShell};
+    `}};x.styles=[De,Ae].filter(Boolean);b([w()],x.prototype,"activeRoomId",2);b([w()],x.prototype,"themeMode",2);b([w()],x.prototype,"clockText",2);b([w()],x.prototype,"dateText",2);b([w()],x.prototype,"greetingText",2);b([w()],x.prototype,"rRooms",2);b([w()],x.prototype,"rDevs",2);b([w()],x.prototype,"rScenes",2);b([w()],x.prototype,"rMusic",2);b([w()],x.prototype,"rQuestions",2);b([w()],x.prototype,"qIdx",2);b([w()],x.prototype,"rFeed",2);b([w()],x.prototype,"sheetDevId",2);b([w()],x.prototype,"holdProgressMap",2);b([w()],x.prototype,"lockHoldPct",2);b([w()],x.prototype,"voiceModalOpen",2);b([w()],x.prototype,"voiceTranscript",2);b([w()],x.prototype,"voiceStageIdx",2);b([w()],x.prototype,"voiceReply",2);b([w()],x.prototype,"isAmbientMode",2);b([w()],x.prototype,"showSettingsDrawer",2);b([w()],x.prototype,"settingsTab",2);b([w()],x.prototype,"screenBriPct",2);b([w()],x.prototype,"saverTimeoutMin",2);b([w()],x.prototype,"ttsVolPct",2);b([w()],x.prototype,"wakeEnabled",2);b([w()],x.prototype,"wakeSensitivity",2);b([w()],x.prototype,"musicDuckEnabled",2);b([w()],x.prototype,"isMobileLayout",2);b([w()],x.prototype,"mobileTab",2);b([w()],x.prototype,"mobileStewardSub",2);b([w()],x.prototype,"mobileActivityFilter",2);b([w()],x.prototype,"mobileElderMode",2);b([w()],x.prototype,"roomRestMap",2);b([w()],x.prototype,"mobileActivityChains",2);b([w()],x.prototype,"mobileInboxItems",2);b([w()],x.prototype,"mobileSceneDrafts",2);b([w()],x.prototype,"mobileScenePromptInput",2);b([w()],x.prototype,"mobileChatMessages",2);b([w()],x.prototype,"mobileChatInput",2);b([w()],x.prototype,"aiState",2);b([w()],x.prototype,"devices",2);b([w()],x.prototype,"energyStats",2);b([w()],x.prototype,"activeDetailDevice",2);b([w()],x.prototype,"gatewayUrlInput",2);b([w()],x.prototype,"pairingTokenInput",2);b([w()],x.prototype,"pairingBusy",2);b([w()],x.prototype,"pairingHint",2);b([w()],x.prototype,"pairingExpressStatus",2);b([w()],x.prototype,"pairingQrDataUrl",2);b([w()],x.prototype,"connectionState",2);b([w()],x.prototype,"feedStatus",2);b([w()],x.prototype,"voiceStage",2);b([w()],x.prototype,"voiceReplyText",2);b([w()],x.prototype,"wakewordEnabled",2);b([w()],x.prototype,"scenes",2);b([w()],x.prototype,"pendingDeviceControlConfirmation",2);b([w()],x.prototype,"actionNotice",2);x=b([ze("smart-redesign-shell")],x);export{x as SmartRedesignShell};
