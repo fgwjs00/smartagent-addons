@@ -25,6 +25,7 @@ PY
 }
 
 HA_URL="$(read_addon_option 'ha_url')"
+HA_WEB_URL="$(read_addon_option 'ha_web_url')"
 HA_TOKEN="$(read_addon_option 'ha_token')"
 AUTH_TOKEN="$(read_addon_option 'auth_token')"
 PROACTIVE_CANARY_AUTHORIZATION_SECRET="$(read_addon_option 'proactive_canary_authorization_secret')"
@@ -704,6 +705,7 @@ do
     fi
 done
 export SA_HA_URL="${HA_URL}"
+export SA_HA_WEB_URL="${HA_WEB_URL:-${SA_HA_WEB_URL:-http://homeassistant:8123}}"
 export SA_HA_TOKEN="${HA_TOKEN}"
 export SA_AUTH_TOKEN="${AUTH_TOKEN}"
 export SA_PROACTIVE_CANARY_AUTHORIZATION_SECRET="${PROACTIVE_CANARY_AUTHORIZATION_SECRET}"
